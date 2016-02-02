@@ -16,3 +16,5 @@
       - join: content
         sql_on: ${contentview.cid} = ${content.cid}
         relationship: many_to_one
+        
+- explore: video_pdt        
