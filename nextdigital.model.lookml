@@ -11,4 +11,8 @@
 #     - join: users
 #       sql_on: ${users.id} = ${orders.user_id}
 
-- explore: user_crossref
+- explore: contentview
+  joins:
+      - join: content
+        sql_on: ${contentview.cid} = ${content.cid}
+        relationship: many_to_one
