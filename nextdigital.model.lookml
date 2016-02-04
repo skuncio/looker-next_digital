@@ -17,4 +17,10 @@
         sql_on: ${contentview.cid} = ${content.cid}
         relationship: many_to_one
         
-- explore: video_pdt        
+- explore: video_pdt     
+  view_label: Video Views
+  
+- explore: page_pdt     
+  view_label: Page Views
+  
+- explore: view_aggregate  

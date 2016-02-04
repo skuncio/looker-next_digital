@@ -1,12 +1,12 @@
 
-- view: video_pdt
+- view: page_pdt
   derived_table:
     sql_trigger_value: select date(convert_timezone('est', getdate()))
     sortkeys: [c8002_date]
     distkey: c8002_cid
     sql: |
       select * from public.t8002_contentview
-      where c8002_action like 'VIDEO%'
+      where c8002_action like 'PAGE%'
     
 
   fields:
@@ -39,7 +39,7 @@
     type: string
     sql: ${TABLE}.c8002_content
 
-  - dimension_group: view
+  - dimension_group: c8002
     type: time
     timeframes: [date, week, month]
     convert_tz: false
@@ -147,18 +147,10 @@
   - dimension: ua
     type: string
     sql: ${TABLE}.c8002_ua
-
-  - dimension: video_duration
-    type: number
-    sql: ${TABLE}.c8002_video_duration
-      
-  - measure: total_video_views  
+    
+  - measure: total_page_views  
     type: count
       
-  - measure: average_duration
-    type: average
-    sql: ${video_duration}
-
 #   - measure: distinct_users
 #     type: count_distinct
 #     sql: ${user_id}

@@ -30,9 +30,9 @@
     type: string
     sql: ${TABLE}.c8002_content
 
-  - dimension_group: c8002
+  - dimension_group: view
     type: time
-    timeframes: [date, week, month]
+    timeframes: [date, week, month, year]
     convert_tz: false
     sql: ${TABLE}.c8002_date
 
@@ -92,7 +92,7 @@
     type: string
     sql: ${TABLE}.c8002_nxtu
 
-  - dimension: nxtu_or_did
+  - dimension: user_id
     type: string
     sql: ${TABLE}.c8002_nxtu_or_did
 
@@ -153,3 +153,7 @@
   - measure: average_duration
     type: average
     sql: ${video_duration}
+    
+  - measure: distinct_users
+    type: count_distinct
+    sql: ${user_id}  

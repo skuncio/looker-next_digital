@@ -1,0 +1,104 @@
+- view: view_aggregate
+
+# Or, you could make this view a derived table, like this:
+  derived_table:
+    sql_trigger_value: select date(convert_timezone('est', getdate()))
+    sortkeys: [c8002_date]
+    distkey: c8002_date
+    sql: |
+        SELECT 
+        DATE(contentview.c8002_date) as "c8002_date",
+        contentview.c8002_category,
+        contentview.c8002_channel,
+        contentview.c8002_product ,
+        contentview.c8002_region ,
+        contentview.c8002_platform ,
+        contentview.c8002_news ,
+        contentview.c8002_section ,
+        contentview.c8002_site ,
+        contentview.c8002_br ,
+        COUNT(CASE WHEN (contentview.c8002_action = 'PAGEVIEW') THEN 1 ELSE NULL END) AS "total_page_views",
+        COUNT(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') THEN 1 ELSE NULL END) AS "total_video_views",
+        AVG(contentview.c8002_video_duration) AS "average_duration"
+        FROM public.t8002_contentview AS contentview
+        GROUP BY 1,2,3,4,5,6,7,8,9,10
+        ORDER BY 1 ASC
+
+
+
+  fields:
+
+  - dimension: browser
+    type: string
+    sql: ${TABLE}.c8002_br
+
+  - dimension: category
+    type: string
+    sql: ${TABLE}.c8002_category
+
+  - dimension: channel
+    type: string
+    sql: ${TABLE}.c8002_channel
+
+  - dimension_group: view
+    type: time
+    timeframes: [date, week, month, year]
+    convert_tz: false
+    sql: ${TABLE}.c8002_date
+
+  - dimension: news
+    type: string
+    sql: ${TABLE}.c8002_news
+
+  - dimension: platform
+    type: string
+    sql: ${TABLE}.c8002_platform
+
+  - dimension: product
+    type: string
+    sql: ${TABLE}.c8002_product
+
+  - dimension: region
+    type: string
+    sql: ${TABLE}.c8002_region
+
+  - dimension: section
+    type: string
+    sql: ${TABLE}.c8002_section
+
+  - dimension: site
+    type: string
+    sql: ${TABLE}.c8002_site
+
+  #### measures #############
+
+  - dimension: page_views
+    hidden: true
+    type: number
+    sql: ${TABLE}.total_page_views
+    
+  - measure: total_page_views  
+    type: sum
+    value_format: '#,##0'
+    sql: ${page_views}
+    
+  - dimension: video_views
+    hidden: true
+    type: number
+    sql: ${TABLE}.total_video_views    
+ 
+  - measure: total_video_views
+    type: sum
+    value_format: '#,##0'
+    sql: ${video_views}
+  
+  - dimension: avg_video_duration
+    hidden: true
+    type: number
+    sql: ${TABLE}.average_duration
+    
+  - measure: average_duration
+    type: average
+    value_format: '#,##0'
+    sql: ${avg_video_duration}
+    
