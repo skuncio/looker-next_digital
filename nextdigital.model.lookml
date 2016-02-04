@@ -4,13 +4,6 @@
 - include: "*.dashboard.lookml"  # include all dashboards in this project
 
 
-# - explore: order_items
-#   joins:
-#     - join: orders
-#       sql_on: ${orders.id} = ${order_items.order_id}
-#     - join: users
-#       sql_on: ${users.id} = ${orders.user_id}
-
 - explore: contentview
   joins:
       - join: content
@@ -24,3 +17,4 @@
   view_label: Page Views
   
 - explore: view_aggregate  
+
