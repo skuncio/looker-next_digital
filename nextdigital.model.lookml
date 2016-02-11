@@ -9,6 +9,7 @@
       - join: content
         sql_on: ${contentview.cid} = ${content.cid}
         relationship: many_to_one
+        type: left_outer
         
 - explore: video_pdt     
   view_label: Video Views
