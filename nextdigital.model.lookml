@@ -11,6 +11,9 @@
         relationship: many_to_one
         type: left_outer
         
+- explore: content     
+  view_label: Content
+
 - explore: video_pdt     
   view_label: Video Views
   
