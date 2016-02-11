@@ -157,3 +157,7 @@
   - measure: distinct_users
     type: count_distinct
     sql: ${user_id}  
+    
+  - measure: distinct_content
+    type: count_distinct
+    sql: ${cid}     
