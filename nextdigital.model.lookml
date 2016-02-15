@@ -20,5 +20,7 @@
 - explore: page_pdt     
   view_label: Page Views
   
-- explore: view_aggregate  
+- explore: view_aggregate 
+
+- explore: user_crossref
 
