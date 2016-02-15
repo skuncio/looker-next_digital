@@ -75,6 +75,11 @@
   - dimension: lon
     type: number
     sql: ${TABLE}.c8002_lon
+    
+  - dimension: view_location
+    type: location
+    sql_latitude: ${lat}
+    sql_longitude: ${lon}
 
   - dimension: menu
     type: string
