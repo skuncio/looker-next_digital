@@ -147,11 +147,7 @@
   - dimension: ua
     type: string
     sql: ${TABLE}.c8002_ua
-   
-  - dimension: view_location
-    type: location
-    sql_latitude: ${lat}
-    sql_longitude: ${lon}
+
     
   - measure: total_page_views  
     type: count
