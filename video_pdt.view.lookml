@@ -151,6 +151,11 @@
   - dimension: video_duration
     type: number
     sql: ${TABLE}.c8002_video_duration
+    
+  - dimension: view_location
+    type: location
+    sql_latitude: ${lat}
+    sql_longitude: ${lon}
       
   - measure: total_video_views  
     type: count
