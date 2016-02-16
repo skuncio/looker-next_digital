@@ -75,12 +75,7 @@
   - dimension: lon
     type: number
     sql: ${TABLE}.c8002_lon
-    
-  - dimension: view_location
-    type: location
-    sql_latitude: ${lat}
-    sql_longitude: ${lon}
-
+ 
   - dimension: menu
     type: string
     sql: ${TABLE}.c8002_menu
@@ -165,4 +160,9 @@
     
   - measure: distinct_content
     type: count_distinct
-    sql: ${cid}     
+    sql: ${cid}   
+    
+  - dimension: view_location
+    type: location
+    sql_latitude: ${lat}
+    sql_longitude: ${lon}
