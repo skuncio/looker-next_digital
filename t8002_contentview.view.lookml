@@ -124,7 +124,7 @@
     type: string
     sql: ${TABLE}.c8002_nxtu
 
-  - dimension: nxtu_or_did
+  - dimension: user_id
     type: string
     sql: ${TABLE}.c8002_nxtu_or_did
 
