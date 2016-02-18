@@ -6,10 +6,6 @@
     type: string
     sql: ${TABLE}.c8002_action
 
-  - dimension: adid
-    type: string
-    sql: ${TABLE}.c8002_adid
-
   - dimension: br
     type: string
     sql: ${TABLE}.c8002_br
@@ -30,27 +26,15 @@
     type: string
     sql: ${TABLE}.c8002_cid
 
-  - dimension: city
+  - dimension: content
     type: string
-    sql: ${TABLE}.c8002_city
-
-  - dimension: country
-    type: string
-    sql: ${TABLE}.c8002_country
-
-  - dimension: county
-    type: string
-    sql: ${TABLE}.c8002_county
+    sql: ${TABLE}.c8002_content
 
   - dimension_group: view
     type: time
-    timeframes: [time, date, week, month, year]
+    timeframes: [date, week, month, year]
     convert_tz: false
-    sql: ${TABLE}.c8002_datetime
-
-  - dimension: dcc_id
-    type: string
-    sql: ${TABLE}.c8002_dcc_id
+    sql: ${TABLE}.c8002_date
 
   - dimension: depth
     type: number
@@ -64,14 +48,6 @@
     type: string
     sql: ${TABLE}.c8002_did
 
-  - dimension: district_id
-    type: string
-    sql: ${TABLE}.c8002_district_id
-
-  - dimension: dma
-    type: string
-    sql: ${TABLE}.c8002_dma
-
   - dimension: edm
     type: string
     sql: ${TABLE}.c8002_edm
@@ -79,10 +55,6 @@
   - dimension: gaid
     type: string
     sql: ${TABLE}.c8002_gaid
-
-  - dimension: gender
-    type: string
-    sql: ${TABLE}.c8002_gender
 
   - dimension: gigyaid
     type: string
@@ -103,7 +75,7 @@
   - dimension: lon
     type: number
     sql: ${TABLE}.c8002_lon
-
+ 
   - dimension: menu
     type: string
     sql: ${TABLE}.c8002_menu
@@ -116,15 +88,11 @@
     type: string
     sql: ${TABLE}.c8002_ngsid
 
-  - dimension: nudid
-    type: string
-    sql: ${TABLE}.c8002_nudid
-
   - dimension: nxtu
     type: string
     sql: ${TABLE}.c8002_nxtu
 
-  - dimension: nxtu_or_did
+  - dimension: user_id
     type: string
     sql: ${TABLE}.c8002_nxtu_or_did
 
@@ -135,10 +103,6 @@
   - dimension: product
     type: string
     sql: ${TABLE}.c8002_product
-
-  - dimension: ref_url
-    type: string
-    sql: ${TABLE}.c8002_ref_url
 
   - dimension: region
     type: string
@@ -152,21 +116,9 @@
     type: string
     sql: ${TABLE}.c8002_site
 
-  - dimension: state
-    type: string
-    sql: ${TABLE}.c8002_state
-
-  - dimension: street_id
-    type: string
-    sql: ${TABLE}.c8002_street_id
-
   - dimension: subsection
     type: string
     sql: ${TABLE}.c8002_subsection
-
-  - dimension: subsubsection
-    type: string
-    sql: ${TABLE}.c8002_subsubsection
 
   - dimension: sz
     type: string
@@ -183,11 +135,7 @@
   - dimension: video_duration
     type: number
     sql: ${TABLE}.c8002_video_duration
-
-  - dimension: zipcode
-    type: string
-    sql: ${TABLE}.c8002_zipcode
-
+    
   - dimension: view_location
     type: location
     sql_latitude: ${lat}
