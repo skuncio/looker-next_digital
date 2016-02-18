@@ -1,4 +1,4 @@
-- view: contentview
+- view: contentview_old
   sql_table_name: public.t8002_contentview
   fields:
 
