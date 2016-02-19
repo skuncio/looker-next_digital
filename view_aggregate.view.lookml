@@ -1,6 +1,6 @@
 - view: view_aggregate
 
-# Or, you could make this view a derived table, like this:
+# Or, you could make this view a derived table, like this :
   derived_table:
     sql_trigger_value: select date(convert_timezone('est', getdate()))
     sortkeys: [c8002_datetime]
