@@ -78,12 +78,10 @@
     sql: ${TABLE}.c8002_issueid
 
   - dimension: lat
-    hidden: true
     type: number
     sql: ${TABLE}.c8002_lat
 
   - dimension: lon
-    hidden: true
     type: number
     sql: ${TABLE}.c8002_lon
     
