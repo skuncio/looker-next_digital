@@ -80,7 +80,8 @@
     
   - measure: total_page_views  
     type: sum
-    value_format: '#,##0'
+    #value_format: '#,##0'
+    value_format: '[>=1000000]0.0,,"M";[>=1000]0.0,"K";$0.00'
     sql: ${page_views}
     
   - dimension: video_views
@@ -90,7 +91,8 @@
  
   - measure: total_video_views
     type: sum
-    value_format: '#,##0'
+    #value_format: '#,##0'
+    value_format: '[>=1000000]0.0,,"M";[>=1000]0.0,"K";$0.00'
     sql: ${video_views}
   
   - dimension: avg_video_duration
