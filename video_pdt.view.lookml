@@ -197,7 +197,7 @@
     type: string
     sql: ${TABLE}.c8002_zipcode
 
-  - dimension: view_location
+  - dimension: location
     type: location
     sql_latitude: ${lat}
     sql_longitude: ${lon}
