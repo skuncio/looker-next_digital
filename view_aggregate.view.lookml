@@ -19,7 +19,8 @@
         contentview.c8002_br ,
         COUNT(CASE WHEN (contentview.c8002_action = 'PAGEVIEW') THEN 1 ELSE NULL END) AS "total_page_views",
         COUNT(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') THEN 1 ELSE NULL END) AS "total_video_views",
-        AVG(contentview.c8002_video_duration) AS "average_duration"
+        AVG(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') 
+        THEN contentview.c8002_video_duration ELSE NULL END ) AS "average_duration"
         FROM public.t8002_contentview AS contentview
         GROUP BY 1,2,3,4,5,6,7,8,9,10
         ORDER BY 1 ASC
@@ -42,7 +43,7 @@
 
   - dimension_group: view
     type: time
-    timeframes: [time, date, week, month, year]
+    timeframes: [time, date, week, month, year, hour_of_day]
     convert_tz: false
     sql: ${TABLE}.c8002_datetime
 
