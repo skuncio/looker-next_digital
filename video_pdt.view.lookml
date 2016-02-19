@@ -44,6 +44,8 @@
     sql: ${TABLE}.c8002_city
 
   - dimension: country
+    alias: country_code
+    hidden: true
     type: string
     sql: ${TABLE}.c8002_country
 
@@ -216,4 +218,3 @@
   sets:
     detail:
       - count
-
