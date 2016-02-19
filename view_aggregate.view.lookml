@@ -3,11 +3,11 @@
 # Or, you could make this view a derived table, like this:
   derived_table:
     sql_trigger_value: select date(convert_timezone('est', getdate()))
-    sortkeys: [c8002_date]
-    distkey: c8002_date
+    sortkeys: [c8002_datetime]
+    distkey: c8002_datetime
     sql: |
         SELECT 
-        DATE(contentview.c8002_date) as "c8002_date",
+        DATE(contentview.c8002_datetime) as "c8002_datetime",
         contentview.c8002_category,
         contentview.c8002_channel,
         contentview.c8002_product ,
@@ -42,9 +42,9 @@
 
   - dimension_group: view
     type: time
-    timeframes: [date, week, month, year]
+    timeframes: [time, date, week, month, year]
     convert_tz: false
-    sql: ${TABLE}.c8002_date
+    sql: ${TABLE}.c8002_datetime
 
   - dimension: news
     type: string
