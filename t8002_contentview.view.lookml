@@ -10,7 +10,7 @@
     type: string
     sql: ${TABLE}.c8002_adid
 
-  - dimension: br
+  - dimension: browser
     type: string
     sql: ${TABLE}.c8002_br
 
