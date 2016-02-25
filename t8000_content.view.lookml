@@ -43,7 +43,7 @@
 #     type: count
 #     drill_fields: []
     
-  - measure: distinct_content
-    type: count_distinct
-    sql: ${cid}  
+#   - measure: distinct_content
+#     type: count_distinct
+#     sql: ${cid}  
 
