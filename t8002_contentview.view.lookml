@@ -2,21 +2,24 @@
   sql_table_name: public.t8002_contentview
   fields:
 
-  - dimension: action
+  - dimension: view_type
+    description: 'PAGEVIEW or VIDEOVIEW'
+    alias: [action]
     type: string
     sql: ${TABLE}.c8002_action
 
-  - dimension: adid
-    type: string
-    sql: ${TABLE}.c8002_adid
+#   - dimension: adid
+#     type: string
+#     sql: ${TABLE}.c8002_adid
 
   - dimension: browser
+    view_label: User
     type: string
     sql: ${TABLE}.c8002_br
 
-  - dimension: bv
-    type: string
-    sql: ${TABLE}.c8002_bv
+#   - dimension: bv
+#     type: string
+#     sql: ${TABLE}.c8002_bv
 
   - dimension: category
     type: string
@@ -27,18 +30,22 @@
     sql: ${TABLE}.c8002_channel
 
   - dimension: cid
+    hidden: true
     type: string
     sql: ${TABLE}.c8002_cid
 
   - dimension: city
+    view_label: Location
     type: string
     sql: ${TABLE}.c8002_city
 
   - dimension: country
+    view_label: Location
     type: string
     sql: ${TABLE}.c8002_country
 
   - dimension: county
+    view_label: Location
     type: string
     sql: ${TABLE}.c8002_county
 
@@ -48,59 +55,63 @@
     convert_tz: false
     sql: ${TABLE}.c8002_datetime
 
-  - dimension: dcc_id
-    type: string
-    sql: ${TABLE}.c8002_dcc_id
+#   - dimension: dcc_id
+#     type: string
+#     sql: ${TABLE}.c8002_dcc_id
 
   - dimension: depth
     type: number
     sql: ${TABLE}.c8002_depth
 
   - dimension: device
+    view_label: User
     type: string
     sql: ${TABLE}.c8002_device
 
-  - dimension: did
-    type: string
-    sql: ${TABLE}.c8002_did
+#   - dimension: did
+#     type: string
+#     sql: ${TABLE}.c8002_did
 
-  - dimension: district_id
-    type: string
-    sql: ${TABLE}.c8002_district_id
+#   - dimension: district_id
+#     type: string
+#     sql: ${TABLE}.c8002_district_id
 
-  - dimension: dma
-    type: string
-    sql: ${TABLE}.c8002_dma
+#   - dimension: dma
+#     type: string
+#     sql: ${TABLE}.c8002_dma
 
-  - dimension: edm
-    type: string
-    sql: ${TABLE}.c8002_edm
+#   - dimension: edm
+#     type: string
+#     sql: ${TABLE}.c8002_edm
 
-  - dimension: gaid
-    type: string
-    sql: ${TABLE}.c8002_gaid
+#   - dimension: gaid
+#     type: string
+#     sql: ${TABLE}.c8002_gaid
 
   - dimension: gender
+    view_label: User
     type: string
     sql: ${TABLE}.c8002_gender
 
-  - dimension: gigyaid
-    type: string
-    sql: ${TABLE}.c8002_gigyaid
+#   - dimension: gigyaid
+#     type: string
+#     sql: ${TABLE}.c8002_gigyaid
 
-  - dimension: ip
-    type: string
-    sql: ${TABLE}.c8002_ip
+#   - dimension: ip
+#     type: string
+#     sql: ${TABLE}.c8002_ip
 
-  - dimension: issueid
-    type: string
-    sql: ${TABLE}.c8002_issueid
+#   - dimension: issueid
+#     type: string
+#     sql: ${TABLE}.c8002_issueid
 
   - dimension: lat
+    hidden: true
     type: number
     sql: ${TABLE}.c8002_lat
 
   - dimension: lon
+    hidden: true
     type: number
     sql: ${TABLE}.c8002_lon
 
@@ -112,23 +123,25 @@
     type: string
     sql: ${TABLE}.c8002_news
 
-  - dimension: ngsid
-    type: string
-    sql: ${TABLE}.c8002_ngsid
-
-  - dimension: nudid
-    type: string
-    sql: ${TABLE}.c8002_nudid
-
-  - dimension: nxtu
-    type: string
-    sql: ${TABLE}.c8002_nxtu
+#   - dimension: ngsid
+#     type: string
+#     sql: ${TABLE}.c8002_ngsid
+# 
+#   - dimension: nudid
+#     type: string
+#     sql: ${TABLE}.c8002_nudid
+# 
+#   - dimension: nxtu
+#     type: string
+#     sql: ${TABLE}.c8002_nxtu
 
   - dimension: user_id
+    view_label: User
     type: string
     sql: ${TABLE}.c8002_nxtu_or_did
 
   - dimension: platform
+    view_label: User
     type: string
     sql: ${TABLE}.c8002_platform
 
@@ -136,11 +149,14 @@
     type: string
     sql: ${TABLE}.c8002_product
 
-  - dimension: ref_url
+  - dimension: referring_url
+    view_label: User
+    alias: [ref_url]
     type: string
     sql: ${TABLE}.c8002_ref_url
 
   - dimension: region
+    view_label: Location
     type: string
     sql: ${TABLE}.c8002_region
 
@@ -153,12 +169,13 @@
     sql: ${TABLE}.c8002_site
 
   - dimension: state
+    view_label: Location
     type: string
     sql: ${TABLE}.c8002_state
 
-  - dimension: street_id
-    type: string
-    sql: ${TABLE}.c8002_street_id
+#   - dimension: street_id
+#     type: string
+#     sql: ${TABLE}.c8002_street_id
 
   - dimension: subsection
     type: string
@@ -168,9 +185,9 @@
     type: string
     sql: ${TABLE}.c8002_subsubsection
 
-  - dimension: sz
-    type: string
-    sql: ${TABLE}.c8002_sz
+#   - dimension: sz
+#     type: string
+#     sql: ${TABLE}.c8002_sz
 
   - dimension: title
     type: string
@@ -185,10 +202,13 @@
     sql: ${TABLE}.c8002_video_duration
 
   - dimension: zipcode
+    view_label: Location
     type: string
     sql: ${TABLE}.c8002_zipcode
 
-  - dimension: view_location
+  - dimension: latitude_longitude
+    alias: [view_location]
+    view_label: Location
     type: location
     sql_latitude: ${lat}
     sql_longitude: ${lon}
@@ -200,18 +220,19 @@
   - measure: total_page_views  
     type: count
     filters:
-      action: 'PAGEVIEW'
+      view_type: 'PAGEVIEW'
       
   - measure: total_video_views  
     type: count
     filters:
-      action: 'VIDEOVIEW'
+      view_type: 'VIDEOVIEW'
       
   - measure: average_duration
     type: average
     sql: ${video_duration}
     
   - measure: distinct_users
+    view_label: User
     type: count_distinct
     sql: ${user_id}  
     
