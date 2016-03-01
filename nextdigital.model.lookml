@@ -30,5 +30,8 @@
   label: 1) All Content Views - Summary
   view_label: Summary Views
 
+- explore: view_agg_with_article
+
+
 # - explore: user_crossref
 
