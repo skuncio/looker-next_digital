@@ -5,7 +5,7 @@
 
 
 - explore: contentview
-  label: 2) All Content Views - Detail
+  label: 3) All Content Views - Detail
   view_label: All Content Views
   joins:
       - join: content
@@ -18,12 +18,12 @@
 #   view_label: Content
 
 - explore: video_pdt     
-  label: 4) Video Views - Detail
+  label: 5) Video Views - Detail
   view_label: Video Views
   sql_always_where: ${lat} != 0 and ${lon} != 0
   
 - explore: page_pdt   
-  label: 3) Page Views - Detail
+  label: 4) Page Views - Detail
   view_label: Page Views
   
 - explore: view_aggregate 
@@ -31,6 +31,8 @@
   view_label: Summary Views
 
 - explore: view_agg_with_article
+  label: 2) Articles - Summary
+  view_label: Article Views - Summary
 
 
 # - explore: user_crossref
