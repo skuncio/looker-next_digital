@@ -20,8 +20,8 @@
     <td style="font-weight:500;padding-top:15px;color:#76678b;border:none">Jan-20-2016</td> 
   </tr>
   <tr>
-    <td style="font-weight:800;padding-top:15px;color:#76678b;border:none;padding-left:0px;">Trial End Date</td>
-    <td style="font-weight:500;padding-top:15px;color:#76678b;border:none">Feb-10-2016</td> 
+    <td style="font-weight:800;padding-top:15px;color:#76678b;border:none;padding-left:0px;">Trial End Date (UPDATED)</td>
+    <td style="font-weight:500;padding-top:15px;color:#76678b;border:none">Mar-04-2016</td> 
   </tr>
 </table>
 </div>
