@@ -36,6 +36,7 @@
   - dimension: category
     type: string
     sql: ${TABLE}.c8002_category
+    drill_fields: [section, product]
 
   - dimension: channel
     type: string
@@ -58,6 +59,7 @@
   - dimension: product
     type: string
     sql: ${TABLE}.c8002_product
+    drill_fields: [section, category]
 
   - dimension: region
     type: string
@@ -66,6 +68,7 @@
   - dimension: section
     type: string
     sql: ${TABLE}.c8002_section
+    drill_fields: [product, category]
 
   - dimension: site
     type: string
