@@ -59,7 +59,7 @@
   - dimension: product
     type: string
     sql: ${TABLE}.c8002_product
-    drill_fields: [section, category]
+    drill_fields: [region, platform]
 
   - dimension: region
     type: string
