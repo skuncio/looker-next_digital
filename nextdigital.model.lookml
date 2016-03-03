@@ -34,6 +34,10 @@
   label: 2) Articles - Summary
   view_label: Article Views - Summary
 
+- explore: dashboard_headers
+  label: 6) Dashboard Headers
+  hidden: true
+  
 
 # - explore: user_crossref
 
