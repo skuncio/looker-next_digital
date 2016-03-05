@@ -4,7 +4,7 @@
 
   - dimension_group: c8001_create
     type: time
-    timeframes: [date, week, month]
+    timeframes: [time, date, week, month, hour_of_day]
     convert_tz: false
     sql: ${TABLE}.c8001_create_date
 
@@ -42,7 +42,7 @@
 
   - dimension_group: c8001_update
     type: time
-    timeframes: [date, week, month]
+    timeframes: [time, date, week, month, hour_of_day]
     convert_tz: false
     sql: ${TABLE}.c8001_update_date
 
