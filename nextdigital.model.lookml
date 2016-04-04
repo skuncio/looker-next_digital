@@ -38,6 +38,7 @@
   label: 6) Dashboard Headers
   hidden: true
   
+- explore: t8002_contentview
 
 # - explore: user_crossref
 
