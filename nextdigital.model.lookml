@@ -1,4 +1,4 @@
-- connection: next_prd_redshift
+- connection: next_dev_redshift
 
 - include: "*.view.lookml"       # include all views in this project
 - include: "*.dashboard.lookml"  # include all dashboards in this project
