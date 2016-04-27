@@ -30,7 +30,7 @@
     sql: ${TABLE}.c8002_channel
 
   - dimension: cid
-    hidden: true
+#    hidden: true
     type: string
     sql: ${TABLE}.c8002_cid
 
