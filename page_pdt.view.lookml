@@ -3,7 +3,7 @@
   derived_table:
     sql_trigger_value: select date(convert_timezone('est', getdate()))
     sortkeys: [c8002_datetime]
-#    distkey: c8002_cid
+#   distkey: c8002_cid
     distkey: EVEN
     sql: |
       select * from public.t8002_contentview
