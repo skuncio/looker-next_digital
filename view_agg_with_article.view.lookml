@@ -18,6 +18,7 @@
         contentview.c8002_site ,
         contentview.c8002_br ,
         contentview.c8002_title ,
+        contentview.c8002_cid ,
         COUNT(CASE WHEN (contentview.c8002_action = 'PAGEVIEW') THEN 1 ELSE NULL END) AS "total_page_views",
         COUNT(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') THEN 1 ELSE NULL END) AS "total_video_views",
         AVG(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') 
