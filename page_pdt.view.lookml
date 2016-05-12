@@ -4,7 +4,7 @@
     sql_trigger_value: select date(convert_timezone('est', getdate()))
     sortkeys: [c8002_datetime]
 #   distkey: c8002_cid
-    distkey: EVEN
+    distkey: even
     sql: |
       select * from public.t8002_contentview
       where c8002_action like 'PAGE%'
