@@ -24,7 +24,7 @@
         AVG(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') 
         THEN contentview.c8002_video_duration ELSE NULL END ) AS "average_duration"
         FROM public.t8002_contentview AS contentview
-        GROUP BY 1,2,3,4,5,6,7,8,9,10,11
+        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12
         ORDER BY 1 ASC
 
 
