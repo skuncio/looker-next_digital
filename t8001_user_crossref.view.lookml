@@ -1,10 +1,18 @@
-- view: user_crossref
+- view: t8001_user_crossref
   sql_table_name: public.t8001_user_crossref
   fields:
 
+  - dimension: c8001_activity_count
+    type: number
+    sql: ${TABLE}.c8001_activity_count
+
+  - dimension: c8001_adid
+    type: string
+    sql: ${TABLE}.c8001_adid
+
   - dimension_group: c8001_create
     type: time
-    timeframes: [time, date, week, month, hour_of_day]
+    timeframes: [date, week, month]
     convert_tz: false
     sql: ${TABLE}.c8001_create_date
 
@@ -24,9 +32,19 @@
     type: string
     sql: ${TABLE}.c8001_ip
 
-  - dimension: c8001_ip_counts
-    type: int
-    sql: ${TABLE}.c8001_ip_counts
+  - dimension: c8001_ip_count
+    type: number
+    sql: ${TABLE}.c8001_ip_count
+
+  - dimension_group: c8001_last_activity
+    type: time
+    timeframes: [date, week, month]
+    convert_tz: false
+    sql: ${TABLE}.c8001_last_activity_date
+
+  - dimension: c8001_ndid
+    type: string
+    sql: ${TABLE}.c8001_ndid
 
   - dimension: c8001_ngsid
     type: string
@@ -42,15 +60,11 @@
 
   - dimension_group: c8001_update
     type: time
-    timeframes: [time, date, week, month, hour_of_day]
+    timeframes: [date, week, month]
     convert_tz: false
     sql: ${TABLE}.c8001_update_date
 
   - measure: count
     type: count
     drill_fields: []
-  
-  - measure: distinct_content
-    type: count_distinct
-    sql: ${c8001_nxtu_or_did}  
 
