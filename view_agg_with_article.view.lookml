@@ -2,7 +2,7 @@
 
 # Or, you could make this view a derived table, like this :
   derived_table:
-    sql_trigger_value: select date(convert_timezone('est', getdate()))
+    sql_trigger_value: select date(convert_timezone('hkt', getdate()))
     sortkeys: [c8002_datetime]
     distkey: c8002_datetime
     sql: |
