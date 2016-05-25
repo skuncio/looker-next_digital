@@ -85,15 +85,12 @@
 #     sql: ${TABLE}.c8002_edm
 
 #   - dimension: gaid
+#     view_label: User
 #     type: string
 #     sql: ${TABLE}.c8002_gaid
 
-  - dimension: gender
-    view_label: User
-    type: string
-    sql: ${TABLE}.c8002_gender
-
 #   - dimension: gigyaid
+#     view_label: User
 #     type: string
 #     sql: ${TABLE}.c8002_gigyaid
 

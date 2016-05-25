@@ -91,10 +91,6 @@
     type: string
     sql: ${TABLE}.c8002_gaid
 
-  - dimension: gender
-    type: string
-    sql: ${TABLE}.c8002_gender
-
   - dimension: gigyaid
     type: string
     sql: ${TABLE}.c8002_gigyaid
