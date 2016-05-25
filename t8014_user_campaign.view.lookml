@@ -2,9 +2,10 @@
   sql_table_name: public.t8014_user_campaign
   fields:
 
-  - dimension: c8014_action
-    type: string
-    sql: ${TABLE}.c8014_action
+  - dimension_group: c8014_activity
+    type: time
+    timeframes: [time, date, week, month]
+    sql: ${TABLE}.c8014_activity_date
 
   - dimension: c8014_address
     type: string
@@ -22,11 +23,6 @@
     type: string
     sql: ${TABLE}.c8014_cpreg
 
-  - dimension_group: c8014_datetime
-    type: time
-    timeframes: [time, date, week, month]
-    sql: ${TABLE}.c8014_datetime
-
   - dimension: c8014_did
     type: string
     sql: ${TABLE}.c8014_did
@@ -43,9 +39,13 @@
     type: string
     sql: ${TABLE}.c8014_gigyaid
 
-  - dimension: c8014_nxtu_did
+  - dimension: c8014_name
     type: string
-    sql: ${TABLE}.c8014_nxtu_did
+    sql: ${TABLE}.c8014_name
+
+  - dimension: c8014_nxtu_or_did
+    type: string
+    sql: ${TABLE}.c8014_nxtu_or_did
 
   - dimension: c8014_phone
     type: string
@@ -61,5 +61,5 @@
 
   - measure: count
     type: count
-    drill_fields: []
+    drill_fields: [c8014_name]
 
