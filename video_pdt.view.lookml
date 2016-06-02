@@ -1,7 +1,7 @@
 
 - view: video_pdt
   derived_table:
-    sql_trigger_value: select date(convert_timezone('hkt', getdate()))
+#   sql_trigger_value: select date(convert_timezone('hkt', getdate()))
     sortkeys: [c8002_datetime]
     distkey: c8002_cid
     sql: |
