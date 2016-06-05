@@ -17,14 +17,15 @@
 # - explore: content     
 #   view_label: Content
 
-- explore: video_pdt     
+- explore: contentview      
   label: 5) Video Views - Detail
   view_label: Video Views
-  sql_always_where: ${lat} != 0 and ${lon} != 0
+  sql_always_where: ${lat} != 0 and ${lon} != 0 and view_type = 'VIDEOVIEW'
   
-- explore: page_pdt   
+- explore: contentview_page  
   label: 4) Page Views - Detail
   view_label: Page Views
+  sql_always_where: view_type = 'PAGEVIEW'
   
 - explore: view_aggregate 
   label: 1) All Content Views - Summary
