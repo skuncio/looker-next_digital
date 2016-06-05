@@ -42,7 +42,7 @@
 #       sql: ${lifetime_orders}
 
 - view: contentview_page
-  sql_table_name: public.t8002_contentview_page
+  sql_table_name: public.t8002_contentview
   fields:
 
   - dimension: view_type

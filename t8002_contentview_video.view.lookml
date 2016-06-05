@@ -41,7 +41,7 @@
 #       type: sum
 #       sql: ${lifetime_orders}
 - view: contentview_video
-  sql_table_name: public.t8002_contentview_video
+  sql_table_name: public.t8002_contentview
   fields:
 
   - dimension: view_type
