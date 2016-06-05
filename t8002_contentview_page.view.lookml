@@ -46,14 +46,14 @@
   fields:
 
   - dimension: view_type
-    description: 'PAGEVIEW or VIDEOVIEW'
+    description: 'PAGEVIEW'
     alias: [action]
     type: string
     sql: ${TABLE}.c8002_action
 
-#   - dimension: adid
-#     type: string
-#     sql: ${TABLE}.c8002_adid
+  - dimension: adid
+    type: string
+    sql: ${TABLE}.c8002_adid
 
   - dimension: browser
     view_label: User

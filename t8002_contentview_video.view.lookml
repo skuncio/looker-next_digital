@@ -45,7 +45,7 @@
   fields:
 
   - dimension: view_type
-    description: 'PAGEVIEW or VIDEOVIEW'
+    description: 'VIDEOVIEW'
     alias: [action]
     type: string
     sql: ${TABLE}.c8002_action
