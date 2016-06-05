@@ -1,5 +1,3 @@
-- view: t8002_contentview_page
-
 # # You can specify the table name if it's different from the view name:
 #   sql_table_name: my_schema_name.t8002_contentview_page
 #
@@ -42,8 +40,9 @@
 #     - measure: total_lifetime_orders
 #       type: sum
 #       sql: ${lifetime_orders}
+
 - view: contentview_page
-  sql_table_name: public.t8002_contentview
+  sql_table_name: public.t8002_contentview_page
   fields:
 
   - dimension: view_type

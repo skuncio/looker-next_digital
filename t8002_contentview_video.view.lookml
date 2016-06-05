@@ -1,5 +1,3 @@
-- view: t8002_contentview_video
-
 # # You can specify the table name if it's different from the view name:
 #   sql_table_name: my_schema_name.t8002_contentview_video
 #
@@ -43,7 +41,7 @@
 #       type: sum
 #       sql: ${lifetime_orders}
 - view: contentview_video
-  sql_table_name: public.t8002_contentview
+  sql_table_name: public.t8002_contentview_video
   fields:
 
   - dimension: view_type
