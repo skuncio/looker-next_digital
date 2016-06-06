@@ -5,4 +5,4 @@
   ### Dashboard Headers
   - dimension: product_dashboard_header
     view_label: Dashboard Headers
-    sql: "'Sample header for this dashboard'"
+    sql: "'Next Digital 2 Month Summary (rolling)'"
