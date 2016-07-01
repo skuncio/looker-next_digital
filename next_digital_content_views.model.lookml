@@ -39,5 +39,10 @@
   label: 6) Dashboard Headers
   hidden: true
   
+
+- explore: t3016_seg_agg_cid_day 
+  label: 6) CID 
+  view_label: CID Views
+  
 # - explore: user_crossref
 

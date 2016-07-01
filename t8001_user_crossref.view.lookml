@@ -9,6 +9,10 @@
   - dimension: c8001_adid
     type: string
     sql: ${TABLE}.c8001_adid
+    
+  - dimension: c8001_android_id
+    type: string
+    sql: ${TABLE}.c8001_android_id
 
   - dimension_group: c8001_create
     type: time

@@ -21,6 +21,8 @@
 
 - explore: t8002_contentview
 
+#- explore: sql_runner_query_adid_analysis
+
 #- explore: t8003_geo_location
 
 #- explore: t8004_regestered_user
