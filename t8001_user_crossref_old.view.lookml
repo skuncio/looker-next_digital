@@ -1,4 +1,4 @@
-- view: t8001_user_crossref
+- view: t8001_user_crossref_old
   sql_table_name: public.t8001_user_crossref
   fields:
 
@@ -9,7 +9,7 @@
   - dimension: c8001_adid
     type: string
     sql: ${TABLE}.c8001_adid
-
+    
   - dimension: c8001_android_id
     type: string
     sql: ${TABLE}.c8001_android_id
