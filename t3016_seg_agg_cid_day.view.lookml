@@ -104,6 +104,10 @@
     type: number
     sql: ${TABLE}.c3016_visits
 
+  - measure: sum
+    type: sum
+    sql: ${c3016_imps}
+
   - measure: count
     type: count
     drill_fields: []
