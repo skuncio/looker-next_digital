@@ -104,7 +104,7 @@
     type: number
     sql: ${TABLE}.c3016_visits
 
-  - measure: sum
+  - measure: Impression_Sum
     type: sum
     sql: ${c3016_imps}
 
