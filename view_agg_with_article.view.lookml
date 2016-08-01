@@ -1,6 +1,7 @@
 - view: view_agg_with_article
 
-# Or, you could make this view a derived table, like this :
+# remove site, br added cid
+# Or, you could make this view a derived table, like this  :
   derived_table:
     sql_trigger_value: select date(convert_timezone('hkt', getdate()))
     sortkeys: [c8002_datetime]

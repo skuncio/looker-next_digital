@@ -32,8 +32,8 @@
   view_label: Summary Views
 
 - explore: view_agg_with_article
-  label: 2) Articles - Summary
-  view_label: Article Views - Summary
+  label: 2) Articles & Videos - Summary
+  view_label: Article & Video Views - Summary
 
 - explore: dashboard_headers
   label: 6) Dashboard Headers
