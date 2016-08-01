@@ -117,7 +117,7 @@
     type: number
     sql: ${TABLE}.average_duration
     
-  - measure: averageg_video_duration
+  - measure: average_video_duration
     type: average
     value_format: '#,##0'
     sql: ${avg_video_duration}
