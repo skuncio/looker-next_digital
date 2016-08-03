@@ -36,6 +36,8 @@
 #    sql: ${TABLE}.c8002_br
 
   - dimension: view_type
+    description: 'PAGEVIEW or VIDEOVIEW'
+    alias: [action]
     type: string
     sql: ${TABLE}.c8002_action
     
