@@ -138,7 +138,7 @@
     sql: ${TABLE}.c8002_nxtu_or_did
 
   - dimension: platform
-    view_label: User
+#    view_label: User
     type: string
     sql: ${TABLE}.c8002_platform
 
@@ -153,7 +153,7 @@
     sql: ${TABLE}.c8002_ref_url
 
   - dimension: region
-    view_label: Location
+#    view_label: Location
     type: string
     sql: ${TABLE}.c8002_region
 
@@ -178,9 +178,9 @@
     type: string
     sql: ${TABLE}.c8002_subsection
 
-  - dimension: subsubsection
-    type: string
-    sql: ${TABLE}.c8002_subsubsection
+#  - dimension: subsubsection
+#    type: string
+#    sql: ${TABLE}.c8002_subsubsection
 
 #   - dimension: sz
 #     type: string
@@ -228,10 +228,10 @@
     type: average
     sql: ${video_duration}
     
-  - measure: distinct_users
-    view_label: User
-    type: count_distinct
-    sql: ${user_id}  
+#  - measure: distinct_users
+#    view_label: User
+#    type: count_distinct
+#    sql: ${user_id}  
     
   - measure: distinct_content
     type: count_distinct

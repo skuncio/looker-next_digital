@@ -35,7 +35,7 @@
 #    type: string
 #    sql: ${TABLE}.c8002_br
 
-  - dimension: action
+  - dimension: view_type
     type: string
     sql: ${TABLE}.c8002_action
     
@@ -48,7 +48,7 @@
     type: string
     sql: ${TABLE}.c8002_channel
     
-  - dimension: cid
+  - dimension: content_id
     type: string
     sql: ${TABLE}.c8002_cid
 
@@ -80,9 +80,9 @@
     sql: ${TABLE}.c8002_section
     drill_fields: [product, category]
 
-  - dimension: site
-    type: string
-    sql: ${TABLE}.c8002_site
+#  - dimension: site
+#    type: string
+#    sql: ${TABLE}.c8002_site
     
   - dimension: title
     type: string

@@ -8,6 +8,7 @@
     sql: |
         SELECT 
         DATE(contentview.c8002_datetime) as "c8002_datetime",
+        contentview.c8002_action,
         contentview.c8002_category,
         contentview.c8002_channel,
         contentview.c8002_product ,
@@ -15,8 +16,8 @@
         contentview.c8002_platform ,
         contentview.c8002_news ,
         contentview.c8002_section ,
-        contentview.c8002_site ,
-        contentview.c8002_br ,
+        contentview.c8002_nxtu_or_did ,
+        contentview.c8002_cid ,
         COUNT(CASE WHEN (contentview.c8002_action = 'PAGEVIEW') THEN 1 ELSE NULL END) AS "total_page_views",
         COUNT(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') THEN 1 ELSE NULL END) AS "total_video_views",
         AVG(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') 
@@ -29,9 +30,15 @@
 
   fields:
 
-  - dimension: browser
+  - dimension: view_type
+    description: 'PAGEVIEW or VIDEOVIEW'
+    alias: [action]
     type: string
-    sql: ${TABLE}.c8002_br
+    sql: ${TABLE}.c8002_action
+    
+#  - dimension: browser
+#    type: string
+#    sql: ${TABLE}.c8002_br
 
   - dimension: category
     type: string
@@ -41,6 +48,11 @@
   - dimension: channel
     type: string
     sql: ${TABLE}.c8002_channel
+    
+  - dimension: content_id
+#    view_label: Content
+    type: string
+    sql: ${TABLE}.c8002_cid   
 
   - dimension_group: view
     type: time
@@ -71,9 +83,15 @@
     sql: ${TABLE}.c8002_section
     drill_fields: [product, category]
 
-  - dimension: site
+#  - dimension: site
+#    type: string
+#    sql: ${TABLE}.c8002_site
+    
+  - dimension: user_id
+    hidden: true
+#    view_label: User
     type: string
-    sql: ${TABLE}.c8002_site
+    sql: ${TABLE}.c8002_nxtu_or_did
 
   #### measures #############
 
@@ -108,4 +126,18 @@
     type: average
     value_format: '#,##0'
     sql: ${avg_video_duration}
+    
+  - measure: count
+    type: count
+    drill_fields: []
+    
+  - measure: distinct_users
+#    view_label: User
+    type: count_distinct
+    sql: ${user_id}  
+    
+  - measure: distinct_content
+#    view_label: Content
+    type: count_distinct
+    sql: ${content_id} 
     

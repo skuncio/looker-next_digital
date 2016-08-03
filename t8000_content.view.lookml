@@ -11,7 +11,7 @@
     type: string
     sql: ${TABLE}.c8000_cid
 
-  - dimension: content
+  - dimension: content_type
     type: string
     sql: ${TABLE}.c8000_content
 
