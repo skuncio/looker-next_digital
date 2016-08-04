@@ -5,6 +5,10 @@
   - dimension: c3016_action
     type: string
     sql: ${TABLE}.c3016_action
+    
+  - dimension: c3016_artid
+    type: string
+    sql: ${TABLE}.c3016_artid
 
   - dimension: c3016_category
     type: string

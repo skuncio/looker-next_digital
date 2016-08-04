@@ -12,10 +12,18 @@
 #     type: string
 #     sql: ${TABLE}.c8002_adid
 
-  - dimension: browser
-    view_label: User
+  - dimension: c8002_app_version
     type: string
-    sql: ${TABLE}.c8002_br
+    sql: ${TABLE}.c8002_app_version
+
+  - dimension: c8002_artid
+    type: string
+    sql: ${TABLE}.c8002_artid
+
+#  - dimension: browser
+#    view_label: User
+#    type: string
+#    sql: ${TABLE}.c8002_br
 
 #   - dimension: bv
 #     type: string
@@ -98,9 +106,17 @@
 #     type: string
 #     sql: ${TABLE}.c8002_ip
 
-#   - dimension: issueid
-#     type: string
-#     sql: ${TABLE}.c8002_issueid
+  - dimension: issueid
+    type: string
+    sql: ${TABLE}.c8002_issueid
+   
+  - dimension: c8002_keyword
+    type: string
+    sql: ${TABLE}.c8002_keyword
+
+  - dimension: c8002_language
+    type: string
+    sql: ${TABLE}.c8002_language
 
   - dimension: lat
     hidden: true

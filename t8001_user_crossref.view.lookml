@@ -62,11 +62,11 @@
     type: string
     sql: ${TABLE}.c8001_nxtu_or_did
 
-  - dimension_group: c8001_update
-    type: time
-    timeframes: [date, week, month]
-    convert_tz: false
-    sql: ${TABLE}.c8001_update_date
+#  - dimension_group: c8001_update
+#    type: time
+#    timeframes: [date, week, month]
+#    convert_tz: false
+#    sql: ${TABLE}.c8001_update_date
 
   - measure: count
     type: count

@@ -10,6 +10,14 @@
     type: string
     sql: ${TABLE}.c8002_adid
 
+  - dimension: c8002_app_version
+    type: string
+    sql: ${TABLE}.c8002_app_version
+
+  - dimension: c8002_artid
+    type: string
+    sql: ${TABLE}.c8002_artid
+
   - dimension: c8002_auth
     type: string
     sql: ${TABLE}.c8002_auth
@@ -98,6 +106,14 @@
   - dimension: c8002_issueid
     type: string
     sql: ${TABLE}.c8002_issueid
+
+  - dimension: c8002_keyword
+    type: string
+    sql: ${TABLE}.c8002_keyword
+
+  - dimension: c8002_language
+    type: string
+    sql: ${TABLE}.c8002_language
 
   - dimension: c8002_lat
     type: number
