@@ -17,9 +17,6 @@
         contentview.c8002_channel,
         contentview.c8002_section ,
         contentview.c8002_news ,
-        contentview.c8002_region ,
-        contentview.c8002_platform ,
-        contentview.c8002_app_version,
         contentview.c8002_action,
         contentview.c8002_cid ,
         contentview.c8002_artid,
@@ -31,7 +28,7 @@
         AVG(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') 
         THEN contentview.c8002_video_duration ELSE NULL END ) AS "average_duration"
         FROM public.t8002_contentview AS contentview
-        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
+        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
         ORDER BY 1,2,3,4 ASC
 
 
