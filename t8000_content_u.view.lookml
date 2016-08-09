@@ -14,6 +14,10 @@
     type: string
     sql: ${TABLE}.c8000_content
 
+  - dimension: c8000_content_src
+    type: string
+    sql: ${TABLE}.c8000_content_src
+
   - dimension: c8000_media
     type: string
     sql: ${TABLE}.c8000_media
@@ -25,10 +29,6 @@
   - dimension: c8000_region
     type: string
     sql: ${TABLE}.c8000_region
-
-  - dimension: c8000_src
-    type: string
-    sql: ${TABLE}.c8000_src
 
   - dimension: c8000_video_length
     type: number
