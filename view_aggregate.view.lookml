@@ -11,20 +11,23 @@
         contentview.c8002_product ,
         contentview.c8002_region ,
         contentview.c8002_platform ,
+        contentview.c8002_source ,
+        contentview.c8002_app_version,  
         contentview.c8002_category,
         contentview.c8002_channel,
         contentview.c8002_section ,
         contentview.c8002_news ,
         contentview.c8002_action,
         contentview.c8002_cid ,
+        contentview.c8002_artid ,
         contentview.c8002_nxtu_or_did ,
         COUNT(CASE WHEN (contentview.c8002_action = 'PAGEVIEW') THEN 1 ELSE NULL END) AS "total_page_views",
         COUNT(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') THEN 1 ELSE NULL END) AS "total_video_views",
         AVG(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') 
         THEN contentview.c8002_video_duration ELSE NULL END ) AS "average_duration"
         FROM public.t8002_contentview AS contentview
-        GROUP BY 1,2,3,4,5,6,7,8,9,10,11
-        ORDER BY 1,2,3,4,5,6,7 ASC
+        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14
+        ORDER BY 1,2,3,4,5,6,7,8,9 ASC
 
 
 
@@ -40,14 +43,23 @@
 #    type: string
 #    sql: ${TABLE}.c8002_br
 
+  - dimension: app_version
+    type: string
+    sql: ${TABLE}.c8002_app_version
+    
+  - dimension: artid
+    type: string
+    sql: ${TABLE}.c8002_artid
+
   - dimension: category
     type: string
     sql: ${TABLE}.c8002_category
-    drill_fields: [section, product]
+    drill_fields: [channel, section, news]
 
   - dimension: channel
     type: string
     sql: ${TABLE}.c8002_channel
+    drill_fields: [category, section, news]
     
   - dimension: content_id
 #    view_label: Content
@@ -81,11 +93,15 @@
   - dimension: section
     type: string
     sql: ${TABLE}.c8002_section
-    drill_fields: [product, category]
+    drill_fields: [channel, news]
 
 #  - dimension: site
 #    type: string
 #    sql: ${TABLE}.c8002_site
+
+  - dimension: source
+    type: string
+    sql: ${TABLE}.c8002_source
     
   - dimension: user_id
     hidden: true
