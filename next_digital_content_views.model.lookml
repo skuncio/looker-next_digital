@@ -28,11 +28,11 @@
   sql_always_where: ${view_type} = 'PAGEVIEW'
   
 - explore: view_aggregate 
-  label: 1) All Content Views - Summary
-  view_label: Summary Views
+  label: 2) Content & Users - Summary
+  view_label: Content & Users
 
 - explore: view_agg_with_article
-  label: 2) Articles & Videos - Summary
+  label: 1) Articles & Videos - Summary
   view_label: Article & Video Views - Summary
 
 - explore: dashboard_headers
