@@ -46,11 +46,11 @@
     type: string
     sql: ${TABLE}.c8002_action
     
-  - dimension: c8002_app_version
+  - dimension: app_version
     type: string
     sql: ${TABLE}.c8002_app_version
 
-  - dimension: c8002_artid
+  - dimension: artid
     type: string
     sql: ${TABLE}.c8002_artid
 
@@ -73,11 +73,11 @@
     convert_tz: false
     sql: ${TABLE}.c8002_datetime
 
-  - dimension: c8002_keyword
+  - dimension: keyword
     type: string
     sql: ${TABLE}.c8002_keyword
 
-  - dimension: c8002_language
+  - dimension: language
     type: string
     sql: ${TABLE}.c8002_language
 
@@ -107,7 +107,7 @@
 #    type: string
 #    sql: ${TABLE}.c8002_site
 
-  - dimension: c8002_source
+  - dimension: source
     type: string
     sql: ${TABLE}.c8002_source
     
