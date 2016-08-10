@@ -12,7 +12,7 @@
 #     type: string
 #     sql: ${TABLE}.c8002_adid
 
-  - dimension: c8002_app_version
+  - dimension: app_version
     type: string
     sql: ${TABLE}.c8002_app_version
 
@@ -63,9 +63,10 @@
     convert_tz: false
     sql: ${TABLE}.c8002_datetime
 
-#   - dimension: dcc_id
-#     type: string
-#     sql: ${TABLE}.c8002_dcc_id
+  - dimension: dcc_id
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_dcc_id
 
   - dimension: depth
     type: number
@@ -80,17 +81,19 @@
 #     type: string
 #     sql: ${TABLE}.c8002_did
 
-#   - dimension: district_id
-#     type: string
-#     sql: ${TABLE}.c8002_district_id
+  - dimension: district_id
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_district_id
 
-#   - dimension: dma
-#     type: string
-#     sql: ${TABLE}.c8002_dma
+  - dimension: dma
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_dma
 
-#   - dimension: edm
-#     type: string
-#     sql: ${TABLE}.c8002_edm
+  - dimension: edm
+    type: string
+    sql: ${TABLE}.c8002_edm
 
 #   - dimension: gaid
 #     view_label: User
@@ -102,19 +105,20 @@
 #     type: string
 #     sql: ${TABLE}.c8002_gigyaid
 
-#   - dimension: ip
-#     type: string
-#     sql: ${TABLE}.c8002_ip
+  - dimension: ip
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_ip
 
   - dimension: issueid
     type: string
     sql: ${TABLE}.c8002_issueid
    
-  - dimension: c8002_keyword
+  - dimension: keyword
     type: string
     sql: ${TABLE}.c8002_keyword
 
-  - dimension: c8002_language
+  - dimension: language
     type: string
     sql: ${TABLE}.c8002_language
 
@@ -163,7 +167,7 @@
     sql: ${TABLE}.c8002_product
 
   - dimension: referring_url
-    view_label: User
+#    view_label: User
     alias: [ref_url]
     type: string
     sql: ${TABLE}.c8002_ref_url
@@ -176,6 +180,10 @@
   - dimension: section
     type: string
     sql: ${TABLE}.c8002_section
+    
+  - dimension: source
+    type: string
+    sql: ${TABLE}.c8002_source
 
   - dimension: site
     type: string
@@ -186,9 +194,10 @@
     type: string
     sql: ${TABLE}.c8002_state
 
-#   - dimension: street_id
-#     type: string
-#     sql: ${TABLE}.c8002_street_id
+  - dimension: street_id
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_street_id
 
   - dimension: subsection
     type: string
@@ -249,7 +258,7 @@
 #    type: count_distinct
 #    sql: ${user_id}  
     
-  - measure: distinct_content
-    type: count_distinct
-    sql: ${cid}   
+#  - measure: distinct_content
+#    type: count_distinct
+#    sql: ${cid}   
 
