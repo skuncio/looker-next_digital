@@ -15,7 +15,7 @@
     type: string
     sql: ${TABLE}.c8000_content
 
-  - dimension: c8000_media
+  - dimension: media
     type: string
     sql: ${TABLE}.c8000_media
 

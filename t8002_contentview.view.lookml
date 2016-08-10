@@ -16,7 +16,7 @@
     type: string
     sql: ${TABLE}.c8002_app_version
 
-  - dimension: c8002_artid
+  - dimension: artid
     type: string
     sql: ${TABLE}.c8002_artid
 
