@@ -13,6 +13,7 @@
 #     sql: ${TABLE}.c8002_adid
 
   - dimension: app_version
+    view_label: User
     type: string
     sql: ${TABLE}.c8002_app_version
 
@@ -215,7 +216,8 @@
     type: string
     sql: ${TABLE}.c8002_title
 
-  - dimension: ua
+  - dimension: user_agent
+    view_label: User
     type: string
     sql: ${TABLE}.c8002_ua
 
