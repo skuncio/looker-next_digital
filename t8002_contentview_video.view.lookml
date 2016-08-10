@@ -50,11 +50,20 @@
     type: string
     sql: ${TABLE}.c8002_action
 
-  - dimension: adid
-    type: string
-    sql: ${TABLE}.c8002_adid
+#   - dimension: adid
+#     type: string
+#     sql: ${TABLE}.c8002_adid
 
-  - dimension: browser
+  - dimension: app_version
+    view_label: User
+    type: string
+    sql: ${TABLE}.c8002_app_version
+
+  - dimension: artid
+    type: string
+    sql: ${TABLE}.c8002_artid
+
+  - dimension: user_browser
     view_label: User
     type: string
     sql: ${TABLE}.c8002_br
@@ -97,15 +106,16 @@
     convert_tz: false
     sql: ${TABLE}.c8002_datetime
 
-#   - dimension: dcc_id
-#     type: string
-#     sql: ${TABLE}.c8002_dcc_id
+  - dimension: dcc_id
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_dcc_id
 
   - dimension: depth
     type: number
     sql: ${TABLE}.c8002_depth
 
-  - dimension: device
+  - dimension: user_device
     view_label: User
     type: string
     sql: ${TABLE}.c8002_device
@@ -114,17 +124,19 @@
 #     type: string
 #     sql: ${TABLE}.c8002_did
 
-#   - dimension: district_id
-#     type: string
-#     sql: ${TABLE}.c8002_district_id
+  - dimension: district_id
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_district_id
 
-#   - dimension: dma
-#     type: string
-#     sql: ${TABLE}.c8002_dma
+  - dimension: dma
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_dma
 
-#   - dimension: edm
-#     type: string
-#     sql: ${TABLE}.c8002_edm
+  - dimension: edm
+    type: string
+    sql: ${TABLE}.c8002_edm
 
 #   - dimension: gaid
 #     view_label: User
@@ -136,21 +148,30 @@
 #     type: string
 #     sql: ${TABLE}.c8002_gigyaid
 
-#   - dimension: ip
-#     type: string
-#     sql: ${TABLE}.c8002_ip
+  - dimension: ip
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_ip
 
-#   - dimension: issueid
-#     type: string
-#     sql: ${TABLE}.c8002_issueid
+  - dimension: issueid
+    type: string
+    sql: ${TABLE}.c8002_issueid
+   
+  - dimension: keyword
+    type: string
+    sql: ${TABLE}.c8002_keyword
+
+  - dimension: language
+    type: string
+    sql: ${TABLE}.c8002_language
 
   - dimension: lat
-#    hidden: true
+    hidden: true
     type: number
     sql: ${TABLE}.c8002_lat
 
   - dimension: lon
-#    hidden: true
+    hidden: true
     type: number
     sql: ${TABLE}.c8002_lon
 
@@ -180,7 +201,7 @@
     sql: ${TABLE}.c8002_nxtu_or_did
 
   - dimension: platform
-    view_label: User
+#    view_label: User
     type: string
     sql: ${TABLE}.c8002_platform
 
@@ -189,19 +210,23 @@
     sql: ${TABLE}.c8002_product
 
   - dimension: referring_url
-    view_label: User
+#    view_label: User
     alias: [ref_url]
     type: string
     sql: ${TABLE}.c8002_ref_url
 
   - dimension: region
-    view_label: Location
+#    view_label: Location
     type: string
     sql: ${TABLE}.c8002_region
 
   - dimension: section
     type: string
     sql: ${TABLE}.c8002_section
+    
+  - dimension: source
+    type: string
+    sql: ${TABLE}.c8002_source
 
   - dimension: site
     type: string
@@ -212,17 +237,18 @@
     type: string
     sql: ${TABLE}.c8002_state
 
-#   - dimension: street_id
-#     type: string
-#     sql: ${TABLE}.c8002_street_id
+  - dimension: street_id
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_street_id
 
   - dimension: subsection
     type: string
     sql: ${TABLE}.c8002_subsection
 
-  - dimension: subsubsection
-    type: string
-    sql: ${TABLE}.c8002_subsubsection
+#  - dimension: subsubsection
+#    type: string
+#    sql: ${TABLE}.c8002_subsubsection
 
 #   - dimension: sz
 #     type: string
@@ -232,7 +258,8 @@
     type: string
     sql: ${TABLE}.c8002_title
 
-  - dimension: ua
+  - dimension: user_agent
+    view_label: User
     type: string
     sql: ${TABLE}.c8002_ua
 
@@ -256,10 +283,10 @@
     type: count
     drill_fields: []
     
-  - measure: total_page_views  
-    type: count
-    filters:
-      view_type: 'PAGEVIEW'
+#  - measure: total_page_views  
+#    type: count
+#    filters:
+#      view_type: 'PAGEVIEW'
       
   - measure: total_video_views  
     type: count
@@ -270,10 +297,10 @@
     type: average
     sql: ${video_duration}
     
-  - measure: distinct_users
-    view_label: User
-    type: count_distinct
-    sql: ${user_id}  
+#  - measure: distinct_users
+#   view_label: User
+#    type: count_distinct
+#    sql: ${user_id}  
     
   - measure: distinct_content
     type: count_distinct
