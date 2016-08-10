@@ -73,7 +73,7 @@
     type: number
     sql: ${TABLE}.c8002_depth
 
-  - dimension: device
+  - dimension: user_device
     view_label: User
     type: string
     sql: ${TABLE}.c8002_device
