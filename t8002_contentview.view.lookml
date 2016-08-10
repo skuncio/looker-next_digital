@@ -21,10 +21,10 @@
     type: string
     sql: ${TABLE}.c8002_artid
 
-#  - dimension: browser
-#    view_label: User
-#    type: string
-#    sql: ${TABLE}.c8002_br
+  - dimension: user_browser
+    view_label: User
+    type: string
+    sql: ${TABLE}.c8002_br
 
 #   - dimension: bv
 #     type: string
