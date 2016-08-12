@@ -20,7 +20,8 @@
 - explore: contentview_video      
   label: 5) Video Views - Detail
   view_label: Video Views
-  sql_always_where: ${lat} != 0 and ${lon} != 0 and ${view_type} = 'VIDEOVIEW'
+  sql_always_where:  ${view_type} = 'VIDEOVIEW'
+#  sql_always_where: ${lat} != 0 and ${lon} != 0 and ${view_type} = 'VIDEOVIEW'
   
 - explore: contentview_page  
   label: 4) Page Views - Detail
