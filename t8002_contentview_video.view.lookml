@@ -166,12 +166,12 @@
     sql: ${TABLE}.c8002_language
 
   - dimension: lat
-    hidden: true
+#    hidden: true
     type: number
     sql: ${TABLE}.c8002_lat
 
   - dimension: lon
-    hidden: true
+#    hidden: true
     type: number
     sql: ${TABLE}.c8002_lon
 
