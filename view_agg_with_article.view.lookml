@@ -150,4 +150,8 @@
     value_format: '#,##0'
     sql: ${avg_video_duration}
     
+  - measure: count
+    type: count
+    drill_fields: []
+    
 
