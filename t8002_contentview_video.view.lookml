@@ -167,11 +167,13 @@
 
   - dimension: lat
 #    hidden: true
+    view_label: Location
     type: number
     sql: ${TABLE}.c8002_lat
 
   - dimension: lon
 #    hidden: true
+    view_label: Location
     type: number
     sql: ${TABLE}.c8002_lon
 
