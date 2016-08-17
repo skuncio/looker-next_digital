@@ -3,7 +3,7 @@
 # Or, you could make this view a derived table, like this :
   derived_table:
 #    sql_trigger_value: select date(convert_timezone('hkt', getdate()))
-    sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from GETDATE()) - 60*60*20)/(60*60*24))
+    sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from convert_timezone('HKT',GETDATE())) - 60*60*4)/(60*60*24))
     sortkeys: [c8002_datetime]
     distkey: c8002_datetime
     sql: |
