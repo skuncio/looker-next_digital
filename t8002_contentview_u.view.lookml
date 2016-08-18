@@ -60,9 +60,10 @@
 
   - dimension_group: c8002_datetime
     type: time
-    timeframes: [time, date, week, month]
+    timeframes: [time, date, week, month, year, hour_of_day]
+    convert_tz: false
     sql: ${TABLE}.c8002_datetime
-
+    
   - dimension: c8002_dcc_id
     type: string
     sql: ${TABLE}.c8002_dcc_id
