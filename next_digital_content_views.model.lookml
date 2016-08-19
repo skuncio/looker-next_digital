@@ -42,7 +42,7 @@
   
 
 - explore: t3016_seg_agg_cid_day 
-  label: 6) Content IDs (by Imp Type)
+  label: 6) Content ID Views (by Imp Type)
   view_label: CID Views
   
 # - explore: user_crossref
