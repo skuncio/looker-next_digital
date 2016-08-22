@@ -9,7 +9,7 @@
     distkey: c8002_datetime
     sql: |
         SELECT 
-        DATE(CONVERT_TIMEZONE('UTC', 'Hongkong', t8002_contentview.c8002_datetime)) as "c8002_datetime",
+        DATE(CONVERT_TIMEZONE('UTC', 'Hongkong', contentview.c8002_datetime)) as "c8002_datetime",
         contentview.c8002_product ,
         contentview.c8002_region ,
         contentview.c8002_platform ,
