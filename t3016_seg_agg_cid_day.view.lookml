@@ -36,9 +36,9 @@
     convert_tz: false
     sql: ${TABLE}.c3016_date_id
 
-  - dimension: c3016_durations
-    type: number
-    sql: ${TABLE}.c3016_durations
+#  - dimension: c3016_durations
+#    type: number
+#    sql: ${TABLE}.c3016_durations
 
   - dimension: c3016_edm
     type: string
@@ -100,13 +100,13 @@
     type: string
     sql: ${TABLE}.c3016_title
 
-  - dimension: c3016_unique_users
-    type: number
-    sql: ${TABLE}.c3016_unique_users
+#  - dimension: c3016_unique_users
+#    type: number
+#    sql: ${TABLE}.c3016_unique_users
 
-  - dimension: c3016_visits
-    type: number
-    sql: ${TABLE}.c3016_visits
+#  - dimension: c3016_visits
+#    type: number
+#    sql: ${TABLE}.c3016_visits
 
   - measure: Impression_Sum
     type: sum
