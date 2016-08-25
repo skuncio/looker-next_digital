@@ -73,7 +73,7 @@
   - dimension_group: view
     type: time
     timeframes: [time, date, week, month, year]
-    convert_tz: false
+    convert_tz: true
     sql: ${TABLE}.c8002_datetime
     
   - dimension: edm
