@@ -72,7 +72,7 @@
 
   - dimension_group: view
     type: time
-    timeframes: [time, date, week, month, year, hour_of_day]
+    timeframes: [time, date, week, month, year]
     convert_tz: false
     sql: ${TABLE}.c8002_datetime
     
