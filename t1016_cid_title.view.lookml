@@ -45,19 +45,25 @@
 #       type: sum
 #       sql: ${lifetime_orders}
 
-
   - dimension: c1016_cid
     type: string
     sql: ${TABLE}.c1016_cid
     
-
-
   - dimension: c1016_title
     type: string
     sql: ${TABLE}.c1016_title
-  
-
+    
   - dimension: c1016_imp_type
     type: string
     sql: ${TABLE}.c1016_imp_type
+    
+  - dimension_group: c1016_date_id
+    type: time
+    timeframes: [date, week, month]
+    convert_tz: false
+    sql: ${TABLE}.c1016_date_id
+    
+  - measure: count
+    type: count
+    drill_fields: []
     
