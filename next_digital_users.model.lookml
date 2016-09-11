@@ -23,6 +23,8 @@
 
 - explore: t1016_cid_title
 
+- explore: t4003_animated_cid
+
 #- explore: sql_runner_query_adid_analysis
 
 #- explore: t8003_geo_location
