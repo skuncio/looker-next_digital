@@ -48,7 +48,7 @@
 - explore: view_agg_with_article_video
   label: 7) Animated Video Views - Summary
   view_label: Animated Video Views - Summary
-  sql_always_where:  ${c8002_action} = 'VIDEOVIEW'
+#  sql_always_where:  ${c8002_action} = 'VIDEOVIEW'
   joins:
       - join: t4003_animated_cid
         view_label: Animated Video Views
