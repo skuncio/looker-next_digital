@@ -37,13 +37,25 @@
   view_label: Article & Video Views - Summary
 
 - explore: dashboard_headers
-  label: 6) Dashboard Headers
+  label: 8) Dashboard Headers
   hidden: true
   
 
 - explore: t3016_seg_agg_cid_day 
   label: 6) Content ID Views (by Imp Type)
   view_label: CID Views
+  
+- explore: view_agg_with_article_video
+  label: 7) Animated Video Views - Summary
+  view_label: Animated Video Views - Summary
+  sql_always_where:  ${c8002_action} = 'VIDEOVIEW'
+  joins:
+      - join: t4003_animated_cid
+        view_label: Animated Video Views
+        sql_on: ${view_agg_with_article_video.c8002_cid} = ${t4003_animated_cid.c4003_cid}
+        relationship: many_to_one
+        type: left_outer
+        
   
 # - explore: user_crossref
 

@@ -13,7 +13,7 @@
   - dimension: c4003_imp_type
     type: string
     sql: ${TABLE}.c4003_imp_type
-
+    
   - measure: count
     type: count
     drill_fields: []

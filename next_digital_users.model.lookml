@@ -24,6 +24,7 @@
 - explore: t1016_cid_title
 
 - explore: t4003_animated_cid
+  sql_always_where:  ${c4003_imp_type} = 'V'
 
 #- explore: sql_runner_query_adid_analysis
 
