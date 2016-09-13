@@ -47,12 +47,12 @@
   joins:
       - join: t4003_animated_cid
         view_label: Animated Indicator
-        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t4003_animated_cid.c4003_cid}
+        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t4003_animated_cid.c4003_cid} and ${t3016_seg_agg_cid_day.c3016_imp_type} = ${t4003_animated_cid.c4003_imp_type}
         relationship: many_to_one
         type: left_outer
       - join: t1016_cid_title
         view_label: Most Used Title
-        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t4003_animated_cid.c4003_cid}
+        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t1016_cid_title.c1016_cid} and ${t3016_seg_agg_cid_day.c3016_imp_type} = ${t1016_cid_title.c1016_imp_type}
         relationship: many_to_one
         type: left_outer
   
