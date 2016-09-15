@@ -19,13 +19,13 @@
     type: string
     sql: ${TABLE}.c8000_media
 
-#   - dimension: c8000_product
-#     type: string
-#     sql: ${TABLE}.c8000_product
-# 
-#   - dimension: c8000_region
-#     type: string
-#     sql: ${TABLE}.c8000_region
+  - dimension: product
+    type: string
+    sql: ${TABLE}.c8000_product
+ 
+  - dimension: region
+    type: string
+    sql: ${TABLE}.c8000_region
 
   - dimension: content_src
     type: string
