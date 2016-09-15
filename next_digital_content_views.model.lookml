@@ -48,7 +48,7 @@
         type: left_outer 
       - join: content
         view_label: Video Length & URL
-        sql_on: c8002_cid = ${content.cid} and NOT (${content.video_path} = '0') and ${content.product} = 'Ápple Daily'
+        sql_on: c8002_cid = ${content.cid} and c8002_region = ${content.region} and c8002_product = ${content.product} 
         relationship: many_to_one
         type: left_outer
 
