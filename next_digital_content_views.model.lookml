@@ -45,7 +45,12 @@
         view_label: Most Used Title
         sql_on: c8002_cid = ${t1016_cid_title.c1016_cid} 
         relationship: many_to_one
-        type: left_outer  
+        type: left_outer 
+      - join: content
+        view_label: Video Length & URL
+        sql_on: c8002_cid = ${content.cid} and ${content.video_path} not null
+        relationship: many_to_one
+        type: left_outer
 
 - explore: dashboard_headers
   label: 8) Dashboard Headers
