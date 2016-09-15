@@ -28,9 +28,9 @@
   view_label: Page Views
   sql_always_where: ${view_type} = 'PAGEVIEW'
   
-- explore: view_aggregate 
-  label: 2) Content & Users - Summary
-  view_label: Content & Users
+#- explore: view_aggregate 
+#  label: 2) Content & Users - Summary
+#  view_label: Content & Users
 
 - explore: view_agg_with_article
   label: 1) Articles & Videos - Summary
