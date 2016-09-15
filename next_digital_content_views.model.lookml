@@ -48,7 +48,7 @@
         type: left_outer 
       - join: content
         view_label: Video Length & URL
-        sql_on: c8002_cid = ${content.cid} and ${content.video_path} not null
+        sql_on: c8002_cid = ${content.cid} and ${content.video_path} IS NOT NULL
         relationship: many_to_one
         type: left_outer
 
