@@ -38,12 +38,12 @@
   joins:
       - join: t4003_animated_cid
         view_label: Animated Indicator
-        sql_on: looker_scratch.LR$AXCYTYHEKKNU5GGGZVK3E_view_agg_with_article.c8002_cid = ${t4003_animated_cid.c4003_cid} 
+        sql_on: c8002_cid = ${t4003_animated_cid.c4003_cid} 
         relationship: many_to_one
         type: left_outer
       - join: t1016_cid_title
         view_label: Most Used Title
-        sql_on: looker_scratch.LR$AXCYTYHEKKNU5GGGZVK3E_view_agg_with_article.c8002_cid = ${t1016_cid_title.c1016_cid} 
+        sql_on: c8002_cid = ${t1016_cid_title.c1016_cid} 
         relationship: many_to_one
         type: left_outer  
 
