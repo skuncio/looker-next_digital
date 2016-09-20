@@ -61,7 +61,7 @@
   - dimension_group: view
     type: time
     timeframes: [time, date, week, month, year, hour_of_day]
-    convert_tz: true
+    convert_tz: false
     sql: ${TABLE}.c8002_datetime
 
   - dimension: dcc_id
