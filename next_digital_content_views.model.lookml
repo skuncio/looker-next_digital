@@ -50,7 +50,7 @@
 
 
 - explore: view_agg_with_article
-  label: 1) Articles & Videos - Summary
+  label: 1) Articles & Videos - Summary (NOT AVAILABLE)
   view_label: Article & Video Views - Summary
   joins:
       - join: t4003_animated_cid
