@@ -28,29 +28,29 @@
   view_label: Page Views
   sql_always_where: ${view_type} = 'PAGEVIEW'
   
-- explore: view_aggregate 
-  label: 2) Content & Users - Summary
-  view_label: Content & Users
-  joins:
-      - join: t4003_animated_cid
-        view_label: Animated Indicator
-        sql_on: c8002_cid = ${t4003_animated_cid.c4003_cid} and ${t4003_animated_cid.c4003_imp_type} = 'V'
-        relationship: many_to_one
-        type: left_outer
-      - join: t1016_cid_title
-        view_label: Most Used Title
-        sql_on: c8002_cid = ${t1016_cid_title.c1016_cid} and ${t1016_cid_title.c1016_imp_type} = 'V'
-        relationship: many_to_one
-        type: left_outer 
-      - join: content
-        view_label: Video Length & URL
-        sql_on: c8002_cid = ${content.cid} and c8002_region = ${content.region} and c8002_product = ${content.product} 
-        relationship: many_to_one
-        type: left_outer
+#- explore: view_aggregate 
+#  label: 2) Content & Users - Summary
+#  view_label: Content & Users
+#  joins:
+#      - join: t4003_animated_cid
+#       view_label: Animated Indicator
+#        sql_on: c8002_cid = ${t4003_animated_cid.c4003_cid} and ${t4003_animated_cid.c4003_imp_type} = 'V'
+#        relationship: many_to_one
+#        type: left_outer
+#      - join: t1016_cid_title
+#        view_label: Most Used Title
+#        sql_on: c8002_cid = ${t1016_cid_title.c1016_cid} and ${t1016_cid_title.c1016_imp_type} = 'V'
+#        relationship: many_to_one
+#        type: left_outer 
+#      - join: content
+#        view_label: Video Length & URL
+#        sql_on: c8002_cid = ${content.cid} and c8002_region = ${content.region} and c8002_product = ${content.product} 
+#        relationship: many_to_one
+#        type: left_outer
 
 
 - explore: view_agg_with_article
-  label: 1) Articles & Videos - Summary (NOT AVAILABLE)
+  label: 1) Articles & Videos - Summary 
   view_label: Article & Video Views - Summary
   joins:
       - join: t4003_animated_cid
