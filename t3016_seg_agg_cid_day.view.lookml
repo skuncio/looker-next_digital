@@ -110,6 +110,7 @@
 
   - measure: Impression_Sum
     type: sum
+    value_format: '[>=1000000]0.0,,"M";[>=1000]0.0,"K";0'    
     sql: ${c3016_imps}
 
   - measure: count
