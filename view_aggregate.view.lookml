@@ -7,6 +7,8 @@
 #    sql: |
 #        SELECT 
 #        DATE(CONVERT_TIMEZONE('UTC', 'Hongkong', contentview.c8002_datetime)) as "c8002_datetime",
+#        contentview.c8002_artid ,
+#        ORDER BY 1,2,3,4,5,6,7,8,9 ASC
 #    sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from convert_timezone('HKT',GETDATE())) - 60*60*4)/(60*60*24))
 #    sql_trigger_value: SELECT 1
     persist_for: 72 hours
@@ -26,7 +28,6 @@
         contentview.c8002_news ,
         contentview.c8002_action,
         contentview.c8002_cid ,
-        contentview.c8002_artid ,
         contentview.c8002_nxtu_or_did ,
         COUNT(CASE WHEN (contentview.c8002_action = 'PAGEVIEW') THEN 1 ELSE NULL END) AS "total_page_views",
         COUNT(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') THEN 1 ELSE NULL END) AS "total_video_views",
@@ -34,8 +35,6 @@
         THEN contentview.c8002_video_duration ELSE NULL END ) AS "average_duration"
         FROM public.t8002_contentview AS contentview
         GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14
-        ORDER BY 1,2,3,4,5,6,7,8,9 ASC
-
 
 
   fields:
