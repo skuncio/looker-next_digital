@@ -21,6 +21,10 @@
   - dimension: c8002_auth
     type: string
     sql: ${TABLE}.c8002_auth
+    
+  - dimension: c8002_auto
+    type: string
+    sql: ${TABLE}.c8002_auto
 
   - dimension: c8002_br
     type: string

@@ -20,6 +20,10 @@
   - dimension: artid
     type: string
     sql: ${TABLE}.c8002_artid
+    
+  - dimension: auto_play
+    type: string
+    sql: ${TABLE}.c8002_auto
 
   - dimension: user_browser
     view_label: User
