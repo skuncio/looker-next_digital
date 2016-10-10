@@ -29,7 +29,8 @@
   view_label: Page Views
   sql_always_where: ${view_type} = 'PAGEVIEW'
   
-- explore: view_aggregate_tmp 
+#- explore: view_aggregate_tmp
+- explore: view_aggregate
   label: 2) Content & Users - Summary
   view_label: Content & Users
   joins:
