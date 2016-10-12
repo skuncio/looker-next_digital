@@ -259,10 +259,10 @@
     type: average
     sql: ${video_duration}
     
-#  - measure: distinct_users
-#    view_label: User
-#    type: count_distinct
-#    sql: ${user_id}  
+  - measure: distinct_users
+    view_label: User
+    type: count_distinct
+    sql: ${user_id}  
     
 #  - measure: distinct_content
 #    type: count_distinct
