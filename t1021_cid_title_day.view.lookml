@@ -6,24 +6,18 @@
     type: string
     sql: ${TABLE}.c1021_anim_type
 
-  - dimension_group: c1021_change
-    type: time
-    timeframes: [date, week, month]
-    convert_tz: false
-    sql: ${TABLE}.c1021_change_date
-
   - dimension: c1021_cid
     type: string
     sql: ${TABLE}.c1021_cid
 
+  - dimension_group: c1021_create
+    type: time
+    timeframes: [time, date, week, month]
+    sql: ${TABLE}.c1021_create_date
+
   - dimension: c1021_imp_type
     type: string
     sql: ${TABLE}.c1021_imp_type
-
-  - dimension_group: c1021_ml_anim_title_ts
-    type: time
-    timeframes: [time, date, week, month]
-    sql: ${TABLE}.c1021_ml_anim_title_ts
 
   - dimension: c1021_ml_log_ind
     type: string
@@ -40,6 +34,11 @@
   - dimension: c1021_title
     type: string
     sql: ${TABLE}.c1021_title
+
+  - dimension_group: c1021_update
+    type: time
+    timeframes: [time, date, week, month]
+    sql: ${TABLE}.c1021_update_date
 
   - dimension: c1021_video_length
     type: number
