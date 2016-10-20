@@ -6,6 +6,10 @@
     type: string
     sql: ${TABLE}.c1021_anim_type
 
+  - dimension: c1021_artid
+    type: string
+    sql: ${TABLE}.c1021_artid
+
   - dimension: c1021_cid
     type: string
     sql: ${TABLE}.c1021_cid
