@@ -24,7 +24,7 @@
         contentview.c8002_section ,
         contentview.c8002_issueid,
         contentview.c8002_news ,
-        contentview.c8002_content 
+        contentview.c8002_content, 
         contentview.c8002_edm,
         contentview.c8002_action,
         contentview.c8002_cid ,
