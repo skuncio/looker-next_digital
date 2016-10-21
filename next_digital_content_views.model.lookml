@@ -34,16 +34,16 @@
   label: 2) Content & Users - Summary
   view_label: Content & Users
   joins:
-      - join: t4003_animated_cid
+      - join: t1021_cid_title_day
         view_label: Animated Indicator
-        sql_on: c8002_cid = ${t4003_animated_cid.c4003_cid} and ${t4003_animated_cid.c4003_imp_type} = 'V'
+        sql_on: c8002_cid = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and c8002_region = ${t1021_cid_title_day.c1021_region} and c8002_product = ${t1021_cid_title_day.c1021_product}
         relationship: many_to_one
         type: left_outer
-      - join: t1016_cid_title
-        view_label: Most Used Title
-        sql_on: c8002_cid = ${t1016_cid_title.c1016_cid} and ${t1016_cid_title.c1016_imp_type} = 'V'
-        relationship: many_to_one
-        type: left_outer 
+#      - join: t1016_cid_title
+#        view_label: Most Used Title
+#        sql_on: c8002_cid = ${t1016_cid_title.c1016_cid} and ${t1016_cid_title.c1016_imp_type} = 'V'
+#        relationship: many_to_one
+#        type: left_outer 
       - join: content
         view_label: Video Length & URL
         sql_on: c8002_cid = ${content.cid} and c8002_region = ${content.region} and c8002_product = ${content.product} 
@@ -80,16 +80,16 @@
   label: 6) Content ID Views (by Imp Type)
   view_label: CID Views
   joins:
-      - join: t4003_animated_cid
+      - join: t1021_cid_title_day
         view_label: Animated Indicator
-        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t4003_animated_cid.c4003_cid} and ${t3016_seg_agg_cid_day.c3016_imp_type} = ${t4003_animated_cid.c4003_imp_type}
+        sql_on: c8002_cid = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and c8002_region = ${t1021_cid_title_day.c1021_region} and c8002_product = ${t1021_cid_title_day.c1021_product}
         relationship: many_to_one
         type: left_outer
-      - join: t1016_cid_title
-        view_label: Most Used Title
-        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t1016_cid_title.c1016_cid} and ${t3016_seg_agg_cid_day.c3016_imp_type} = ${t1016_cid_title.c1016_imp_type}
-        relationship: many_to_one
-        type: left_outer
+#      - join: t1016_cid_title
+#        view_label: Most Used Title
+#        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t1016_cid_title.c1016_cid} and ${t3016_seg_agg_cid_day.c3016_imp_type} = ${t1016_cid_title.c1016_imp_type}
+#        relationship: many_to_one
+#        type: left_outer
   
 #- explore: view_agg_with_article_video
 #  label: 7) Animated Video Views - Summary
