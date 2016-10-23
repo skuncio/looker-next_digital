@@ -26,7 +26,9 @@
 - explore: t4003_animated_cid
   sql_always_where:  ${c4003_imp_type} = 'V'
 
-- explore: t1021_cid_title_day  
+- explore: t1021_cid_title_day
+
+- explore: t8015_contentview_agg
 
 #- explore: sql_runner_query_adid_analysis
 
