@@ -22,7 +22,7 @@
     type: string
     sql: ${TABLE}.c8015_channel
 
-  - dimension: c8015_cid
+  - dimension: content_id
     type: string
     sql: ${TABLE}.c8015_cid
 
@@ -35,11 +35,12 @@
     type: string
     sql: ${TABLE}.c8015_news
 
-  - dimension: c8015_nxtu_or_did
+  - dimension: user_id
     type: string
     sql: ${TABLE}.c8015_nxtu_or_did
 
   - dimension: c8015_page_views
+    hidden: true
     type: number
     sql: ${TABLE}.c8015_page_views
 
@@ -64,10 +65,61 @@
     sql: ${TABLE}.c8015_source
 
   - dimension: c8015_video_views
+    hidden: true
     type: number
     sql: ${TABLE}.c8015_video_views
 
+#  - measure: count
+#    type: count
+#    drill_fields: []
+    
+  #### measures #############
+
+#  - dimension: page_views
+#    hidden: true
+#    type: number
+#    sql: ${TABLE}.total_page_views
+    
+  - measure: total_page_views  
+    type: sum
+    #value_format: '#,##0'
+    value_format: '[>=1000000]0.0,,"M";[>=1000]0.0,"K";0'
+    sql: ${c8015_page_views}
+    
+#  - dimension: video_views
+#    hidden: true
+#    type: number
+#    sql: ${TABLE}.total_video_views    
+ 
+  - measure: total_video_views
+    type: sum
+    #value_format: '#,##0'
+    value_format: '[>=1000000]0.0,,"M";[>=1000]0.0,"K";0'
+    sql: ${c8015_video_views}
+  
+#  - dimension: avg_video_duration
+#    hidden: true
+#    type: number
+#    sql: ${TABLE}.average_duration
+    
+  - measure: average_duration
+    type: average
+    value_format: '#,##0'
+    sql: ${c8015_avg_duration}
+    
   - measure: count
     type: count
     drill_fields: []
+    
+  - measure: distinct_users
+#    view_label: User
+    type: count_distinct
+    sql: ${user_id}  
+    
+  - measure: distinct_content
+#    view_label: Content
+    type: count_distinct
+    sql: ${content_id} 
+    
+
 
