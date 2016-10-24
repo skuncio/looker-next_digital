@@ -10,8 +10,8 @@
   view_label: All Content Views
   joins:
       - join: content
-        view_label: All Content Views
-        sql_on: ${contentview.cid} = ${content.cid}
+        view_label: Content Meta Data
+        sql_on: ${contentview.cid} = ${content.cid} and ${contentview.region} = ${content.region} and ${contentview.region} = ${content.product} 
         relationship: many_to_one
         type: left_outer
         
