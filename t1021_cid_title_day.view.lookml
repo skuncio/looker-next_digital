@@ -17,6 +17,7 @@
   - dimension_group: c1021_create
     type: time
     timeframes: [time, date, week, month]
+    convert_tz: false
     sql: ${TABLE}.c1021_create_date
 
   - dimension: c1021_imp_type
@@ -42,6 +43,7 @@
   - dimension_group: c1021_update
     type: time
     timeframes: [time, date, week, month]
+    convert_tz: false
     sql: ${TABLE}.c1021_update_date
 
   - dimension: c1021_video_length
