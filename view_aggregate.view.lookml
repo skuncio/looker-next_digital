@@ -161,15 +161,18 @@
     
   - measure: count
     type: count
+    approximate: true
     drill_fields: []
     
   - measure: distinct_users
 #    view_label: User
     type: count_distinct
-    sql: ${user_id}  
+    sql: ${user_id}
+    approximate: true
     
   - measure: distinct_content
 #    view_label: Content
     type: count_distinct
-    sql: ${content_id} 
+    sql: ${content_id}
+    approximate: true
     

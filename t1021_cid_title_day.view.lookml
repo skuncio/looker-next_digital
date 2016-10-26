@@ -17,12 +17,16 @@
   - dimension_group: c1021_create
     type: time
     timeframes: [time, date, week, month]
-    convert_tz: false
     sql: ${TABLE}.c1021_create_date
 
   - dimension: c1021_imp_type
     type: string
     sql: ${TABLE}.c1021_imp_type
+
+  - dimension_group: c1021_issueid
+    type: time
+    timeframes: [time, date, week, month]
+    sql: ${TABLE}.c1021_issueid
 
   - dimension: c1021_ml_log_ind
     type: string
@@ -43,7 +47,6 @@
   - dimension_group: c1021_update
     type: time
     timeframes: [time, date, week, month]
-    convert_tz: false
     sql: ${TABLE}.c1021_update_date
 
   - dimension: c1021_video_length
