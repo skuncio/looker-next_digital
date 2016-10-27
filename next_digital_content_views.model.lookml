@@ -92,12 +92,12 @@
   joins:
       - join: t1021_cid_title_day
         view_label: Animated Title
-        sql_on: c8002_cid = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and c8002_region = ${t1021_cid_title_day.c1021_region} and c8002_product = ${t1021_cid_title_day.c1021_product}
+        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and ${t3016_seg_agg_cid_day.c3016_region} = ${t1021_cid_title_day.c1021_region} and ${t3016_seg_agg_cid_day.c3016_product} = ${t1021_cid_title_day.c1021_product}
         relationship: many_to_one
         type: left_outer
       - join: t4003_animated_cid
         view_label: Animated Indicator (preaug16)
-        sql_on: c8002_cid = ${t4003_animated_cid.c4003_cid} and ${t4003_animated_cid.c4003_imp_type} = 'V' 
+        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t4003_animated_cid.c4003_cid} and ${t4003_animated_cid.c4003_imp_type} = 'V' 
         relationship: many_to_one
         type: left_outer
 #      - join: t1016_cid_title
