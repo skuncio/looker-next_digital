@@ -243,6 +243,7 @@
 
   - measure: count
     type: count
+    approximate: true
     drill_fields: []
     
   - measure: total_page_views  
@@ -262,9 +263,11 @@
   - measure: distinct_users
     view_label: User
     type: count_distinct
-    sql: ${user_id}  
+    sql: ${user_id}
+    approximate: true
     
-#  - measure: distinct_content
-#    type: count_distinct
-#    sql: ${cid}   
+  - measure: distinct_content
+    type: count_distinct
+    sql: ${cid}
+    approximate: true
 

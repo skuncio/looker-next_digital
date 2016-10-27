@@ -176,6 +176,7 @@
     
   - measure: count
     type: count
+    approximate: true
     drill_fields: []
     
 
