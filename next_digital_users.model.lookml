@@ -1,4 +1,5 @@
 - connection: next_prd_redshift
+- persist_for: 12 hours
 
 - include: "*.view.lookml"       # include all views in this project
 - include: "*.dashboard.lookml"  # include all dashboards in this project
