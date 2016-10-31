@@ -30,6 +30,8 @@
 
 - explore: t8015_contentview_agg
 
+- explore: t1023_animated_video
+
 #- explore: sql_runner_query_adid_analysis
 
 #- explore: t8003_geo_location
