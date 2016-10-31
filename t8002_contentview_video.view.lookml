@@ -310,6 +310,7 @@
     
   - measure: distinct_content
     type: count_distinct
-    sql: ${cid}   
+    sql: ${cid}
+    approximate: true
 
 
