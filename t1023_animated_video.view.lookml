@@ -76,6 +76,11 @@
     type: count
     drill_fields: []
     
+  - measure: Impression_Sum
+    type: sum
+    value_format: '[>=1000000]0.0,,"M";[>=1000]0.0,"K";0'    
+    sql: ${c1023_imps}
+    
   - measure: distinct_users
 #    view_label: User
     type: count_distinct
