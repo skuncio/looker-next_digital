@@ -81,6 +81,11 @@
     value_format: '[>=1000000]0.0,,"M";[>=1000]0.0,"K";0'    
     sql: ${c1023_imps}
     
+  - measure: average_duration
+    type: average
+    value_format: '#,##0'
+    sql: ${c1023_video_viewed}
+    
   - measure: distinct_users
 #    view_label: User
     type: count_distinct
