@@ -20,10 +20,12 @@
     sql: ${TABLE}.c8000_media
 
   - dimension: product
+    hidden: true
     type: string
     sql: ${TABLE}.c8000_product
  
   - dimension: region
+    hidden: true
     type: string
     sql: ${TABLE}.c8000_region
 
