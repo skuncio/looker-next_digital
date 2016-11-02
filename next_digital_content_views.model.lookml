@@ -34,11 +34,11 @@
   label: 2) Content Summary by Users (2 mths by day)
   view_label: Content & Users
   joins:
-      - join: t1021_cid_title_day
-        view_label: Animated Title
-        sql_on: c8002_cid = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and c8002_region = ${t1021_cid_title_day.c1021_region} and c8002_product = ${t1021_cid_title_day.c1021_product}
-        relationship: many_to_one
-        type: left_outer
+#      - join: t1021_cid_title_day
+#        view_label: Animated Title
+#        sql_on: c8002_cid = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and c8002_region = ${t1021_cid_title_day.c1021_region} and c8002_product = ${t1021_cid_title_day.c1021_product}
+#        relationship: many_to_one
+#        type: left_outer
 #      - join: t4003_animated_cid
 #        view_label: Animated Indicator (preaug16)
 #        sql_on: c8002_cid = ${t4003_animated_cid.c4003_cid} and ${t4003_animated_cid.c4003_imp_type} = 'V' 
@@ -50,7 +50,7 @@
 #        relationship: many_to_one
 #        type: left_outer 
       - join: content
-        view_label: Video Length & URL
+        view_label: Content Object Meta Data
         sql_on: c8002_cid = ${content.cid} and c8002_region = ${content.region} and c8002_product = ${content.product} 
         relationship: many_to_one
         type: left_outer
@@ -60,11 +60,11 @@
   label: 1) Content Summary by CID (2 mths by day)
   view_label: Article & Video Views - Summary
   joins:
-      - join: t1021_cid_title_day
-        view_label: Animated Title
-        sql_on: c8002_cid = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and c8002_region = ${t1021_cid_title_day.c1021_region} and c8002_product = ${t1021_cid_title_day.c1021_product}
-        relationship: many_to_one
-        type: left_outer
+#      - join: t1021_cid_title_day
+#        view_label: Animated Title
+#        sql_on: c8002_cid = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and c8002_region = ${t1021_cid_title_day.c1021_region} and c8002_product = ${t1021_cid_title_day.c1021_product}
+#        relationship: many_to_one
+#        type: left_outer
 #      - join: t4003_animated_cid
 #        view_label: Animated Indicator (preaug16)
 #        sql_on: c8002_cid = ${t4003_animated_cid.c4003_cid} and ${t4003_animated_cid.c4003_imp_type} = 'V' 
@@ -76,7 +76,7 @@
 #        relationship: many_to_one
 #        type: left_outer 
       - join: content
-        view_label: Video Length & URL
+        view_label: Content Object Meta Data
         sql_on: c8002_cid = ${content.cid} and c8002_region = ${content.region} and c8002_product = ${content.product} 
         relationship: many_to_one
         type: left_outer
@@ -89,12 +89,12 @@
 - explore: t3016_seg_agg_cid_day 
   label: 6) Content Imp Summary (historical by day)
   view_label: CID Views
-  joins:
-      - join: t1021_cid_title_day
-        view_label: Animated Title
-        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and ${t3016_seg_agg_cid_day.c3016_region} = ${t1021_cid_title_day.c1021_region} and ${t3016_seg_agg_cid_day.c3016_product} = ${t1021_cid_title_day.c1021_product}
-        relationship: many_to_one
-        type: left_outer
+#  joins:
+#      - join: t1021_cid_title_day
+#        view_label: Animated Title
+#        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and ${t3016_seg_agg_cid_day.c3016_region} = ${t1021_cid_title_day.c1021_region} and ${t3016_seg_agg_cid_day.c3016_product} = ${t1021_cid_title_day.c1021_product}
+#        relationship: many_to_one
+#        type: left_outer
 #      - join: t4003_animated_cid
 #        view_label: Animated Indicator (preaug16)
 #        sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t4003_animated_cid.c4003_cid} and ${t4003_animated_cid.c4003_imp_type} = 'V' 
