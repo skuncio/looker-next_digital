@@ -26,6 +26,12 @@
 
 - explore: t4003_animated_cid
   sql_always_where:  ${c4003_imp_type} = 'V'
+  joins:
+  - join: t8000_content
+    view_label: Content Object Meta Data
+    sql_on: ${t4003_animated_cid.c4003_cid} = ${t8000_content.c8000_cid}
+    relationship: one_to_one
+    type: left_outer
 
 - explore: t1021_cid_title_day
 
