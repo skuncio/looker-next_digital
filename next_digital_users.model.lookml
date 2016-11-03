@@ -17,6 +17,12 @@
 - explore: t8000_content
 
 - explore: t8001_user_crossref
+  joins:
+  - join: t8014_user_campaign
+    view_label: Gender and Age Data
+    sql_on: ${t8001_user_crossref.c8001_nxtu_or_did} = ${t8014_user_campaign.c8014_nxtu_or_did}
+    relationship: one_to_many
+    type: left_outer
 
 - explore: t8014_user_campaign
 
