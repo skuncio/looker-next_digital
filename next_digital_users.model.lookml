@@ -25,7 +25,7 @@
 - explore: t1016_cid_title
 
 - explore: t4003_animated_cid
-  sql_always_where:  ${c4003_imp_type} = 'V'
+  sql_always_where:  ${c4003_imp_type} = 'V' 
   joins:
   - join: t8000_content
     view_label: Content Object Meta Data
@@ -38,6 +38,14 @@
 - explore: t8015_contentview_agg
 
 - explore: t1023_animated_video
+
+- explore: t3016_seg_agg_cid_day
+  joins:
+  - join: t1021_cid_title_day
+    view_label: Animated Title
+    sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t1021_cid_title_day.c1021_cid} and ${t3016_seg_agg_cid_day.c3016_product} = ${t1021_cid_title_day.c1021_product} and ${t3016_seg_agg_cid_day.c3016_region} = ${t1021_cid_title_day.c1021_region} and ${t1021_cid_title_day.c1021_anim_type} = 'Y'
+    relationship: many_to_one
+    type: left_outer
 
 #- explore: sql_runner_query_adid_analysis
 
