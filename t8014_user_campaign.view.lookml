@@ -15,6 +15,10 @@
     type: string
     sql: ${TABLE}.c8014_adid
 
+  - dimension: c8014_age_group
+    type: string
+    sql: ${TABLE}.c8014_age_group
+
   - dimension: c8014_cpid
     type: string
     sql: ${TABLE}.c8014_cpid
