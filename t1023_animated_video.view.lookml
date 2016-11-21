@@ -86,6 +86,11 @@
     value_format: '#,##0'
     sql: ${c1023_video_viewed}
     
+  - measure: average_length
+    type: average
+    value_format: '#,##0'
+    sql: ${c1023_video_length}
+    
   - measure: distinct_users
 #    view_label: User
     type: count_distinct
