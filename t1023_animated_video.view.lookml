@@ -20,7 +20,7 @@
 
   - dimension_group: c1023_date_id
     type: time
-    timeframes: [date, week, month]
+    timeframes: [date, week, month, year, hour_of_day]
     convert_tz: false
     sql: ${TABLE}.c1023_date_id
 
