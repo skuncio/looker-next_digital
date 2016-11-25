@@ -47,9 +47,9 @@
 
 - explore: t3016_seg_agg_cid_day
   joins:
-  - join: t1021_cid_title_day
-    view_label: Animated Title
-    sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t1021_cid_title_day.c1021_cid} and ${t3016_seg_agg_cid_day.c3016_product} = ${t1021_cid_title_day.c1021_product} and ${t3016_seg_agg_cid_day.c3016_region} = ${t1021_cid_title_day.c1021_region} and ${t1021_cid_title_day.c1021_anim_type} = 'Y'
+  - join: t1023_animated_video
+    view_label: Animated Videos
+    sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t1023_animated_video.c1023_cid} and ${t3016_seg_agg_cid_day.c3016_product} = ${t1023_animated_video.c1023_product} and ${t3016_seg_agg_cid_day.c3016_region} = ${t1023_animated_video.c1023_region} and ${t3016_seg_agg_cid_day.c3016_date_id_date} = ${t1023_animated_video.c1023_date_id_date}
     relationship: many_to_one
     type: left_outer
 
