@@ -44,17 +44,17 @@
 - explore: t8015_contentview_agg
 
 - explore: t1023_animated_video
-  joins:
-  - join: t3016_seg_agg_cid_day
-    view_label: Platform
-    sql_on: ${t1023_animated_video.c1023_cid} = ${t3016_seg_agg_cid_day.c3016_cid} and ${t3016_seg_agg_cid_day.c3016_imp_type} = 'V' and ${t3016_seg_agg_cid_day.c3016_product} = ${t1023_animated_video.c1023_product} and ${t3016_seg_agg_cid_day.c3016_region} = ${t1023_animated_video.c1023_region} and ${t3016_seg_agg_cid_day.c3016_date_id_date} = ${t1023_animated_video.c1023_date_id_date}
-    relationship: many_to_one
-    type: left_outer
-  - join: t1021_cid_title_day
-    view_label: Title
-    sql_on: ${t1023_animated_video.c1023_cid} = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and ${t1021_cid_title_day.c1021_product} = ${t1023_animated_video.c1023_product} and ${t1021_cid_title_day.c1021_region} = ${t1023_animated_video.c1023_region} and ${t1021_cid_title_day.c1021_update_date} = ${t1023_animated_video.c1023_date_id_date}
-    relationship: many_to_one
-    type: left_outer
+#  joins:
+#  - join: t3016_seg_agg_cid_day
+#    view_label: Platform
+#    sql_on: ${t1023_animated_video.c1023_cid} = ${t3016_seg_agg_cid_day.c3016_cid} and ${t3016_seg_agg_cid_day.c3016_imp_type} = 'V' and ${t3016_seg_agg_cid_day.c3016_product} = ${t1023_animated_video.c1023_product} and ${t3016_seg_agg_cid_day.c3016_region} = ${t1023_animated_video.c1023_region} and ${t3016_seg_agg_cid_day.c3016_date_id_date} = ${t1023_animated_video.c1023_date_id_date}
+#    relationship: many_to_one
+#    type: left_outer
+#  - join: t1021_cid_title_day
+#    view_label: Title
+#    sql_on: ${t1023_animated_video.c1023_cid} = ${t1021_cid_title_day.c1021_cid} and ${t1021_cid_title_day.c1021_imp_type} = 'V' and ${t1021_cid_title_day.c1021_product} = ${t1023_animated_video.c1023_product} and ${t1021_cid_title_day.c1021_region} = ${t1023_animated_video.c1023_region} and ${t1021_cid_title_day.c1021_update_date} = ${t1023_animated_video.c1023_date_id_date}
+#    relationship: many_to_one
+#    type: left_outer
 
 - explore: t3016_seg_agg_cid_day
   joins:
