@@ -17,6 +17,7 @@
   - dimension: c1023_cid
     type: string
     sql: ${TABLE}.c1023_cid
+    drill_fields: [c1023_title]
 
   - dimension_group: c1023_date_id
     type: time
