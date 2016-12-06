@@ -66,4 +66,8 @@
   - measure: count
     type: count
     drill_fields: [c8014_name]
+ 
+  - measure: distinct_users
+    type: count_distinct
+    sql: ${c8014_nxtu_or_did}    
 
