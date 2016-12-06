@@ -75,4 +75,6 @@
   - measure: distinct_nxtuid
     type: count_distinct
     sql: ${c8001_nxtu_or_did}
-    approximate: true
+#    approximate: true
+    
+   
