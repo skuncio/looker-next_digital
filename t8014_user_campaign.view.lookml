@@ -83,5 +83,5 @@
   - measure: last_updated_time
     type: datetime
     sql: MAX(${c8014_activity_time})
-  #  convert_tz: false
+    convert_tz: false
 
