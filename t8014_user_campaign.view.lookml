@@ -17,7 +17,16 @@
 
   - dimension: c8014_age_group
     type: string
-    sql: ${TABLE}.c8014_age_group
+    sql_case: 
+      <13: ${TABLE}.c8014_age_group = 0
+      13-17: ${TABLE}.c8014_age_group = 1
+      18-24: ${TABLE}.c8014_age_group = 2
+      25-34: ${TABLE}.c8014_age_group = 3
+      35-44: ${TABLE}.c8014_age_group = 4
+      45-54: ${TABLE}.c8014_age_group = 5
+      55-64: ${TABLE}.c8014_age_group = 6
+      64+: ${TABLE}.c8014_age_group = 7
+      unknown: true
 
   - dimension: c8014_cpid
     type: string
