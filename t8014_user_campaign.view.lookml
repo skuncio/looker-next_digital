@@ -78,5 +78,10 @@
  
   - measure: distinct_users
     type: count_distinct
-    sql: ${c8014_nxtu_or_did}    
+    sql: ${c8014_nxtu_or_did}
+    
+  - measure: last_updated_date
+    type: date
+    sql: MAX(${c8014_activity_date})
+    convert_tz: false
 
