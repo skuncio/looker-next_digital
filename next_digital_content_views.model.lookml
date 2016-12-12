@@ -31,7 +31,7 @@
   
 #- explore: view_aggregate_tmp
 - explore: view_aggregate
-  label: 2) Content Summary by Users (2 mths by day)  Note - this PDT is only updated at the weekedn so dat may be upto 7 days old. 
+  label: 2) Content Summary by Users (2 mths by day) Note- this PDT is only updated at the weekend so data may be missing for upto last 7 days. 
   view_label: Content & Users
   joins:
 #      - join: t1021_cid_title_day
