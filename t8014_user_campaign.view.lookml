@@ -81,7 +81,7 @@
     sql: ${c8014_nxtu_or_did}
     
   - measure: last_updated_time
-    type: date
+    type: datetime
     sql: MAX(${c8014_activity_time})
-    convert_tz: false
+  #  convert_tz: false
 
