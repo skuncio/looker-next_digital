@@ -63,6 +63,8 @@
     sql_on: ${t3016_seg_agg_cid_day.c3016_cid} = ${t1023_animated_video.c1023_cid} and ${t3016_seg_agg_cid_day.c3016_imp_type} = 'V' and ${t3016_seg_agg_cid_day.c3016_product} = ${t1023_animated_video.c1023_product} and ${t3016_seg_agg_cid_day.c3016_region} = ${t1023_animated_video.c1023_region} and ${t3016_seg_agg_cid_day.c3016_date_id_date} = ${t1023_animated_video.c1023_date_id_date}
     relationship: many_to_one
     type: left_outer
+    
+- explore: sql_users_both_age_gender  
 
 #- explore: sql_runner_query_adid_analysis
 
