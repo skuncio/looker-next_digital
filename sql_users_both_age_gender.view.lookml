@@ -21,8 +21,13 @@
   - dimension: count
     type: number
     sql: ${TABLE}.count
+    
+  - measure: total_count
+    type: sum
+    sql: ${count}
 
   sets:
     detail:
       - c8001_last_activity_date
       - count
+      
