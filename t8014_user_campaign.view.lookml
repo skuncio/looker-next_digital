@@ -80,8 +80,8 @@
     type: count_distinct
     sql: ${c8014_nxtu_or_did}
     
-  - measure: last_updated_time
-    type: datetime
-    sql: MAX(${c8014_activity_time})
+  - measure: last_updated_activity
+    type: date
+    sql: MAX(${c8014_activity_date})
     convert_tz: false
 
