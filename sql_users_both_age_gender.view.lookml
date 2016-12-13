@@ -1,5 +1,5 @@
 
-- view: sql_runner_query_users_with_both_age_and_gender
+- view: sql_users_both_age_gender
   derived_table:
     sql: |
       select COUNT(distinct  c.c8001_nxtu_or_did)  
