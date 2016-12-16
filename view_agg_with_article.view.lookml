@@ -179,4 +179,10 @@
     approximate: true
     drill_fields: []
     
+  - measure: distinct_content
+#    view_label: Content
+    type: count_distinct
+    sql: ${content_id}
+    approximate: true
+    
 
