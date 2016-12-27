@@ -55,6 +55,10 @@
   - dimension: c3016_issueid
     type: string
     sql: ${TABLE}.c3016_issueid
+    
+  - dimension: c3016_language
+    type: string
+    sql: ${TABLE}.c3016_language
 
   - dimension: c3016_media
     type: string
@@ -112,6 +116,16 @@
     type: sum
     value_format: '[>=1000000]0.0,,"M";[>=1000]0.0,"K";0'    
     sql: ${c3016_imps}
+    
+  - measure: distinct_cid
+    type: count_distinct
+    sql: ${c3016_cid}
+    approximate: true
+    
+  - measure: distinct_artid
+    type: count_distinct
+    sql: ${c3016_artid}
+    approximate: true
 
   - measure: count
     type: count
