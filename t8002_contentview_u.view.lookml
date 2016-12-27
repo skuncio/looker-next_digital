@@ -21,10 +21,26 @@
   - dimension: c8002_auth
     type: string
     sql: ${TABLE}.c8002_auth
-    
+
   - dimension: c8002_auto
     type: string
     sql: ${TABLE}.c8002_auto
+
+  - dimension: c8002_battery
+    type: number
+    sql: ${TABLE}.c8002_battery
+
+  - dimension: c8002_beacon_id
+    type: string
+    sql: ${TABLE}.c8002_beacon_id
+
+  - dimension: c8002_beacon_loc
+    type: string
+    sql: ${TABLE}.c8002_beacon_loc
+
+  - dimension: c8002_bluetooth
+    type: string
+    sql: ${TABLE}.c8002_bluetooth
 
   - dimension: c8002_br
     type: string
@@ -65,9 +81,8 @@
   - dimension_group: c8002_datetime
     type: time
     timeframes: [time, date, week, month, year, hour_of_day]
-    convert_tz: false
     sql: ${TABLE}.c8002_datetime
-    
+
   - dimension: c8002_dcc_id
     type: string
     sql: ${TABLE}.c8002_dcc_id
@@ -123,6 +138,10 @@
   - dimension: c8002_lat
     type: number
     sql: ${TABLE}.c8002_lat
+
+  - dimension: c8002_limit_ad_track
+    type: string
+    sql: ${TABLE}.c8002_limit_ad_track
 
   - dimension: c8002_lon
     type: number
@@ -215,6 +234,10 @@
   - dimension: c8002_video_duration
     type: number
     sql: ${TABLE}.c8002_video_duration
+
+  - dimension: c8002_wifi
+    type: string
+    sql: ${TABLE}.c8002_wifi
 
   - measure: count
     type: count

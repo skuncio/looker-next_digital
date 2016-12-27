@@ -8,9 +8,10 @@
     type: string
     sql: ${TABLE}.c8002_action
 
-#   - dimension: adid
-#     type: string
-#     sql: ${TABLE}.c8002_adid
+  - dimension: adid
+    view_label: User
+    type: string
+    sql: ${TABLE}.c8002_adid
 
   - dimension: app_version
     view_label: User
@@ -21,9 +22,33 @@
     type: string
     sql: ${TABLE}.c8002_artid
     
+  - dimension: author
+    type: string
+    sql: ${TABLE}.c8002_auth
+
   - dimension: auto_play
     type: string
     sql: ${TABLE}.c8002_auto
+ 
+  - dimension: c8002_battery
+    view_label: User
+    type: number
+    sql: ${TABLE}.c8002_battery
+
+  - dimension: c8002_beacon_id
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_beacon_id
+
+  - dimension: c8002_beacon_loc
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_beacon_loc
+
+  - dimension: c8002_bluetooth
+    view_label: User
+    type: string
+    sql: ${TABLE}.c8002_bluetooth
 
   - dimension: user_browser
     view_label: User
@@ -82,9 +107,10 @@
     type: string
     sql: ${TABLE}.c8002_device
 
-#   - dimension: did
-#     type: string
-#     sql: ${TABLE}.c8002_did
+  - dimension: device_id
+    view_label: User
+    type: string
+    sql: ${TABLE}.c8002_did
 
   - dimension: district_id
     view_label: Location
@@ -129,13 +155,21 @@
 
   - dimension: lat
     hidden: true
+    view_label: Location
     type: number
     sql: ${TABLE}.c8002_lat
 
   - dimension: lon
     hidden: true
+    view_label: Location
     type: number
     sql: ${TABLE}.c8002_lon
+    
+  
+  - dimension: c8002_limit_ad_track
+    view_label: User
+    type: string
+    sql: ${TABLE}.c8002_limit_ad_track
 
   - dimension: menu
     type: string
@@ -152,10 +186,11 @@
 #   - dimension: nudid
 #     type: string
 #     sql: ${TABLE}.c8002_nudid
-# 
-#   - dimension: nxtu
-#     type: string
-#     sql: ${TABLE}.c8002_nxtu
+ 
+  - dimension: nxtu
+    view_label: User
+    type: string
+    sql: ${TABLE}.c8002_nxtu
 
   - dimension: user_id
     view_label: User
@@ -166,6 +201,11 @@
 #    view_label: User
     type: string
     sql: ${TABLE}.c8002_platform
+    
+  - dimension: c8002_postcode
+    view_label: Location
+    type: string
+    sql: ${TABLE}.c8002_postcode
 
   - dimension: product
     type: string
@@ -229,10 +269,10 @@
     type: number
     sql: ${TABLE}.c8002_video_duration
 
-  - dimension: zipcode
-    view_label: Location
+  - dimension: c8002_wifi
+    view_label: User
     type: string
-    sql: ${TABLE}.c8002_zipcode
+    sql: ${TABLE}.c8002_wifi
 
   - dimension: latitude_longitude
     alias: [view_location]
@@ -263,11 +303,13 @@
   - measure: distinct_users
     view_label: User
     type: count_distinct
+    value_format: '[>=1000000]0.0,,"M";[>=1000]0.0,"K";0' 
     sql: ${user_id}
     approximate: true
     
   - measure: distinct_content
     type: count_distinct
+    value_format: '[>=1000000]0.0,,"M";[>=1000]0.0,"K";0' 
     sql: ${cid}
     approximate: true
 
