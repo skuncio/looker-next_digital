@@ -78,9 +78,10 @@
 
   - dimension: c3016_product
     type: string
-    sql_case: 
-      'Apple Daily': ${TABLE}.c3016_product  in ('Apple Daily', 'AppleDaily', 'ADAILY', 'Apple Daily TW', 'ADAILY-IPAD', 'Apple Daily-IPAD')
-      'Next Magazine': ${TABLE}.c3016_product  in ('Next Magazine', 'NEXTMAG', 'Next Magazine TW', 'Next Magazine Video HK', 'NEXTPLUS')
+    sql: ${TABLE}.c3016_product
+  #  sql_case: 
+  #    'Apple Daily': ${TABLE}.c3016_product  in ('Apple Daily', 'AppleDaily', 'ADAILY', 'Apple Daily TW', 'ADAILY-IPAD', 'Apple Daily-IPAD')
+  #    'Next Magazine': ${TABLE}.c3016_product  in ('Next Magazine', 'NEXTMAG', 'Next Magazine TW', 'Next Magazine Video HK', 'NEXTPLUS')
   #    unknown: true
 
   - dimension: c3016_region
