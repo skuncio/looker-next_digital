@@ -31,7 +31,7 @@
   
 #- explore: view_aggregate_tmp
 - explore: view_aggregate
-  label: 2) Content Summary by Users (2 mths by day) Note- this PDT is only updated at the weekend so data may be missing for upto last 7 days. 
+  label: 6) Content Summary by Users (2 mths by day) Note- this PDT is only updated at the weekend so data may be missing for upto last 7 days. 
   view_label: Content & Users
   joins:
 #      - join: t1021_cid_title_day
@@ -57,7 +57,7 @@
 
 
 - explore: view_agg_with_article
-  label: 1) Content Summary by CID (2 mths by day)
+  label: 2) Content Summary by CID (2 mths by day)
   view_label: Article & Video Views - Summary
   joins:
 #      - join: t1021_cid_title_day
@@ -87,7 +87,7 @@
   
 
 - explore: t3016_seg_agg_cid_day 
-  label: 6) Content Imp Summary (historical by day)
+  label: 1) Content Imp Summary (historical by day)
   view_label: CID Views
 #  joins:
 #      - join: t1021_cid_title_day
