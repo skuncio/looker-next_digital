@@ -122,7 +122,9 @@
 #        relationship: many_to_one
 #        type: left_outer        
 
-        
+- explore: contentview_us_can
+  label: 7) Content Views for US & Canada (2 mths by time)
+  view_label: All Content Views      
   
 # - explore: user_crossref
 
