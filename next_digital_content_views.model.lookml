@@ -123,7 +123,7 @@
 #        type: left_outer        
 
 - explore: contentview_us_can
-  label: 7) Content Views for US & Canada (2 mths by time)
+  label: 7) Content Views Detail for US & Canada 
   view_label: All Content Views      
   
 # - explore: user_crossref
