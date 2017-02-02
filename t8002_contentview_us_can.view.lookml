@@ -29,7 +29,7 @@
     type: string
     sql: ${TABLE}.c8002_auth
 
-  - dimension: auto-play
+  - dimension: auto_play
     type: string
     sql: ${TABLE}.c8002_auto
 
@@ -80,7 +80,7 @@
     type: string
     sql: ${TABLE}.c8002_city
 
-  - dimension: content-type
+  - dimension: content_type
     type: string
     sql: ${TABLE}.c8002_content
 
@@ -216,7 +216,7 @@
     sql: ${TABLE}.c8002_product
 
   - dimension: referring_url
-    lias: [ref_url]
+    alias: [ref_url]
     type: string
     sql: ${TABLE}.c8002_ref_url
 
