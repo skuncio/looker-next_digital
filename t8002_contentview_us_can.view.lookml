@@ -43,7 +43,7 @@
     type: string
     sql: ${TABLE}.c8002_beacon_id
 
-  - dimension: c8002_beacon_loc
+  - dimension: beacon_loc
     view_label: Location
     type: string
     sql: ${TABLE}.c8002_beacon_loc
@@ -133,11 +133,11 @@
     type: string
     sql: ${TABLE}.c8002_edm
 
-  - dimension: c8002_gaid
+  - dimension: gaid
     type: string
     sql: ${TABLE}.c8002_gaid
 
-  - dimension: c8002_gigyaid
+  - dimension: gigyaid
     type: string
     sql: ${TABLE}.c8002_gigyaid
 
