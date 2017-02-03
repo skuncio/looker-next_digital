@@ -39,12 +39,12 @@
     sql: ${TABLE}.c8002_battery
 
   - dimension: beacon_id
-    view_label: Location
+    view_label: Beacon
     type: string
     sql: ${TABLE}.c8002_beacon_id
 
   - dimension: beacon_loc
-    view_label: Location
+    view_label: Beacon
     type: string
     sql: ${TABLE}.c8002_beacon_loc
 
