@@ -134,10 +134,12 @@
     sql: ${TABLE}.c8002_edm
 
   - dimension: gaid
+    view_label: User
     type: string
     sql: ${TABLE}.c8002_gaid
 
   - dimension: gigyaid
+    view_label: User
     type: string
     sql: ${TABLE}.c8002_gigyaid
 
@@ -225,7 +227,7 @@
     type: string
     sql: ${TABLE}.c8002_region
 
-  - dimension: _section
+  - dimension: section
     type: string
     sql: ${TABLE}.c8002_section
 
