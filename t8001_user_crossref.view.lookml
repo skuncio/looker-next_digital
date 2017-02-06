@@ -61,6 +61,14 @@
   - dimension: c8001_nxtu_or_did
     type: string
     sql: ${TABLE}.c8001_nxtu_or_did
+    
+  - dimension: c8001_city
+    type: string
+    sql: ${TABLE}.c8001_city
+    
+  - dimension: c8001_country
+    type: string
+    sql: ${TABLE}.c8001_country
 
 #  - dimension_group: c8001_update
 #    type: time
