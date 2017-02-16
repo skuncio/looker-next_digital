@@ -11,7 +11,7 @@
   joins:
       - join: content
         view_label: Content Object Meta Data
-        sql_on: ${contentview.cid} = ${content.cid} and ${contentview.region} = ${content.region} and ${contentview.region} = ${content.product} 
+        sql_on: ${contentview.cid} = ${content.cid} and ${contentview.region} = ${content.region} and ${contentview.product} = ${content.product} 
         relationship: many_to_one
         type: left_outer
         
