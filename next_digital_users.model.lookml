@@ -64,7 +64,17 @@
     relationship: many_to_one
     type: left_outer
     
-- explore: sql_users_both_age_gender  
+- explore: sql_users_both_age_gender
+
+- explore: t5000_open
+
+- explore: t5001_first_open
+
+- explore: t5002_push_body
+
+- explore: t5003_send
+
+- explore: t5004_uninstall
 
 #- explore: sql_runner_query_adid_analysis
 
