@@ -79,6 +79,12 @@
 - explore: t8020_user_content_preference
 
 - explore: t8021_user_churning_prediction
+  joins:
+  - join: t8001_user_crossref
+    view_label: User Cross Reference
+    sql_on: ${t8001_user_crossref.c8001_adid} = ${t8021_user_churning_prediction.c8021_adid}
+    relationship: one_to_one
+    type: left_outer
 
 #- explore: sql_runner_query_adid_analysis
 
