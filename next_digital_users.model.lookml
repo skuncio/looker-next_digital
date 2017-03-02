@@ -78,6 +78,8 @@
 
 - explore: t8020_user_content_preference
 
+- explore: t8021_user_churning_prediction
+
 #- explore: sql_runner_query_adid_analysis
 
 #- explore: t8003_geo_location
