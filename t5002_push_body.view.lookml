@@ -33,7 +33,7 @@
 
   - dimension_group: occurred
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date, week, month, quarter, year, hour_of_day]
     sql: ${TABLE}.occurred
 
   - dimension: offset_value
@@ -42,7 +42,7 @@
 
   - dimension_group: processed
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date, week, month, quarter, year, hour_of_day]
     sql: ${TABLE}.processed
 
   - dimension: type

@@ -17,7 +17,7 @@
 
   - dimension_group: body_last_delivered
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date, week, month, quarter, year, hour_of_day]
     sql: ${TABLE}.body_last_delivered_time
 
   - dimension: body_last_delivered_variant_id
@@ -38,7 +38,7 @@
 
   - dimension_group: body_triggering_push
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date, week, month, quarter, year, hour_of_day]
     sql: ${TABLE}.body_triggering_push_time
 
   - dimension: body_triggering_push_variant_id
@@ -63,7 +63,7 @@
 
   - dimension_group: occurred
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date, week, month, quarter, year, hour_of_day]
     sql: ${TABLE}.occurred
 
   - dimension: offset_value
@@ -72,7 +72,7 @@
 
   - dimension_group: processed
     type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
+    timeframes: [raw, time, date, week, month, quarter, year, hour_of_day]
     sql: ${TABLE}.processed
 
   - dimension: type
