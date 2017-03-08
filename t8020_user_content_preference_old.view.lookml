@@ -1,20 +1,22 @@
-- view: t8020_user_content_preference
-  sql_table_name: public.t8020_user_content_preference
+- view: t8020_user_content_preference_old
+  sql_table_name: public.t8020_user_content_preference_tmp
   fields:
 
-  - dimension_group: c8020_activity
+  - dimension_group: c8020_create
     type: time
     timeframes: [raw, date, week, month, quarter, year]
     convert_tz: false
-    sql: ${TABLE}.c8020_activity_date
+    sql: ${TABLE}.c8020_create_date
+
+  - dimension_group: c8020_last_view
+    type: time
+    timeframes: [raw, date, week, month, quarter, year]
+    convert_tz: false
+    sql: ${TABLE}.c8020_last_view_date
 
   - dimension: c8020_nxtuid
     type: string
     sql: ${TABLE}.c8020_nxtuid
-
-  - dimension: c8020_platform
-    type: string
-    sql: ${TABLE}.c8020_platform
 
   - dimension: c8020_preference
     type: string
@@ -32,7 +34,7 @@
     type: number
     sql: ${TABLE}.c8020_view_count
 
-  - measure: count
+  - measure: Row_count
     type: count
     drill_fields: []
     
