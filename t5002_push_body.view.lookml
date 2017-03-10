@@ -13,7 +13,7 @@
 
   - dimension: body_payload
     type: string
-    sql: ${TABLE}.body_payload
+    sql: f_base64decode(${TABLE}.body_payload)
 
   - dimension: body_push_id
     type: string
