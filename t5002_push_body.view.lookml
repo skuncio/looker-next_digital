@@ -29,7 +29,7 @@
     
   - dimension: variants 
     type: string
-    sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload),'variants', 'name') 
+    sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants', 'push') 
 
   - dimension: body_push_id
     type: string
