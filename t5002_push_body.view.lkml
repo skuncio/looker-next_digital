@@ -17,24 +17,29 @@ view: t5002_push_body {
     sql: f_base64decode(${TABLE}.body_payload) ;;
   }
 
-  dimension: name {
+  dimension: payload_name {
     type: string
     sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload),'name') ;;
   }
 
-  dimension: audience {
+  dimension: payload_audience {
     type: string
     sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload),'audience') ;;
   }
 
-  dimension: device_types {
+  dimension: payload_device_types {
     type: string
     sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'device_types') ;;
   }
 
-  dimension: alert {
+  dimension: payload_variants {
     type: string
     sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants', 'push', 'notification' , 'alert') ;;
+  }
+
+  dimension: payload_push {
+    type: string
+    sql: json_extract_path_text(payload_variants,  'push') ;;
   }
 
   dimension: body_push_id {
