@@ -17,7 +17,7 @@
     
   - dimension: audience 
     type: string
-    sql: json_extract_path_text(${TABLE}.body_payload,,'audience')  
+    sql: json_extract_path_text(${TABLE}.body_payload,'audience')  
     
   - dimension: device_types 
     type: string
