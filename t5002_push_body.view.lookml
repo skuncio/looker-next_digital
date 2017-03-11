@@ -14,6 +14,14 @@
   - dimension: body_payload
     type: string
     sql: f_base64decode(${TABLE}.body_payload)
+    
+  - dimension: audience 
+    type: string
+    sql: json_object_keys(${TABLE}.body_payload->> 'audience')
+    
+  - dimension: device_types 
+    type: string
+    sql: json_object_keys(${TABLE}.body_payload->> 'device_types')
 
   - dimension: body_push_id
     type: string
