@@ -17,11 +17,11 @@
     
   - dimension: audience 
     type: string
-    sql: json_extract_path_text(${TABLE}.body_payload,'audience')  
+    sql: json_extract_path_text(body_payload,'audience')  
     
   - dimension: device_types 
     type: string
-    sql: json_extract_path_text(${TABLE}.body_payload, 'device_types')
+    sql: json_extract_path_text(body_payload, 'device_types')
 
   - dimension: body_push_id
     type: string
