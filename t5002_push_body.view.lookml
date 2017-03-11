@@ -21,7 +21,7 @@
     
   - dimension: device_types 
     type: string
-    sql: json_extract_path(${TABLE}.body_payload, 'device_types')
+    sql: json_extract_path_text(${TABLE}.body_payload, 'device_types')
 
   - dimension: body_push_id
     type: string
