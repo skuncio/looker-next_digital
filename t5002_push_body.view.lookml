@@ -15,6 +15,10 @@
     type: string
     sql: f_base64decode(${TABLE}.body_payload)
     
+  - dimension: name 
+    type: string
+    sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload),'name') 
+    
   - dimension: audience 
     type: string
     sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload),'audience')  
@@ -22,6 +26,10 @@
   - dimension: device_types 
     type: string
     sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'device_types')
+    
+  - dimension: variants 
+    type: string
+    sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload),'variants') 
 
   - dimension: body_push_id
     type: string
