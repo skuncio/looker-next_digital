@@ -52,6 +52,8 @@ explore: t8015_contentview_agg {}
 
 explore: t1023_animated_video {}
 
+explore:  t1025_reg_prod_cid_title {}
+
 #  joins:
 #  - join: t3016_seg_agg_cid_day
 #    view_label: Platform
