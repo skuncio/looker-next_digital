@@ -61,6 +61,18 @@ view: t5002_push_body {
     sql: json_extract_path_text((json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants', 0)),  'push', 'notification', 'alert') ;;
   }
 
+  dimension: payload_variants_push_2 {
+    type: string
+#    sql: json_extract_path_text((${payload_variants}, 0),  'name') ;;
+    sql: json_extract_path_text((json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants', 1)),  'push') ;;
+  }
+
+  dimension: payload_variants_push__notification_2 {
+    type: string
+#    sql: json_extract_path_text((${payload_variants}, 0),  'name') ;;
+    sql: json_extract_path_text((json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants', 1)),  'push', 'notification', 'alert') ;;
+  }
+
   dimension: body_push_id {
     type: string
     sql: ${TABLE}.body_push_id ;;
