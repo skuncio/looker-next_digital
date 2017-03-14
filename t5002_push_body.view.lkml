@@ -39,14 +39,14 @@ view: t5002_push_body {
 
   dimension: payload_variants_name_1 {
     type: string
-    sql: json_extract_path_text(((${payload_variants}, 0)),  'name') ;;
-#    sql: json_extract_path_text((json_extract_path_text(f_base64decode(t5002_push_body.body_payload), 'variants', 0)),  'name') ;;
+    sql: json_extract_path_text((${payload_variants}, 0),  'name') ;;
+#    sql: json_extract_path_text((json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants', 0)),  'name') ;;
   }
 
   dimension: payload_variants_name_2 {
     type: string
-    sql: json_extract_path_text(((${payload_variants}, 1)),  'name') ;;
-#    sql: json_extract_path_text((json_extract_path_text(f_base64decode(t5002_push_body.body_payload), 'variants', 1)),  'name') ;;
+    sql: json_extract_path_text((${payload_variants}, 1),  'name') ;;
+#    sql: json_extract_path_text((json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants', 1)),  'name') ;;
   }
 
   dimension: body_push_id {
