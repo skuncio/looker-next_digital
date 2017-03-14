@@ -49,6 +49,12 @@ view: t5002_push_body {
     sql: json_extract_path_text((json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants', 1)),  'name') ;;
   }
 
+  dimension: payload_variants_push_1 {
+    type: string
+#    sql: json_extract_path_text((${payload_variants}, 0),  'name') ;;
+    sql: json_extract_path_text((json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants', 0)),  'push') ;;
+  }
+
   dimension: body_push_id {
     type: string
     sql: ${TABLE}.body_push_id ;;
