@@ -69,7 +69,19 @@ view: t5000_open {
 
   dimension: body_triggering_push_variant_id {
     type: string
-    sql: ${TABLE}.body_triggering_push_variant_id ;;
+#    sql: ${TABLE}.body_triggering_push_variant_id ;;
+
+    case: {
+      when: {
+        sql: ${TABLE}.body_triggering_push_variant_id = 0 ;;
+        label: "variant 1"
+      }
+
+      when: {
+        sql: ${TABLE}.body_triggering_push_variant_id = 1 ;;
+        label: "variant 2"
+      }
+    }
   }
 
   dimension: device_amazon_channel {
