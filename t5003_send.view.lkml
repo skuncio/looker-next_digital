@@ -19,7 +19,24 @@ view: t5003_send {
 
   dimension: body_variant_id {
     type: string
-    sql: ${TABLE}.body_variant_id ;;
+#    sql: ${TABLE}.body_variant_id ;;
+
+    case: {
+      when: {
+        sql: ${TABLE}.body_variant_id = 0 ;;
+        label: "variant 1"
+      }
+
+      when: {
+        sql: ${TABLE}.body_variant_id = 1 ;;
+        label: "variant 2"
+      }
+
+      when: {
+        sql: true ;;
+        label: "unknown"
+      }
+    }
   }
 
   dimension: device_amazon_channel {

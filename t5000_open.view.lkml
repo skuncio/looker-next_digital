@@ -81,6 +81,11 @@ view: t5000_open {
         sql: ${TABLE}.body_triggering_push_variant_id = 1 ;;
         label: "variant 2"
       }
+
+      when: {
+        sql: true ;;
+        label: "unknown"
+      }
     }
   }
 
