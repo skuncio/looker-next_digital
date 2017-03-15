@@ -78,6 +78,13 @@ view: t5002_push_body {
     sql: ${TABLE}.body_push_id ;;
   }
 
+  dimension: linked_body_push_id {
+    type: string
+    sql: ${body_push_id} ;;
+    html: |
+    <a href="/nextdigitaljp.looker.com/dashboards/40?BodyPushID="{{value}}>SAK</a> ;;
+  }
+
   dimension: body_resource {
     type: string
     sql: ${TABLE}.body_resource ;;
