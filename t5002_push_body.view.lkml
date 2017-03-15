@@ -76,16 +76,9 @@ view: t5002_push_body {
   dimension: body_push_id {
     type: string
     sql: ${TABLE}.body_push_id ;;
-#    html: <a href="/dashboards/40?BodyPushID={{value}}">{{value}}</a> ;;
-    html: <a href="/looks/445?f[t5000_open.body_triggering_push_push_id]={{value}}">{{value}}</a> ;;
+    html: <a href="/dashboards/40?BodyPushID={{value}}">{{value}}</a> ;;
+#    html: <a href="/looks/445?f[t5000_open.body_triggering_push_push_id]={{value}}">{{value}}</a> ;;
   }
-
-#  dimension: linked_body_push_id {
-#    type: string
-#    sql: ${body_push_id} ;;
-#    html: |
-#    <a href="/nextdigitaljp.looker.com/dashboards/40?BodyPushID="{{value}}>SAK</a> ;;
-#  }
 
   dimension: body_resource {
     type: string
