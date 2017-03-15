@@ -76,7 +76,7 @@ view: t5002_push_body {
   dimension: body_push_id {
     type: string
     sql: ${TABLE}.body_push_id ;;
-    html: <a href="/dashboards/40?BodyPushID=">{{value}}</a> ;;
+    html: <a href="/dashboards/40?BodyPushID={{value}}">{{value}}</a> ;;
   }
 
 #  dimension: linked_body_push_id {
