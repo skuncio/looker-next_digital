@@ -9,7 +9,7 @@ view: view_aggregate {
     #        contentview.c8002_artid ,
     #        ORDER BY 1,2,3,4,5,6,7,8,9 ASC
     #    sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from convert_timezone('HKT',GETDATE())) - 60*60*4)/(60*60*24))
-    sql_trigger_value: SELECT 1 ;;
+    sql_trigger_value: SELECT 2 ;;
     #    persist_for: 72 hours
     sortkeys: ["c8002_datetime"]
     distribution: "c8002_cid"
