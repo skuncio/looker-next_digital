@@ -55,4 +55,12 @@ view: t8020_user_content_preference {
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${c8020_view_count} ;;
   }
+
+  measure: distinct_users {
+#    view_label: "User"
+    type: count_distinct
+    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c8020_nxtuid} ;;
+    approximate: yes
+  }
 }
