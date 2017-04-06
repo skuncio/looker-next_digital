@@ -86,6 +86,7 @@ view: t8050_user_content_by_day {
   }
 
   dimension: c8050_total_page_views {
+    hidden: yes
     type: number
     sql: ${TABLE}.c8050_total_page_views ;;
   }
@@ -95,8 +96,19 @@ view: t8050_user_content_by_day {
     sql: ${TABLE}.c8050_total_video_views ;;
   }
 
+########## measures #############
+
   measure: count {
     type: count
     drill_fields: []
   }
+
+  measure: total_page_views {
+    type: sum
+    #value_format: '#,##0'
+    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c8050_total_page_views} ;;
+  }
+
+
 }
