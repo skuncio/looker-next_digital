@@ -46,6 +46,8 @@ explore: t4003_animated_cid {
   }
 }
 
+explore: t8050_user_content_by_day {}
+
 explore: t1021_cid_title_day {}
 
 explore: t8015_contentview_agg {}
@@ -92,8 +94,8 @@ explore: t8020_user_content_preference {}
 explore: t8021_user_churning_prediction {
   join: t8001_user_crossref {
     view_label: "User Cross Reference"
-    sql_on: ${t8001_user_crossref.c8001_adid} = ${t8021_user_churning_prediction.c8021_adid} ;;
-    relationship: one_to_one
+    sql_on: ${t8021_user_churning_prediction.c8021_adid} = ${t8001_user_crossref.c8001_adid} ;;
+    relationship: many_to_one
     type: left_outer
   }
 }
