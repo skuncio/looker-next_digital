@@ -1,42 +1,45 @@
 view: t8050_user_content_by_day {
   sql_table_name: public.t8050_user_content_by_day ;;
 
-  dimension: c8050_action {
+  dimension: view_type {
+    description: "PAGEVIEW or VIDEOVIEW"
+    alias: [action]
     type: string
     sql: ${TABLE}.c8050_action ;;
   }
 
-  dimension: c8050_app_version {
+  dimension: app_version {
     type: string
     sql: ${TABLE}.c8050_app_version ;;
   }
 
-  dimension: c8050_auto {
+  dimension: auto {
     type: string
     sql: ${TABLE}.c8050_auto ;;
   }
 
   dimension: c8050_average_duration {
+    hidden: yes
     type: number
     sql: ${TABLE}.c8050_average_duration ;;
   }
 
-  dimension: c8050_category {
+  dimension: category {
     type: string
     sql: ${TABLE}.c8050_category ;;
   }
 
-  dimension: c8050_channel {
+  dimension: channel {
     type: string
     sql: ${TABLE}.c8050_channel ;;
   }
 
-  dimension: c8050_cid {
+  dimension: content_id {
     type: string
     sql: ${TABLE}.c8050_cid ;;
   }
 
-  dimension_group: c8050_datetime {
+  dimension_group: view {
     type: time
     timeframes: [
       raw,
@@ -50,37 +53,37 @@ view: t8050_user_content_by_day {
     sql: ${TABLE}.c8050_datetime ;;
   }
 
-  dimension: c8050_news {
+  dimension: news {
     type: string
     sql: ${TABLE}.c8050_news ;;
   }
 
-  dimension: c8050_nxtu_or_did {
+  dimension: nxtuid {
     type: string
     sql: ${TABLE}.c8050_nxtu_or_did ;;
   }
 
-  dimension: c8050_platform {
+  dimension: platform {
     type: string
     sql: ${TABLE}.c8050_platform ;;
   }
 
-  dimension: c8050_product {
+  dimension: product {
     type: string
     sql: ${TABLE}.c8050_product ;;
   }
 
-  dimension: c8050_region {
+  dimension: region {
     type: string
     sql: ${TABLE}.c8050_region ;;
   }
 
-  dimension: c8050_section {
+  dimension: section {
     type: string
     sql: ${TABLE}.c8050_section ;;
   }
 
-  dimension: c8050_source {
+  dimension: source {
     type: string
     sql: ${TABLE}.c8050_source ;;
   }
@@ -92,6 +95,7 @@ view: t8050_user_content_by_day {
   }
 
   dimension: c8050_total_video_views {
+    hidden: yes
     type: number
     sql: ${TABLE}.c8050_total_video_views ;;
   }
@@ -100,6 +104,7 @@ view: t8050_user_content_by_day {
 
   measure: count {
     type: count
+    approximate: yes
     drill_fields: []
   }
 
@@ -110,5 +115,31 @@ view: t8050_user_content_by_day {
     sql: ${c8050_total_page_views} ;;
   }
 
+  measure: total_video_views {
+    type: sum
+    #value_format: '#,##0'
+    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c8050_total_video_views} ;;
+  }
+
+  measure: average_duration {
+    type: average
+    value_format: "#,##0"
+    sql: ${c8050_average_duration} ;;
+  }
+
+  measure: distinct_users {
+    #    view_label: User
+    type: count_distinct
+    sql: ${nxtuid} ;;
+    approximate: yes
+  }
+
+  measure: distinct_content {
+    #    view_label: Content
+    type: count_distinct
+    sql: ${content_id} ;;
+    approximate: yes
+  }
 
 }
