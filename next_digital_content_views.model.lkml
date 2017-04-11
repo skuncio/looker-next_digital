@@ -14,7 +14,7 @@ explore: contentview {
 
   join: content {
     view_label: "Content Object Meta Data"
-    sql_on: ${contentview.cid} = ${content.cid} and ${contentview.region} = ${content.region} and ${contentview.product} = ${content.product} ;;
+    sql_on: ${contentview.cid} = ${content.cid} and ${contentview.region} = ${content.region} and ${contentview.product} = ${content.product} and ${content.video_length} > 0 ;;
     relationship: many_to_one
     type: left_outer
   }
@@ -37,9 +37,9 @@ explore: contentview_page {
   sql_always_where: ${view_type} = 'PAGEVIEW' ;;
 }
 
-#- explore: view_aggregate_tmp
-explore: view_aggregate {
-  label: "6) Content Summary by Users (2 mths by day) Note- this PDT is only updated at the weekend so data may be missing for upto last 7 days."
+#- explore: view_ahttps://nextdigitaljp.looker.com/projects/next_digital/files/t8050_user_content_by_day.view.lkmlggregate_tmp
+explore: t8050_user_content_by_day {
+  label: "6) Content Summary by Users (2 mths by day)."
   view_label: "Content & Users"
   #      - join: t1021_cid_title_day
   #        view_label: Animated Title
@@ -58,7 +58,7 @@ explore: view_aggregate {
   #        type: left_outer
   join: content {
     view_label: "Content Object Meta Data"
-    sql_on: c8002_cid = ${content.cid} and c8002_region = ${content.region} and c8002_product = ${content.product} ;;
+    sql_on: c8050_cid = ${content.cid} and c8050_region = ${content.region} and c8050_product = ${content.product} and ${content.video_length} > 0 ;;
     relationship: many_to_one
     type: left_outer
   }
@@ -84,7 +84,7 @@ explore: view_agg_with_article {
   #        type: left_outer
   join: content {
     view_label: "Content Object Meta Data"
-    sql_on: c8002_cid = ${content.cid} and c8002_region = ${content.region} and c8002_product = ${content.product} ;;
+    sql_on: c8002_cid = ${content.cid} and c8002_region = ${content.region} and c8002_product = ${content.product} and ${content.video_length} > 0 ;;
     relationship: many_to_one
     type: left_outer
   }
