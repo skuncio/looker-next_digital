@@ -32,10 +32,10 @@ view: content {
     sql: ${TABLE}.c8000_region ;;
   }
 
-  dimension: content_src {
-    type: string
-    sql: ${TABLE}.c8000_content_src ;;
-  }
+#  dimension: content_src {
+#    type: string
+#    sql: ${TABLE}.c8000_content_src ;;
+#  }
 
   dimension: video_length {
     type: number
