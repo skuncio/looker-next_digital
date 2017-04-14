@@ -3,13 +3,13 @@ view: t1025_reg_prod_cid_title {
 
   dimension: c1025_cid {
     type: string
-    hidden: yes
+#    hidden: yes
     sql: ${TABLE}.c1025_cid ;;
   }
 
-  dimension: c1025_imp_type {
+  dimension: imp_type {
     type: string
-    hidden: yes
+#    hidden: yes
     sql: ${TABLE}.c1025_imp_type ;;
 
     case: {

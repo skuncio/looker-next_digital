@@ -43,7 +43,7 @@ explore: t8050_user_content_by_day {
   view_label: "Content & Users"
   join: t1025_reg_prod_cid_title {
     view_label: "Content Title"
-    sql_on: ${t8050_user_content_by_day.content_id} = ${t1025_reg_prod_cid_title.c1025_cid} and ${t8050_user_content_by_day.product} = ${t1025_reg_prod_cid_title.c1025_product} and ${t8050_user_content_by_day.region} = ${t1025_reg_prod_cid_title.c1025_region} and ${t8050_user_content_by_day.view_type} = ${t1025_reg_prod_cid_title.c1025_imp_type}  ;;
+    sql_on: ${t8050_user_content_by_day.content_id} = ${t1025_reg_prod_cid_title.c1025_cid} and ${t8050_user_content_by_day.product} = ${t1025_reg_prod_cid_title.c1025_product} and ${t8050_user_content_by_day.region} = ${t1025_reg_prod_cid_title.c1025_region} and ${t8050_user_content_by_day.view_type} = ${t1025_reg_prod_cid_title.imp_type}  ;;
     relationship: many_to_one
     type: left_outer
   }
@@ -75,7 +75,7 @@ explore: view_agg_with_article {
   view_label: "Article & Video Views - Summary"
   join: t1025_reg_prod_cid_title {
     view_label: "Content Title"
-    sql_on: c8002_cid  = ${t1025_reg_prod_cid_title.c1025_cid} and c8002_product = ${t1025_reg_prod_cid_title.c1025_product} and c8002_region = ${t1025_reg_prod_cid_title.c1025_region} and c8002.action = ${t1025_reg_prod_cid_title.c1025_imp_type}  ;;
+    sql_on: c8002_cid  = ${t1025_reg_prod_cid_title.c1025_cid} and c8002_product = ${t1025_reg_prod_cid_title.c1025_product} and c8002_region = ${t1025_reg_prod_cid_title.c1025_region} and c8002.action = ${t1025_reg_prod_cid_title.imp_type}  ;;
     relationship: many_to_one
     type: left_outer
   }
