@@ -14,12 +14,12 @@ view: t1025_reg_prod_cid_title {
 
     case: {
       when: {
-        sql: ${TABLE}.c1025_imp_type = "I" ;;
+        sql: ${TABLE}.c1025_imp_type = 'I' ;;
         label: "PAGEVIEW"
       }
 
       when: {
-        sql: ${TABLE}.c1025_imp_type = "V" ;;
+        sql: ${TABLE}.c1025_imp_type = 'V' ;;
         label: "VIDEOVIEW"
       }
 
@@ -49,7 +49,7 @@ view: t1025_reg_prod_cid_title {
 
   measure: count {
     type: count
-    hidden: yes
+#    hidden: yes
     drill_fields: []
   }
 }
