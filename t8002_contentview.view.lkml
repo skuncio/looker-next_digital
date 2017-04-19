@@ -330,6 +330,11 @@ view: contentview {
     sql: ${TABLE}.c8002_wifi ;;
   }
 
+  dimension: t8002_abt {
+    type: string
+    sql: ${TABLE}.t8002_abt ;;
+  }
+
   dimension: latitude_longitude {
     alias: [view_location]
     view_label: "Location"
