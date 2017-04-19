@@ -35,25 +35,25 @@ view: contentview {
     sql: ${TABLE}.c8002_auto ;;
   }
 
-  dimension: c8002_battery {
+  dimension: battery {
     view_label: "User"
     type: number
     sql: ${TABLE}.c8002_battery ;;
   }
 
-  dimension: c8002_beacon_id {
+  dimension: beacon_id {
     view_label: "Location"
     type: string
     sql: ${TABLE}.c8002_beacon_id ;;
   }
 
-  dimension: c8002_beacon_loc {
+  dimension: beacon_loc {
     view_label: "Location"
     type: string
     sql: ${TABLE}.c8002_beacon_loc ;;
   }
 
-  dimension: c8002_bluetooth {
+  dimension: bluetooth {
     view_label: "User"
     type: string
     sql: ${TABLE}.c8002_bluetooth ;;
@@ -324,13 +324,13 @@ view: contentview {
     sql: ${TABLE}.c8002_video_duration ;;
   }
 
-  dimension: c8002_wifi {
+  dimension: wifi {
     view_label: "User"
     type: string
     sql: ${TABLE}.c8002_wifi ;;
   }
 
-  dimension: t8002_abt {
+  dimension: abt {
     type: string
     sql: ${TABLE}.t8002_abt ;;
   }
