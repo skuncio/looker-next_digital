@@ -304,7 +304,7 @@ view: t8002_contentview {
     sql: ${TABLE}.c8002_wifi ;;
   }
 
-  dimension: t8002_abt {
+  dimension: C8002_abt {
     type: string
     sql: ${TABLE}.t8002_abt ;;
   }
