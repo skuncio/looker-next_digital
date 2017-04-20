@@ -8,6 +8,34 @@ view: t8050_user_content_by_day {
     sql: ${TABLE}.c8050_action ;;
   }
 
+  dimension: content_type {
+    type: string
+ #   hidden: yes
+    sql: ${TABLE}.c80505_action ;;
+
+    case: {
+      when: {
+        sql: ${TABLE}.c8050_cid is null or ${TABLE}.c8050_cid = '0' ;;
+        label: "HOME-INDEX"
+      }
+
+      when: {
+        sql: ${TABLE}.c80505_action = 'PAGEVIEW' and ${TABLE}.c8050_cid not null ;;
+        label: "ARTICLE"
+      }
+
+      when: {
+        sql: ${TABLE}.c80505_actioe = 'VIDEOVIEW' and ${TABLE}.c8050_cid not null ;;
+        label: "VIDEO"
+      }
+
+      when: {
+        sql: true ;;
+        label: "unknown"
+      }
+    }
+  }
+
   dimension: app_version {
     type: string
     sql: ${TABLE}.c8050_app_version ;;
