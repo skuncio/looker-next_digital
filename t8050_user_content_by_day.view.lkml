@@ -25,7 +25,7 @@ view: t8050_user_content_by_day {
       }
 
       when: {
-        sql: ${TABLE}.c8050_actioe = 'VIDEOVIEW'  ;;
+        sql: ${TABLE}.c8050_action = 'VIDEOVIEW'  ;;
         label: "VIDEO"
       }
 
