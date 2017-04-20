@@ -20,12 +20,12 @@ view: t8050_user_content_by_day {
       }
 
       when: {
-        sql: ${TABLE}.c80505_action = 'PAGEVIEW' and ${TABLE}.c8050_cid not null ;;
+        sql: ${TABLE}.c8050_action = 'PAGEVIEW' and ${TABLE}.c8050_cid not null ;;
         label: "ARTICLE"
       }
 
       when: {
-        sql: ${TABLE}.c80505_actioe = 'VIDEOVIEW' and ${TABLE}.c8050_cid not null ;;
+        sql: ${TABLE}.c8050_actioe = 'VIDEOVIEW' and ${TABLE}.c8050_cid not null ;;
         label: "VIDEO"
       }
 
