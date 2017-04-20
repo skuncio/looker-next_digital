@@ -11,21 +11,21 @@ view: t8050_user_content_by_day {
   dimension: content_type {
     type: string
  #   hidden: yes
-    sql: ${TABLE}.c80505_action ;;
+ #   sql: ${TABLE}.c80505_action ;;
 
     case: {
       when: {
-        sql: ${TABLE}.c8050_cid is null or ${TABLE}.c8050_cid = '0' ;;
+        sql: ${TABLE}.c8050_cid is null ;;
         label: "HOME-INDEX"
       }
 
       when: {
-        sql: ${TABLE}.c8050_action = 'PAGEVIEW' and ${TABLE}.c8050_cid not null ;;
+        sql: ${TABLE}.c8050_action = 'PAGEVIEW'  ;;
         label: "ARTICLE"
       }
 
       when: {
-        sql: ${TABLE}.c8050_actioe = 'VIDEOVIEW' and ${TABLE}.c8050_cid not null ;;
+        sql: ${TABLE}.c8050_actioe = 'VIDEOVIEW'  ;;
         label: "VIDEO"
       }
 
