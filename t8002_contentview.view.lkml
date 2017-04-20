@@ -91,6 +91,11 @@ view: contentview {
     sql: ${TABLE}.c8002_city ;;
   }
 
+  dimension: content_type {
+    type: string
+    sql: ${TABLE}.c8002_content ;;
+  }
+
   dimension: country {
     view_label: "Location"
     type: string
