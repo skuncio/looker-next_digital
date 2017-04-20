@@ -15,17 +15,17 @@ view: t8050_user_content_by_day {
 
     case: {
       when: {
-        sql: ${TABLE}.c8050_cid is null ;;
+        sql: (${TABLE}.c8050_cid is null) or (${TABLE}.c8050_cid = 0)  ;;
         label: "HOME-INDEX"
       }
 
       when: {
-        sql: ${TABLE}.c8050_action = 'PAGEVIEW'  ;;
+        sql: (${TABLE}.c8050_action = 'PAGEVIEW') and (${TABLE}.c8050_cid is not null)  ;;
         label: "ARTICLE"
       }
 
       when: {
-        sql: ${TABLE}.c8050_action = 'VIDEOVIEW'  ;;
+        sql: (${TABLE}.c8050_action = 'VIDEOVIEW') and (${TABLE}.c8050_cid is not null) ;;
         label: "VIDEO"
       }
 
