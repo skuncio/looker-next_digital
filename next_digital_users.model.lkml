@@ -99,6 +99,9 @@ explore: t8021_user_churning_prediction {
     type: left_outer
   }
 }
+explore: content_preference_total_views {}
+
+explore: content_preference_unique_users {}
 
 #- explore: sql_runner_query_adid_analysis
 
