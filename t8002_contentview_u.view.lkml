@@ -306,7 +306,7 @@ view: t8002_contentview {
 
   dimension: C8002_abt {
     type: string
-    sql: ${TABLE}.t8002_abt ;;
+    sql: ${TABLE}.c8002_abt ;;
   }
 
   measure: count {

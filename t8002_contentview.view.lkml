@@ -337,7 +337,7 @@ view: contentview {
 
   dimension: abt {
     type: string
-    sql: ${TABLE}.t8002_abt ;;
+    sql: ${TABLE}.c8002_abt ;;
   }
 
   dimension: latitude_longitude {
