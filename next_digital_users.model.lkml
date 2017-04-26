@@ -91,6 +91,8 @@ explore: t5004_uninstall {}
 
 explore: t8020_user_content_preference {}
 
+explore: t8020_user_content_preference_old {}
+
 explore: t8021_user_churning_prediction {
   join: t8001_user_crossref {
     view_label: "User Cross Reference"
