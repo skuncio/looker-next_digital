@@ -1,7 +1,7 @@
 view: t8020_user_content_preference_old {
   sql_table_name: public.t8020_user_content_preference ;;
 
-  dimension_group: c8020_create {
+  dimension_group: c8020_activity {
     type: time
     timeframes: [
       raw,
@@ -12,26 +12,17 @@ view: t8020_user_content_preference_old {
       year
     ]
     convert_tz: no
-    sql: ${TABLE}.c8020_create_date ;;
-  }
-
-  dimension_group: c8020_last_view {
-    type: time
-    timeframes: [
-      raw,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    convert_tz: no
-    sql: ${TABLE}.c8020_last_view_date ;;
+    sql: ${TABLE}.c8020_activity_date ;;
   }
 
   dimension: c8020_nxtuid {
     type: string
     sql: ${TABLE}.c8020_nxtuid ;;
+  }
+
+  dimension: c8020_platform {
+    type: string
+    sql: ${TABLE}.c8020_platform ;;
   }
 
   dimension: c8020_preference {
@@ -54,7 +45,7 @@ view: t8020_user_content_preference_old {
     sql: ${TABLE}.c8020_view_count ;;
   }
 
-  measure: Row_count {
+  measure: count {
     type: count
     drill_fields: []
   }
