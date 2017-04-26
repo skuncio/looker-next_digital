@@ -1,5 +1,5 @@
 view: t8020_user_content_preference_old {
-  sql_table_name: public.t8020_user_content_preference_tmp ;;
+  sql_table_name: public.t8020_user_content_preference ;;
 
   dimension_group: c8020_create {
     type: time
