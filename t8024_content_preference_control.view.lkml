@@ -16,6 +16,11 @@ view: t8024_content_preference_control {
     sql: ${TABLE}.c8024_id ;;
   }
 
+  dimension: c8024_load_type {
+    type: string
+    sql: ${TABLE}.c8024_load_type ;;
+  }
+
   dimension: c8024_view_count_threshold {
     type: number
     sql: ${TABLE}.c8024_view_count_threshold ;;
