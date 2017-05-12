@@ -100,6 +100,12 @@ explore: t8021_user_churning_prediction {
     relationship: many_to_one
     type: left_outer
   }
+  join: t8023_user_segments {
+    view_label: "User Segments"
+    sql_on: ${t8021_user_churning_prediction.c8021_adid} = ${t8023_user_segments.c8023_nxtuid} ;;
+    relationship: one_to_one
+    type: left_outer
+  }
 }
 explore: content_preference_total_views {}
 
