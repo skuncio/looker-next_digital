@@ -128,6 +128,8 @@ explore: t8023_user_segments {
 
 explore: t8024_content_preference_control {}
 
+explore: nxtu_age_gender  {}
+
 #- explore: sql_runner_query_adid_analysis
 
 #- explore: t8003_geo_location
