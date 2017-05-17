@@ -111,7 +111,14 @@ explore: content_preference_total_views {}
 
 explore: content_preference_unique_users {}
 
-explore: t8023_user_segments {}
+explore: t8023_user_segments {
+  join: nxtu_age_gender {
+    view_label: "Age & Gender"
+    sql_on: ${t8023_user_segments.c8023_nxtuid} = ${nxtu_age_gender.nxtuid} ;;
+    relationship: many_to_one
+    type: left_outer
+  }
+}
 
 explore: t8024_content_preference_control {}
 
