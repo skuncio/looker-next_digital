@@ -118,6 +118,12 @@ explore: t8023_user_segments {
     relationship: many_to_one
     type: left_outer
   }
+  join: t8024_content_preference_control {
+    view_label: "UCP Name"
+    sql_on: ${t8023_user_segments.c8023_segment} = ${t8024_content_preference_control.c8024_id} ;;
+    relationship: one_to_one
+    type: left_outer
+  }
 }
 
 explore: t8024_content_preference_control {}
