@@ -118,7 +118,7 @@ view: t8050_user_content_by_day {
 
   dimension: subsection {
     type: string
-    sql: ${TABLE}.t8050_subsection ;;
+    sql: ${TABLE}.c8050_subsection ;;
   }
 
   dimension: c8050_total_page_views {
