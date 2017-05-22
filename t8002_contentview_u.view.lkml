@@ -309,6 +309,16 @@ view: t8002_contentview {
     sql: ${TABLE}.c8002_abt ;;
   }
 
+  dimension: C8002_omo_accid {
+    type: string
+    sql: ${TABLE}.c8002_omo_accid ;;
+  }
+
+  dimension: C8002_omo_pid {
+    type: string
+    sql: ${TABLE}.c8002_pid ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
