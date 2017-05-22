@@ -340,6 +340,18 @@ view: contentview {
     sql: ${TABLE}.c8002_abt ;;
   }
 
+  dimension: omo_accid {
+    view_label: "User"
+    type: string
+    sql: ${TABLE}.c8002_omo_accid ;;
+  }
+
+  dimension: omo_pid {
+    view_label: "User"
+    type: string
+    sql: ${TABLE}.c8002_omo_pid ;;
+  }
+
   dimension: latitude_longitude {
     alias: [view_location]
     view_label: "Location"
