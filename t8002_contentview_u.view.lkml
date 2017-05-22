@@ -316,7 +316,7 @@ view: t8002_contentview {
 
   dimension: C8002_omo_pid {
     type: string
-    sql: ${TABLE}.c8002_pid ;;
+    sql: ${TABLE}.c8002_omo_pid ;;
   }
 
   measure: count {
