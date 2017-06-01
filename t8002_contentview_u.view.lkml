@@ -320,7 +320,7 @@ view: t8002_contentview {
   }
 
   dimension:  C8002_fbid {
-    view_label: "User"
+ #   view_label: "User"
     type: string
     sql: ${TABLE}.c8002_fbid ;;
   }
