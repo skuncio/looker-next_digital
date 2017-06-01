@@ -319,6 +319,12 @@ view: t8002_contentview {
     sql: ${TABLE}.c8002_omo_pid ;;
   }
 
+  dimension:  C8002_fbid {
+    view_label: "User"
+    type: string
+    sql: ${TABLE}.c8002_fbid ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
