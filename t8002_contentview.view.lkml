@@ -352,6 +352,12 @@ view: contentview {
     sql: ${TABLE}.c8002_omo_pid ;;
   }
 
+  dimension: fbid {
+    view_label: "User"
+    type: string
+    sql: ${TABLE}.c8002_fbid ;;
+  }
+
   dimension: latitude_longitude {
     alias: [view_location]
     view_label: "Location"
