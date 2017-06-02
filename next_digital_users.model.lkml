@@ -126,6 +126,8 @@ explore: t8023_user_segments {
   }
 }
 
+explore: t4006_dashboard_rt_hour {}
+
 explore: t8024_content_preference_control {}
 
 explore: nxtu_age_gender  {}
