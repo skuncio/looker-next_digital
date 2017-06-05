@@ -16,6 +16,11 @@ view: t4006_dashboard_rt_hour {
     sql: ${TABLE}.c4006_datetime ;;
   }
 
+  dimension: c4006_content {
+    type: string
+    sql: ${TABLE}.c4006_content ;;
+  }
+
   dimension: c4006_imp_type {
     type: string
     sql: ${TABLE}.c4006_imp_type ;;
