@@ -10,7 +10,8 @@ view: t4006_dashboard_rt_hour {
       week,
       month,
       quarter,
-      year
+      year,
+      hour_of_day
     ]
     sql: ${TABLE}.c4006_datetime ;;
   }
