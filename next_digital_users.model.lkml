@@ -109,6 +109,12 @@ explore: t8021_user_churning_prediction {
 }
 
 explore: t8025_user_gender_prediction {
+  join: nxtu_age_gender {
+    view_label: "UserProfile Age & Gender"
+    sql_on: ${t8025_user_gender_prediction.c8025_nxtuid} = ${nxtu_age_gender.nxtuid} ;;
+    relationship: one_to_one
+    type: left_outer
+  }
   join: t8001_user_crossref {
     view_label: "User Cross Reference"
     sql_on: ${t8025_user_gender_prediction.c8025_nxtuid} = ${t8001_user_crossref.c8001_nxtu_or_did} ;;
