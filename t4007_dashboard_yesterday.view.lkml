@@ -36,6 +36,7 @@ view: t4007_dashboard_yesterday {
   }
 
   dimension: c4007_total_page_views {
+    hidden: yes
     type: number
     sql: ${TABLE}.c4007_total_page_views ;;
   }
@@ -46,6 +47,7 @@ view: t4007_dashboard_yesterday {
   }
 
   dimension: c4007_total_video_views {
+    hidden: yes
     type: number
     sql: ${TABLE}.c4007_total_video_views ;;
   }
@@ -53,5 +55,19 @@ view: t4007_dashboard_yesterday {
   measure: count {
     type: count
     drill_fields: []
+  }
+
+  measure: total_page_views {
+    type: sum
+    #value_format: '#,##0'
+    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c4007_total_page_views} ;;
+  }
+
+    measure: total_video_views {
+    type: sum
+    #value_format: '#,##0'
+    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c4007_total_video_views} ;;
   }
 }
