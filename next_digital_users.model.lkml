@@ -129,6 +129,8 @@ explore: t8025_user_gender_prediction {
   }
 }
 
+explore: t8026_user_age_prediction {}
+
 explore: content_preference_total_views {}
 
 explore: content_preference_unique_users {}
