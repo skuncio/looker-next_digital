@@ -129,7 +129,26 @@ explore: t8025_user_gender_prediction {
   }
 }
 
-explore: t8026_user_age_prediction {}
+explore: t8026_user_age_prediction {
+  join: nxtu_age_gender {
+    view_label: "UserProfile Age & Gender"
+    sql_on: ${t8026_user_age_prediction.c8026_nxtuid} = ${nxtu_age_gender.nxtuid} ;;
+    relationship: one_to_one
+    type: left_outer
+  }
+  join: t8001_user_crossref {
+    view_label: "User Cross Reference"
+    sql_on: ${t8026_user_age_prediction.c8026_nxtuid} = ${t8001_user_crossref.c8001_nxtu_or_did} ;;
+    relationship: one_to_one
+    type: left_outer
+  }
+  join: t8023_user_segments {
+    view_label: "User Segments"
+    sql_on: ${t8026_user_age_prediction.c8026_nxtuid} = ${t8023_user_segments.c8023_nxtuid} ;;
+    relationship: one_to_many
+    type: left_outer
+  }
+}
 
 explore: content_preference_total_views {}
 
