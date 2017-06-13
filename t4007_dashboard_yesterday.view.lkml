@@ -76,6 +76,6 @@ view: t4007_dashboard_yesterday {
     type: number
     #value_format: '#,##0'
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
-    sql: ${c4007_total_unique_users} ;;
+    sql: ${c4007_total_unique_users} where ${c4007_content} is null ;;
   }
 }
