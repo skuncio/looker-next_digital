@@ -42,7 +42,7 @@ view: t4007_dashboard_yesterday {
   }
 
   dimension: c4007_total_unique_users {
-    hidden: yes
+   # hidden: yes
     type: number
     sql: ${TABLE}.c4007_total_unique_users ;;
   }
@@ -72,10 +72,14 @@ view: t4007_dashboard_yesterday {
     sql: ${c4007_total_video_views} ;;
   }
 
-  measure: total_unique_users {
-    type: number
-    #value_format: '#,##0'
-    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
-    sql: CASE when ${c4007_content} is null then  ${c4007_total_unique_users} else null END  ;;
-  }
+  #measure: total_prod_unique_users {
+   # type: number
+  #  #value_format: '#,##0'
+  #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+  #  filters: {
+  #    field: c4007_content
+  #    value: "null"
+  #  }
+  #  sql: ${c4007_total_unique_users} ;;
+  #}
 }
