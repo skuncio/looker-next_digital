@@ -36,7 +36,7 @@ view: t4007_dashboard_yesterday {
   }
 
   dimension: c4007_total_page_views {
-    hidden: yes
+    #hidden: yes
     type: number
     sql: ${TABLE}.c4007_total_page_views ;;
   }
@@ -48,7 +48,7 @@ view: t4007_dashboard_yesterday {
   }
 
   dimension: c4007_total_video_views {
-    hidden: yes
+    #hidden: yes
     type: number
     sql: ${TABLE}.c4007_total_video_views ;;
   }
