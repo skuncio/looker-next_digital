@@ -60,15 +60,15 @@ view: t4007_dashboard_yesterday {
 
   measure: total_page_views {
     type: sum
-    #value_format: '#,##0'
-    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    value_format: "#,##0"
+    #value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${c4007_total_page_views} ;;
   }
 
     measure: total_video_views {
     type: sum
-    #value_format: '#,##0'
-    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    value_format: "#,##0"
+    #value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${c4007_total_video_views} ;;
   }
 
