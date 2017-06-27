@@ -55,7 +55,8 @@ view: t4005_etw_event {
       week,
       month,
       quarter,
-      year
+      year,
+      hour_of_day
     ]
     sql: ${TABLE}.c4005_edate ;;
   }
