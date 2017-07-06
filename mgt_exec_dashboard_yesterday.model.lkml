@@ -1,5 +1,4 @@
-connection: "nd_snowflake"
-##connection: "next_prd_redshift"
+connection: "next_prd_redshift"
 
 persist_for: "10 minutes"
 
