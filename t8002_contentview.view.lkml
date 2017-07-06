@@ -374,7 +374,6 @@ view: contentview {
 
   measure: total_page_views {
     type: count
-
     filters: {
       field: view_type
       value: "PAGEVIEW"
@@ -383,16 +382,20 @@ view: contentview {
 
   measure: total_video_views {
     type: count
-
     filters: {
       field: view_type
       value: "VIDEOVIEW"
     }
   }
 
-  measure: average_duration {
+  measure: average_video_duration {
+    alias: [average_duration]
     type: average
     sql: ${video_duration} ;;
+    filters: {
+      field: view_type
+      value: "VIDEOVIEW"
+    }
   }
 
   measure: distinct_users {
