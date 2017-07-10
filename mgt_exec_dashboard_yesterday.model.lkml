@@ -3,7 +3,7 @@ connection: "nd_snowflake"
 
 persist_for: "10 minutes"
 
-include: "*.view.lkml"         # include all views in this project
+include: "t*.view.lkml"         # include all views in this project
 include: "*.dashboard.lookml"  # include all dashboards in this project
 
 # # Select the views that should be a part of this model,
