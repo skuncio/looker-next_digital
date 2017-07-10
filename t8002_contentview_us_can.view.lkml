@@ -1,5 +1,11 @@
 view: contentview_us_can {
   sql_table_name: public.t8002_contentview_us_can ;;
+
+  dimension: abt {
+    type: string
+    sql: ${TABLE}.C8002_ABT ;;
+  }
+
   #  - dimension: c8002_action
   #    type: string
   #    sql: ${TABLE}.c8002_action
@@ -116,7 +122,7 @@ view: contentview_us_can {
     timeframes: [
       raw,
       time,
-      date,
+#      date,
       week,
       month,
       quarter,
@@ -125,6 +131,12 @@ view: contentview_us_can {
     ]
     convert_tz: yes
     sql: ${TABLE}.c8002_datetime ;;
+  }
+
+  dimension: view_date {
+#    alias: [view_date]
+    group_label: "view"
+    sql: TO_DATE(${TABLE}.c8002_datetime) ;;
   }
 
   dimension: dcc_id {
@@ -256,6 +268,16 @@ view: contentview_us_can {
     sql: ${TABLE}.c8002_platform ;;
   }
 
+  dimension: omo_accid {
+    type: string
+    sql: ${TABLE}.C8002_OMO_ACCID ;;
+  }
+
+  dimension: omo_pid {
+    type: string
+    sql: ${TABLE}.C8002_OMO_PID ;;
+  }
+
   dimension: postcode {
     view_label: "Location"
     type: string
@@ -332,7 +354,8 @@ view: contentview_us_can {
     sql: ${TABLE}.c8002_ua ;;
   }
 
-  dimension: video_duration {
+  dimension: view_duration {
+    alias: [video_duration]
     type: number
     sql: ${TABLE}.c8002_video_duration ;;
   }
@@ -374,11 +397,24 @@ view: contentview_us_can {
     }
   }
 
-  measure: average_duration {
+  measure: average_video_duration {
+    alias: [average_duration]
     type: average
-    sql: ${video_duration} ;;
+    sql: ${view_duration} ;;
+    filters: {
+      field: view_type
+      value: "VIDEOVIEW"
+    }
   }
 
+  measure: average_page_duration {
+    type: average
+    sql: ${view_duration} ;;
+    filters: {
+      field: view_type
+      value: "PAGEVIEW"
+    }
+  }
   measure: distinct_users {
     view_label: "User"
     type: count_distinct
