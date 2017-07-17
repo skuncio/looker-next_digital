@@ -15,6 +15,7 @@ view: sql_users_both_age_gender {
 
   dimension: c8001_last_activity_date {
     type: date
+    convert_tz: no
     sql: ${TABLE}.c8001_last_activity_date ;;
   }
 
