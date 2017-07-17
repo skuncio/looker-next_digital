@@ -6,6 +6,7 @@ persist_for: "12 hours"
 # include all views in this project
 include: "t*.view"
 include: "nxtu_age_gender.view"
+include: "sql_users_both_age_gender.view"
 
 # include all dashboards in this project
 include: "*.dashboard"
@@ -79,7 +80,7 @@ explore: t3016_seg_agg_cid_day {
   }
 }
 
-#explore: sql_users_both_age_gender {}
+explore: sql_users_both_age_gender {}
 
 explore: t5000_open {}
 
