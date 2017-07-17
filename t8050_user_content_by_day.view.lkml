@@ -93,6 +93,11 @@ dimension_group: view {
   sql: ${TABLE}.c8050_datetime ;;
 }
 
+filter: filter_view_date {
+  label: "view date"
+  type:date
+}
+
 dimension: date_viewed {
   group_label: "view"
   sql: ${TABLE}.c8050_datetime ;;
