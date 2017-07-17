@@ -3,8 +3,9 @@ connection: "nd_snowflake"
 
 persist_for: "10 minutes"
 
-include: "t*.view.lkml"         # include all views in this project
-include: "*.dashboard.lookml"  # include all dashboards in this project
+include: "t4007_dashboard_yesterday.view"         # include specific views in this project
+include: "pdt_view_agg_with_article.view"
+include: "*.dashboard.lookml"                     # include all dashboards in this project
 
 # # Select the views that should be a part of this model,
 # # and define the joins that connect them together.
@@ -21,4 +22,10 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #   }
 # }
 
-explore: t4007_dashboard_yesterday {}
+explore: t4007_dashboard_yesterday {
+  persist_for: "6 hours"
+}
+
+explore: pdt_view_agg_with_article {
+  persist_for: "12 hours"
+}
