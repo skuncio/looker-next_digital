@@ -61,6 +61,6 @@ view: t8020_user_content_preference_old {
   type: count_distinct
 # value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
   sql: ${c8020_nxtuid} ;;
-  approximate: yes
+#  approximate: yes
 }
 }

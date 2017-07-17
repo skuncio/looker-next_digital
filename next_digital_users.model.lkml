@@ -1,9 +1,11 @@
-connection: "next_prd_redshift"
+connection: "nd_snowflake_analytics"
+#connection: "next_prd_redshift"
 
 persist_for: "12 hours"
 
 # include all views in this project
-include: "*.view"
+include: "t*.view"
+include: "nxtu_age_gender.view"
 
 # include all dashboards in this project
 include: "*.dashboard"
@@ -77,7 +79,7 @@ explore: t3016_seg_agg_cid_day {
   }
 }
 
-explore: sql_users_both_age_gender {}
+#explore: sql_users_both_age_gender {}
 
 explore: t5000_open {}
 
@@ -150,9 +152,9 @@ explore: t8026_user_age_prediction {
   }
 }
 
-explore: content_preference_total_views {}
+#explore: content_preference_total_views {}
 
-explore: content_preference_unique_users {}
+#explore: content_preference_unique_users {}
 
 explore: t8023_user_segments {
   join: nxtu_age_gender {

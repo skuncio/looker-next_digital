@@ -115,13 +115,13 @@ view: t1023_animated_video {
     #    view_label: User
     type: count_distinct
     sql: ${c1023_uid} ;;
-    approximate: yes
+#    approximate: yes
   }
 
   measure: distinct_content {
     #    view_label: Content
     type: count_distinct
     sql: ${c1023_cid} ;;
-    approximate: yes
+#    approximate: yes
   }
 }
