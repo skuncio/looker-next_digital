@@ -122,6 +122,12 @@ view: contentview {
     sql: ${TABLE}.c8002_datetime ;;
   }
 
+  dimension: date_viewed {
+#    alias: [view_date]
+    group_label: "view"
+    sql: TO_DATE(${TABLE}.c8002_datetime) ;;
+  }
+
   dimension: dcc_id {
     view_label: "Location"
     type: string
@@ -324,9 +330,10 @@ view: contentview {
     sql: ${TABLE}.c8002_ua ;;
   }
 
-  dimension: video_duration {
+  dimension: view_duration {
+    alias: [video_duration]
     type: number
-    sql: ${TABLE}.c8002_video_duration ;;
+    sql: ${TABLE}.c8002_view_duration ;;
   }
 
   dimension: wifi {
@@ -368,7 +375,7 @@ view: contentview {
 
   measure: count {
     type: count
-    approximate: yes
+#    approximate: yes
     drill_fields: []
   }
 
@@ -391,10 +398,19 @@ view: contentview {
   measure: average_video_duration {
     alias: [average_duration]
     type: average
-    sql: ${video_duration} ;;
+    sql: ${view_duration} ;;
     filters: {
       field: view_type
       value: "VIDEOVIEW"
+    }
+  }
+
+  measure: average_page_duration {
+    type: average
+    sql: ${view_duration} ;;
+    filters: {
+      field: view_type
+      value: "PAGEVIEW"
     }
   }
 
@@ -403,13 +419,13 @@ view: contentview {
     type: count_distinct
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${user_id} ;;
-    approximate: yes
+#    approximate: yes
   }
 
   measure: distinct_content {
     type: count_distinct
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${cid} ;;
-    approximate: yes
+#    approximate: yes
   }
 }

@@ -1,5 +1,49 @@
-view: view_agg_with_article {
-  sql_table_name: LOOKER_SCRATCH.LR$XWFJLUIT9XOEN7W0DL6SE_pdt_view_agg_with_article ;;
+view: view_agg_with_article_REDSHIFT {
+  # remove site, br added cid
+  # Or, you could make this view a derived table, like this  :
+  derived_table: {
+    #    sql: |
+    #        SELECT
+    #        DATE(CONVERT_TIMEZONE('UTC', 'Hongkong', contentview.c8002_datetime)) as "c8002_datetime",
+    #    sql_trigger_value: select date(convert_timezone('hkt', getdate()))
+    # sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from convert_timezone('HKT',GETDATE())) - 60*60*4)/(60*60*24)) ;;
+    #    persist_for: 72 hours
+    sortkeys: ["c8002_datetime"]
+    distribution: "c8002_cid"
+    sql: SELECT
+      DATE(contentview.c8002_datetime) as "c8002_datetime",
+      contentview.c8002_product ,
+      contentview.c8002_region ,
+      contentview.c8002_platform ,
+      contentview.c8002_source ,
+      contentview.c8002_app_version,
+      contentview.c8002_category,
+      contentview.c8002_channel,
+      contentview.c8002_section ,
+      contentview.c8002_issueid,
+      contentview.c8002_news ,
+      contentview.c8002_content,
+      contentview.c8002_edm,
+      contentview.c8002_action,
+      contentview.c8002_cid ,
+      contentview.c8002_artid,
+      contentview.c8002_title,
+      contentview.c8002_auto,
+      contentview.c8002_language ,
+      contentview.c8002_keyword ,
+      COUNT(CASE WHEN (contentview.c8002_action = 'PAGEVIEW') THEN 1 ELSE NULL END) AS "total_page_views",
+      COUNT(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') THEN 1 ELSE NULL END) AS "total_video_views",
+      AVG(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW')
+      THEN contentview.c8002_video_duration ELSE NULL END ) AS "average_duration"
+      FROM public.t8002_contentview AS contentview
+      GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
+      ORDER BY 1,2,3,4,5 ASC
+       ;;
+  }
+
+  #  - dimension: browser
+  #    type: string
+  #    sql: ${TABLE}.c8002_br
 
   dimension: view_type {
     description: "PAGEVIEW or VIDEOVIEW"
@@ -98,9 +142,9 @@ view: view_agg_with_article {
     drill_fields: [product, category]
   }
 
-#  - dimension: site
-#    type: string
-#    sql: ${TABLE}.c8002_site
+  #  - dimension: site
+  #    type: string
+  #    sql: ${TABLE}.c8002_site
 
   dimension: source {
     type: string
@@ -112,7 +156,7 @@ view: view_agg_with_article {
     sql: ${TABLE}.c8002_title ;;
   }
 
-#### measures #############
+  #### measures #############
 
   dimension: page_views {
     hidden: yes
@@ -143,7 +187,7 @@ view: view_agg_with_article {
   dimension: avg_video_duration {
     hidden: yes
     type: number
-    sql: ${TABLE}.average_video_duration ;;
+    sql: ${TABLE}.average_duration ;;
   }
 
   measure: average_video_duration {
@@ -152,21 +196,9 @@ view: view_agg_with_article {
     sql: ${avg_video_duration} ;;
   }
 
-  dimension: avg_page_duration {
-    hidden: yes
-    type: number
-    sql: ${TABLE}.average_page_duration ;;
-  }
-
-  measure: average_page_duration {
-    type: average
-    value_format: "#,##0"
-    sql: ${avg_page_duration} ;;
-  }
-
   measure: count {
     type: count
-    # approximate: yes
+    approximate: yes
     drill_fields: []
   }
 
@@ -174,6 +206,6 @@ view: view_agg_with_article {
     #    view_label: Content
     type: count_distinct
     sql: ${content_id} ;;
-    #approximate: yes
+    approximate: yes
   }
 }

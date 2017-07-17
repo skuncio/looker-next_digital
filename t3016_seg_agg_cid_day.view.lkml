@@ -150,14 +150,14 @@ view: t3016_seg_agg_cid_day {
     type: count_distinct
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${c3016_cid} ;;
-    approximate: yes
+#    approximate: yes
   }
 
   measure: distinct_artid {
     type: count_distinct
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${c3016_artid} ;;
-    approximate: yes
+#    approximate: yes
   }
 
   measure: count {

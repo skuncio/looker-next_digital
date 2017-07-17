@@ -1,9 +1,12 @@
-connection: "next_prd_redshift"
+connection: "nd_snowflake_analytics"
+#connection: "next_prd_redshift"
 
 persist_for: "12 hours"
 
 # include all views in this project
-include: "*.view"
+include: "t*.view"
+include: "dashboard_headers.view"
+include: "view_agg_with_article.view"
 
 # include all dashboards in this project
 include: "*.dashboard"
