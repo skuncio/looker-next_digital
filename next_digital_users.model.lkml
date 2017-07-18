@@ -50,7 +50,7 @@ explore: t4003_animated_cid {
 }
 
 explore: t8050_user_content_by_day {
-  sql_always_where:{% condition t8050_user_content_by_day.filter_view_date %} ${t8050_user_content_by_day.view_date} {% endcondition %}  ;;
+#  sql_always_where:{% condition t8050_user_content_by_day.filter_view_date %} ${t8050_user_content_by_day.view_date} {% endcondition %}  ;;
 }
 
 explore: t1021_cid_title_day {}
