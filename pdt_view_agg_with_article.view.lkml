@@ -151,7 +151,7 @@ view: pdt_view_agg_with_article {
         sql: ${TABLE}.c8002_title ;;
       }
 
-      #### measures #############
+      ######## measures #############
 
       dimension: page_views {
         hidden: yes
