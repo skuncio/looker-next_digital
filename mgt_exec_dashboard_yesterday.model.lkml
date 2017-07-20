@@ -23,7 +23,7 @@ include: "*.dashboard.lookml"                     # include all dashboards in th
 # }
 
 explore: t4007_dashboard_yesterday {
-  persist_for: "6 hours"
+  persist_for: "10 minutes"
 }
 
 explore: pdt_view_agg_with_article {
