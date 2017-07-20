@@ -36,10 +36,10 @@ view: t8050_user_content_by_day {
 #    }
 #  }
 
-  dimension: app_version {
-    type: string
-    sql: ${TABLE}.c8050_app_version ;;
-  }
+#  dimension: app_version {
+#    type: string
+#    sql: ${TABLE}.c8050_app_version ;;
+#  }
 
   dimension: auto {
     type: string
