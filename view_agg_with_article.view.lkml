@@ -1,5 +1,5 @@
 view: view_agg_with_article {
-  sql_table_name: LOOKER_SCRATCH.LR$XWS3QKSATW33BPB8EINXD_pdt_view_agg_with_article ;;
+  sql_table_name: LOOKER_SCRATCH.LR$XWFJLUIT9XOEN7W0DL6SE_pdt_view_agg_with_article ;;
 
   dimension: view_type {
     description: "PAGEVIEW or VIDEOVIEW"
