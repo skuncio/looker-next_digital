@@ -46,19 +46,6 @@ view: t8050_user_content_by_day {
     sql: ${TABLE}.c8050_auto ;;
   }
 
-  dimension: c8050_average_video_duration {
-    alias: [c8050_average_duration]
-    hidden: yes
-    type: number
-    sql: ${TABLE}.c8050_average_video_duration ;;
-}
-
-dimension: c8050_average_page_duration {
-  hidden: yes
-  type: number
-  sql: ${TABLE}.c8050_average_page_duration ;;
-}
-
 dimension: category {
   type: string
   sql: ${TABLE}.c8050_category ;;
@@ -143,17 +130,7 @@ dimension: subsection {
   sql: ${TABLE}.c8050_subsection ;;
 }
 
-dimension: c8050_total_page_views {
-  hidden: yes
-  type: number
-  sql: ${TABLE}.c8050_total_page_views ;;
-}
 
-dimension: c8050_total_video_views {
-  hidden: yes
-  type: number
-  sql: ${TABLE}.c8050_total_video_views ;;
-}
 
 ########## measures #############
 
@@ -163,53 +140,93 @@ measure: count {
   drill_fields: []
 }
 
-measure: total_page_views {
-  type: sum
-  #value_format: '#,##0'
-  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
-  sql: ${c8050_total_page_views} ;;
-}
 
-measure: average_page_duration {
-  type: average
-  value_format: "#,##0"
-  sql: ${c8050_average_page_duration} ;;
-  filters: {
-    field: view_type
-    value: "PAGEVIEW"
+  dimension: c8050_total_video_views {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.c8050_total_video_views ;;
   }
-}
 
-measure: total_video_views {
-  type: sum
-  #value_format: '#,##0'
-  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
-  sql: ${c8050_total_video_views} ;;
-}
-
-measure: average_video_duration {
-  alias: [average_duration]
-  type: average
-  value_format: "#,##0"
-  sql: ${c8050_average_video_duration} ;;
-  filters: {
-    field: view_type
-    value: "VIDEOVIEW"
+  dimension: c8050_average_video_duration {
+    alias: [c8050_average_duration]
+    hidden: yes
+    type: number
+    sql: ${TABLE}.c8050_average_video_duration ;;
   }
-}
 
-measure: distinct_users {
-  #    view_label: User
-  type: count_distinct
-  sql: ${nxtuid} ;;
-#    approximate: yes
-}
+  measure: sum_video_views {
+    alias: [total_video_views]
+#  hidden: yes
+    type: sum
+    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c8050_total_video_views} ;;
+  }
 
-measure: distinct_content {
-  #    view_label: Content
-  type: count_distinct
-  sql: ${content_id} ;;
+  measure: sum_video_duration {
+    hidden: yes
+    type: sum
+    sql: ${c8050_average_video_duration} * ${c8050_total_video_views} ;;
+    filters: {
+      field: view_type
+      value: "VIDEOVIEW"
+    }
+  }
+
+  measure: weighted_avg_video_duration {
+    alias: [average_duration,average_video_duration]
+    type: number
+    value_format: "#,##0.00"
+    sql: ${sum_video_duration} / nullif(${sum_video_views},0) ;;
+  }
+
+  dimension: c8050_total_page_views {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.c8050_total_page_views ;;
+  }
+
+  dimension: c8050_average_page_duration {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.c8050_average_page_duration ;;
+  }
+
+  measure: sum_page_views {
+    alias: [total_page_views]
+#  hidden: yes
+    type: sum
+    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c8050_total_page_views} ;;
+
+  }
+  measure: sum_page_duration {
+    hidden: yes
+    type: sum
+    sql: ${c8050_average_page_duration} * ${c8050_total_page_views} ;;
+    filters: {
+      field: view_type
+      value: "PAGEVIEW"
+    }
+  }
+
+  measure: weighted_avg_page_duration {
+    type: number
+    value_format: "#,##0.00"
+    sql: ${sum_page_duration} / nullif(${sum_page_views},0) ;;
+  }
+
+  measure: distinct_users {
+    #    view_label: User
+    type: count_distinct
+    sql: ${nxtuid} ;;
 #    approximate: yes
-}
+  }
+
+  measure: distinct_content {
+    #    view_label: Content
+    type: count_distinct
+    sql: ${content_id} ;;
+#    approximate: yes
+  }
 
 }
