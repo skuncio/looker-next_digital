@@ -6,6 +6,11 @@ view: ua_connect_event {
     sql: ${TABLE}.EVENTDATA ;;
   }
 
+  dimension: event_type {
+    type: string
+    sql: eventdata:type::string ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
