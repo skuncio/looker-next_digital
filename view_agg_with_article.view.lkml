@@ -114,30 +114,10 @@ view: view_agg_with_article {
 
 #### measures #############
 
-  dimension: page_views {
-    hidden: yes
-    type: number
-    sql: ${TABLE}.total_page_views ;;
-  }
-
-  measure: total_page_views {
-    type: sum
-    #value_format: '#,##0'
-    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
-    sql: ${page_views} ;;
-  }
-
   dimension: video_views {
     hidden: yes
     type: number
     sql: ${TABLE}.total_video_views ;;
-  }
-
-  measure: total_video_views {
-    type: sum
-    #value_format: '#,##0'
-    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
-    sql: ${video_views} ;;
   }
 
   dimension: avg_video_duration {
@@ -146,10 +126,30 @@ view: view_agg_with_article {
     sql: ${TABLE}.average_video_duration ;;
   }
 
-  measure: average_video_duration {
-    type: average
-    value_format: "#,##0"
-    sql: ${avg_video_duration} ;;
+   measure: sum_video_views {
+    alias: [total_video_views]
+#  hidden: yes
+    type: sum
+    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${video_views} ;;
+  }
+
+  measure: sum_video_duration {
+    hidden: yes
+    type: sum
+    sql: ${avg_video_duration} * ${video_views} ;;
+  }
+
+  measure: weighted_avg_video_duration {
+    type: number
+    value_format: "#,##0.00"
+    sql: ${sum_video_duration} / nullif(${sum_video_views},0) ;;
+  }
+
+  dimension: page_views {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.total_page_views ;;
   }
 
   dimension: avg_page_duration {
@@ -158,10 +158,23 @@ view: view_agg_with_article {
     sql: ${TABLE}.average_page_duration ;;
   }
 
-  measure: average_page_duration {
-    type: average
-    value_format: "#,##0"
-    sql: ${avg_page_duration} ;;
+  measure: sum_page_views {
+    alias: [total_page_views]
+#  hidden: yes
+    type: sum
+    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${page_views} ;;
+  }
+  measure: sum_page_duration {
+    hidden: yes
+    type: sum
+    sql: ${avg_page_duration} * ${page_views} ;;
+  }
+
+  measure: weighted_avg_page_duration {
+    type: number
+    value_format: "#,##0.00"
+    sql: ${sum_page_duration} / nullif(${sum_page_views},0) ;;
   }
 
   measure: count {
