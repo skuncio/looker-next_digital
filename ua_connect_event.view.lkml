@@ -11,6 +11,12 @@ view: ua_connect_event {
     sql: eventdata:type::string ;;
   }
 
+  dimension: occurred_date {
+    type: date
+    sql: eventdata:occurred ;;
+  }
+
+
   measure: count {
     type: count
     drill_fields: []
