@@ -154,8 +154,8 @@ measure: count {
     sql: ${TABLE}.c8050_average_video_duration ;;
   }
 
-  measure: sum_video_views {
-    alias: [total_video_views]
+  measure: total_video_views {
+    alias: [sum_video_views]
 #  hidden: yes
     type: sum
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
@@ -172,11 +172,12 @@ measure: count {
     }
   }
 
-  measure: weighted_avg_video_duration {
+  measure: average_video_duration {
+    alias: [weighted_avg_video_duration]
     alias: [average_duration,average_video_duration]
     type: number
     value_format: "#,##0.00"
-    sql: ${sum_video_duration} / nullif(${sum_video_views},0) ;;
+    sql: ${sum_video_duration} / nullif(${total_video_views},0) ;;
   }
 
   dimension: c8050_total_page_views {
@@ -191,8 +192,8 @@ measure: count {
     sql: ${TABLE}.c8050_average_page_duration ;;
   }
 
-  measure: sum_page_views {
-    alias: [total_page_views]
+  measure: total_page_views {
+    alias: [suml_page_views]
 #  hidden: yes
     type: sum
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
@@ -209,10 +210,11 @@ measure: count {
     }
   }
 
-  measure: weighted_avg_page_duration {
+  measure: average_page_duration {
+    alias: [weighted_avg_page_duration]
     type: number
     value_format: "#,##0.00"
-    sql: ${sum_page_duration} / nullif(${sum_page_views},0) ;;
+    sql: ${sum_page_duration} / nullif(${total_page_views},0) ;;
   }
 
   measure: distinct_users {
