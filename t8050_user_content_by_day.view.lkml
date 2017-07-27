@@ -173,8 +173,7 @@ measure: count {
   }
 
   measure: average_video_duration {
-    alias: [weighted_avg_video_duration]
-    alias: [average_duration,average_video_duration]
+    alias: [average_duration,weighted_avg_video_duration]
     type: number
     value_format: "#,##0.00"
     sql: ${sum_video_duration} / nullif(${total_video_views},0) ;;
