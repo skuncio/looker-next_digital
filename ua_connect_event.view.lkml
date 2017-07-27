@@ -52,6 +52,12 @@ view: ua_connect_event {
     sql: eventdata:processed ;;
   }
 
+  dimension: payload {
+    type: string
+    sql: base64_decode_string(eventdata:body:payload) ;;
+  }
+
+
   measure: count {
     type: count
     drill_fields: []
