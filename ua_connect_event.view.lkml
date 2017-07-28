@@ -59,22 +59,22 @@ view: ua_connect_event {
 
   dimension: payload_name {
     type: string
-    sql: ${payload}:name ;;
+    sql: base64_decode_string(eventdata:body:payload:name) ;;
   }
 
   dimension: payload_audience {
     type: string
-    sql: ${payload}:audience ;;
+    sql: base64_decode_string(eventdata:body:payload:audience) ;;
   }
 
   dimension: payload_device_types {
     type: string
-    sql: ${payload}:device_types ;;
+    sql: base64_decode_string(eventdata:body:payload:device_types) ;;
   }
 
   dimension: payload_variants {
     type: string
-    sql: ${payload}:variants ;;
+    sql: base64_decode_string(eventdata:body:payload:variants) ;;
   }
 
   dimension: payload_variants_name_1 {
