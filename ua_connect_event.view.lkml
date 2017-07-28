@@ -74,7 +74,7 @@ view: ua_connect_event {
 
   dimension: payload_variants {
     type: string
-    sql: json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants') ;;
+    sql: ${payload}:variants ;;
   }
 
   dimension: payload_variants_name_1 {
