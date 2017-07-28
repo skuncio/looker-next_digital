@@ -7,23 +7,19 @@ view: ua_connect_event {
   }
 
   dimension: event_type {
-    type: string
-    sql: eventdata:type ;;
+    sql: eventdata:type::string ;;
   }
 
   dimension: push_id {
-    type: string
-    sql: eventdata:body:push_id ;;
+    sql: eventdata:body:push_id::string ;;
   }
 
   dimension: device_type {
-    type: string
-    sql: eventdata:device:device_type ;;
+    sql: eventdata:device:device_type::string ;;
   }
 
   dimension: device_channel {
-    type: string
-    sql: eventdata:device:channel ;;
+    sql: eventdata:device:channel::string ;;
   }
 
   dimension_group: occurred {
@@ -36,7 +32,7 @@ view: ua_connect_event {
       year,
       hour_of_day
     ]
-    sql: eventdata:occurred ;;
+    sql: eventdata:occurred::timestamp ;;
   }
 
   dimension_group: processed {
@@ -49,22 +45,19 @@ view: ua_connect_event {
       year,
       hour_of_day
     ]
-    sql: eventdata:processed ;;
+    sql: eventdata:processed::timestamp ;;
   }
 
   dimension: payload {
-    type: string
-    sql: base64_decode_string(eventdata:body:payload) ;;
+    sql: base64_decode_string(eventdata:body:payload)::variant ;;
   }
 
   dimension: payload_name {
-    type: string
-    sql: ${payload}:name ;;
+    sql: payload:name::string ;;
   }
 
   dimension: payload_audience {
-    type: string
-    sql: ${payload}:audience ;;
+    sql: ${payload}:audience::string ;;
   }
 
   dimension: payload_device_types {
