@@ -59,17 +59,17 @@ view: ua_connect_event {
 
   dimension: payload_name {
     type: string
-    sql: ${TABLE}.payload:name ;;
+    sql: ${payload}:name ;;
   }
 
   dimension: payload_audience {
     type: string
-    sql: ${TABLE}.payload:audience ;;
+    sql: ${payload}:audience ;;
   }
 
   dimension: payload_device_types {
     type: string
-    sql: ${TABLE}.payload:device_types ;;
+    sql: ${payload}:device_types ;;
   }
 
   dimension: payload_variants {
