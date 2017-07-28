@@ -52,8 +52,13 @@ view: ua_connect_event {
     sql: base64_decode_string(eventdata:body:payload)::variant ;;
   }
 
+  dimension: body_payload {
+    type: string
+    sql:  ${payload} ;;
+  }
+
   dimension: payload_name {
-    sql: ${payload}:payload:name::string ;;
+    sql: ${payload}:name::string ;;
   }
 
   dimension: payload_audience {
@@ -62,7 +67,7 @@ view: ua_connect_event {
 
   dimension: payload_device_types {
     type: string
-    sql: base64_decode_string(eventdata:body:payload:device_types) ;;
+    sql: ${payload}:device_types ;;
   }
 
   dimension: payload_variants {
