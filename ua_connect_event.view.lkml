@@ -49,7 +49,7 @@ view: ua_connect_event {
   }
 
   dimension: payload {
-    sql: base64_decode_string(eventdata:body:payload)::string ;;
+    sql: base64_decode_string(eventdata:body:payload)::variant ;;
   }
 
   dimension: body_payload {
