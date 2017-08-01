@@ -71,6 +71,7 @@ dimension_group: view {
   timeframes: [
     raw,
     date,
+    day_of_week,
     week,
     month,
     quarter,
