@@ -82,6 +82,19 @@ dimension_group: view {
   sql: ${TABLE}.c8050_datetime ;;
 }
 
+dimension: view_day {
+  sql:
+  CASE
+     when ${view_day_of_week_index} = 6 then 'Weekend'
+     when ${view_day_of_week_index} = 0 then 'Weekday'
+     when ${view_day_of_week_index} = 1 then 'Weekday'
+     when ${view_day_of_week_index} = 2 then 'Weekday'
+     when ${view_day_of_week_index} = 3 then 'Weekday'
+     when ${view_day_of_week_index} = 4 then 'Weekday'
+     when ${view_day_of_week_index} = 5 then 'Weekend'
+  END ;;
+}
+
 filter: filter_view_date {
   label: "view date"
   type:date
