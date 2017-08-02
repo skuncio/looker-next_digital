@@ -6,6 +6,7 @@ persist_for: "10 minutes"
 include: "t4007_dashboard_yesterday.view"         # include specific views in this project
 include: "pdt_view_agg_with_article.view"
 include: "ua_connect_event.view"
+include: "ua_connect_push_body.view"
 include: "*.dashboard.lookml"                     # include all dashboards in this project
 
 # # Select the views that should be a part of this model,
@@ -32,5 +33,9 @@ explore: pdt_view_agg_with_article {
 }
 
 explore: ua_connect_event {
+  persist_for: "12 hours"
+}
+
+explore: ua_connect_push_body {
   persist_for: "12 hours"
 }
