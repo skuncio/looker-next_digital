@@ -6,6 +6,24 @@ view: ua_connect_push_body {
     sql: ${TABLE}.body_payload ;;
   }
 
+  dimension: payload_name {
+    sql: ${payload}:name::string ;;
+  }
+
+  dimension: payload_audience {
+    sql: ${payload}:audience::string ;;
+  }
+
+  dimension: payload_device_types {
+    type: string
+    sql: ${payload}:device_types ;;
+  }
+
+  dimension: payload_variants {
+    type: string
+    sql: base64_decode_string(eventdata:body:payload:variants) ;;
+  }
+
   dimension: event_type {
     type: string
     sql: ${TABLE}.event_type ;;
