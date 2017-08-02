@@ -2,8 +2,8 @@ view: ua_connect_push_body {
   sql_table_name: PUBLIC.UA_CONNECT_PUSH_BODY ;;
 
   dimension: body_payload {
-#    type: string
-    sql: ${TABLE}.body_payload::variant ;;
+    type: string
+    sql: ${TABLE}.body_payload ;;
   }
 
   dimension: event_type {
