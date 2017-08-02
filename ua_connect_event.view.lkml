@@ -53,8 +53,7 @@ view: ua_connect_event {
   }
 
   dimension: body_payload {
-    type: string
-    sql:  ${payload} ;;
+    sql:  ${payload}::string ;;
   }
 
   dimension: payload_name {
