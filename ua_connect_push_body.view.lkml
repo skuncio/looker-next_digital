@@ -3,7 +3,7 @@ view: ua_connect_push_body {
 
   dimension: body_payload {
     type: string
-    sql: ${TABLE}.body_payload ;;
+    sql: ${TABLE}.body_payload::variant ;;
   }
 
   dimension: payload_name {
