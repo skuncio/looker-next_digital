@@ -1,5 +1,5 @@
 view: ua_connect_push_body {
-  sql_table_name: PUBLIC.UC_CONNECT_PUSH_BODY ;;
+  sql_table_name: PUBLIC.UA_CONNECT_PUSH_BODY ;;
 
   dimension: body_payload {
 #    type: string
