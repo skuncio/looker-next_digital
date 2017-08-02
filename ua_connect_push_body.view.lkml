@@ -21,7 +21,7 @@ view: ua_connect_push_body {
 
   dimension: payload_variants {
     type: string
-    sql: base64_decode_string(eventdata:body:payload:variants) ;;
+    sql: ${body_payload}:variants) ;;
   }
 
   dimension: event_type {
