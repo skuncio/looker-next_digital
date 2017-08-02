@@ -82,7 +82,7 @@ dimension_group: view {
   sql: ${TABLE}.c8050_datetime ;;
 }
 
-dimension: view_day {
+dimension: view_weekday {
   sql:
   CASE
      when ${view_day_of_week_index} = 6 then 'Weekend'
