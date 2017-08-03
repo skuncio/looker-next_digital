@@ -49,7 +49,7 @@ view: ua_connect_event {
   }
 
   dimension: payload {
-    sql: base64_decode_string(eventdata:body:payload)::variant ;;
+    sql:parse_json(base64_decode_string(eventdata:body:payload)::string) ;;
   }
 
   dimension: body_payload {
@@ -77,6 +77,16 @@ view: ua_connect_event {
   dimension: payload_notification {
     type: string
     sql: ${body_payload}:notification ;;
+  }
+
+  dimension: payload_content {
+    type: string
+    sql: ${body_payload}:notification:actions:open:content ;;
+  }
+
+  dimension: payload_alert {
+    type: string
+    sql: ${body_payload}:notification:alert ;;
   }
 
   dimension: payload_variants_name_1 {
