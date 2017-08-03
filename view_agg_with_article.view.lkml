@@ -47,9 +47,29 @@ view: view_agg_with_article {
 
   dimension_group: view {
     type: time
-    timeframes: [time, date, week, month, year]
+    timeframes: [
+      time,
+      date,
+      day_of_week,
+      day_of_week_index,
+      week,
+      month,
+      year]
     convert_tz: no
     sql: ${TABLE}.c8002_datetime ;;
+  }
+
+  dimension: view_weekday {
+    sql:
+      CASE
+         when ${view_day_of_week_index} = 6 then 'Weekend'
+         when ${view_day_of_week_index} = 0 then 'Weekday'
+         when ${view_day_of_week_index} = 1 then 'Weekday'
+         when ${view_day_of_week_index} = 2 then 'Weekday'
+         when ${view_day_of_week_index} = 3 then 'Weekday'
+         when ${view_day_of_week_index} = 4 then 'Weekday'
+         when ${view_day_of_week_index} = 5 then 'Weekend'
+      END ;;
   }
 
   dimension: edm {
