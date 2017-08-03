@@ -36,7 +36,7 @@ view: ua_connect_push_body {
 
   dimension: payload {
     type: string
-    sql: ${TABLE}.payload ;;
+    sql: ${TABLE}.payload::variant ;;
   }
 
   dimension: push_id {
