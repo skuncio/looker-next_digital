@@ -7,21 +7,21 @@ view: ua_connect_push_body {
   }
 
   dimension: payload_name {
-    sql: ${body_payload}:name::string ;;
+    sql: ${TABLE}.payload:name::string ;;
   }
 
   dimension: payload_audience {
-    sql: ${body_payload}:audience::string ;;
+    sql: ${TABLE}.payload:audience::string ;;
   }
 
   dimension: payload_device_types {
     type: string
-    sql: ${body_payload}:device_types ;;
+    sql: ${TABLE}.payload:device_types ;;
   }
 
   dimension: payload_variants {
     type: string
-    sql: ${body_payload}:variants) ;;
+    sql: ${TABLE}.payload: variants) ;;
   }
 
   dimension: event_type {
