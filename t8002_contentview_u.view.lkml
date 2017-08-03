@@ -101,12 +101,27 @@ view: t8002_contentview {
     timeframes: [
       time,
       date,
+      day_of_week,
+      day_of_week_index,
       week,
       month,
       year,
       hour_of_day
     ]
     sql: ${TABLE}.c8002_datetime ;;
+  }
+
+  dimension: c8002_datetime_weekday {
+    sql:
+      CASE
+         when ${c8002_datetime_day_of_week_index} = 6 then 'Weekend'
+         when ${c8002_datetime_day_of_week_index} = 0 then 'Weekday'
+         when ${c8002_datetime_day_of_week_index} = 1 then 'Weekday'
+         when ${c8002_datetime_day_of_week_index} = 2 then 'Weekday'
+         when ${c8002_datetime_day_of_week_index} = 3 then 'Weekday'
+         when ${c8002_datetime_day_of_week_index} = 4 then 'Weekday'
+         when ${c8002_datetime_day_of_week_index} = 5 then 'Weekend'
+      END ;;
   }
 
   dimension: c8002_dcc_id {
