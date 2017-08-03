@@ -38,9 +38,27 @@ view: t3016_seg_agg_cid_day {
 
   dimension_group: c3016_date_id {
     type: time
-    timeframes: [date, week, month]
+    timeframes: [
+      date,
+      day_of_week,
+      day_of_week_index,
+      week,
+      month]
     convert_tz: no
     sql: ${TABLE}.c3016_date_id ;;
+  }
+
+  dimension: c3016_date_weekday {
+    sql:
+      CASE
+         when ${c3016_date_id_day_of_week_index} = 6 then 'Weekend'
+         when ${c3016_date_id_day_of_week_index} = 0 then 'Weekday'
+         when ${c3016_date_id_day_of_week_index} = 1 then 'Weekday'
+         when ${c3016_date_id_day_of_week_index} = 2 then 'Weekday'
+         when ${c3016_date_id_day_of_week_index} = 3 then 'Weekday'
+         when ${c3016_date_id_day_of_week_index} = 4 then 'Weekday'
+         when ${c3016_date_id_day_of_week_index} = 5 then 'Weekend'
+      END ;;
   }
 
   #  - dimension: c3016_durations
