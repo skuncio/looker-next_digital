@@ -126,8 +126,8 @@ view: ua_connect_event {
   }
 
   dimension: body_resource {
-    type: string
-    sql: ${TABLE}.body_resource ;;
+    #    type: string
+    sql: eventdata:body:resource::string ;;
   }
 
   dimension: body_trimmed {
