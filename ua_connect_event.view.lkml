@@ -125,6 +125,21 @@ view: ua_connect_event {
     sql: json_extract_path_text((json_extract_path_text(f_base64decode(${TABLE}.body_payload), 'variants', 1)),  'push', 'notification', 'alert') ;;
   }
 
+  dimension: body_resource {
+    type: string
+    sql: ${TABLE}.body_resource ;;
+  }
+
+  dimension: body_trimmed {
+    type: string
+    sql: ${TABLE}.body_trimmed ;;
+  }
+
+  dimension: body_variant_id {
+    type: string
+    sql: ${TABLE}.body_variant_id ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
