@@ -10,6 +10,11 @@ view: ua_connect_event {
     sql: eventdata:type::string ;;
   }
 
+  dimension: current_tags {
+    sql: eventdata:body:current:device::string ;;
+  }
+
+
   dimension: push_id {
     sql: eventdata:body:push_id::string ;;
   }
