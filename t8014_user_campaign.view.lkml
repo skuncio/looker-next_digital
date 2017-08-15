@@ -9,7 +9,7 @@ view: t8014_user_campaign {
 
   dimension: c8014_address {
     type: string
-    sql: ${TABLE}.c8014_adress ;;
+    sql: ${TABLE}.c8014_address ;;
   }
 
   dimension: c8014_adid {
@@ -150,7 +150,7 @@ view: t8014_user_campaign {
 
   dimension: c8014_question {
     type: string
-    sql: ${TABLE}.C8014_QUESITON ;;
+    sql: ${TABLE}.C8014_QUESTION ;;
   }
 
   dimension: c8014_sname {
