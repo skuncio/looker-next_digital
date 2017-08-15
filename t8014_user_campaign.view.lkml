@@ -9,7 +9,7 @@ view: t8014_user_campaign {
 
   dimension: c8014_address {
     type: string
-    sql: ${TABLE}.c8014_address ;;
+    sql: ${TABLE}.c8014_adress ;;
   }
 
   dimension: c8014_adid {
@@ -68,6 +68,11 @@ view: t8014_user_campaign {
     }
   }
 
+  dimension: c8014_answer {
+    type: string
+    sql: ${TABLE}.C8014_ANSWER ;;
+  }
+
   dimension: c8014_cpid {
     type: string
     sql: ${TABLE}.c8014_cpid ;;
@@ -83,9 +88,19 @@ view: t8014_user_campaign {
     sql: ${TABLE}.c8014_did ;;
   }
 
+  dimension: c8014_dob {
+    type: string
+    sql: ${TABLE}.C8014_DOB ;;
+  }
+
   dimension: c8014_email {
     type: string
     sql: ${TABLE}.c8014_email ;;
+  }
+
+  dimension: c8014_eseq {
+    type: string
+    sql: ${TABLE}.C8014_ESEQ ;;
   }
 
   dimension: c8014_gender {
@@ -98,6 +113,11 @@ view: t8014_user_campaign {
     sql: ${TABLE}.c8014_gigyaid ;;
   }
 
+  dimension: c8014_income {
+    type: string
+    sql: ${TABLE}.C8014_INCOME ;;
+  }
+
   dimension: c8014_name {
     type: string
     sql: ${TABLE}.c8014_name ;;
@@ -106,6 +126,16 @@ view: t8014_user_campaign {
   dimension: c8014_nxtu_or_did {
     type: string
     sql: ${TABLE}.c8014_nxtu_or_did ;;
+  }
+
+  dimension: c8014_omo_accid {
+    type: string
+    sql: ${TABLE}.C8014_OMO_ACCID ;;
+  }
+
+  dimension: c8014_omo_pid {
+    type: string
+    sql: ${TABLE}.C8014_OMO_PID ;;
   }
 
   dimension: c8014_phone {
@@ -118,6 +148,16 @@ view: t8014_user_campaign {
     sql: ${TABLE}.c8014_platform ;;
   }
 
+  dimension: c8014_question {
+    type: string
+    sql: ${TABLE}.C8014_QUESITON ;;
+  }
+
+  dimension: c8014_sname {
+    type: string
+    sql: ${TABLE}.C8014_SNAME ;;
+  }
+
   dimension: c8014_usrc {
     type: string
     sql: ${TABLE}.c8014_usrc ;;
@@ -125,7 +165,7 @@ view: t8014_user_campaign {
 
   measure: count {
     type: count
-    drill_fields: [c8014_name]
+    drill_fields: [c8014_name, c8014_sname]
   }
 
   measure: distinct_users {
