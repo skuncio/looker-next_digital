@@ -46,6 +46,7 @@ view: view_agg_with_article {
   }
 
   dimension_group: view {
+    group_label: "view date"
     type: time
     timeframes: [
       time,
@@ -57,6 +58,11 @@ view: view_agg_with_article {
       year]
     convert_tz: no
     sql: ${TABLE}.c8002_datetime ;;
+  }
+
+  dimension: view_date_d {
+    group_label: "view date"
+    sql: TO_DATE(${TABLE}.c8002_datetime) ;;
   }
 
   dimension: view_weekday {
