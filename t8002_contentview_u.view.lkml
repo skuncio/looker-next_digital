@@ -111,6 +111,11 @@ view: t8002_contentview {
     sql: ${TABLE}.c8002_datetime ;;
   }
 
+  dimension: c8002_datetime_date_d {
+    group_label: "c8002_datetime"
+    sql: TO_DATE(${TABLE}.c8002_datetime) ;;
+  }
+
   dimension: c8002_datetime_weekday {
     sql:
       CASE
