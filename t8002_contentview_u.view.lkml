@@ -97,6 +97,7 @@ view: t8002_contentview {
   }
 
   dimension_group: c8002_datetime {
+    group_label: "c8002_datetime"
     type: time
     timeframes: [
       time,
