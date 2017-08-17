@@ -37,6 +37,7 @@ view: t3016_seg_agg_cid_day {
   }
 
   dimension_group: c3016_date_id {
+    group_label: "c3016_date_id"
     type: time
     timeframes: [
       date,
@@ -46,6 +47,11 @@ view: t3016_seg_agg_cid_day {
       month]
     convert_tz: no
     sql: ${TABLE}.c3016_date_id ;;
+  }
+
+  dimension: c3016_date_id_date_d {
+    group_label: "c3016_date_id"
+    sql: TO_DATE(${TABLE}.c3016_date_id) ;;
   }
 
   dimension: c3016_date_weekday {
