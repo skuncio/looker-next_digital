@@ -125,7 +125,7 @@ view: contentview {
     sql: ${TABLE}.c8002_datetime ;;
   }
 
-  dimension: view_date_disp {
+  dimension: view_date_d {
     group_label: "view date"
     sql: TO_DATE(${TABLE}.c8002_datetime) ;;
   }
