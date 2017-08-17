@@ -43,7 +43,7 @@ view: ua_connect_event {
 
   dimension: occurred_date_d {
     group_label: "occurred"
-    sql: TO_DATE(eventdata:occurred::timestamp) ;;
+    sql: TO_DATE(CONVERT_TIMEZONE('UTC', 'Hongkong', CAST(eventdata:occurred::timestamp  AS TIMESTAMP_NTZ))) ;;
   }
 
   dimension_group: processed {
@@ -62,7 +62,7 @@ view: ua_connect_event {
 
   dimension: processed_date_d {
     group_label: "processed"
-    sql: TO_DATE(eventdata:processed::timestamp) ;;
+    sql: TO_DATE(CONVERT_TIMEZONE('UTC', 'Hongkong', CAST(eventdata:processed::timestamp  AS TIMESTAMP_NTZ))) ;;
   }
 
   dimension: payload {
