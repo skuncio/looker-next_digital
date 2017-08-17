@@ -28,6 +28,7 @@ view: ua_connect_event {
   }
 
   dimension_group: occurred {
+    group_label: "occurred"
     type: time
     timeframes: [
       time,
@@ -40,7 +41,13 @@ view: ua_connect_event {
     sql: eventdata:occurred::timestamp ;;
   }
 
+  dimension: occurred_date_d {
+    group_label: "occurred"
+    sql: TO_DATE(eventdata:occurred::timestamp) ;;
+  }
+
   dimension_group: processed {
+    group_label: "processed"
     type: time
     timeframes: [
       time,
@@ -51,6 +58,11 @@ view: ua_connect_event {
       hour_of_day
     ]
     sql: eventdata:processed::timestamp ;;
+  }
+
+  dimension: processed_date_d {
+    group_label: "processed"
+    sql: TO_DATE(eventdata:processed::timestamp) ;;
   }
 
   dimension: payload {
