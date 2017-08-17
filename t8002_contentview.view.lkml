@@ -109,6 +109,7 @@ view: contentview {
   }
 
   dimension_group: view {
+    group_label: "view date"
     type: time
     timeframes: [
       time,
@@ -138,9 +139,8 @@ view: contentview {
   }
 
 
-  dimension: date_viewed {
-#    alias: [view_date]
-    group_label: "view"
+  dimension: date_s {
+    group_label: "view date"
     sql: TO_DATE(${TABLE}.c8002_datetime) ;;
   }
 
