@@ -125,6 +125,11 @@ view: contentview {
     sql: ${TABLE}.c8002_datetime ;;
   }
 
+  dimension: view_date_disp {
+    group_label: "view date"
+    sql: TO_DATE(${TABLE}.c8002_datetime) ;;
+  }
+
   dimension: view_weekday {
     sql:
       CASE
@@ -139,10 +144,6 @@ view: contentview {
   }
 
 
-  dimension: date_s {
-    group_label: "view date"
-    sql: TO_DATE(${TABLE}.c8002_datetime) ;;
-  }
 
   dimension: dcc_id {
     view_label: "Location"
