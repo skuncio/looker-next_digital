@@ -2,6 +2,7 @@ view: t4006_dashboard_rt_hour {
   sql_table_name: public.t4006_dashboard_rt_hour ;;
 
   dimension_group: c4006_datetime {
+    group_label: "c4006_datetime"
     type: time
     timeframes: [
       raw,
@@ -14,6 +15,11 @@ view: t4006_dashboard_rt_hour {
       hour_of_day
     ]
     sql: ${TABLE}.c4006_datetime ;;
+  }
+
+  dimension: c4006_datetime_date_d {
+    group_label: "c4006_datetime"
+    sql: TO_DATE(${TABLE}.c4006_datetime) ;;
   }
 
   dimension: c4006_content {
