@@ -2,6 +2,7 @@ view: t8020_user_content_preference {
   sql_table_name: public.t8020_user_content_preference ;;
 
   dimension_group: c8020_activity {
+    group_label: "c8020_activity"
     type: time
     timeframes: [
       raw,
@@ -13,6 +14,11 @@ view: t8020_user_content_preference {
     ]
     convert_tz: no
     sql: ${TABLE}.c8020_activity_date ;;
+  }
+
+  dimension: c8020_activity_date_d {
+    group_label: "c8020_activity"
+    sql: TO_DATE(${TABLE}.c8020_activity_date) ;;
   }
 
   dimension: c8020_nxtuid {
