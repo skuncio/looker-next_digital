@@ -67,6 +67,7 @@ dimension: content_type {
 }
 
 dimension_group: view {
+  group_label: "view"
   type: time
   timeframes: [
     raw,
@@ -81,6 +82,12 @@ dimension_group: view {
   convert_tz: no
   sql: ${TABLE}.c8050_datetime ;;
 }
+
+dimension: view_date_d {
+  group_label: "view"
+  sql: TO_DATE(${TABLE}.c8050_datetime_date) ;;
+}
+
 
 dimension: view_weekday {
   sql:
@@ -98,11 +105,6 @@ dimension: view_weekday {
 filter: filter_view_date {
   label: "view date"
   type:date
-}
-
-dimension: date_viewed {
-  group_label: "view"
-  sql: ${TABLE}.c8050_datetime ;;
 }
 
 dimension: news {
