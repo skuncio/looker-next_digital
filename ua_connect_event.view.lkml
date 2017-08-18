@@ -18,6 +18,42 @@ view: ua_connect_event {
     sql: eventdata:body:current:device[0]::string ;;
   }
 
+  dimension: current_tags_2 {
+    sql: eventdata:body:current:device[1]::string ;;
+  }
+
+  dimension: current_tags_3 {
+    sql: eventdata:body:current:device[2]::string ;;
+  }
+
+  dimension: current_tags_4 {
+    sql: eventdata:body:current:device[3]::string ;;
+  }
+
+  dimension: current_tags_5 {
+    sql: eventdata:body:current:device[4]::string ;;
+  }
+
+  dimension: current_tags_6 {
+    sql: eventdata:body:current:device[5]::string ;;
+  }
+
+  dimension: current_tags_7 {
+    sql: eventdata:body:current:device[6]::string ;;
+  }
+
+  dimension: current_tags_8 {
+    sql: eventdata:body:current:device[7]::string ;;
+  }
+
+  dimension: current_tags_9 {
+    sql: eventdata:body:current:device[8]::string ;;
+  }
+
+  dimension: current_tags_10 {
+    sql: eventdata:body:current:device[9]::string ;;
+  }
+
   dimension: push_id {
     sql: eventdata:body:push_id::string ;;
   }
