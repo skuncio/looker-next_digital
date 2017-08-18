@@ -26,7 +26,7 @@ view: t4007_dashboard_yesterday {
     sql: ${TABLE}.c4007_date ;;
   }
 
-  dimension: c4007_date_date_d {
+  dimension: c4007_date_d {
     group_label: "c4007_date"
     sql: TO_DATE(${TABLE}.c4007_date) ;;
   }
