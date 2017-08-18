@@ -26,7 +26,7 @@ view: t8001_user_crossref {
 
   dimension: c8001_create_date_d {
     group_label: "c8001_create"
-    sql: TO_DATE(${TABLE}.c8001_create) ;;
+    sql: TO_DATE(${TABLE}.c8001_create_date) ;;
   }
 
   dimension: c8001_did {
@@ -64,7 +64,7 @@ view: t8001_user_crossref {
 
   dimension: c8001_last_activity_date_d {
     group_label: "c8001_last_activity"
-    sql: TO_DATE(${TABLE}.c8001_last_activity) ;;
+    sql: TO_DATE(${TABLE}.c8001_last_activity_date) ;;
   }
 
   dimension: c8001_ndid {
