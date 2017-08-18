@@ -67,7 +67,7 @@ dimension: content_type {
 }
 
 dimension_group: view {
-  group_label: "view"
+  group_label: "view date"
   type: time
   timeframes: [
     raw,
@@ -84,8 +84,8 @@ dimension_group: view {
 }
 
 dimension: view_date_d {
-  group_label: "view"
-  sql: TO_DATE(${TABLE}.c8050_datetime_date) ;;
+  group_label: "view date"
+  sql: TO_DATE(${TABLE}.c8050_datetime) ;;
 }
 
 
