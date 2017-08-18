@@ -2,9 +2,15 @@ view: t8014_user_campaign {
   sql_table_name: public.t8014_user_campaign ;;
 
   dimension_group: c8014_activity {
+    group_label: "c8014_activity"
     type: time
     timeframes: [time, date, week, month]
     sql: ${TABLE}.c8014_activity_date ;;
+  }
+
+  dimension: c8014_activity_date_d {
+    group_label: "c8014_activity"
+    sql: TO_DATE(${TABLE}.c8014_activity_date) ;;
   }
 
   dimension: c8014_address {
