@@ -23,13 +23,14 @@ view: t1023_animated_video {
   }
 
   dimension_group: c1023_date_id {
+    group_label: "c1023_date_id"
     type: time
     timeframes: [date, week, month, year, hour_of_day]
     convert_tz: no
     sql: ${TABLE}.c1023_date_id ;;
   }
 
-  dimension: c1023_date_date {
+  dimension: c1023_date_id_date_d {
     group_label: "c1023_date_id"
     sql: TO_DATE(${TABLE}.c1023_date_id) ;;
   }
@@ -45,13 +46,14 @@ view: t1023_animated_video {
   }
 
   dimension_group: c1023_issue_id {
+    group_label: "c1023_issue_id"
     type: time
     timeframes: [date, week, month]
     convert_tz: no
     sql: ${TABLE}.c1023_issue_id ;;
   }
 
-  dimension: c1023_issue_date {
+  dimension: c1023_issue_id_date_d {
     group_label: "c1023_issue_id"
     sql: TO_DATE(${TABLE}.c1023_issue_id) ;;
   }
