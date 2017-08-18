@@ -17,10 +17,16 @@ view: t8001_user_crossref {
   }
 
   dimension_group: c8001_create {
+    group_label: "c8001_create"
     type: time
     timeframes: [date, week, month]
     convert_tz: no
     sql: ${TABLE}.c8001_create_date ;;
+  }
+
+  dimension: c8001_create_date_d {
+    group_label: "c8001_create"
+    sql: TO_DATE(${TABLE}.c8001_create) ;;
   }
 
   dimension: c8001_did {
@@ -49,10 +55,16 @@ view: t8001_user_crossref {
   }
 
   dimension_group: c8001_last_activity {
+    group_label: "c8001_last_activity"
     type: time
     timeframes: [date, week, month]
     convert_tz: no
     sql: ${TABLE}.c8001_last_activity_date ;;
+  }
+
+  dimension: c8001_last_activity_date_d {
+    group_label: "c8001_last_activity"
+    sql: TO_DATE(${TABLE}.c8001_last_activity) ;;
   }
 
   dimension: c8001_ndid {
