@@ -109,6 +109,7 @@ view: contentview_video {
   }
 
   dimension_group: view {
+    group_label: "View Date"
     type: time
     timeframes: [
       time,
@@ -122,11 +123,10 @@ view: contentview_video {
     sql: ${TABLE}.c8002_datetime ;;
   }
 
-  dimension: date_viewed {
-#    alias: [view_date]
-  group_label: "view"
-  sql: TO_DATE(${TABLE}.c8002_datetime) ;;
-}
+  dimension: view_date_d {
+    group_label: "View Date"
+    sql: TO_DATE(${TABLE}.c8002_datetime) ;;
+  }
 
 dimension: dcc_id {
   view_label: "Location"
