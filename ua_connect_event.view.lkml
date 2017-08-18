@@ -14,6 +14,9 @@ view: ua_connect_event {
     sql: eventdata:body:current:device::string ;;
   }
 
+  dimension: current_tags_1 {
+    sql: eventdata:body:current:device[0]::string ;;
+  }
 
   dimension: push_id {
     sql: eventdata:body:push_id::string ;;
