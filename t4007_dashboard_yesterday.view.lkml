@@ -12,6 +12,7 @@ view: t4007_dashboard_yesterday {
   }
 
   dimension_group: c4007 {
+    group_label: "c4007_date"
     type: time
     timeframes: [
       raw,
@@ -24,6 +25,12 @@ view: t4007_dashboard_yesterday {
     convert_tz: no
     sql: ${TABLE}.c4007_date ;;
   }
+
+  dimension: c4007_date_date_d {
+    group_label: "c4007_date"
+    sql: TO_DATE(${TABLE}.c4007_date) ;;
+  }
+
 
   dimension: c4007_product {
     type: string
