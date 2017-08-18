@@ -11,46 +11,57 @@ view: ua_connect_event {
   }
 
   dimension: current_tags {
+    view_label: "current tags"
     sql: eventdata:body:current:device::string ;;
   }
 
-  dimension: current_tags_1 {
+  dimension: current_tags_01 {
+    view_label: "current tags"
     sql: eventdata:body:current:device[0]::string ;;
   }
 
-  dimension: current_tags_2 {
+  dimension: current_tags_02 {
+    view_label: "current tags"
     sql: eventdata:body:current:device[1]::string ;;
   }
 
-  dimension: current_tags_3 {
+  dimension: current_tags_03 {
+    view_label: "current tags"
     sql: eventdata:body:current:device[2]::string ;;
   }
 
-  dimension: current_tags_4 {
+  dimension: current_tags_04 {
+    view_label: "current tags"
     sql: eventdata:body:current:device[3]::string ;;
   }
 
-  dimension: current_tags_5 {
+  dimension: current_tags_05 {
+    view_label: "current tags"
     sql: eventdata:body:current:device[4]::string ;;
   }
 
-  dimension: current_tags_6 {
+  dimension: current_tags_06 {
+    view_label: "current tags"
     sql: eventdata:body:current:device[5]::string ;;
   }
 
-  dimension: current_tags_7 {
+  dimension: current_tags_07 {
+    view_label: "current tags"
     sql: eventdata:body:current:device[6]::string ;;
   }
 
-  dimension: current_tags_8 {
+  dimension: current_tags_08 {
+    view_label: "current tags"
     sql: eventdata:body:current:device[7]::string ;;
   }
 
-  dimension: current_tags_9 {
+  dimension: current_tags_09 {
+    view_label: "current tags"
     sql: eventdata:body:current:device[8]::string ;;
   }
 
   dimension: current_tags_10 {
+    view_label: "current tags"
     sql: eventdata:body:current:device[9]::string ;;
   }
 
