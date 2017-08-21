@@ -24,7 +24,7 @@ view: ua_device_tags {
 
   dimension: tags_01 {
     view_label: "original tags"
-    sql: ${TABLE}.TAGS[0]::string) ;;
+    sql: ${TABLE}.TAGS[0]::string ;;
   }
 
   measure: count {
