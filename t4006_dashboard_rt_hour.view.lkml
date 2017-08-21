@@ -19,7 +19,7 @@ view: t4006_dashboard_rt_hour {
 
   dimension: c4006_datetime_date_d {
     group_label: "c4006_datetime"
-    sql: TO_DATE(CONVERT_TIMEZONE('UTC', 'Hongkong',${TABLE}.c4006_datetime::timestamp_ntz, 'YYYY-MM-DD')) ;;
+    sql: TO_DATE(CONVERT_TIMEZONE('UTC', 'Hongkong',${TABLE}.c4006_datetime::timestamp_ntz)) ;;
   }
 
   dimension: c4006_content {
