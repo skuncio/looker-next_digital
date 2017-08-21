@@ -6,6 +6,7 @@ persist_for: "10 minutes"
 include: "t4007_dashboard_yesterday.view"         # include specific views in this project
 include: "pdt_view_agg_with_article.view"
 include: "ua_connect_event.view"
+include: "ua_device_tags.view"
 include: "ua_connect_push_body.view"
 include: "*.dashboard.lookml"                     # include all dashboards in this project
 
@@ -37,5 +38,9 @@ explore: ua_connect_event {
 }
 
 explore: ua_connect_push_body {
+  persist_for: "12 hours"
+}
+
+explore: ua_device_tags {
   persist_for: "12 hours"
 }
