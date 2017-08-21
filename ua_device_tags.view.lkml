@@ -20,12 +20,11 @@ view: ua_device_tags {
     view_label: "original tags"
     type: string
     sql: ${TABLE}.TAGS ;;
-#    sql:parse_json(base64_decode_string(eventdata:body:payload)::string) ;;
   }
 
   dimension: tags_01 {
     view_label: "original tags"
-    sql: parse_json(tags[0]::string) ;;
+    sql: ${TABLE}.TAGS[0]::string) ;;
   }
 
   measure: count {
