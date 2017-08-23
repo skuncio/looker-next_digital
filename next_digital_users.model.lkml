@@ -32,7 +32,14 @@ explore: t8001_user_crossref {
   }
 }
 
-explore: t8003_user_product {}
+explore: t8003_user_product {
+  join: t8001_user_crossref {
+    view_label: "User Cross Reference"
+    sql_on: ${t8003_user_product.c8003_nxtuid} = ${t8001_user_crossref.c8001_nxtu_or_did} ;;
+    relationship: many_to_one
+    type: left_outer
+  }
+ }
 
 explore: t8014_user_campaign {}
 
