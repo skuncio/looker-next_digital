@@ -7,6 +7,7 @@ view: t8003_user_product {
   }
 
   dimension_group: c8003_activity {
+    group_label: "c8003_activity"
     type: time
     timeframes: [
       raw,
@@ -19,6 +20,11 @@ view: t8003_user_product {
     convert_tz: no
     datatype: date
     sql: ${TABLE}.C8003_ACTIVITY_DATE ;;
+  }
+
+  dimension: c8003_activity_date_d {
+    group_label: "c8003_activity"
+    sql: TO_DATE(${TABLE}.c8003_activity.date) ;;
   }
 
   dimension: c8003_app {
