@@ -32,6 +32,8 @@ explore: t8001_user_crossref {
   }
 }
 
+explore: t8003_user_product {}
+
 explore: t8014_user_campaign {}
 
 explore: t8002_contentview {}
