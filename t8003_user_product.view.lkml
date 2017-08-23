@@ -24,7 +24,7 @@ view: t8003_user_product {
 
   dimension: c8003_activity_date_d {
     group_label: "c8003_activity"
-    sql: TO_DATE(${TABLE}.c8003_activity) ;;
+    sql: TO_DATE(${TABLE}.C8003_ACTIVITY_DATE) ;;
   }
 
   dimension: c8003_app {
@@ -38,6 +38,7 @@ view: t8003_user_product {
   }
 
   dimension_group: c8003_create {
+    group_label: "c8003_create"
     type: time
     timeframes: [
       raw,
@@ -50,6 +51,11 @@ view: t8003_user_product {
     convert_tz: no
     datatype: date
     sql: ${TABLE}.C8003_CREATE_DATE ;;
+  }
+
+  dimension: c8003_create_date_d {
+    group_label: "c8003_create"
+    sql: TO_DATE(${TABLE}.C8003_CREATE_DATE) ;;
   }
 
   dimension: c8003_device {
