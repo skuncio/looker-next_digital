@@ -24,7 +24,7 @@ view: t8003_user_product {
 
   dimension: c8003_activity_date_d {
     group_label: "c8003_activity"
-    sql: TO_DATE(${TABLE}.c8003_activity.date) ;;
+    sql: TO_DATE(${TABLE}.c8003_activity) ;;
   }
 
   dimension: c8003_app {
