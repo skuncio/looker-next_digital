@@ -32,10 +32,10 @@ view: t8003_user_product {
     sql: ${TABLE}.C8003_APP ;;
   }
 
-  dimension: c8003_app_version {
-    type: string
-    sql: ${TABLE}.C8003_APP_VERSION ;;
-  }
+#  dimension: c8003_app_version {
+#    type: string
+#    sql: ${TABLE}.C8003_APP_VERSION ;;
+#  }
 
   dimension_group: c8003_create {
     group_label: "c8003_create"
@@ -68,10 +68,10 @@ view: t8003_user_product {
     sql: ${TABLE}.C8003_NXTUID ;;
   }
 
-  dimension: c8003_omo_pid {
-    type: string
-    sql: ${TABLE}.C8003_OMO_PID ;;
-  }
+#  dimension: c8003_omo_pid {
+#    type: string
+#    sql: ${TABLE}.C8003_OMO_PID ;;
+#  }
 
   dimension: c8003_platform {
     type: string
@@ -88,13 +88,20 @@ view: t8003_user_product {
     sql: ${TABLE}.C8003_REGION ;;
   }
 
-  dimension: c8003_source {
-    type: string
-    sql: ${TABLE}.C8003_SOURCE ;;
-  }
+#  dimension: c8003_source {
+#    type: string
+#    sql: ${TABLE}.C8003_SOURCE ;;
+#  }
 
   measure: count {
     type: count
     drill_fields: []
+  }
+
+  measure: distinct_users {
+ #   view_label: "User"
+    type: count_distinct
+    value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c8003_nxtuid} ;;
   }
 }
