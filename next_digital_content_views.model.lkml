@@ -19,7 +19,7 @@ explore: t3016_seg_agg_cid_day {
     view_label: "Current Title"
     sql_on: c3016_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c3016_productt = ${t1025_reg_prod_cid_title_join.c1025_product} and c3016_region = ${t1025_reg_prod_cid_title_join.c1025_region} and c3016_imp_type = t1025_reg_prod_cid_title_join.c1025_imp_type  ;;
     relationship: many_to_one
-    type: left_outer
+    type: inner
   }
 }
 #  joins:
@@ -65,7 +65,7 @@ explore: view_agg_with_article {
     view_label: "Current Title"
     sql_on: c8002_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c8002_product = ${t1025_reg_prod_cid_title_join.c1025_product} and c8002_region = ${t1025_reg_prod_cid_title_join.c1025_region} and ${view_agg_with_article.view_type} = ${t1025_reg_prod_cid_title_join.imp_type}  ;;
     relationship: many_to_one
-    type: left_outer
+    type: inner
   }
   #      - join: t1021_cid_title_day
   #        view_label: Animated Title
@@ -103,7 +103,7 @@ explore: contentview {
     view_label: "Current Title"
     sql_on: c8002_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c8002_product = ${t1025_reg_prod_cid_title_join.c1025_product} and c8002_region = ${t1025_reg_prod_cid_title_join.c1025_region} and ${contentview.view_type} = ${t1025_reg_prod_cid_title_join.imp_type}  ;;
     relationship: many_to_one
-    type: left_outer
+    type: inner
   }
 }
 
@@ -130,7 +130,7 @@ explore: t8050_user_content_by_day {
 #    sql_on: ${t8050_user_content_by_day.content_id} = ${t1025_reg_prod_cid_title.c1025_cid} and ${t8050_user_content_by_day.product} = ${t1025_reg_prod_cid_title.c1025_product} and ${t8050_user_content_by_day.region} = ${t1025_reg_prod_cid_title.c1025_region} and ${t8050_user_content_by_day.view_type} = ${t1025_reg_prod_cid_title.imp_type}  ;;
     sql_on: ${t8050_user_content_by_day.content_id} = ${t1025_reg_prod_cid_title_join.c1025_cid} and ${t8050_user_content_by_day.product} = ${t1025_reg_prod_cid_title_join.c1025_product} and ${t8050_user_content_by_day.region} = ${t1025_reg_prod_cid_title_join.c1025_region} and ${t8050_user_content_by_day.view_type} =  decode(t1025_reg_prod_cid_title_join.c1025_imp_type,'I','PAGEVIEW','V','VIDEOVIEW','unknown') ;;
     relationship: many_to_one
-    type: left_outer
+    type: inner
   }
   #      - join: t1021_cid_title_day
   #        view_label: Animated Title
