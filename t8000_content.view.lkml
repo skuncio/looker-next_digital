@@ -15,6 +15,11 @@ view: content {
     sql: ${TABLE}.c8000_content ;;
   }
 
+  dimension: content_auth {
+    type: string
+    sql: ${TABLE}.c8000_auth ;;
+  }
+
   dimension: media {
     type: string
     sql: ${TABLE}.c8000_media ;;
