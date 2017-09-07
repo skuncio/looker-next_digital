@@ -6,8 +6,8 @@ view: ua_connect_push_body {
     sql: ${TABLE}.EVENT_TYPE ;;
   }
 
-  dimension: occurred_time {
-    type: string
+  dimension_group: occurred_time {
+    type: time
     sql: ${TABLE}.OCCURRED_TIME ;;
   }
 
@@ -38,13 +38,13 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:device_types::string ;;
   }
 
-  dimension: payload_content {
+  dimension: notification_content {
     view_label: "Push"
     type: string
     sql: ${TABLE}.PAYLOAD:notification:actions:open:content::string ;;
   }
 
-  dimension: payload_type {
+  dimension: notification_type {
     view_label: "Push"
     type: string
     sql: ${TABLE}.PAYLOAD:notification:actions:open:type::string ;;
@@ -62,7 +62,7 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:notification:ios:sound::string ;;
   }
 
-  dimension: schedule_audiemce {
+  dimension: schedule_audience {
     view_label: "Schedules"
     type: string
     sql: ${TABLE}.PAYLOAD:push:audience::string ;;
@@ -74,11 +74,24 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:push:device_types::string ;;
   }
 
-  dimension: schedule_content {
+  dimension: schedule_notification_content {
     view_label: "Schedules"
     type: string
     sql: ${TABLE}.PAYLOAD:push:notification:actions:open:content::string ;;
   }
+
+  dimension: schedule_notification_type {
+    view_label: "Schedules"
+    type: string
+    sql: ${TABLE}.PAYLOAD:push:notification:actions:open:typet::string ;;
+  }
+
+  dimension_group: scheduled_time {
+    view_label: "Schedules"
+    type: time
+    sql: CONVERT_TIMEZONE('UTC', 'Hongkong', CAST(${TABLE}.PAYLOAD:schedule:scheduled_time::timestamp AS TIMESTAMP_NTZ)) ;;
+  }
+
 
 
 #     parse_json(base64_decode_string(eventdata:body:payload)::variant):audience::string  AS audience,
