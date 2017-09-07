@@ -89,7 +89,7 @@ view: ua_connect_push_body {
   dimension: schedule_push_ids {
     view_label: "Schedules"
     type: string
-    sql: ${TABLE}.PAYLOAD:schedule:push_ids::string ;;
+    sql: ${TABLE}.PAYLOAD:push_ids::string ;;
   }
 
   dimension_group: scheduled_time {
