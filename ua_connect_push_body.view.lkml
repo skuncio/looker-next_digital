@@ -28,12 +28,14 @@ view: ua_connect_push_body {
 
   dimension: audience {
     view_label: "Push"
+    view_label: "Experiments"
     type: string
     sql: ${TABLE}.PAYLOAD:audience::string ;;
   }
 
   dimension: device_types {
     view_label: "Push"
+    view_label: "Experiments"
     type: string
     sql: ${TABLE}.PAYLOAD:device_types::string ;;
   }
