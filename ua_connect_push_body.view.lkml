@@ -28,6 +28,11 @@ view: ua_connect_push_body {
 
   dimension: audience {
     view_label: "Push"
+    type: string
+    sql: ${TABLE}.PAYLOAD:audience::string ;;
+  }
+
+  dimension: experiment_audience {
     view_label: "Experiments"
     type: string
     sql: ${TABLE}.PAYLOAD:audience::string ;;
@@ -35,6 +40,11 @@ view: ua_connect_push_body {
 
   dimension: device_types {
     view_label: "Push"
+    type: string
+    sql: ${TABLE}.PAYLOAD:device_types::string ;;
+  }
+
+  dimension: experiment_device_types {
     view_label: "Experiments"
     type: string
     sql: ${TABLE}.PAYLOAD:device_types::string ;;
