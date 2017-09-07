@@ -134,6 +134,12 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:variants[0]:name::string ;;
   }
 
+  dimension: experiment_variant_2 {
+    view_label: "Experiments"
+    type: string
+    sql: ${TABLE}.PAYLOAD:variants[1]::variant ;;
+  }
+
   dimension: experiment_variant_2_name {
     view_label: "Experiments"
     type: string
