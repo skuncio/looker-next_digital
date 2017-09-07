@@ -110,7 +110,11 @@ view: ua_connect_push_body {
     sql: CONVERT_TIMEZONE('UTC', 'Hongkong', CAST(${TABLE}.PAYLOAD:schedule:scheduled_time::timestamp AS TIMESTAMP_NTZ)) ;;
   }
 
-
+  dimension_group: experiment_created_time {
+    view_label: "Experimentss"
+    type: time
+    sql: CONVERT_TIMEZONE('UTC', 'Hongkong', CAST(${TABLE}.PAYLOAD:created_at::timestamp AS TIMESTAMP_NTZ)) ;;
+  }
 
 #     parse_json(base64_decode_string(eventdata:body:payload)::variant):audience::string  AS audience,
 #   parse_json(base64_decode_string(eventdata:body:payload)::variant):device_types::string  AS device_types,
