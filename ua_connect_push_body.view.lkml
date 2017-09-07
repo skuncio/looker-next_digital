@@ -86,6 +86,12 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:push:notification:actions:open:type::string ;;
   }
 
+  dimension: schedule_push_ids {
+    view_label: "Schedules"
+    type: string
+    sql: ${TABLE}.PAYLOAD:schedule:push_ids::string ;;
+  }
+
   dimension_group: scheduled_time {
     view_label: "Schedules"
     type: time
