@@ -62,6 +62,24 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:notification:ios:sound::string ;;
   }
 
+  dimension: schedule_audiemce {
+    view_label: "Schedules"
+    type: string
+    sql: ${TABLE}.PAYLOAD:push:audience::string ;;
+  }
+
+  dimension: schedule_device_types {
+    view_label: "Schedules"
+    type: string
+    sql: ${TABLE}.PAYLOAD:push:device_types::string ;;
+  }
+
+  dimension: schedule_content {
+    view_label: "Schedules"
+    type: string
+    sql: ${TABLE}.PAYLOAD:push:notification:actions:open:content::string ;;
+  }
+
 
 #     parse_json(base64_decode_string(eventdata:body:payload)::variant):audience::string  AS audience,
 #   parse_json(base64_decode_string(eventdata:body:payload)::variant):device_types::string  AS device_types,
