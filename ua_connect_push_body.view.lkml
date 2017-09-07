@@ -27,9 +27,41 @@ view: ua_connect_push_body {
   }
 
   dimension: audience {
+    view_label: "Push"
     type: string
     sql: ${TABLE}.PAYLOAD:audience::string ;;
   }
+
+  dimension: device_type {
+    view_label: "Push"
+    type: string
+    sql: ${TABLE}.PAYLOAD:device_type::string ;;
+  }
+
+  dimension: payload_content {
+    view_label: "Push"
+    type: string
+    sql: ${TABLE}.PAYLOAD:notification:actions:open:content::string ;;
+  }
+
+  dimension: payload_type {
+    view_label: "Push"
+    type: string
+    sql: ${TABLE}.PAYLOAD:notification:actions:open:type::string ;;
+  }
+
+  dimension: notification_alert {
+    view_label: "Push"
+    type: string
+    sql: ${TABLE}.PAYLOAD:notification:alert::string ;;
+  }
+
+  dimension: notification_ios_sound {
+    view_label: "Push"
+    type: string
+    sql: ${TABLE}.PAYLOAD:notification:ios:sound::string ;;
+  }
+
 
 #     parse_json(base64_decode_string(eventdata:body:payload)::variant):audience::string  AS audience,
 #   parse_json(base64_decode_string(eventdata:body:payload)::variant):device_types::string  AS device_types,
