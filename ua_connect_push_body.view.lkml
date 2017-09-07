@@ -6,7 +6,7 @@ view: ua_connect_push_body {
     sql: ${TABLE}.EVENT_TYPE ;;
   }
 
-  dimension_group: occurred_time {
+  dimension_group: occurred {
     type: time
     sql: ${TABLE}.OCCURRED_TIME ;;
   }
@@ -110,10 +110,28 @@ view: ua_connect_push_body {
     sql: CONVERT_TIMEZONE('UTC', 'Hongkong', CAST(${TABLE}.PAYLOAD:schedule:scheduled_time::timestamp AS TIMESTAMP_NTZ)) ;;
   }
 
-  dimension_group: experiment_created_time {
-    view_label: "Experimentss"
+  dimension_group: experiment_created {
+    view_label: "Experiments"
     type: time
     sql: CONVERT_TIMEZONE('UTC', 'Hongkong', CAST(${TABLE}.PAYLOAD:created_at::timestamp AS TIMESTAMP_NTZ)) ;;
+  }
+
+  dimension: experiment_name {
+    view_label: "Experiments"
+    type: string
+    sql: ${TABLE}.PAYLOAD:name::string ;;
+  }
+
+  dimension: experiment_variant_1 {
+    view_label: "Experiments"
+    type: string
+    sql: ${TABLE}.PAYLOAD:variant[0]::variant ;;
+  }
+
+  dimension: experiment_variant_2 {
+    view_label: "Experiments"
+    type: string
+    sql: ${TABLE}.PAYLOAD:variant[1]::variant ;;
   }
 
 #     parse_json(base64_decode_string(eventdata:body:payload)::variant):audience::string  AS audience,
