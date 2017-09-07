@@ -32,10 +32,10 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:audience::string ;;
   }
 
-  dimension: device_type {
+  dimension: device_types {
     view_label: "Push"
     type: string
-    sql: ${TABLE}.PAYLOAD:device_type::string ;;
+    sql: ${TABLE}.PAYLOAD:device_types::string ;;
   }
 
   dimension: payload_content {
