@@ -13,7 +13,7 @@ view: ua_connect_push_body {
 
   dimension: payload {
     type: string
-    sql: ${TABLE}.PAYLOAD ;;
+    sql: ${TABLE}.PAYLOAD::variant ;;
   }
 
   dimension: push_id {
@@ -28,7 +28,7 @@ view: ua_connect_push_body {
 
   dimension: audience {
     type: string
-    sql: ${TABLE}.PAYLOAD:audience ;;
+    sql: ${TABLE}.PAYLOAD:audience::string ;;
   }
 
 #     parse_json(base64_decode_string(eventdata:body:payload)::variant):audience::string  AS audience,
