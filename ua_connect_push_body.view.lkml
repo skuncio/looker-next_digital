@@ -83,7 +83,7 @@ view: ua_connect_push_body {
   dimension: schedule_notification_type {
     view_label: "Schedules"
     type: string
-    sql: ${TABLE}.PAYLOAD:push:notification:actions:open:typet::string ;;
+    sql: ${TABLE}.PAYLOAD:push:notification:actions:open:type::string ;;
   }
 
   dimension_group: scheduled_time {
