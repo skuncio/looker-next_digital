@@ -125,13 +125,13 @@ view: ua_connect_push_body {
   dimension: experiment_variant_1 {
     view_label: "Experiments"
     type: string
-    sql: ${TABLE}.PAYLOAD:variant[0]::variant ;;
+    sql: ${TABLE}.PAYLOAD:variants[0]::variant ;;
   }
 
   dimension: experiment_variant_2 {
     view_label: "Experiments"
     type: string
-    sql: ${TABLE}.PAYLOAD:variant[1]::variant ;;
+    sql: ${TABLE}.PAYLOAD:variants[1]::variant ;;
   }
 
 #     parse_json(base64_decode_string(eventdata:body:payload)::variant):audience::string  AS audience,
