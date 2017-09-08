@@ -63,6 +63,7 @@ view: t1025_reg_prod_cid_title {
   }
 
   dimension_group: c1025_update {
+    group_label: "c1025_update_date"
     type: time
     timeframes: [
       raw,
@@ -78,7 +79,7 @@ view: t1025_reg_prod_cid_title {
   }
 
   dimension: c1025_update_date_d {
-    group_label: "c1025_updat_date"
+    group_label: "c1025_update_date"
     sql: TO_DATE(${TABLE}.C1025_UPDATE_DATE) ;;
   }
 
