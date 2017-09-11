@@ -1,4 +1,4 @@
-view: ua_connect_push_schedule {
+view: ua_connect_push_schedules {
     sql_table_name: PUBLIC.UA_CONNECT_PUSH_BODY ;;
 
     dimension: event_type {
