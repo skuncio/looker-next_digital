@@ -8,7 +8,7 @@ include: "pdt_view_agg_with_article.view"
 include: "ua_connect_event.view"
 include: "ua_device_tags.view"
 include: "ua_connect_push_body.view"
-include: "ua_connect_push_schedule.view"
+#include: "ua_connect_push_schedule.view"
 include: "*.dashboard.lookml"                     # include all dashboards in this project
 
 # # Select the views that should be a part of this model,
@@ -43,7 +43,8 @@ explore: ua_connect_push_body {
 }
 
 explore: ua_connect_push_schedule {
-  sql_always_where: ua_connect_push_body.RESOURCE = 'SCHEDULES' ;;
+  from: ua_connect_push_body
+  sql_always_where: ${resource} = 'SCHEDULES' ;;
   persist_for: "12 hours"
 }
 
