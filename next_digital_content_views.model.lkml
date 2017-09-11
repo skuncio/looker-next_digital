@@ -17,7 +17,7 @@ explore: t3016_seg_agg_cid_day {
   view_label: "CID Views"
   join: t1025_reg_prod_cid_title_join {
     view_label: "Current Title & Author"
-    sql_on: c3016_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c3016_productt = ${t1025_reg_prod_cid_title_join.c1025_product} and c3016_region = ${t1025_reg_prod_cid_title_join.c1025_region} and c3016_imp_type = t1025_reg_prod_cid_title_join.c1025_imp_type  ;;
+    sql_on: c3016_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c3016_product = ${t1025_reg_prod_cid_title_join.c1025_product} and c3016_region = ${t1025_reg_prod_cid_title_join.c1025_region} and c3016_imp_type = t1025_reg_prod_cid_title_join.c1025_imp_type  ;;
     relationship: many_to_one
     type: inner
   }
