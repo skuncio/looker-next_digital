@@ -44,7 +44,8 @@ explore: ua_connect_push_body {
 
 explore: ua_connect_push_schedules {
   view_name: ua_connect_push_body
-  fields: [ua_connect_push_body.push_set*,
+  fields: [
+    ua_connect_push_body.push_set*,
     ua_connect_push_body.schedule_set*
   ]
   sql_always_where: ${resource} = 'SCHEDULES' ;;
@@ -58,7 +59,11 @@ explore: ua_connect_push_experiments {
 }
 
 explore: ua_connect_push {
-  from: ua_connect_push_body
+  view_name: ua_connect_push_body
+  fields:
+  [ua_connect_push_body.push_set*,
+    ua_connect_push_body.push_body_set*
+  ]
   sql_always_where: ${resource} = 'PUSH' ;;
   persist_for: "12 hours"
 }
