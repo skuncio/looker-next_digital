@@ -213,4 +213,18 @@ view: ua_connect_push_body {
     ]
   }
 
+  set: experiments_set {
+    fields: [
+      experiment_audience,
+      experiment_device_types,
+      experiment_created_date,
+      experiment_created_time,
+      experiment_name,
+      experiment_variant_1_name,
+      experiment_variant_1,
+      experiment_variant_2_name,
+      experiment_variant_2
+    ]
+  }
+
 }
