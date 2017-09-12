@@ -2,63 +2,68 @@ view: ua_connect_push_body {
   sql_table_name: PUBLIC.UA_CONNECT_PUSH_BODY ;;
 
   dimension: event_type {
+    view_label: "Push Body"
     type: string
     sql: ${TABLE}.EVENT_TYPE ;;
   }
 
   dimension_group: occurred {
+    view_label: "Push Body"
     type: time
     sql: ${TABLE}.OCCURRED_TIME ;;
   }
 
   dimension: payload {
+    view_label: "Push Body"
     type: string
     sql: ${TABLE}.PAYLOAD::variant ;;
   }
 
   dimension: push_id {
+    view_label: "Push Body"
     type: string
     sql: ${TABLE}.PUSH_ID ;;
   }
 
   dimension: resource {
+    view_label: "Push Body"
     type: string
     sql: ${TABLE}.RESOURCE ;;
   }
 
   dimension: audience {
-    view_label: "Push"
+    view_label: "Push Payload"
     type: string
     sql: ${TABLE}.PAYLOAD:audience::string ;;
   }
 
   dimension: device_types {
-    view_label: "Push"
+    view_label: "Push Payload"
     type: string
     sql: ${TABLE}.PAYLOAD:device_types::string ;;
   }
 
 
   dimension: notification_content {
-    view_label: "Push"
+    view_label: "Push Payload"
     type: string
     sql: ${TABLE}.PAYLOAD:notification:actions:open:content::string ;;
   }
 
   dimension: notification_type {
-    view_label: "Push"
+    view_label: "Push Payload"
     type: string
     sql: ${TABLE}.PAYLOAD:notification:actions:open:type::string ;;
   }
 
   dimension: notification_alert {
-    view_label: "Push"
+    view_label: "Push Payload"
     type: string
     sql: ${TABLE}.PAYLOAD:notification:alert::string ;;
   }
 
   dimension: notification_ios_sound {
-    view_label: "Push"
+    view_label: "Push Payload"
     type: string
     sql: ${TABLE}.PAYLOAD:notification:ios:sound::string ;;
   }
@@ -169,7 +174,7 @@ view: ua_connect_push_body {
     drill_fields: []
   }
 
-  set: push_set {
+  set: push_body_set {
     fields: [
       event_type,
       occurred_date,
@@ -180,7 +185,7 @@ view: ua_connect_push_body {
     ]
   }
 
-  set: push_body_set {
+  set: push_payload_set {
     fields: [
       audience,
       device_types,
