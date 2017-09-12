@@ -160,4 +160,30 @@ view: ua_connect_push_body {
     type: count
     drill_fields: []
   }
+
+  set: push_set {
+    fields: [
+      event_type,
+      occurred_date,
+      occurred_time,
+      payload,
+      resource,
+      count
+    ]
+  }
+
+
+  set: schedule_set {
+    fields: [
+      schedule_audience,
+      schedule_device_types,
+      schedule_notification_content,
+      schedule_notification_type,
+      schedule_push_ids,
+      scheduled_time_date,
+      scheduled_time_time
+
+    ]
+  }
+
 }
