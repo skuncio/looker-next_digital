@@ -196,6 +196,7 @@ view: ua_connect_push_body {
     fields: [
       audience,
       device_types,
+      notification_cid,
       notification_content,
       notification_type,
       notification_alert,
