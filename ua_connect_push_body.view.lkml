@@ -32,23 +32,12 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:audience::string ;;
   }
 
-  dimension: experiment_audience {
-    view_label: "Experiments"
-    type: string
-    sql: ${TABLE}.PAYLOAD:audience::string ;;
-  }
-
   dimension: device_types {
     view_label: "Push"
     type: string
     sql: ${TABLE}.PAYLOAD:device_types::string ;;
   }
 
-  dimension: experiment_device_types {
-    view_label: "Experiments"
-    type: string
-    sql: ${TABLE}.PAYLOAD:device_types::string ;;
-  }
 
   dimension: notification_content {
     view_label: "Push"
@@ -98,6 +87,13 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:push:notification:actions:open:type::string ;;
   }
 
+
+  dimension: schedule_notification_alert {
+    view_label: "Schedules"
+    type: string
+    sql: ${TABLE}.PAYLOAD:push:notification:alert::string ;;
+  }
+
   dimension: schedule_push_ids {
     view_label: "Schedules"
     type: string
@@ -108,6 +104,18 @@ view: ua_connect_push_body {
     view_label: "Schedules"
     type: time
     sql: CONVERT_TIMEZONE('UTC', 'Hongkong', CAST(${TABLE}.PAYLOAD:schedule:scheduled_time::timestamp AS TIMESTAMP_NTZ)) ;;
+  }
+
+    dimension: experiment_device_types {
+    view_label: "Experiments"
+    type: string
+    sql: ${TABLE}.PAYLOAD:device_types::string ;;
+  }
+
+  dimension: experiment_audience {
+    view_label: "Experiments"
+    type: string
+    sql: ${TABLE}.PAYLOAD:audience::string ;;
   }
 
   dimension_group: experiment_created {
@@ -172,6 +180,17 @@ view: ua_connect_push_body {
     ]
   }
 
+  set: push_body_set {
+    fields: [
+      audience,
+      device_types,
+      notification_content,
+      notification_type,
+      notification_alert,
+      notification_ios_sound
+    ]
+  }
+
 
   set: schedule_set {
     fields: [
@@ -179,6 +198,7 @@ view: ua_connect_push_body {
       schedule_device_types,
       schedule_notification_content,
       schedule_notification_type,
+      schedule_notification_alert,
       schedule_push_ids,
       scheduled_time_date,
       scheduled_time_time
