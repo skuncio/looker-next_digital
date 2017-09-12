@@ -43,6 +43,11 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:device_types::string ;;
   }
 
+  dimension: notification_cid {
+    view_label: "Push Payload"
+    type: string
+    sql: TRIM(regexp_substr(${TABLE}.PAYLOAD:notification:actions:open:content::string,'_.*&'),'_&"_0"' ) ;;
+  }
 
   dimension: notification_content {
     view_label: "Push Payload"
