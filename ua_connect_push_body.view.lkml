@@ -177,6 +177,7 @@ view: ua_connect_push_body {
 
   set: push_body_set {
     fields: [
+      push_id,
       event_type,
       occurred_date,
       occurred_time,
