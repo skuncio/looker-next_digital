@@ -73,6 +73,15 @@ explore: ua_connect_push_payload {
 }
 
 explore: ua_connect_open {
+  join: ua_connect_push_body  {
+    fields:[
+      ua_connect_push_body.push_body_set*,
+      ua_connect_push_body.push_payload_set*
+    ]
+    sql_on: TRIGGERING_PUSH_ID = ua_connect_push_body.PUSH_ID and ${ua_connect_push_body.resource} = 'PUSH' ;;
+    relationship: many_to_one
+    type: inner
+  }
   persist_for: "12 hours"
 }
 
