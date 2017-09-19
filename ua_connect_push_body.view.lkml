@@ -23,6 +23,8 @@ view: ua_connect_push_body {
     view_label: "Push Body"
     type: string
     sql: ${TABLE}.PUSH_ID ;;
+#    html: <a href="/dashboards/40?BodyPushID={{value}}">{{value}}</a> ;;
+#    html: <a href="/looks/445?f[t5000_open.body_triggering_push_push_id]={{value}}">{{value}}</a> ;;
   }
 
   dimension: resource {
@@ -46,7 +48,7 @@ view: ua_connect_push_body {
   dimension: notification_cid {
     view_label: "Push Payload"
     type: string
-    sql: TRIM(regexp_substr(${TABLE}.PAYLOAD:notification:actions:open:content::string,'_.*&'),'_&"_0"' ) ;;
+    sql: regexp_replace(TRIM(regexp_substr(${TABLE}.PAYLOAD:notification:actions:open:content::string,'_.*&'),'_&'),'_.+') ;;
   }
 
   dimension: notification_content {
