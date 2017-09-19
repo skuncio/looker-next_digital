@@ -88,7 +88,7 @@ view: ua_connect_push_body {
   }
 
   dimension: schedule_notification_cid {
-    view_label: "Push Payload"
+    view_label: "Schedules"
     type: string
     sql: regexp_replace(TRIM(regexp_substr(${TABLE}.PAYLOAD:notification:actions:open:content::string,'_.*&'),'_&'),'_.+') ;;
   }
