@@ -90,7 +90,7 @@ view: ua_connect_push_body {
   dimension: schedule_notification_cid {
     view_label: "Schedules"
     type: string
-    sql: regexp_replace(TRIM(regexp_substr(${TABLE}.PAYLOAD:notification:actions:open:content::string,'_.*&'),'_&'),'_.+') ;;
+    sql: regexp_replace(TRIM(regexp_substr(${TABLE}.PAYLOAD:push:notification:actions:open:content::string,'_.*&'),'_&'),'_.+') ;;
   }
 
   dimension: schedule_notification_content {
