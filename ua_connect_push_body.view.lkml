@@ -217,6 +217,7 @@ view: ua_connect_push_body {
     fields: [
       schedule_audience,
       schedule_device_types,
+      schedule_notification_cid,
       schedule_notification_content,
       schedule_notification_type,
       schedule_notification_alert,
