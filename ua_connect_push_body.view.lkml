@@ -87,6 +87,12 @@ view: ua_connect_push_body {
     sql: ${TABLE}.PAYLOAD:push:device_types::string ;;
   }
 
+  dimension: schedule_notification_cid {
+    view_label: "Push Payload"
+    type: string
+    sql: regexp_replace(TRIM(regexp_substr(${TABLE}.PAYLOAD:notification:actions:open:content::string,'_.*&'),'_&'),'_.+') ;;
+  }
+
   dimension: schedule_notification_content {
     view_label: "Schedules"
     type: string
