@@ -31,6 +31,8 @@ view: ua_connect_open {
     timeframes: [
       raw,
       date,
+      hour_of_day,
+      time,
       week,
       month,
       quarter,
@@ -46,6 +48,8 @@ view: ua_connect_open {
     timeframes: [
       raw,
       date,
+      hour_of_day,
+      time,
       week,
       month,
       quarter,
@@ -61,6 +65,8 @@ view: ua_connect_open {
     timeframes: [
       raw,
       date,
+      hour_of_day,
+      time,
       week,
       month,
       quarter,
@@ -81,6 +87,8 @@ view: ua_connect_open {
     timeframes: [
       raw,
       date,
+      hour_of_day,
+      time,
       week,
       month,
       quarter,
