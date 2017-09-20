@@ -13,6 +13,12 @@ view: ua_connect_push_body {
     sql: ${TABLE}.OCCURRED_TIME ;;
   }
 
+  dimension_group: processed {
+    view_label: "Push Body"
+    type: time
+    sql: ${TABLE}.PROCESSED_TIME ;;
+  }
+
   dimension: payload {
     view_label: "Push Body"
     type: string
@@ -194,6 +200,8 @@ view: ua_connect_push_body {
       event_type,
       occurred_date,
       occurred_time,
+      processed_date,
+      processed_time,
       payload,
       resource,
       count
