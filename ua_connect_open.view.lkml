@@ -57,7 +57,7 @@ view: ua_connect_open {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.OCCURRED_DATE ;;
+    sql: ${TABLE}.OCCURRED_TIME ;;
   }
 
   dimension_group: processed {
@@ -74,7 +74,7 @@ view: ua_connect_open {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.PROCESSED_DATE ;;
+    sql: ${TABLE}.PROCESSED_TIME ;;
   }
 
   dimension: triggering_push_id {
