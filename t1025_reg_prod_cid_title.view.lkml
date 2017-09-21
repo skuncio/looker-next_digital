@@ -3,7 +3,7 @@ view: t1025_reg_prod_cid_title {
 
   dimension: c1025_author {
     type: string
-    sql: ${TABLE}.C1025_AUTHOR ;;
+    sql: ${TABLE}.C1025_ML_AUTHOR ;;
   }
 
   dimension: c1025_cid {
@@ -24,12 +24,12 @@ view: t1025_reg_prod_cid_title {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C1025_CREATE_DATE ;;
+    sql: ${TABLE}.C1025_ML_CREATE_DATE ;;
   }
 
   dimension: c1025_create_date_d {
     group_label: "c1025_create_date"
-    sql: TO_DATE(${TABLE}.C1025_CREATE_DATE) ;;
+    sql: TO_DATE(${TABLE}.C1025_ML_CREATE_DATE) ;;
   }
 
   dimension: c1025_imp_type {
@@ -39,12 +39,12 @@ view: t1025_reg_prod_cid_title {
 
   dimension: c1025_issueid {
     type: string
-    sql: ${TABLE}.C1025_ISSUEID ;;
+    sql: ${TABLE}.C1025_ML_ISSUEID ;;
   }
 
   dimension: c1025_modifier {
     type: string
-    sql: ${TABLE}.C1025_MODIFIER ;;
+    sql: ${TABLE}.C1025_ML_UPDATE_BY ;;
   }
 
   dimension: c1025_product {
@@ -59,7 +59,7 @@ view: t1025_reg_prod_cid_title {
 
   dimension: c1025_title {
     type: string
-    sql: ${TABLE}.C1025_TITLE ;;
+    sql: ${TABLE}.C1025_ML_TITLE ;;
   }
 
   dimension_group: c1025_update {
@@ -75,12 +75,12 @@ view: t1025_reg_prod_cid_title {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C1025_UPDATE_DATE ;;
+    sql: ${TABLE}.C1025_ML_UPDATE_DATE ;;
   }
 
   dimension: c1025_update_date_d {
     group_label: "c1025_update_date"
-    sql: TO_DATE(${TABLE}.C1025_UPDATE_DATE) ;;
+    sql: TO_DATE(${TABLE}.C1025_ML_UPDATE_DATE) ;;
   }
 
   measure: count {
