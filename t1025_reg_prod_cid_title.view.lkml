@@ -59,7 +59,7 @@ view: t1025_reg_prod_cid_title {
 
   dimension: c1025_title {
     type: string
-    sql: ${TABLE}.C1025_ML_TITLE ;;
+    sql: ${TABLE}.C1025_TITLE ;;
   }
 
   dimension_group: c1025_update {
