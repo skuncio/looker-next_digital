@@ -30,7 +30,7 @@ view: ua_connect_push_body {
     type: string
     sql: ${TABLE}.PUSH_ID ;;
 #    html: <a href="/dashboards/40?BodyPushID={{value}}">{{value}}</a> ;;
-    html: <a href="/looks/2623?f[ua_connect_push_body.push_id]={{value}}">{{value}}</a> ;;
+    html: <a href="/looks/2623?f[ua_connect_open.triggering_push_id]={{value}}">{{value}}</a> ;;
   }
 
   dimension: resource {
