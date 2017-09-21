@@ -29,8 +29,8 @@ view: ua_connect_push_body {
     view_label: "Push Body"
     type: string
     sql: ${TABLE}.PUSH_ID ;;
-#    html: <a href="/dashboards/40?BodyPushID={{value}}">{{value}}</a> ;;
-    html: <a href="/looks/2623?f[ua_connect_open.triggering_push_id]={{value}}">{{value}}</a> ;;
+    html: <a href="/dashboards/224?PushID={{value}}">{{value}}</a> ;;
+#    html: <a href="/looks/2623?f[ua_connect_open.triggering_push_id]={{value}}">{{value}}</a> ;;
   }
 
   dimension: resource {
