@@ -9,6 +9,7 @@ include: "ua_connect_event.view"
 include: "ua_device_tags.view"
 include: "ua_connect_push_body.view"
 include: "ua_connect_open.view"
+include: "ua_device_crossref.view"
 include: "*.dashboard.lookml"                     # include all dashboards in this project
 
 # # Select the views that should be a part of this model,
@@ -86,5 +87,9 @@ explore: ua_connect_open {
 }
 
 explore: ua_device_tags {
+  persist_for: "12 hours"
+}
+
+explore: ua_device_crossref {
   persist_for: "12 hours"
 }
