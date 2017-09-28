@@ -1,7 +1,7 @@
 view: t1025_reg_prod_cid_title_join {
   sql_table_name: public.t1025_reg_prod_cid_title ;;
 
-  dimension: c1025_author {
+  dimension: content_author {
     type: string
     sql: ${TABLE}.C1025_ML_AUTHOR ;;
   }
@@ -89,7 +89,7 @@ view: t1025_reg_prod_cid_title_join {
     sql: ${TABLE}.C1025_REGION ;;
   }
 
-  dimension: c1025_title {
+  dimension: content_title {
     type: string
     sql: ${TABLE}.C1025_TITLE ;;
   }
