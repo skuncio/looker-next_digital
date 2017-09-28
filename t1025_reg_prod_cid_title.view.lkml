@@ -1,7 +1,7 @@
 view: t1025_reg_prod_cid_title {
   sql_table_name: PUBLIC.T1025_REG_PROD_CID_TITLE ;;
 
-  dimension: content_author {
+  dimension: C1025_ML_AUTHOR {
     type: string
     sql: ${TABLE}.C1025_ML_AUTHOR ;;
   }
@@ -37,12 +37,12 @@ view: t1025_reg_prod_cid_title {
     sql: ${TABLE}.C1025_IMP_TYPE ;;
   }
 
-  dimension: c1025_issueid {
+  dimension: C1025_ML_ISSUEID {
     type: string
     sql: ${TABLE}.C1025_ML_ISSUEID ;;
   }
 
-  dimension: c1025_modifier {
+  dimension: C1025_ML_UPDATE_BY {
     type: string
     sql: ${TABLE}.C1025_ML_UPDATE_BY ;;
   }
@@ -57,7 +57,7 @@ view: t1025_reg_prod_cid_title {
     sql: ${TABLE}.C1025_REGION ;;
   }
 
-  dimension: content_title {
+  dimension: C1025_TITLE {
     type: string
     sql: ${TABLE}.C1025_TITLE ;;
   }
