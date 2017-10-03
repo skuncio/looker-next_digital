@@ -37,9 +37,27 @@ view: t1025_reg_prod_cid_title {
     sql: ${TABLE}.C1025_IMP_TYPE ;;
   }
 
-  dimension: C1025_ML_ISSUEID {
-    type: string
+#  dimension: C1025_ML_ISSUEID {
+#    type: string
+#    sql: ${TABLE}.C1025_ML_ISSUEID ;;
+#  }
+
+  dimension_group: C1025_ML_ISSUEID {
+    group_label: "C1025_ML_ISSUEID"
+    type: time
+    timeframes: [
+      date,
+      month,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C1025_ML_ISSUEID ;;
+  }
+
+  dimension: C1025_ML_ISSUEID_d {
+    group_label: "C1025_ML_ISSUEID"
+    sql: TO_DATE(${TABLE}.C1025_ML_ISSUEID) ;;
   }
 
   dimension: C1025_ML_UPDATE_BY {
