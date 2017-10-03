@@ -38,7 +38,7 @@ view: t1025_reg_prod_cid_title {
   }
 
   dimension: C1025_ML_ISSUEID {
-    type: string
+    type: number
     sql: ${TABLE}.C1025_ML_ISSUEID ;;
   }
 
