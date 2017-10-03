@@ -55,7 +55,7 @@ view: t1025_reg_prod_cid_title {
     sql: ${TABLE}.C1025_ML_ISSUEID ;;
   }
 
-  dimension: C1025_ML_ISSUEID_d {
+  dimension: C1025_ML_ISSUEID_date_d {
     group_label: "C1025_ML_ISSUEID"
     sql: TO_DATE(${TABLE}.C1025_ML_ISSUEID) ;;
   }
