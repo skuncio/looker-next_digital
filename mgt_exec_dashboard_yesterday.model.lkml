@@ -8,6 +8,7 @@ include: "pdt_view_agg_with_article.view"
 include: "ua_connect_event.view"
 include: "ua_device_tags.view"
 include: "ua_connect_push_body.view"
+include: "ua_connect_tag_change.view"
 include: "ua_connect_open.view"
 include: "ua_device_crossref.view"
 include: "*.dashboard.lookml"                     # include all dashboards in this project
@@ -39,9 +40,9 @@ explore: ua_connect_event {
   persist_for: "12 hours"
 }
 
-#explore: ua_connect_push_body {
-#  persist_for: "12 hours"
-#}
+explore: ua_connect_tag_change {
+  persist_for: "12 hours"
+}
 
 explore: ua_connect_push_schedules {
   view_name: ua_connect_push_body
