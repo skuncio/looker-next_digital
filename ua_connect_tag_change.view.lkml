@@ -7,11 +7,13 @@ view: ua_connect_tag_change {
   }
 
   dimension: added_device_tags {
+    view_label: "Device Tags"
     type: string
     sql: ${TABLE}.ADDED_DEVICE_TAGS ;;
   }
 
   dimension: added_tags {
+    view_label: "All Tags"
     type: string
     sql: ${TABLE}.ADDED_TAGS ;;
   }
@@ -27,11 +29,13 @@ view: ua_connect_tag_change {
   }
 
   dimension: current_device_tags {
+    view_label: "Device Tags"
     type: string
     sql: ${TABLE}.CURRENT_DEVICE_TAGS ;;
   }
 
   dimension: current_tags {
+    view_label: "All Tags"
     type: string
     sql: ${TABLE}.CURRENT_TAGS ;;
   }
@@ -51,22 +55,58 @@ view: ua_connect_tag_change {
     sql: ${TABLE}.LIMITED_AD_TRACKING ;;
   }
 
-  dimension: occurred_time {
-    type: string
+#  dimension: occurred_time {
+#    type: string
+#    sql: ${TABLE}.OCCURRED_TIME ;;
+#  }
+
+  dimension_group: occurred {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.OCCURRED_TIME ;;
   }
 
-  dimension: processed_time {
-    type: string
+#  dimension: processed_time {
+#    type: string
+#    sql: ${TABLE}.PROCESSED_TIME ;;
+#  }
+
+  dimension_group: processed {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.PROCESSED_TIME ;;
   }
 
   dimension: removed_device_tags {
+    view_label: "Device Tags"
     type: string
     sql: ${TABLE}.REMOVED_DEVICE_TAGS ;;
   }
 
   dimension: removed_tags {
+    view_label: "All Tags"
     type: string
     sql: ${TABLE}.REMOVED_TAGS ;;
   }
