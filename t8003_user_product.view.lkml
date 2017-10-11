@@ -7,7 +7,7 @@ view: t8003_user_product {
   }
 
   dimension_group: c8003_activity {
-    group_label: "c8003_activity"
+    group_label: "C8003 Activity"
     type: time
     timeframes: [
       raw,
@@ -23,7 +23,7 @@ view: t8003_user_product {
   }
 
   dimension: c8003_activity_date_d {
-    group_label: "c8003_activity"
+    group_label: "C8003 Activity"
     sql: TO_DATE(${TABLE}.C8003_ACTIVITY_DATE) ;;
   }
 
@@ -38,7 +38,7 @@ view: t8003_user_product {
 #  }
 
   dimension_group: c8003_create {
-    group_label: "c8003_create"
+    group_label: "C8003 Create"
     type: time
     timeframes: [
       raw,
@@ -54,7 +54,7 @@ view: t8003_user_product {
   }
 
   dimension: c8003_create_date_d {
-    group_label: "c8003_create"
+    group_label: "C8003 Create"
     sql: TO_DATE(${TABLE}.C8003_CREATE_DATE) ;;
   }
 
