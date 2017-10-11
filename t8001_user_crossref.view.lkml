@@ -16,16 +16,34 @@ view: t8001_user_crossref {
     sql: ${TABLE}.c8001_android_id ;;
   }
 
-  dimension_group: c8001_create {
-    group_label: "c8001_create"
-    type: time
-    timeframes: [date, week, month]
-    convert_tz: no
+  dimension: c8001_city {
+    type: string
+    sql: ${TABLE}.c8001_city ;;
+  }
+
+  dimension: c8001_country {
+    type: string
+    sql: ${TABLE}.c8001_country ;;
+  }
+
+    dimension_group: c8001_create {
+    group_label: "C8001 Create"
+      type: time
+      timeframes: [
+        raw,
+        date,
+        week,
+        month,
+        quarter,
+        year
+      ]
+      convert_tz: no
+      datatype: date
     sql: ${TABLE}.c8001_create_date ;;
   }
 
   dimension: c8001_create_date_d {
-    group_label: "c8001_create"
+    group_label: "C8001 Create"
     sql: TO_DATE(${TABLE}.c8001_create_date) ;;
   }
 
@@ -55,15 +73,23 @@ view: t8001_user_crossref {
   }
 
   dimension_group: c8001_last_activity {
-    group_label: "c8001_last_activity"
+    group_label: "C8001 Last Activity"
     type: time
-    timeframes: [date, week, month]
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
     convert_tz: no
+    datatype: date
     sql: ${TABLE}.c8001_last_activity_date ;;
   }
 
   dimension: c8001_last_activity_date_d {
-    group_label: "c8001_last_activity"
+    group_label: "C8001 Last Activity"
     sql: TO_DATE(${TABLE}.c8001_last_activity_date) ;;
   }
 
@@ -87,15 +113,27 @@ view: t8001_user_crossref {
     sql: ${TABLE}.c8001_nxtu_or_did ;;
   }
 
-  dimension: c8001_city {
+
+  dimension: c8001_omo_accid {
     type: string
-    sql: ${TABLE}.c8001_city ;;
+    sql: ${TABLE}.C8001_OMO_ACCID ;;
   }
 
-  dimension: c8001_country {
-    type: string
-    sql: ${TABLE}.c8001_country ;;
+  dimension_group: c8001_update {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.C8001_UPDATE_DATE ;;
   }
+
 
   #  - dimension_group: c8001_update
   #    type: time
