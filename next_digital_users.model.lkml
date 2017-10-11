@@ -24,8 +24,15 @@ include: "*.dashboard"
 explore: t8000_content {}
 
 explore: t8001_user_crossref {
+  view_label: "User Cross-reference"
+  join: t8003_user_product {
+    view_label: "User Product"
+    sql_on: ${t8001_user_crossref.c8001_nxtu_or_did} = ${t8003_user_product.c8003_nxtuid}  ;;
+    relationship: one_to_many
+    type: left_outer
+  }
   join: t8014_user_campaign {
-    view_label: "Gender and Age Data"
+    view_label: "Campaign Gender and Age Data"
     sql_on: ${t8001_user_crossref.c8001_nxtu_or_did} = ${t8014_user_campaign.c8014_nxtu_or_did} ;;
     relationship: one_to_many
     type: left_outer
