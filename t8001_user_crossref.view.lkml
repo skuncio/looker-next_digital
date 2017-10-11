@@ -52,6 +52,11 @@ view: t8001_user_crossref {
     sql: ${TABLE}.c8001_did ;;
   }
 
+  dimension: c8001_fbid {
+    type: string
+    sql: ${TABLE}.C8001_FBID ;;
+  }
+
   dimension: c8001_gaid {
     type: string
     sql: ${TABLE}.c8001_gaid ;;
