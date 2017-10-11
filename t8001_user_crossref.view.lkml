@@ -125,7 +125,8 @@ view: t8001_user_crossref {
   }
 
   dimension_group: c8001_update {
-    type: time
+  hidden: yes
+   type: time
     timeframes: [
       raw,
       date,
@@ -138,13 +139,6 @@ view: t8001_user_crossref {
     datatype: date
     sql: ${TABLE}.C8001_UPDATE_DATE ;;
   }
-
-
-  #  - dimension_group: c8001_update
-  #    type: time
-  #    timeframes: [date, week, month]
-  #    convert_tz: false
-  #    sql: ${TABLE}.c8001_update_date
 
   measure: count {
     type: count
