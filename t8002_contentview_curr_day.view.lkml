@@ -1,4 +1,4 @@
-view: contentview_curr_day {
+view: t8002_contentview_curr_day {
   sql_table_name: PUBLIC.T8002_CONTENTVIEW_CURR_DAY ;;
 
   dimension: abt {

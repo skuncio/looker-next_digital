@@ -155,14 +155,32 @@ explore: t8050_user_content_by_day {
   }
 }
 
+explore: t8002_contentview_curr_day {
+  label: "7) Current Day Content Views Detail "
+  view_label: "Curr Day Content Views"
+  join: content {
+    view_label: "Content Object Meta Data"
+    sql_on: ${t8002_contentview_curr_day.cid} = ${content.cid} and ${t8002_contentview_curr_day.region} = ${content.region} and ${t8002_contentview_curr_day.product} = ${content.product} and ${content.video_length} > 0 ;;
+    relationship: many_to_one
+    type: left_outer
+  }
+  join: t1025_reg_prod_cid_title_join {
+    view_label: "Current Title & Author"
+    sql_on: c8002_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c8002_product = ${t1025_reg_prod_cid_title_join.c1025_product} and c8002_region = ${t1025_reg_prod_cid_title_join.c1025_region} and ${t8002_contentview_curr_day.view_type} = ${t1025_reg_prod_cid_title_join.imp_type}  ;;
+    relationship: many_to_one
+    type: inner
+  }
+}
+
+
 
 explore: dashboard_headers {
-  label: "8) Dashboard Headers"
+  label: "9) Dashboard Headers"
   hidden: yes
 }
 
 explore: contentview_us_can {
-  label: "7) Content Views Detail for US & Canada"
+  label: "8) Content Views Detail for US & Canada"
   view_label: "All Content Views"
 }
 

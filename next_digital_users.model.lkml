@@ -45,7 +45,9 @@ explore: t8014_user_campaign {}
 
 explore: t8002_contentview {}
 
-explore: contentview_curr_day {}
+explore: t8002_contentview_curr_day {
+  view_label: "Curr Day Content Views"
+}
 
 explore: t1016_cid_title {}
 
