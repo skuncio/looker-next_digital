@@ -202,6 +202,8 @@ explore: t8024_content_preference_control {}
 
 explore: nxtu_age_gender  {}
 
+explore: tb_superloyal {}
+
 # explore: t4005_etw_event {}
 
 #- explore: sql_runner_query_adid_analysis
