@@ -1,6 +1,31 @@
 view: tb_superloyal {
   sql_table_name: PUBLIC.TB_SUPERLOYAL ;;
 
+  dimension: coordinate_1 {
+    type: number
+    sql: ${TABLE}.COORDINATE_1 ;;
+  }
+
+  dimension: coordinate_2 {
+    type: number
+    sql: ${TABLE}.COORDINATE_2 ;;
+  }
+
+  dimension: coordinate_3 {
+    type: number
+    sql: ${TABLE}.COORDINATE_3 ;;
+  }
+
+  dimension: coordinate_4 {
+    type: number
+    sql: ${TABLE}.COORDINATE_4 ;;
+  }
+
+  dimension: coordinate_5 {
+    type: number
+    sql: ${TABLE}.COORDINATE_5 ;;
+  }
+
   dimension: ntile_1 {
     type: number
     sql: ${TABLE}.NTILE_1 ;;
@@ -40,6 +65,5 @@ view: tb_superloyal {
     type: count_distinct
     sql: ${ADID} ;;
   }
-
 
 }
