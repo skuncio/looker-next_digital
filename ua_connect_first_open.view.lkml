@@ -41,13 +41,47 @@ view: ua_connect_first_open {
     sql: ${TABLE}.LIMITED_AD_TRACKING ;;
   }
 
-  dimension: occurred_time {
-    type: string
+#  dimension: occurred_time {
+#    type: string
+#    sql: ${TABLE}.OCCURRED_TIME ;;
+# }
+
+  dimension_group: occurred {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.OCCURRED_TIME ;;
   }
 
-  dimension: processed_time {
-    type: string
+#  dimension: processed_time {
+#    type: string
+#    sql: ${TABLE}.PROCESSED_TIME ;;
+#  }
+
+  dimension_group: processed {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.PROCESSED_TIME ;;
   }
 
