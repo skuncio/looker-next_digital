@@ -114,6 +114,8 @@ explore: t5003_send {}
 
 explore: t5004_uninstall {}
 
+explore: t5010_ua_connect_event {}
+
 explore: t8020_user_content_preference {}
 
 explore: t8020_user_content_preference_old {}
