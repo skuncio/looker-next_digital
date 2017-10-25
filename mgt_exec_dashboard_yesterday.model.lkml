@@ -10,6 +10,8 @@ include: "ua_device_tags.view"
 include: "ua_connect_push_body.view"
 include: "ua_connect_tag_change.view"
 include: "ua_connect_open.view"
+include: "ua_connect_first_open.view"
+include: "ua_connect_uninstall.view"
 include: "ua_device_crossref.view"
 include: "*.dashboard.lookml"                     # include all dashboards in this project
 
@@ -41,6 +43,14 @@ explore: ua_connect_event {
 }
 
 explore: ua_connect_tag_change {
+  persist_for: "12 hours"
+}
+
+explore: ua_connect_first_open {
+  persist_for: "12 hours"
+}
+
+explore: ua_connect_uninstall {
   persist_for: "12 hours"
 }
 
