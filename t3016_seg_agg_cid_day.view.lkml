@@ -1,7 +1,7 @@
 view: t3016_seg_agg_cid_day {
   sql_table_name: public.t3016_seg_agg_cid_day ;;
 
-  dimension: ads {
+  dimension: c3016_ads {
     type: string
     sql: ${TABLE}.c3016_ads ;;
   }
