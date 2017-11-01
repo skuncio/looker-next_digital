@@ -382,6 +382,12 @@ view: contentview {
     sql: ${TABLE}.c8002_fbid ;;
   }
 
+  dimension: ads {
+    view_label: "User"
+    type: string
+    sql: ${TABLE}.c8002_ads ;;
+  }
+
   dimension: latitude_longitude {
     alias: [view_location]
     view_label: "Location"

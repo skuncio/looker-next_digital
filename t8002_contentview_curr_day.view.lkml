@@ -19,6 +19,12 @@ view: t8002_contentview_curr_day {
     sql: ${TABLE}.C8002_ADID ;;
   }
 
+  dimension: ads {
+    view_label: "User"
+    type: string
+    sql: ${TABLE}.c8002_ads ;;
+  }
+
   dimension: app_version {
     view_label: "User"
     type: string
