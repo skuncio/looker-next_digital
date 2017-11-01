@@ -1,6 +1,11 @@
 view: t3016_seg_agg_cid_day {
   sql_table_name: public.t3016_seg_agg_cid_day ;;
 
+  dimension: ads {
+    type: string
+    sql: ${TABLE}.c3016_ads ;;
+  }
+
   dimension: c3016_action {
     type: string
     sql: ${TABLE}.c3016_action ;;
