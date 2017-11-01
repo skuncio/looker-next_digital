@@ -29,7 +29,7 @@ view: pdt_view_agg_with_article {
               AVG(CASE WHEN (contentview.c8002_action = 'PAGEVIEW')
               THEN contentview.c8002_view_duration ELSE NULL END ) AS average_page_duration
               FROM public.t8002_contentview AS contentview
-              GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
+              GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21
               ORDER BY 1,2,3,4,5 ASC
                ;;
         #    sql_trigger_value: SELECT 3 ;;
