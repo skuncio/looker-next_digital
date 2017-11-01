@@ -21,6 +21,7 @@ view: pdt_view_agg_with_article {
               contentview.c8002_auto,
               contentview.c8002_language ,
               contentview.c8002_keyword ,
+              contentview.c8002_ads ,
               COUNT(CASE WHEN (contentview.c8002_action = 'PAGEVIEW') THEN 1 ELSE NULL END) AS total_page_views,
               COUNT(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') THEN 1 ELSE NULL END) AS total_video_views,
               AVG(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW')
@@ -149,6 +150,12 @@ view: pdt_view_agg_with_article {
       dimension: title {
         type: string
         sql: ${TABLE}.c8002_title ;;
+      }
+
+      dimension: ads {
+      # view_label: "User"
+        type: string
+        sql: ${TABLE}.c8002_ads ;;
       }
 
       ######## measures #############
