@@ -73,7 +73,7 @@ dimension: content_type {
 }
 
 dimension_group: view {
-  group_label: "view date"
+  group_label: "View Date"
   type: time
   timeframes: [
     raw,
@@ -90,7 +90,7 @@ dimension_group: view {
 }
 
 dimension: view_date_d {
-  group_label: "view date"
+  group_label: "View Date"
   sql: TO_DATE(${TABLE}.c8050_datetime) ;;
 }
 
@@ -109,7 +109,7 @@ dimension: view_weekday {
 }
 
 filter: filter_view_date {
-  label: "view date"
+  label: "View Date"
   type:date
 }
 
