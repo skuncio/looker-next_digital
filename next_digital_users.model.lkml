@@ -104,15 +104,17 @@ explore: t3016_seg_agg_cid_day {
 
 explore: sql_users_both_age_gender {}
 
-explore: t5000_open {}
+explore: t5000_ua_connect_open {}
 
-explore: t5001_first_open {}
+explore: t5001_ua_connect_first_open {}
 
-explore: t5002_push_body {}
+explore: t5002_ua_connect_push_body {}
 
-explore: t5003_send {}
+explore: t5003_ua_connect_send {}
 
-explore: t5004_uninstall {}
+explore: t5004_ua_connect_uninstall {}
+
+explore: t5005_ua_connect_tag_change {}
 
 explore: t5010_ua_connect_event {}
 
