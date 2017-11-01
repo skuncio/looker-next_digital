@@ -1,6 +1,12 @@
 view: t8050_user_content_by_day {
   sql_table_name: public.t8050_user_content_by_day ;;
 
+  dimension: ads {
+    # view_label: "User"
+    type: string
+    sql: ${TABLE}.c8050_ads ;;
+  }
+
   dimension: view_type {
     description: "PAGEVIEW or VIDEOVIEW"
     alias: [action]
