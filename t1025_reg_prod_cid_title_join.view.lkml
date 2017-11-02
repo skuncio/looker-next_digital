@@ -91,7 +91,7 @@ view: t1025_reg_prod_cid_title_join {
 
   dimension: Content_title {
     type: string
-    sql: ${TABLE}.C1025_TITLE ;;
+    sql: replace(${TABLE}.C1025_TITLE,'+', ' ') ;;
   }
 
   dimension_group: c1025_update {
