@@ -78,7 +78,7 @@ view: t1025_reg_prod_cid_title {
 
   dimension: C1025_TITLE {
     type: string
-    sql: ${TABLE}.C1025_TITLE ;;
+    sql: replace(${TABLE}.C1025_TITLE,'+', ' ') ;;
   }
 
   dimension_group: c1025_update {
