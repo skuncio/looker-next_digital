@@ -26,6 +26,12 @@ view: t5009_ua_device_crossref {
     sql: ${TABLE}.C5009_PLATFORM ;;
   }
 
+  dimension: c5009_app_package_name {
+    type: string
+    sql: ${TABLE}.c5009_device_attributes:app_package_name::string ;;
+  }
+
+
   measure: count {
     type: count
     drill_fields: []
