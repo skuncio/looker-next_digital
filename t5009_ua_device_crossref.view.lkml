@@ -48,7 +48,7 @@ view: t5009_ua_device_crossref {
 
   dimension: c5009_push_opt_in {
     type: string
-    sql: ${TABLE}.c5009_device_attributes:c5009_push_opt_in::string ;;
+    sql: ${TABLE}.c5009_device_attributes:c5009_push_opt_in::variant ;;
   }
 
 
