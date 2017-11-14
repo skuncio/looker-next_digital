@@ -2,13 +2,13 @@ view: t5009_ua_device_crossref {
   sql_table_name: PUBLIC.T5009_UA_DEVICE_CROSSREF ;;
 
   dimension: c5009_adid {
-    view_label: "User"
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.C5009_ADID ;;
   }
 
   dimension: c5009_channel_id {
-    view_label: "User"
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.C5009_CHANNEL_ID ;;
   }
@@ -60,7 +60,7 @@ view: t5009_ua_device_crossref {
   }
 
   measure: distinct_channel_id {
-    view_label: "User"
+    view_label: "Device User"
     type: count_distinct
     value_format: "#,##0"
   #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
@@ -68,7 +68,7 @@ view: t5009_ua_device_crossref {
   }
 
   measure: distinct_adid {
-    view_label: "User"
+    view_label: "Device User"
     type: count_distinct
     value_format: "#,##0"
     #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
