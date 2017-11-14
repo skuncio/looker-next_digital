@@ -31,6 +31,26 @@ view: t5009_ua_device_crossref {
     sql: ${TABLE}.c5009_device_attributes:app_package_name::string ;;
   }
 
+  dimension: c5009_background_push_enabled {
+    type: string
+    sql: ${TABLE}.c5009_device_attributes:c5009_background_push_enabled::string ;;
+  }
+
+  dimension: c5009_location_enabled {
+    type: string
+    sql: ${TABLE}.c5009_device_attributes:c5009_location_enabled::string ;;
+  }
+
+  dimension: c5009_location_permission {
+    type: string
+    sql: ${TABLE}.c5009_device_attributes:c5009_location_permission::string ;;
+  }
+
+  dimension: c5009_push_opt_in {
+    type: string
+    sql: ${TABLE}.c5009_device_attributes:c5009_push_opt_in::string ;;
+  }
+
 
   measure: count {
     type: count
