@@ -33,22 +33,22 @@ view: t5009_ua_device_crossref {
 
   dimension: c5009_background_push_enabled {
     type: string
-    sql: ${TABLE}.c5009_device_attributes:c5009_background_push_enabled::string ;;
+    sql: ${TABLE}.c5009_device_attributes:background_push_enabled::string ;;
   }
 
   dimension: c5009_location_enabled {
     type: string
-    sql: ${TABLE}.c5009_device_attributes:c5009_location_enabled::string ;;
+    sql: ${TABLE}.c5009_device_attributes:location_enabled::string ;;
   }
 
   dimension: c5009_location_permission {
     type: string
-    sql: ${TABLE}.c5009_device_attributes:c5009_location_permission::string ;;
+    sql: ${TABLE}.c5009_device_attributes:location_permission::string ;;
   }
 
   dimension: c5009_push_opt_in {
     type: string
-    sql: ${TABLE}.c5009_device_attributes:c5009_push_opt_in::variant ;;
+    sql: ${TABLE}.c5009_device_attributes:push_opt_in::string ;;
   }
 
 
