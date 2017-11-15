@@ -21,8 +21,20 @@ view: t5000_ua_connect_open {
     sql: ${TABLE}.C5000_LAST_DELIVERED_PUSH_ID ;;
   }
 
-  dimension: c5000_last_delivered_time {
-    type: string
+  dimension_group: c5000_last_delivered {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5000_LAST_DELIVERED_TIME ;;
   }
 
@@ -31,13 +43,37 @@ view: t5000_ua_connect_open {
     sql: ${TABLE}.C5000_LIMITED_AD_TRACKING ;;
   }
 
-  dimension: c5000_occurred_time {
-    type: string
+  dimension_group: c5000_occurred {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5000_OCCURRED_TIME ;;
   }
 
-  dimension: c5000_processed_time {
-    type: string
+  dimension_group: c5000_processed {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5000_PROCESSED_TIME ;;
   }
 
@@ -46,8 +82,20 @@ view: t5000_ua_connect_open {
     sql: ${TABLE}.C5000_TRIGGERING_PUSH_ID ;;
   }
 
-  dimension: c5000_triggering_push_time {
-    type: string
+  dimension_group: c5000_triggering_push {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5000_TRIGGERING_PUSH_TIME ;;
   }
 
@@ -64,5 +112,21 @@ view: t5000_ua_connect_open {
   measure: count {
     type: count
     drill_fields: []
+  }
+
+  measure: distinct_channel_id {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5000_ua_device_channel} ;;
+  }
+
+  measure: distinct_adid {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5000_adid} ;;
   }
 }
