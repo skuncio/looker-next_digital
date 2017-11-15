@@ -18,7 +18,7 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #   }
 # }
 
-explore: ua_connect_push_schedules {
+explore: t5002_ua_connect_push_schedules {
   view_name: t5002_ua_connect_push_body
   fields: [
     t5002_ua_connect_push_body.push_body_set*,
@@ -28,7 +28,7 @@ explore: ua_connect_push_schedules {
   persist_for: "12 hours"
 }
 
-explore: ua_connect_push_experiments {
+explore: t5002_ua_connect_push_experiments {
   view_name:  t5002_ua_connect_push_body
   fields:[
     t5002_ua_connect_push_body.push_body_set*,
@@ -38,7 +38,7 @@ explore: ua_connect_push_experiments {
   persist_for: "12 hours"
 }
 
-explore: ua_connect_push_payload {
+explore: t5002_ua_connect_push_payload {
   view_name: t5002_ua_connect_push_body
   fields:[
     t5002_ua_connect_push_body.push_body_set*,

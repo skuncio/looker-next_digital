@@ -60,7 +60,7 @@ view: t5002_ua_connect_push_body {
   dimension: c5002_resource {
     view_label: "Push Body"
     type: string
-    sql: ${TABLE}."C5002_RESOURCE" ;;
+    sql: ${TABLE}. "C5002_RESOURCE" ;;
   }
 
   dimension: audience {
