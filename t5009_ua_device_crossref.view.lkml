@@ -33,7 +33,7 @@ view: t5009_ua_device_crossref {
 
     case: {
       when: {
-        sql: ${c5009_app_package_name} = 'com.appledaily.video.news.hk' and ${c5009_platform} = 'ANDROID' ;;
+        sql: ${c5009_app_package_name} = 'com.appledaily.video.news.hk' and ${c5009_platform} = 'IOS' ;;
         label: "HK Appledaily IOS"
       }
 
