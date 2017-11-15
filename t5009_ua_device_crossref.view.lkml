@@ -33,14 +33,20 @@ view: t5009_ua_device_crossref {
 
     case: {
       when: {
-        sql: ${c5009_app_package_name} = 'com.appledaily.video.news.hk' ;;
+        sql: ${c5009_app_package_name} = 'com.appledaily.video.news.hk' and ${c5009_platform} = 'ANDROID' ;;
         label: "HK Appledaily IOS"
       }
 
       when: {
-        sql: ${c5009_app_package_name} = 'com.nextmedia' ;;
+        sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_platform} = 'ANDROID' ;;
         label: "HK Appledaily Android"
       }
+
+      when: {
+        sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_platform} = 'AMAZON' ;;
+        label: "HK Appledaily Amazon"
+      }
+
 
       when: {
         sql: true ;;
@@ -48,6 +54,39 @@ view: t5009_ua_device_crossref {
       }
     }
   }
+
+  dimension: c5009_optin {
+    type: string
+
+    case: {
+      when: {
+        sql: ${c5009_app_package_name} = 'com.appledaily.video.news.hk' and ${c5009_push_opt_in} = 'true' ;;
+        label: "yes"
+      }
+      when: {
+        sql: ${c5009_app_package_name} = 'com.appledaily.video.news.hk' and ${c5009_push_opt_in} = 'false' ;;
+        label: "no"
+      }
+      when: {
+        sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_push_opt_in} = 'true'' ;;
+        label: "yes"
+      }
+      when: {
+        sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_push_opt_in} = 'false'' ;;
+        label: "no"
+      }
+
+      when: {
+        sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_platform} = 'AMAZON' ;;
+        label: "no"
+      }
+         when: {
+        sql: true ;;
+        label: "unknown"
+      }
+    }
+  }
+
 
   dimension: c5009_app_package_name {
     type: string
