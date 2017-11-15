@@ -47,7 +47,6 @@ view: t5009_ua_device_crossref {
         label: "HK Appledaily Amazon"
       }
 
-
       when: {
         sql: true ;;
         label: "unknown"
@@ -55,7 +54,7 @@ view: t5009_ua_device_crossref {
     }
   }
 
-  dimension: c5009_optin {
+  dimension: c5009_opt_in {
     type: string
 
     case: {
