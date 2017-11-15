@@ -2,6 +2,7 @@ view: t5001_ua_connect_first_open {
   sql_table_name: PUBLIC.T5001_UA_CONNECT_FIRST_OPEN ;;
 
   dimension: c5001_adid {
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.C5001_ADID ;;
   }
@@ -31,13 +32,37 @@ view: t5001_ua_connect_first_open {
     sql: ${TABLE}.C5001_LIMITED_AD_TRACKING ;;
   }
 
-  dimension: c5001_occurred_time {
-    type: string
+  dimension_group: c5001_occurred {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5001_OCCURRED_TIME ;;
   }
 
-  dimension: c5001_processed_time {
-    type: string
+  dimension_group: c5001_processed {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5001_PROCESSED_TIME ;;
   }
 
@@ -47,6 +72,7 @@ view: t5001_ua_connect_first_open {
   }
 
   dimension: c5001_ua_device_channel {
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.C5001_UA_DEVICE_CHANNEL ;;
   }
@@ -54,5 +80,21 @@ view: t5001_ua_connect_first_open {
   measure: count {
     type: count
     drill_fields: [c5001_app_package_name]
+  }
+
+  measure: distinct_channel_id {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5001_ua_device_channel} ;;
+  }
+
+  measure: distinct_adid {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5001_adid} ;;
   }
 }
