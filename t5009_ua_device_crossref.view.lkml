@@ -67,11 +67,11 @@ view: t5009_ua_device_crossref {
         label: "no"
       }
       when: {
-        sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_push_opt_in} = 'true'' ;;
+        sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_push_opt_in} = 'true' ;;
         label: "yes"
       }
       when: {
-        sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_push_opt_in} = 'false'' ;;
+        sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_push_opt_in} = 'false' ;;
         label: "no"
       }
 
