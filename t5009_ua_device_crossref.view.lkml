@@ -28,6 +28,27 @@ view: t5009_ua_device_crossref {
     sql: ${TABLE}.C5009_PLATFORM ;;
   }
 
+  dimension: c5009_product {
+    type: string
+
+    case: {
+      when: {
+        sql: ${TABLE}.c5009_app_package_name = 'com.appledaily.video.news.hk' ;;
+        label: "HK Appledaily"
+      }
+
+      when: {
+        sql: ${TABLE}.c5009_app_package_name = 'com.nextmedia' ;;
+        label: "HK Appledaily"
+      }
+
+      when: {
+        sql: true ;;
+        label: "unknown"
+      }
+    }
+  }
+
   dimension: c5009_app_package_name {
     type: string
     sql: ${TABLE}.c5009_device_attributes:app_package_name::string ;;
