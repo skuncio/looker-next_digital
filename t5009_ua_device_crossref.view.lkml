@@ -34,12 +34,12 @@ view: t5009_ua_device_crossref {
     case: {
       when: {
         sql: ${c5009_app_package_name} = 'com.appledaily.video.news.hk' ;;
-        label: "HK Appledaily"
+        label: "HK Appledaily IOS"
       }
 
       when: {
         sql: ${c5009_app_package_name} = 'com.nextmedia' ;;
-        label: "HK Appledaily"
+        label: "HK Appledaily Android"
       }
 
       when: {
