@@ -2,6 +2,7 @@ view: t5000_ua_connect_open {
   sql_table_name: PUBLIC.T5000_UA_CONNECT_OPEN ;;
 
   dimension: c5000_adid {
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.C5000_ADID ;;
   }
@@ -105,6 +106,7 @@ view: t5000_ua_connect_open {
   }
 
   dimension: c5000_ua_device_channel {
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.C5000_UA_DEVICE_CHANNEL ;;
   }
