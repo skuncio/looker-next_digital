@@ -86,6 +86,7 @@ view: t5003_ua_connect_send {
   }
 
   measure: distinct_adid {
+    view_label: "Device User"
     type: count_distinct
     value_format: "#,##0"
     #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
@@ -93,7 +94,6 @@ view: t5003_ua_connect_send {
   }
 
   measure: distinct_push_id {
-    view_label: "Device User"
     type: count_distinct
     value_format: "#,##0"
     #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
