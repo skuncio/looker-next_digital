@@ -66,7 +66,7 @@ explore: t5000_ua_connect_open {
 
 explore: t5001_ua_connect_first_open {}
 
-explore: t5002_ua_connect_push_body {}
+#explore: t5002_ua_connect_push_body {}
 
 explore: t5003_ua_connect_send {}
 
