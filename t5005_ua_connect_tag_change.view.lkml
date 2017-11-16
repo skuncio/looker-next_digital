@@ -2,26 +2,31 @@ view: t5005_ua_connect_tag_change {
   sql_table_name: PUBLIC.T5005_UA_CONNECT_TAG_CHANGE ;;
 
   dimension: c5005_added_device_tags {
+    view_label: "Device Tags"
     type: string
     sql: ${TABLE}.C5005_ADDED_DEVICE_TAGS ;;
   }
 
   dimension: c5005_added_tags {
+    view_label: "All Tags"
     type: string
     sql: ${TABLE}.C5005_ADDED_TAGS ;;
   }
 
   dimension: c5005_adid {
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.C5005_ADID ;;
   }
 
   dimension: c5005_current_device_tags {
+    view_label: "Device Tags"
     type: string
     sql: ${TABLE}.C5005_CURRENT_DEVICE_TAGS ;;
   }
 
   dimension: c5005_current_tags {
+    view_label: "All Tags"
     type: string
     sql: ${TABLE}.C5005_CURRENT_TAGS ;;
   }
@@ -41,22 +46,48 @@ view: t5005_ua_connect_tag_change {
     sql: ${TABLE}.C5005_LIMITED_AD_TRACKING ;;
   }
 
-  dimension: c5005_occurred_time {
-    type: string
+  dimension_group: c5005_occurred {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5005_OCCURRED_TIME ;;
   }
 
-  dimension: c5005_processed_time {
-    type: string
+  dimension_group: c5005_processed {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5005_PROCESSED_TIME ;;
   }
 
   dimension: c5005_removed_device_tags {
+    view_label: "Device Tags"
     type: string
     sql: ${TABLE}.C5005_REMOVED_DEVICE_TAGS ;;
   }
 
   dimension: c5005_removed_tags {
+    view_label: "All Tags"
     type: string
     sql: ${TABLE}.C5005_REMOVED_TAGS ;;
   }
@@ -67,6 +98,7 @@ view: t5005_ua_connect_tag_change {
   }
 
   dimension: c5005_ua_device_channel {
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.C5005_UA_DEVICE_CHANNEL ;;
   }
@@ -74,5 +106,21 @@ view: t5005_ua_connect_tag_change {
   measure: count {
     type: count
     drill_fields: []
+  }
+
+  measure: distinct_channel_id {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5005_ua_device_channel} ;;
+  }
+
+  measure: distinct_adid {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5005_adid} ;;
   }
 }

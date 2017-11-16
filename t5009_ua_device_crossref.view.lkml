@@ -18,8 +18,20 @@ view: t5009_ua_device_crossref {
     sql: ${TABLE}.C5009_DEVICE_ATTRIBUTES ;;
   }
 
-  dimension: c5009_occurred {
-    type: string
+  dimension_group: c5009_occurred {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5009_OCCURRED ;;
   }
 
