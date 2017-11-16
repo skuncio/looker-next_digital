@@ -54,7 +54,7 @@ explore: t5000_ua_connect_open {
       t5002_ua_connect_push_body.push_body_set*,
       t5002_ua_connect_push_body.push_payload_set*
     ]
-    sql_on: c5000_TRIGGERING_PUSH_ID = t5002_ua_connect_push_body.PUSH_ID and ${t5002_ua_connect_push_body.c5002_resource} = 'PUSH' ;;
+    sql_on: c5000_TRIGGERING_PUSH_ID = t5002_ua_connect_push_body.c5002_push_id and ${t5002_ua_connect_push_body.c5002_resource} = 'PUSH' ;;
     relationship: many_to_one
     type: inner
   }
