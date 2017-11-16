@@ -2,6 +2,7 @@ view: t5004_ua_connect_uninstall {
   sql_table_name: PUBLIC.T5004_UA_CONNECT_UNINSTALL ;;
 
   dimension: c5004_adid {
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.C5004_ADID ;;
   }
@@ -31,13 +32,37 @@ view: t5004_ua_connect_uninstall {
     sql: ${TABLE}.C5004_LIMITED_AD_TRACKING ;;
   }
 
-  dimension: c5004_occurred_time {
-    type: string
+  dimension_group: c5004_occurred_time {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5004_OCCURRED_TIME ;;
   }
 
-  dimension: c5004_processed_time {
-    type: string
+  dimension_group: c5004_processed_time {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      hour_of_day,
+      time,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.C5004_PROCESSED_TIME ;;
   }
 
@@ -47,6 +72,7 @@ view: t5004_ua_connect_uninstall {
   }
 
   dimension: c5004_ua_device_channel {
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.C5004_UA_DEVICE_CHANNEL ;;
   }
@@ -54,5 +80,21 @@ view: t5004_ua_connect_uninstall {
   measure: count {
     type: count
     drill_fields: [c5004_app_package_name]
+  }
+
+  measure: distinct_channel_id {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5004_ua_device_channel} ;;
+  }
+
+  measure: distinct_adid {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5004_adid} ;;
   }
 }
