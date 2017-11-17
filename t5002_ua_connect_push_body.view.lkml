@@ -202,6 +202,7 @@ view: t5002_ua_connect_push_body {
   }
 
   measure: count {
+    view_label: "Push Body"
     type: count
     drill_fields: []
   }
