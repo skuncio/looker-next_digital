@@ -131,4 +131,28 @@ view: t5000_ua_connect_open {
     #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${c5000_adid} ;;
   }
+
+  measure: distinct_IOS_channel_id {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5000_ua_device_channel} ;;
+    filters: {
+      field: c5000_device_type
+      value: "IOS"
+    }
+  }
+
+  measure: distinct_Android_channel_id {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5000_ua_device_channel} ;;
+    filters: {
+      field: c5000_device_type
+      value: "ANDROID"
+    }
+  }
 }
