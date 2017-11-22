@@ -97,4 +97,53 @@ view: t5004_ua_connect_uninstall {
     #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${c5004_adid} ;;
   }
+
+
+  measure: distinct_IOS_channel_id {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5004_ua_device_channel} ;;
+    filters: {
+      field: c5004_device_type
+      value: "IOS"
+    }
+  }
+
+  measure: distinct_Android_channel_id {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5004_ua_device_channel} ;;
+    filters: {
+      field: c5004_device_type
+      value: "ANDROID"
+    }
+  }
+
+  measure: distinct_IOS_adid {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5004_adid} ;;
+    filters: {
+      field: c5004_device_type
+      value: "IOS"
+    }
+  }
+
+  measure: distinct_Android_adid {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5004_adid} ;;
+    filters: {
+      field: c5004_device_type
+      value: "ANDROID"
+    }
+  }
 }
