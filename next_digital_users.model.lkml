@@ -69,9 +69,9 @@ explore: t4003_animated_cid {
   }
 }
 
-explore: t8050_user_content_by_day {
+#explore: t8050_user_content_by_day {
 #  sql_always_where:{% condition t8050_user_content_by_day.filter_view_date %} ${t8050_user_content_by_day.view_date} {% endcondition %}  ;;
-}
+#}
 
 explore: t1021_cid_title_day {}
 
@@ -191,6 +191,15 @@ explore: t8020_user_content_preference {
 }
 
 explore: t8020_user_content_preference_old {}
+
+explore: t8050_user_content_by_day {
+  join: t8023_user_segments {
+    view_label: "User Segments"
+    sql_on: ${t8023_user_segments.c8023_nxtuid} = &${t8050_user_content_by_day.nxtuid} ;;
+    relationship: many_to_many
+    type: inner
+  }
+}
 
 
 explore: t8023_user_segments {
