@@ -195,12 +195,12 @@ explore: t8020_user_content_preference_old {}
 explore: t8002_contentview {}
 
 explore: t8050_user_content_by_day {
-  join: t8023_user_segments {
-    view_label: "User Segments"
-    sql_on: ${t8023_user_segments.c8023_nxtuid} = &${t8050_user_content_by_day.nxtuid} ;;
-    relationship: many_to_many
-    type: inner
-  }
+#  join: t8023_user_segments {
+#    view_label: "User Segments"
+#    sql_on: ${t8023_user_segments.c8023_nxtuid} = &${t8050_user_content_by_day.nxtuid} ;;
+#    relationship: many_to_many
+#    type: inner
+# }
 }
 
 
