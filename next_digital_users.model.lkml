@@ -120,10 +120,6 @@ explore: sql_users_both_age_gender {}
 
 #explore: t5010_ua_connect_event {}
 
-explore: t8020_user_content_preference {}
-
-explore: t8020_user_content_preference_old {}
-
 explore: t8021_user_churning_prediction {
   join: t8001_user_crossref {
     view_label: "User Cross Reference"
@@ -184,6 +180,18 @@ explore: t8026_user_age_prediction {
 #explore: content_preference_total_views {}
 
 #explore: content_preference_unique_users {}
+
+explore: t8020_user_content_preference {
+  join: t8023_user_segments {
+    view_label: "User Segments"
+    sql_on: ${t8020_user_content_preference.c8020_nxtuid} = ${t8023_user_segments.c8023_nxtuid} ;;
+    relationship: many_to_many
+    type: inner
+  }
+}
+
+explore: t8020_user_content_preference_old {}
+
 
 explore: t8023_user_segments {
   join: nxtu_age_gender {
