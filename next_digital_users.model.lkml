@@ -50,7 +50,7 @@ explore: t8003_user_product {
 
 explore: t8014_user_campaign {}
 
-explore: t8002_contentview {}
+#explore: t8002_contentview {}
 
 explore: t8002_contentview_curr_day {
   view_label: "Curr Day Content Views"
@@ -191,6 +191,8 @@ explore: t8020_user_content_preference {
 }
 
 explore: t8020_user_content_preference_old {}
+
+explore: t8002_contentview {}
 
 explore: t8050_user_content_by_day {
   join: t8023_user_segments {

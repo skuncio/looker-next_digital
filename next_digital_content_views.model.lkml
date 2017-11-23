@@ -105,6 +105,15 @@ explore: contentview {
     relationship: many_to_one
     type: inner
   }
+  join: t8021_user_churning_prediction {
+    view_label: "Churning Prediction"
+    sql_on: ${contentview.adid} = ${t8021_user_churning_prediction.c8021_adid}
+    and ${contentview.region} = 'HK'
+    and ${contentview.product} = 'Apple Daily'
+    and (${contentview.platform} = 'iPhone' or ${contentview.platform} = 'Android') ;;
+    relationship: many_to_many
+    type: inner
+  }
 }
 
 explore: contentview_page {
