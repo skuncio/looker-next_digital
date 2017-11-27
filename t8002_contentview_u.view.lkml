@@ -353,6 +353,14 @@ view: t8002_contentview {
     sql: ${TABLE}.c8002_ads ;;
   }
 
+  dimension: c8002_latitude_longitude {
+    alias: [view_location]
+    view_label: "Location"
+    type: location
+    sql_latitude: ${c8002_lat} ;;
+    sql_longitude: ${c8002_lon} ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []
