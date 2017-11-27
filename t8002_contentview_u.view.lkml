@@ -347,7 +347,7 @@ view: t8002_contentview {
     sql: ${TABLE}.c8002_fbid ;;
   }
 
-  dimension: ads {
+  dimension: c8002_ads {
  #   view_label: "User"
     type: string
     sql: ${TABLE}.c8002_ads ;;
