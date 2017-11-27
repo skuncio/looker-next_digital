@@ -355,7 +355,7 @@ view: t8002_contentview {
 
   dimension: c8002_latitude_longitude {
     alias: [view_location]
-    view_label: "Location"
+ #   view_label: "Location"
     type: location
     sql_latitude: ${c8002_lat} ;;
     sql_longitude: ${c8002_lon} ;;
@@ -421,7 +421,7 @@ view: t8002_contentview {
   }
 
   measure: distinct_users {
-    view_label: "User"
+  #  view_label: "User"
     type: count_distinct
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${c8002_nxtu_or_did} ;;
