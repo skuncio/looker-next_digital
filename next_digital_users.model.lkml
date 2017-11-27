@@ -182,6 +182,12 @@ explore: t8026_user_age_prediction {
 #explore: content_preference_unique_users {}
 
 explore: t8020_user_content_preference {
+  join: t8002_contentview {
+    view_label: "Content View"
+    sql_on: ${t8020_user_content_preference.c8020_nxtuid} = ${t8002_contentview.c8002_nxtu_or_did} ;;
+    relationship: many_to_many
+    type: inner
+  }
   join: t8023_user_segments {
     view_label: "User Segments"
     sql_on: ${t8020_user_content_preference.c8020_nxtuid} = ${t8023_user_segments.c8023_nxtuid} ;;
@@ -205,9 +211,9 @@ explore: t8050_user_content_by_day {
 
 
 explore: t8023_user_segments {
-  join: t8050_user_content_by_day {
-    view_label: "Content by Day"
-    sql_on: ${t8023_user_segments.c8023_nxtuid} = &${t8050_user_content_by_day.nxtuid} ;;
+  join: t8002_contentview {
+    view_label: "Content View"
+    sql_on: ${t8023_user_segments.c8023_nxtuid} = ${t8002_contentview.c8002_nxtu_or_did} ;;
     relationship: many_to_many
     type: inner
   }
