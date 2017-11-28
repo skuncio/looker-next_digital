@@ -73,6 +73,9 @@ view: t8056_user_activty_by_day {
     sql: ${c8056_nxtuid} ;;
   }
 
-
+  measure: active_days {
+    type: count_distinct
+    sql: ${c8056_view_date} ;;
+  }
 
 }
