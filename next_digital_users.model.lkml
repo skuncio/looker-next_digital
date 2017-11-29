@@ -210,13 +210,13 @@ explore: t8050_user_content_by_day {
 }
 
 explore: t8056_user_activty_by_day {
-#  view_label: "User Activity"
-#  join: t8023_user_segments {
-#    view_label: "User Segment"
-#    sql_on: ${t8023_user_segments.c8023_nxtuid} = ${t8056_user_activty_by_day.c8056_nxtuid} ;;
-#    relationship: many_to_many
-#    type: inner
-#  }
+  view_label: "User Activity"
+  join: t8023_user_segments {
+    view_label: "User Segment"
+    sql_on: ${t8023_user_segments.c8023_nxtuid} = ${t8056_user_activty_by_day.c8056_nxtuid} ;;
+    relationship: many_to_many
+    type: inner
+  }
 #  join: t8024_content_preference_control {
 #    view_label: "Segment Name"
 #    sql_on: ${t8024_content_preference_control.c8024_id} = ${t8023_user_segments.c8023_segment ;;
