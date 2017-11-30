@@ -225,6 +225,22 @@ explore: t8056_user_activty_by_day {
 #  }
 }
 
+explore: t8022_user_segment_list {
+  view_label: "Segment List"
+  join: t8056_user_activty_by_day {
+    view_label: "User Activity"
+    sql_on: ${t8022_user_segment_list.c8022_nxtuid} = ${t8056_user_activty_by_day.c8056_nxtuid} ;;
+    relationship: one_to_many
+    type: left_outer
+  }
+  join: nxtu_age_gender {
+    view_label: "Age & Gender"
+    sql_on: ${t8022_user_segment_list.c8022_nxtuid} = ${nxtu_age_gender.nxtuid} ;;
+    relationship: many_to_one
+    type: left_outer
+  }
+}
+
 explore: t8023_user_segments {
 #  join: t8002_contentview {
 #    view_label: "Content View"
