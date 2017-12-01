@@ -35,7 +35,7 @@ view: view_agg_with_article_REDSHIFT {
       COUNT(CASE WHEN (contentview.c8002_action = 'PAGEVIEW') THEN 1 ELSE NULL END) AS "total_page_views",
       COUNT(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW') THEN 1 ELSE NULL END) AS "total_video_views",
       AVG(CASE WHEN (contentview.c8002_action = 'VIDEOVIEW')
-      THEN contentview.c8002_video_duration ELSE NULL END ) AS "average_duration"
+      THEN contentview.c8002_view_duration ELSE NULL END ) AS "average_duration"
       FROM public.t8002_contentview AS contentview
       GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
       ORDER BY 1,2,3,4,5 ASC
