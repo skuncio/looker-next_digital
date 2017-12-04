@@ -77,3 +77,72 @@ explore: t5005_ua_connect_tag_change {}
 explore: t5009_ua_device_crossref {}
 
 explore: t5010_ua_connect_event {}
+
+
+
+explore: ua_connect_event {
+  persist_for: "12 hours"
+}
+
+#explore: ua_connect_tag_change {
+  #persist_for: "12 hours"
+#}
+
+#explore: ua_connect_first_open {
+  #persist_for: "12 hours"
+#}
+
+#explore: ua_connect_uninstall {
+  #persist_for: "12 hours"
+#}
+
+#explore: ua_connect_push_schedules {
+  #view_name: ua_connect_push_body
+ # fields: [
+ #   ua_connect_push_body.push_body_set*,
+ #   ua_connect_push_body.schedule_set*
+ # ]
+ # sql_always_where: ${resource} = 'SCHEDULES' ;;
+ # persist_for: "12 hours"
+#}
+
+#explore: ua_connect_push_experiments {
+#  view_name:  ua_connect_push_body
+#  fields:[
+#    ua_connect_push_body.push_body_set*,
+#    ua_connect_push_body.experiments_set*
+#  ]
+#  sql_always_where: ${resource} = 'EXPERIMENTS' ;;
+#  persist_for: "12 hours"
+#}
+
+#explore: ua_connect_push_payload {
+#  view_name: ua_connect_push_body
+#  fields:[
+#    ua_connect_push_body.push_body_set*,
+#    ua_connect_push_body.push_payload_set*
+#  ]
+#  sql_always_where: ${resource} = 'PUSH' ;;
+#  persist_for: "12 hours"
+#}
+
+#explore: ua_connect_open {
+#  join: ua_connect_push_body  {
+#    fields:[
+#      ua_connect_push_body.push_body_set*,
+#      ua_connect_push_body.push_payload_set*
+#    ]
+#    sql_on: TRIGGERING_PUSH_ID = ua_connect_push_body.PUSH_ID and ${ua_connect_push_body.resource} = 'PUSH' ;;
+#    relationship: many_to_one
+#    type: inner
+#  }
+#  persist_for: "12 hours"
+#}
+
+#explore: ua_device_tags {
+#  persist_for: "12 hours"
+#}
+
+#explore: ua_device_crossref {
+#  persist_for: "12 hours"
+#}
