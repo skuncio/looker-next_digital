@@ -11,10 +11,10 @@ view: view_aggregate {
     #    sql_trigger_value: SELECT FLOOR((EXTRACT(epoch from convert_timezone('HKT',GETDATE())) - 60*60*4)/(60*60*24))
     sql_trigger_value: SELECT 2 ;;
     #    persist_for: 72 hours
-    sortkeys: ["c8002_datetime"]
-    distribution: "c8002_cid"
+    #sortkeys: ["c8002_datetime"]
+    #distribution: "c8002_cid"
     sql: SELECT
-      DATE(contentview.c8002_datetime) as "c8002_datetime",
+      TO_DATE(contentview.c8002_datetime) as "c8002_datetime",
       contentview.c8002_product ,
       contentview.c8002_region ,
       contentview.c8002_platform ,

@@ -1,6 +1,14 @@
 connection: "nd_snowflake_analytics"
 
-include: "*.view.lkml"         # include all views in this project
+include: "t5*.view.lkml"         # include all views in this project
+include: "ua_connect_event.view"
+include: "ua_device_tags.view"
+include: "ua_connect_push_body.view"
+include: "ua_connect_tag_change.view"
+include: "ua_connect_open.view"
+include: "ua_connect_first_open.view"
+include: "ua_connect_uninstall.view"
+include: "ua_device_crossref.view"
 include: "*.dashboard.lookml"  # include all dashboards in this project
 
 # # Select the views that should be a part of this model,
