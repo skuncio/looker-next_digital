@@ -126,7 +126,7 @@ explore: ua_connect_event {
 #  persist_for: "12 hours"
 #}
 
-#explore: ua_connect_open {
+explore: ua_connect_open {
 #  join: ua_connect_push_body  {
 #    fields:[
 #      ua_connect_push_body.push_body_set*,
@@ -136,8 +136,8 @@ explore: ua_connect_event {
 #    relationship: many_to_one
 #    type: inner
 #  }
-#  persist_for: "12 hours"
-#}
+  persist_for: "12 hours"
+}
 
 #explore: ua_device_tags {
 #  persist_for: "12 hours"
