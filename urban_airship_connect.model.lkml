@@ -82,6 +82,8 @@ explore: t5004_ua_connect_uninstall {}
 
 explore: t5005_ua_connect_tag_change {}
 
+explore: t5008_ua_device_tags {}
+
 explore: t5009_ua_device_crossref {}
 
 explore: t5010_ua_connect_event {}
