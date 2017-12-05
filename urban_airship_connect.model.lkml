@@ -151,6 +151,6 @@ explore: ua_connect_open {
 #  persist_for: "12 hours"
 #}
 
-#explore: ua_device_crossref {
-#  persist_for: "12 hours"
-#}
+explore: ua_device_crossref {
+  persist_for: "12 hours"
+}
