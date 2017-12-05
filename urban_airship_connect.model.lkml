@@ -92,17 +92,17 @@ explore: ua_connect_event {
   persist_for: "12 hours"
 }
 
-#explore: ua_connect_tag_change {
-  #persist_for: "12 hours"
-#}
+explore: ua_connect_tag_change {
+  persist_for: "12 hours"
+}
 
-#explore: ua_connect_first_open {
-  #persist_for: "12 hours"
-#}
+explore: ua_connect_first_open {
+  persist_for: "12 hours"
+}
 
-#explore: ua_connect_uninstall {
-  #persist_for: "12 hours"
-#}
+explore: ua_connect_uninstall {
+  persist_for: "12 hours"
+}
 
 explore: ua_connect_push_schedules {
   view_name: ua_connect_push_body
@@ -147,9 +147,9 @@ explore: ua_connect_open {
   persist_for: "12 hours"
 }
 
-#explore: ua_device_tags {
-#  persist_for: "12 hours"
-#}
+explore: ua_device_tags {
+  persist_for: "12 hours"
+}
 
 explore: ua_device_crossref {
   persist_for: "12 hours"
