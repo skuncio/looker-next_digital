@@ -82,7 +82,15 @@ explore: t5004_ua_connect_uninstall {}
 
 explore: t5005_ua_connect_tag_change {}
 
-explore: t5008_ua_device_tags {}
+explore: t5008_ua_device_tags {
+  view_label: "UA Device Tags"
+  join: t5009_ua_device_crossref {
+    view_label: "UA Device Crossref"
+    sql_on: ${t5008_ua_device_tags.c5008_channel_id} = ${t5009_ua_device_crossref.c5009_channel_id};;
+    relationship: one_to_many
+    type: left_outer
+  }
+}
 
 explore: t5009_ua_device_crossref {}
 
