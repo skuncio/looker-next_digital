@@ -5,7 +5,7 @@ persist_for: "12 hours"
 
 # include all views in this project
 include: "t*.view"
-include: "nxtu_age_gender.view"
+#include: "nxtu_age_gender.view"
 include: "sql_users_both_age_gender.view"
 
 # include all dashboards in this project
@@ -136,9 +136,9 @@ explore: t8021_user_churning_prediction {
 }
 
 explore: t8025_user_gender_prediction {
-  join: nxtu_age_gender {
+  join: t8057_userprofile_age_gender {
     view_label: "UserProfile Age & Gender"
-    sql_on: ${t8025_user_gender_prediction.c8025_nxtuid} = ${nxtu_age_gender.nxtuid} ;;
+    sql_on: ${t8025_user_gender_prediction.c8025_nxtuid} = ${t8057_userprofile_age_gender.c8027_nxtuid} ;;
     relationship: one_to_one
     type: left_outer
   }
@@ -157,9 +157,9 @@ explore: t8025_user_gender_prediction {
 }
 
 explore: t8026_user_age_prediction {
-  join: nxtu_age_gender {
+  join: t8057_userprofile_age_gender {
     view_label: "UserProfile Age & Gender"
-    sql_on: ${t8026_user_age_prediction.c8026_nxtuid} = ${nxtu_age_gender.nxtuid} ;;
+    sql_on: ${t8026_user_age_prediction.c8026_nxtuid} = ${t8057_userprofile_age_gender.c8027_nxtuid} ;;
     relationship: one_to_one
     type: left_outer
   }
@@ -196,7 +196,7 @@ explore: t8020_user_content_preference {
   }
 }
 
-explore: t8020_user_content_preference_old {}
+#explore: t8020_user_content_preference_old {}
 
 explore: t8002_contentview {}
 
@@ -211,10 +211,16 @@ explore: t8050_user_content_by_day {
 
 explore: t8056_user_activty_by_day {
   view_label: "User Activity"
-  join: t8023_user_segments {
-    view_label: "User Segment"
-    sql_on: ${t8023_user_segments.c8023_nxtuid} = ${t8056_user_activty_by_day.c8056_nxtuid} ;;
-    relationship: many_to_many
+  join: t8022_user_segment_list {
+    view_label: "Segment List"
+    sql_on: ${t8022_user_segment_list.c8022_nxtuid} = ${t8056_user_activty_by_day.c8056_nxtuid} ;;
+    relationship: many_to_one
+    type: inner
+  }
+  join: t8057_userprofile_age_gender {
+    view_label: "Age & Gender"
+    sql_on: ${t8056_user_activty_by_day.c8056_nxtuid} = ${t8057_userprofile_age_gender.c8027_nxtuid} ;;
+    relationship: many_to_one
     type: inner
   }
 #  join: t8024_content_preference_control {
@@ -233,10 +239,10 @@ explore: t8022_user_segment_list {
     relationship: one_to_many
     type: inner
   }
-  join: nxtu_age_gender {
+  join: t8057_userprofile_age_gender {
     view_label: "Age & Gender"
-    sql_on: ${t8022_user_segment_list.c8022_nxtuid} = ${nxtu_age_gender.nxtuid} ;;
-    relationship: many_to_one
+    sql_on: ${t8022_user_segment_list.c8022_nxtuid} =${t8057_userprofile_age_gender.c8027_nxtuid} ;;
+    relationship: one_to_one
     type: inner
   }
 }
@@ -248,16 +254,16 @@ explore: t8023_user_segments {
 #    relationship: many_to_many
 #    type: inner
 #  }
-  join: nxtu_age_gender {
+  join: t8057_userprofile_age_gender {
     view_label: "Age & Gender"
-    sql_on: ${t8023_user_segments.c8023_nxtuid} = ${nxtu_age_gender.nxtuid} ;;
+    sql_on: ${t8023_user_segments.c8023_nxtuid} = ${t8057_userprofile_age_gender.c8027_nxtuid} ;;
     relationship: many_to_one
     type: left_outer
   }
   join: t8024_content_preference_control {
     view_label: "UCP Name"
     sql_on: ${t8023_user_segments.c8023_segment} = ${t8024_content_preference_control.c8024_id} ;;
-    relationship: one_to_one
+    relationship: many_to_one
     type: left_outer
   }
 }
@@ -268,7 +274,7 @@ explore: t4007_dashboard_yesterday {}
 
 explore: t8024_content_preference_control {}
 
-explore: nxtu_age_gender  {}
+#explore: nxtu_age_gender  {}
 
 explore: tb_superloyal {}
 
