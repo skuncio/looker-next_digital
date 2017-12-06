@@ -72,6 +72,6 @@ view: t8057_userprofile_age_gender {
     type: count_distinct
     value_format: "#,##0"
   #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
-    sql: ${c8027_nxtuid}. ;;
+    sql: ${c8027_nxtuid} ;;
   }
 }
