@@ -30,7 +30,6 @@ view: t8056_user_activty_by_day {
     group_label: "C8056 View Date"
     type: time
     timeframes: [
-      raw,
       time,
       date,
       day_of_week,
@@ -41,8 +40,13 @@ view: t8056_user_activty_by_day {
       hour_of_day
     ]
     convert_tz: no
-    datatype: date
+  #  datatype: timestamp
     sql: ${TABLE}.C8056_VIEW_DATETIME ;;
+  }
+
+  dimension: c8056_view_date_d {
+    group_label: "C8056 View Date"
+    sql: TO_DATE(${TABLE}.C8056_VIEW_DATETIME) ;;
   }
 
   measure: count {
