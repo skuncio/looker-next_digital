@@ -138,7 +138,7 @@ explore: t8021_user_churning_prediction {
 explore: t8025_user_gender_prediction {
   join: t8057_userprofile_age_gender {
     view_label: "UserProfile Age & Gender"
-    sql_on: ${t8025_user_gender_prediction.c8025_nxtuid} = ${t8057_userprofile_age_gender.c8027_nxtuid} ;;
+    sql_on: ${t8025_user_gender_prediction.c8025_nxtuid} = ${t8057_userprofile_age_gender.c8057_nxtuid} ;;
     relationship: one_to_one
     type: left_outer
   }
@@ -159,7 +159,7 @@ explore: t8025_user_gender_prediction {
 explore: t8026_user_age_prediction {
   join: t8057_userprofile_age_gender {
     view_label: "UserProfile Age & Gender"
-    sql_on: ${t8026_user_age_prediction.c8026_nxtuid} = ${t8057_userprofile_age_gender.c8027_nxtuid} ;;
+    sql_on: ${t8026_user_age_prediction.c8026_nxtuid} = ${t8057_userprofile_age_gender.c8057_nxtuid} ;;
     relationship: one_to_one
     type: left_outer
   }
@@ -219,7 +219,7 @@ explore: t8056_user_activty_by_day {
   }
   join: t8057_userprofile_age_gender {
     view_label: "Age & Gender"
-    sql_on: ${t8056_user_activty_by_day.c8056_nxtuid} = ${t8057_userprofile_age_gender.c8027_nxtuid} ;;
+    sql_on: ${t8056_user_activty_by_day.c8056_nxtuid} = ${t8057_userprofile_age_gender.c8057_nxtuid} ;;
     relationship: many_to_one
     type: inner
   }
@@ -241,7 +241,7 @@ explore: t8022_user_segment_list {
   }
   join: t8057_userprofile_age_gender {
     view_label: "Age & Gender"
-    sql_on: ${t8022_user_segment_list.c8022_nxtuid} =${t8057_userprofile_age_gender.c8027_nxtuid} ;;
+    sql_on: ${t8022_user_segment_list.c8022_nxtuid} =${t8057_userprofile_age_gender.c8057_nxtuid} ;;
     relationship: one_to_one
     type: inner
   }
@@ -256,7 +256,7 @@ explore: t8023_user_segments {
 #  }
   join: t8057_userprofile_age_gender {
     view_label: "Age & Gender"
-    sql_on: ${t8023_user_segments.c8023_nxtuid} = ${t8057_userprofile_age_gender.c8027_nxtuid} ;;
+    sql_on: ${t8023_user_segments.c8023_nxtuid} = ${t8057_userprofile_age_gender.c8057_nxtuid} ;;
     relationship: many_to_one
     type: left_outer
   }

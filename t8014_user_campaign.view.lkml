@@ -169,6 +169,11 @@ view: t8014_user_campaign {
     sql: ${TABLE}.c8014_usrc ;;
   }
 
+  dimension: C8014_CLICK_URL {
+    type: string
+    sql: ${TABLE}.C8014_CLICK_URL ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [c8014_name, c8014_sname]
