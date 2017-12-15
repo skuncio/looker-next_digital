@@ -82,4 +82,23 @@ view: t8056_user_activty_by_day {
     sql: ${c8056_view_date} ;;
   }
 
+#  measure: sum_active_days_a {
+#    hidden: yes
+#    type: sum
+#    sql: ${active_days};;
+#  }
+
+  measure: total_active_days {
+    hidden: yes
+    type: number
+    sql: count distinct ${c8056_view_date} * (count distinct ${c8056_nxtuid}) ;;
+  }
+
+  measure: average_active_days {
+    alias: [weighted_avg_active_days]
+    type: number
+    value_format: "#,##0.00"
+    sql: ${total_active_days} / nullif(${distinct_users},0) ;;
+  }
+
 }
