@@ -1,11 +1,13 @@
 view: pdt_user_active_days {
     derived_table: {
      sql: SELECT
-          C8056_NXTUID as nxtuid,
+          T8056_USER_ACTIVTY_BY_DAY.C8056_NXTUID as nxtuid,
           COUNT(DISTINCT (TO_CHAR(TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME ), 'YYYY-MM-DD')) ) AS active_days
           FROM PUBLIC.T8056_USER_ACTIVTY_BY_DAY
-          GROUP BY C8056_NXTUID ;;
-       sql_trigger_value: SELECT 1 ;;
+          GROUP BY 1
+          ;;
+          sql_trigger_value: SELECT 1
+          ;;
     }
 
    dimension: nxtuid {
@@ -29,7 +31,6 @@ view: pdt_user_active_days {
     type: average
     value_format: "#,##0"
     sql: ${TABLE}.active_days ;;
-
   }
 
   measure: distinct_users {

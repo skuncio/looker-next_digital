@@ -231,6 +231,10 @@ explore: t8056_user_activty_by_day {
 #  }
 }
 
+#explore: pdt_user_active_days {
+#  view_name: pdt_user_active_days
+#}
+
 explore: t8022_user_segment_list {
   view_label: "Segment List"
   join: t8056_user_activty_by_day {
