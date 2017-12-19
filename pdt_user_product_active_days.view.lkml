@@ -1,7 +1,7 @@
 view: pdt_user_product_active_days {
   derived_table: {
     sql: SELECT
-          T8056_USER_ACTIVTY_BY_DAY.C8056_region as regiond,
+          T8056_USER_ACTIVTY_BY_DAY.C8056_region as region,
           T8056_USER_ACTIVTY_BY_DAY.C8056_product as product,
           T8056_USER_ACTIVTY_BY_DAY.C8056_platform as platform,
           T8056_USER_ACTIVTY_BY_DAY.C8056_NXTUID as nxtuid,
