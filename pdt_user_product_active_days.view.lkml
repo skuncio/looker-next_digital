@@ -15,25 +15,25 @@ view: pdt_user_product_active_days {
 
   dimension: region {
     description: "Unique ID for each user that has been active"
-    type: number
+    type: string
     sql: ${TABLE}.region ;;
   }
 
   dimension: product {
     description: "Unique ID for each user that has been active"
-    type: number
+    type: string
     sql: ${TABLE}.product ;;
   }
 
   dimension: platform {
     description: "Unique ID for each user that has been active"
-    type: number
+    type: string
     sql: ${TABLE}.platform ;;
   }
 
   dimension: nxtuid {
     description: "Unique ID for each user that has been active"
-    type: number
+    type: string
     sql: ${TABLE}.nxtuid ;;
   }
 
