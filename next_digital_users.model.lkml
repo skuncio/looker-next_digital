@@ -8,6 +8,7 @@ include: "t*.view"
 #include: "nxtu_age_gender.view"
 include: "sql_users_both_age_gender.view"
 include: "pdt_user_active_days.view"
+include: "pdt_user_product_active_days.view"
 
 # include all dashboards in this project
 include: "*.dashboard"
@@ -233,6 +234,8 @@ explore: t8056_user_activty_by_day {
 }
 
 explore: pdt_user_active_days {}
+
+explore: pdt_user_product_active_days {}
 
 explore: t8022_user_segment_list {
   view_label: "Segment List"
