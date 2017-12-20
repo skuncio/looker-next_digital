@@ -376,6 +376,12 @@ view: contentview {
     sql: ${TABLE}.c8002_omo_pid ;;
   }
 
+  dimension: OS {
+    view_label: "User"
+    type: string
+    sql: ${TABLE}.c8002_os ;;
+  }
+
   dimension: fbid {
     view_label: "User"
     type: string

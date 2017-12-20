@@ -353,6 +353,12 @@ view: t8002_contentview {
     sql: ${TABLE}.c8002_ads ;;
   }
 
+  dimension: c8002_os {
+  #  view_label: "User"
+    type: string
+    sql: ${TABLE}.c8002_os ;;
+  }
+
   dimension: c8002_latitude_longitude {
     alias: [view_location]
  #   view_label: "Location"
