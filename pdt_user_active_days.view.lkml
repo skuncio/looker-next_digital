@@ -12,6 +12,7 @@ view: pdt_user_active_days {
 
    dimension: nxtuid {
      description: "Unique ID for each user that has been active"
+    primary_key: yes
      type: string
      sql: ${TABLE}.nxtuid ;;
    }

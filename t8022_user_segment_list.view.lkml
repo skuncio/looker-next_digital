@@ -2,6 +2,7 @@ view: t8022_user_segment_list {
   sql_table_name: PUBLIC.T8022_USER_SEGMENT_LIST ;;
 
   dimension: c8022_nxtuid {
+    primary_key: yes
     type: string
     sql: ${TABLE}.C8022_NXTUID ;;
   }

@@ -14,31 +14,34 @@ view: pdt_user_product_active_days {
   }
 
   dimension: region {
-    description: "Unique ID for each user that has been active"
     type: string
     sql: ${TABLE}.region ;;
   }
 
   dimension: product {
-    description: "Unique ID for each user that has been active"
     type: string
     sql: ${TABLE}.product ;;
   }
 
   dimension: platform {
-    description: "Unique ID for each user that has been active"
     type: string
     sql: ${TABLE}.platform ;;
   }
 
   dimension: nxtuid {
-    description: "Unique ID for each user that has been active"
     type: string
     sql: ${TABLE}.nxtuid ;;
   }
 
+
+  dimension: primary_key {
+    primary_key: yes
+    type: string
+    sql: CONACT(${region}, ${product}, ${platform}, ${nxtuid}) ;;
+  }
+
+
   dimension: active_days {
-    description: "The total number of active days for each user"
     type: number
     sql: ${TABLE}.active_days ;;
   }

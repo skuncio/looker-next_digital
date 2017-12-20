@@ -58,6 +58,7 @@ view: t8057_userprofile_age_gender {
   }
 
   dimension: c8057_nxtuid {
+    primary_key: yes
     type: string
     sql: ${TABLE}.C8057_NXTUID ;;
   }
