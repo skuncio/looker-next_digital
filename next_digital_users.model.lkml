@@ -272,7 +272,7 @@ explore: pdt_user_active_days {
     view_label: "4. User Activity by Day"
     sql_on:  ${t8056_user_activty_by_day.c8056_nxtuid} = ${pdt_user_active_days.nxtuid} ;;
     relationship: one_to_many
-    type: inner
+    type:  inner
   }
 }
 
