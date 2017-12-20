@@ -51,11 +51,13 @@ view: t8056_user_activty_by_day {
 
   measure: count {
     type: count
+    value_format: "#,##0"
     drill_fields: []
   }
 
   measure: total_page_views {
     type: count
+    value_format: "#,##0"
     filters: {
       field: c8056_action
       value: "PAGEVIEW"
@@ -64,6 +66,7 @@ view: t8056_user_activty_by_day {
 
   measure: total_video_views {
     type: count
+    value_format: "#,##0"
     filters: {
       field: c8056_action
       value: "VIDEOVIEW"
@@ -73,6 +76,7 @@ view: t8056_user_activty_by_day {
   measure: distinct_users {
   #  view_label: "User"
     type: count_distinct
+    value_format: "#,##0"
   #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${c8056_nxtuid} ;;
   }
@@ -88,17 +92,17 @@ view: t8056_user_activty_by_day {
 #    sql: ${active_days};;
 #  }
 
-  measure: total_active_days {
-    hidden: yes
-    type: number
-    sql: count distinct ${c8056_view_date} * (count distinct ${c8056_nxtuid}) ;;
-  }
+#  measure: total_active_days {
+#    hidden: yes
+#    type: number
+#    sql: count distinct ${c8056_view_date} * (count distinct ${c8056_nxtuid}) ;;
+#  }
 
-  measure: average_active_days {
-    alias: [weighted_avg_active_days]
-    type: number
-    value_format: "#,##0.00"
-    sql: ${total_active_days} / nullif(${distinct_users},0) ;;
-  }
+#  measure: average_active_days {
+#    alias: [weighted_avg_active_days]
+#    type: number
+#    value_format: "#,##0.00"
+#    sql: ${total_active_days} / nullif(${distinct_users},0) ;;
+#  }
 
 }
