@@ -34,11 +34,11 @@ view: pdt_user_product_active_days {
   }
 
 
-  dimension: primary_key {
-    primary_key: yes
-    type: string
-    sql: CONACT(${region}, ${product}, ${platform}, ${nxtuid}) ;;
-  }
+#  dimension: primary_key {
+#    primary_key: yes
+#    type: string
+#    sql: CONACT(${region}, ${product}, ${platform}, ${nxtuid}) ;;
+#  }
 
 
   dimension: active_days {
