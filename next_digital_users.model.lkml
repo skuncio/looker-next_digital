@@ -297,7 +297,7 @@ explore: pdt_user_product_active_days {
           and ${t8056_user_activty_by_day.c8056_platform} = ${pdt_user_product_active_days.platform}
           and ${t8056_user_activty_by_day.c8056_nxtuid} = ${pdt_user_product_active_days.nxtuid} ;;
     relationship: one_to_many
-    type: left_outer
+    type: inner
   }
 }
 
