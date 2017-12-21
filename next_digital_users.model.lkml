@@ -290,15 +290,15 @@ explore: pdt_user_product_active_days {
     relationship: many_to_one
     type: left_outer
   }
-  join: t8056_user_activty_by_day {
-    view_label: "4. User Activity by Day"
-    sql_on:   ${t8056_user_activty_by_day.c8056_region} = ${pdt_user_product_active_days.region}
-          and ${t8056_user_activty_by_day.c8056_product} = ${pdt_user_product_active_days.product}
-          and ${t8056_user_activty_by_day.c8056_platform} = ${pdt_user_product_active_days.platform}
-          and ${t8056_user_activty_by_day.c8056_nxtuid} = ${pdt_user_product_active_days.nxtuid} ;;
-    relationship: one_to_many
-    type: inner
-  }
+#  join: t8056_user_activty_by_day {
+#    view_label: "4. User Activity by Day"
+#    sql_on:   ${t8056_user_activty_by_day.c8056_region} = ${pdt_user_product_active_days.region}
+#          and ${t8056_user_activty_by_day.c8056_product} = ${pdt_user_product_active_days.product}
+#          and ${t8056_user_activty_by_day.c8056_platform} = ${pdt_user_product_active_days.platform}
+#          and ${t8056_user_activty_by_day.c8056_nxtuid} = ${pdt_user_product_active_days.nxtuid} ;;
+#    relationship: one_to_many
+#    type: inner
+#  }
 }
 
 explore: t8022_user_segment_list {
