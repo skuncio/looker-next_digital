@@ -6,7 +6,7 @@ view: pdt_user_active_days {
           FROM PUBLIC.T8056_USER_ACTIVTY_BY_DAY
           GROUP BY 1
           ;;
-          sql_trigger_value: SELECT 2
+          sql_trigger_value: SELECT 1
           ;;
     }
 
