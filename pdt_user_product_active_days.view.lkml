@@ -8,7 +8,7 @@ view: pdt_user_product_active_days {
           T8056_USER_ACTIVTY_BY_DAY.C8056_NXTUID as nxtuid,
           COUNT(DISTINCT (TO_CHAR(TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME ), 'YYYY-MM-DD')) ) AS active_days
           FROM PUBLIC.T8056_USER_ACTIVTY_BY_DAY
-          GROUP BY 1,2,3,4
+          GROUP BY 1,2,3,4,5
           ;;
     sql_trigger_value:  select max(TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME ))
                         from t8056_user_activty_by_day
