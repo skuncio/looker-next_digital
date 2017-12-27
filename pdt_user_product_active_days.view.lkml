@@ -12,7 +12,7 @@ view: pdt_user_product_active_days {
           GROUP BY 1,2,3,4,5,6
           ;;
     sql_trigger_value:  select max(TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME ))
-                        from t8056_user_activty_by_day
+                        from t8056_user_activity_by_day
       ;;
   }
 
@@ -72,9 +72,9 @@ view: pdt_user_product_active_days {
 #  }
 
 
-  dimension: active_days {
+  dimension: active_day_count {
     type: number
-    sql: ${TABLE}.active_days ;;
+    sql: ${TABLE}.active_day_count ;;
   }
 
   measure: count {

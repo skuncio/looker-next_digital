@@ -2,12 +2,12 @@ view: pdt_user_active_days {
     derived_table: {
      sql: SELECT
           T8056_USER_ACTIVTY_BY_DAY.C8056_NXTUID as nxtuid,
-          COUNT(DISTINCT (TO_CHAR(TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME ), 'YYYY-MM-DD')) ) AS active_days
+          COUNT(DISTINCT (TO_CHAR(TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME ), 'YYYY-MM-DD')) ) AS active_day_count
           FROM PUBLIC.T8056_USER_ACTIVTY_BY_DAY
           GROUP BY 1
           ;;
           sql_trigger_value: select max(TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME ))
-                             from t8056_user_activty_by_day
+                             from t8056_user_activity_by_day
           ;;
     }
 
@@ -18,10 +18,10 @@ view: pdt_user_active_days {
      sql: ${TABLE}.nxtuid ;;
    }
 
-   dimension: active_days {
+   dimension: active_day_count {
      description: "The total number of active days for each user"
      type: number
-     sql: ${TABLE}.active_days ;;
+     sql: ${TABLE}.active_day_count ;;
    }
 
   measure: count {
@@ -32,7 +32,13 @@ view: pdt_user_active_days {
   measure: average_active_days {
     type: average
     value_format: "#,##0"
-    sql: ${TABLE}.active_days ;;
+    sql: ${TABLE}.active_day_count ;;
+  }
+
+  measure: sum_active_days {
+    type: sum
+    value_format: "#,##0"
+    sql: ${TABLE}.active_day_count ;;
   }
 
   measure: distinct_users {
