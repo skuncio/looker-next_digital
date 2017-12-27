@@ -83,7 +83,7 @@ explore: pdt_user_active_days {
 }
 
 explore: pdt_user_product_active_days {
-  label: "3) User Active Days (30 days by day)"
+  label: "3) User by Product Active Days (last 30 days)"
   view_label: "1. User Active Days by Product"
   join: t8022_user_segment_list {
     view_label: "2. User Segment List"
