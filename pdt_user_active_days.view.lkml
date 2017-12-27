@@ -31,7 +31,7 @@ view: pdt_user_active_days {
 
   measure: average_active_days {
     type: average
-    value_format: "#,##0"
+    value_format: "#,##0.00"
     sql: ${TABLE}.active_day_count ;;
   }
 

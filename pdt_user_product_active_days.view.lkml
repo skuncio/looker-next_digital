@@ -103,7 +103,7 @@ view: pdt_user_product_active_days {
 
   measure: average_active_days {
     type: average
-    value_format: "#,##0"
+    value_format: "#,##0.00"
     sql: ${TABLE}.active_day_count ;;
   }
 
@@ -115,7 +115,7 @@ view: pdt_user_product_active_days {
 
   measure: calculated_average_active_days {
     type: number
-    value_format: "#,##0"
+    value_format: "#,##0.00"
     sql: ${sum_active_days} / nullif(${distinct_users},0) ;;
   }
 
