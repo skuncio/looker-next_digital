@@ -11,9 +11,9 @@ view: pdt_user_product_active_days {
           FROM PUBLIC.T8056_USER_ACTIVTY_BY_DAY
           GROUP BY 1,2,3,4,5--,6
           ;;
-    sql_trigger_value: select 1
-    #sql_trigger_value:  select max(TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME ))
-    #                    from t8056_user_activity_by_day
+          #sql_trigger_value: select 1
+          sql_trigger_value:  select max(TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME ))
+                              from t8056_user_activity_by_day
       ;;
   }
 
