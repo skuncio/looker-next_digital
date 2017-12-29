@@ -7,6 +7,7 @@ view: t5009_ua_device_crossref {
     sql: ${TABLE}.C5009_ADID ;;
   }
 
+
   dimension: c5009_channel_id {
     view_label: "Device User"
     type: string
@@ -58,6 +59,20 @@ view: t5009_ua_device_crossref {
         sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_platform} = 'AMAZON' ;;
         label: "HK Appledaily Amazon"
       }
+      when: {
+        sql: ${c5009_app_package_name} = 'com.appledaily.video.news.tw' and ${c5009_platform} = 'IOS' ;;
+        label: "TW Appledaily IOS"
+      }
+
+      when: {
+        sql: ${c5009_app_package_name} = 'com.nextmediatw' and ${c5009_platform} = 'ANDROID' ;;
+        label: "TW Appledaily Android"
+      }
+
+      when: {
+        sql: ${c5009_app_package_name} = 'com.nextmediatw' and ${c5009_platform} = 'AMAZON' ;;
+        label: "TW Appledaily Amazon"
+      }
 
       when: {
         sql: true ;;
@@ -72,19 +87,25 @@ view: t5009_ua_device_crossref {
     case: {
       when: {
         sql: (${c5009_app_package_name} = 'com.appledaily.video.news.hk'
-        or ${c5009_app_package_name} = 'com.nextmedia')
+        or ${c5009_app_package_name} = 'com.nextmedia'
+        or ${c5009_app_package_name} = 'com.appledaily.video.news.tw'
+        or ${c5009_app_package_name} = 'com.nextmediatw')
         and ${c5009_push_opt_in} = 'true' ;;
         label: "yes"
       }
       when: {
         sql: (${c5009_app_package_name} = 'com.appledaily.video.news.hk'
-        or ${c5009_app_package_name} = 'com.nextmedia')
+        or ${c5009_app_package_name} = 'com.nextmedia'
+        or ${c5009_app_package_name} = 'com.appledaily.video.news.tw')
+        or ${c5009_app_package_name} = 'com.nextmediatw')
         and ${c5009_push_opt_in} = 'false' ;;
         label: "no"
       }
 
       when: {
-        sql: ${c5009_app_package_name} = 'com.nextmedia' and ${c5009_platform} = 'AMAZON' ;;
+        sql:(${c5009_app_package_name} = 'com.nextmedia'
+        or ${c5009_app_package_name} = 'com.nextmediatw')
+        and ${c5009_platform} = 'AMAZON' ;;
         label: "na"
       }
          when: {
@@ -98,6 +119,11 @@ view: t5009_ua_device_crossref {
   dimension: c5009_app_package_name {
     type: string
     sql: ${TABLE}.c5009_device_attributes:app_package_name::string ;;
+  }
+
+  dimension: c5009_app_version {
+    type: string
+    sql: ${TABLE}.c5009_device_attributes:app_version::string ;;
   }
 
   dimension: c5009_background_push_enabled {
