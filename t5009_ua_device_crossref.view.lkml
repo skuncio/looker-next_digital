@@ -60,18 +60,18 @@ view: t5009_ua_device_crossref {
         label: "HK Appledaily Amazon"
       }
       when: {
-        sql: ${c5009_app_package_name} = 'com.appledaily.video.news.tw' and ${c5009_platform} = 'IOS' ;;
-        label: "TW Appledaily IOS"
+        sql: ${c5009_app_package_name} = 'com.appledaily.etw' and ${c5009_platform} = 'IOS' ;;
+        label: "HK ETW IOS"
       }
 
       when: {
-        sql: ${c5009_app_package_name} = 'com.nextmediatw' and ${c5009_platform} = 'ANDROID' ;;
-        label: "TW Appledaily Android"
+        sql: ${c5009_app_package_name} = 'com.appledaily.etw' and ${c5009_platform} = 'ANDROID' ;;
+        label: "HK ETW Android"
       }
 
       when: {
-        sql: ${c5009_app_package_name} = 'com.nextmediatw' and ${c5009_platform} = 'AMAZON' ;;
-        label: "TW Appledaily Amazon"
+        sql: ${c5009_app_package_name} = 'com.appledaily.etw' and ${c5009_platform} = 'AMAZON' ;;
+        label: "HK ETW Amazon"
       }
 
       when: {
