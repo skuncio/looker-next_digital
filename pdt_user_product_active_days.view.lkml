@@ -2,13 +2,13 @@ view: pdt_user_product_active_days {
   derived_table: {
     sql: SELECT
   --        TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME) as view_date,
-          T8056_USER_ACTIVTY_BY_DAY.C8056_region as region,
-          T8056_USER_ACTIVTY_BY_DAY.C8056_product as product,
-          T8056_USER_ACTIVTY_BY_DAY.C8056_platform as platform,
-          T8056_USER_ACTIVTY_BY_DAY.C8056_action as action,
-          T8056_USER_ACTIVTY_BY_DAY.C8056_NXTUID as nxtuid,
-          COUNT(DISTINCT (TO_CHAR(TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME ), 'YYYY-MM-DD')) ) AS active_day_count
-          FROM PUBLIC.T8056_USER_ACTIVTY_BY_DAY
+          T8056_USER_ACTIVITY_BY_DAY.C8056_region as region,
+          T8056_USER_ACTIVITY_BY_DAY.C8056_product as product,
+          T8056_USER_ACTIVITY_BY_DAY.C8056_platform as platform,
+          T8056_USER_ACTIVITY_BY_DAY.C8056_action as action,
+          T8056_USER_ACTIVITY_BY_DAY.C8056_NXTUID as nxtuid,
+          COUNT(DISTINCT (TO_CHAR(TO_DATE(t8056_user_activity_by_day.C8056_VIEW_DATETIME ), 'YYYY-MM-DD')) ) AS active_day_count
+          FROM PUBLIC.T8056_USER_ACTIVITY_BY_DAY
           GROUP BY 1,2,3,4,5--,6
           ;;
           #sql_trigger_value: select 1

@@ -211,32 +211,32 @@ explore: t8050_user_content_by_day {
 # }
 }
 
-explore: t8056_user_activty_by_day {
+explore: t8056_user_activity_by_day {
   view_label: "1. User Activity"
   join: t8022_user_segment_list {
     view_label: "2. Segment List"
-    sql_on: ${t8022_user_segment_list.c8022_nxtuid} = ${t8056_user_activty_by_day.c8056_nxtuid} ;;
+    sql_on: ${t8022_user_segment_list.c8022_nxtuid} = ${t8056_user_activity_by_day.c8056_nxtuid} ;;
     relationship: many_to_one
     type: left_outer
   }
   join: t8057_userprofile_age_gender {
     view_label: "3. Age & Gender"
-    sql_on: ${t8056_user_activty_by_day.c8056_nxtuid} = ${t8057_userprofile_age_gender.c8057_nxtuid} ;;
+    sql_on: ${t8056_user_activity_by_day.c8056_nxtuid} = ${t8057_userprofile_age_gender.c8057_nxtuid} ;;
     relationship: many_to_one
     type: left_outer
   }
   join: pdt_user_active_days {
     view_label: "4. Active Days"
-    sql_on: ${t8056_user_activty_by_day.c8056_nxtuid} = ${pdt_user_active_days.nxtuid} ;;
+    sql_on: ${t8056_user_activity_by_day.c8056_nxtuid} = ${pdt_user_active_days.nxtuid} ;;
     relationship: many_to_one
     type: left_outer
   }
   join: pdt_user_product_active_days {
     view_label: "5. Product Active Days"
-    sql_on: ${t8056_user_activty_by_day.c8056_region} = ${pdt_user_product_active_days.region}
-        and ${t8056_user_activty_by_day.c8056_product} = ${pdt_user_product_active_days.product}
-        and ${t8056_user_activty_by_day.c8056_platform} = ${pdt_user_product_active_days.platform}
-        and ${t8056_user_activty_by_day.c8056_nxtuid} = ${pdt_user_product_active_days.nxtuid};;
+    sql_on: ${t8056_user_activity_by_day.c8056_region} = ${pdt_user_product_active_days.region}
+        and ${t8056_user_activity_by_day.c8056_product} = ${pdt_user_product_active_days.product}
+        and ${t8056_user_activity_by_day.c8056_platform} = ${pdt_user_product_active_days.platform}
+        and ${t8056_user_activity_by_day.c8056_nxtuid} = ${pdt_user_product_active_days.nxtuid};;
     relationship: many_to_one
     type: left_outer
   }
@@ -268,9 +268,9 @@ explore: pdt_user_active_days {
 #    relationship: one_to_one
 #    type: left_outer
   }
-  join: t8056_user_activty_by_day {
+  join: t8056_user_activity_by_day {
     view_label: "4. User Activity by Day"
-    sql_on:  ${t8056_user_activty_by_day.c8056_nxtuid} = ${pdt_user_active_days.nxtuid} ;;
+    sql_on:  ${t8056_user_activity_by_day.c8056_nxtuid} = ${pdt_user_active_days.nxtuid} ;;
     relationship: one_to_many
     type:  inner
   }
@@ -305,7 +305,7 @@ explore: t8022_user_segment_list {
   view_label: "Segment List"
   join: t8056_user_activty_by_day {
     view_label: "User Activity"
-    sql_on: ${t8022_user_segment_list.c8022_nxtuid} = ${t8056_user_activty_by_day.c8056_nxtuid} ;;
+    sql_on: ${t8022_user_segment_list.c8022_nxtuid} = ${t8056_user_activity_by_day.c8056_nxtuid} ;;
     relationship: one_to_many
     type: inner
   }

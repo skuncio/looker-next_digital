@@ -1,5 +1,5 @@
-view: t8056_user_activty_by_day {
-  sql_table_name: PUBLIC.T8056_USER_ACTIVTY_BY_DAY ;;
+view: t8056_user_activity_by_day {
+  sql_table_name: PUBLIC.T8056_USER_ACTIVITY_BY_DAY ;;
 
   dimension: c8056_action {
     type: string
