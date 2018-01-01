@@ -303,7 +303,7 @@ explore: pdt_user_product_active_days {
 
 explore: t8022_user_segment_list {
   view_label: "Segment List"
-  join: t8056_user_activty_by_day {
+  join: t8056_user_activity_by_day {
     view_label: "User Activity"
     sql_on: ${t8022_user_segment_list.c8022_nxtuid} = ${t8056_user_activity_by_day.c8056_nxtuid} ;;
     relationship: one_to_many

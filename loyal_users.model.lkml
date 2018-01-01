@@ -3,7 +3,7 @@ connection: "nd_snowflake_analytics"
 persist_for: "12 hours"
 
 include: "t*.view.lkml"         # include all views in this project
-include: "t8056_user_activity_by_day.view.lkml"
+#include: "t8056_user_activity_by_day.view.lkml"
 #include: "*.dashboard.lookml"  # include all dashboards in this project
 include: "pdt_user_active_days.view"
 include: "pdt_user_product_active_days.view"
@@ -75,7 +75,7 @@ explore: pdt_user_active_days {
 #    relationship: one_to_one
 #    type: left_outer
   }
-  join: t8056_user_activty_by_day {
+  join: t8056_user_activity_by_day {
     view_label: "4. User Activity by Time"
     sql_on:  ${t8056_user_activity_by_day.c8056_nxtuid} = ${pdt_user_active_days.nxtuid} ;;
     relationship: one_to_many
