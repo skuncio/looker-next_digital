@@ -3,7 +3,7 @@ view: pdt_user_active_days {
      sql: SELECT
           T8056_USER_ACTIVITY_BY_DAY.C8056_NXTUID as nxtuid,
           COUNT(DISTINCT (TO_CHAR(TO_DATE(t8056_user_activity_by_day.C8056_VIEW_DATETIME ), 'YYYY-MM-DD')) ) AS active_day_count
-          FROM PUBLIC.T8056_USER_ACTIVTY_BY_DAY
+          FROM PUBLIC.T8056_USER_ACTIVITY_BY_DAY
           GROUP BY 1
           ;;
           #sql_trigger_value: select 1
