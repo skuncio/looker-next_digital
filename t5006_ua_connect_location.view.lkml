@@ -33,6 +33,7 @@ view: t5006_ua_connect_location {
   }
 
   dimension: c5006_latitude {
+    view_label: "Location"
     type: string
     sql: ${TABLE}.C5006_LATITUDE ;;
   }
@@ -43,6 +44,7 @@ view: t5006_ua_connect_location {
   }
 
   dimension: c5006_longitude {
+    view_label: "Location"
     type: string
     sql: ${TABLE}.C5006_LONGITUDE ;;
   }
@@ -90,6 +92,13 @@ view: t5006_ua_connect_location {
     view_label: "Device User"
     type: string
     sql: ${TABLE}.C5006_UA_DEVICE_CHANNEL ;;
+  }
+
+  dimension: latitude_longitude {
+    view_label: "Location"
+    type: location
+    sql_latitude: ${c5006_latitude} ;;
+    sql_longitude: ${c5006_longitude} ;;
   }
 
   measure: count {
