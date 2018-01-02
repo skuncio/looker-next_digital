@@ -103,7 +103,7 @@ view: t5009_ua_device_crossref {
       when: {
         sql: (${c5009_app_package_name} = 'com.appledaily.video.news.hk'
         or ${c5009_app_package_name} = 'com.nextmedia'
-        or ${c5009_app_package_name} = 'com.appledaily.video.news.tw')
+        or ${c5009_app_package_name} = 'com.appledaily.video.news.tw'
         or ${c5009_app_package_name} = 'com.nextmediatw')
         and ${c5009_push_opt_in} = 'false' ;;
         label: "no"
