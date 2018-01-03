@@ -1,7 +1,7 @@
 view: pdt_user_product_active_days {
   derived_table: {
     sql: SELECT
-  --        TO_DATE(t8056_user_activty_by_day.C8056_VIEW_DATETIME) as view_date,
+  --        TO_DATE(t8056_user_activity_by_day.C8056_VIEW_DATETIME) as view_date,
           T8056_USER_ACTIVITY_BY_DAY.C8056_region as region,
           T8056_USER_ACTIVITY_BY_DAY.C8056_product as product,
           T8056_USER_ACTIVITY_BY_DAY.C8056_platform as platform,
