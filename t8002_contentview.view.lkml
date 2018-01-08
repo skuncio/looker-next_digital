@@ -230,7 +230,7 @@ view: contentview {
     sql: ${TABLE}.c8002_lon ;;
   }
 
-  dimension: c8002_limit_ad_track {
+  dimension: limit_ad_track {
     view_label: "User"
     type: string
     sql: ${TABLE}.c8002_limit_ad_track ;;
