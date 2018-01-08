@@ -462,7 +462,7 @@ view: contentview {
   }
 
   measure: distinct_users {
-    view_label: "User"
+    view_label: "2. User"
     type: count_distinct
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${user_id} ;;
