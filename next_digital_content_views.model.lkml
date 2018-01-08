@@ -92,21 +92,21 @@ explore: view_agg_with_article {
 
 explore: contentview {
   label: "3) Content Views Detail (2 mths by time)"
-  view_label: "All Content Views"
+  view_label: "1. All Content Views"
   join: content {
-    view_label: "Content Object Meta Data"
+    view_label: "4. Content Object Meta Data"
     sql_on: ${contentview.cid} = ${content.cid} and ${contentview.region} = ${content.region} and ${contentview.product} = ${content.product} and ${content.video_length} > 0 ;;
     relationship: many_to_one
     type: left_outer
   }
   join: t1025_reg_prod_cid_title_join {
-    view_label: "Current Title & Author"
+    view_label: "5. Current Title & Author"
     sql_on: c8002_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c8002_product = ${t1025_reg_prod_cid_title_join.c1025_product} and c8002_region = ${t1025_reg_prod_cid_title_join.c1025_region} and ${contentview.view_type} = ${t1025_reg_prod_cid_title_join.imp_type}  ;;
     relationship: many_to_one
     type: inner
   }
   join: t8021_user_churning_prediction {
-    view_label: "Churning Prediction"
+    view_label: "6. Churning Prediction"
     sql_on: ${contentview.adid} = ${t8021_user_churning_prediction.c8021_adid}
     and TO_DATE(${contentview.view_date}) = TO_DATE( ${t8021_user_churning_prediction.c8021_predicted_date})
     and ${contentview.region} = 'HK'

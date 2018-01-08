@@ -9,13 +9,13 @@ view: contentview {
   }
 
   dimension: adid {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_adid ;;
   }
 
   dimension: app_version {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_app_version ;;
   }
@@ -36,31 +36,31 @@ view: contentview {
   }
 
   dimension: battery {
-    view_label: "User"
+    view_label: "2. User"
     type: number
     sql: ${TABLE}.c8002_battery ;;
   }
 
   dimension: beacon_id {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_beacon_id ;;
   }
 
   dimension: beacon_loc {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_beacon_loc ;;
   }
 
   dimension: bluetooth {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_bluetooth ;;
   }
 
   dimension: user_browser {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_br ;;
   }
@@ -86,7 +86,7 @@ view: contentview {
   }
 
   dimension: city {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_city ;;
   }
@@ -97,13 +97,13 @@ view: contentview {
   }
 
   dimension: country {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_country ;;
   }
 
   dimension: county {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_county ;;
   }
@@ -146,7 +146,7 @@ view: contentview {
 
 
   dimension: dcc_id {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_dcc_id ;;
   }
@@ -157,25 +157,25 @@ view: contentview {
   }
 
   dimension: user_device {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_device ;;
   }
 
   dimension: device_id {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_did ;;
   }
 
   dimension: district_id {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_district_id ;;
   }
 
   dimension: dma {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_dma ;;
   }
@@ -196,7 +196,7 @@ view: contentview {
   #     sql: ${TABLE}.c8002_gigyaid
 
   dimension: ip {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_ip ;;
   }
@@ -218,20 +218,20 @@ view: contentview {
 
   dimension: lat {
     hidden: yes
-    view_label: "Location"
+    view_label: "3. Location"
     type: number
     sql: ${TABLE}.c8002_lat ;;
   }
 
   dimension: lon {
     hidden: yes
-    view_label: "Location"
+    view_label: "3. Location"
     type: number
     sql: ${TABLE}.c8002_lon ;;
   }
 
   dimension: limit_ad_track {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_limit_ad_track ;;
   }
@@ -255,13 +255,13 @@ view: contentview {
   #     sql: ${TABLE}.c8002_nudid
 
   dimension: nxtu {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_nxtu ;;
   }
 
   dimension: user_id {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_nxtu_or_did ;;
   }
@@ -273,7 +273,7 @@ view: contentview {
   }
 
   dimension: c8002_postcode {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_postcode ;;
   }
@@ -312,13 +312,13 @@ view: contentview {
   }
 
   dimension: state {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_state ;;
   }
 
   dimension: street_id {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_street_id ;;
   }
@@ -342,7 +342,7 @@ view: contentview {
   }
 
   dimension: user_agent {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_ua ;;
   }
@@ -354,7 +354,7 @@ view: contentview {
   }
 
   dimension: wifi {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_wifi ;;
   }
@@ -365,38 +365,38 @@ view: contentview {
   }
 
   dimension: omo_accid {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_omo_accid ;;
   }
 
   dimension: omo_pid {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_omo_pid ;;
   }
 
   dimension: OS {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_os ;;
   }
 
   dimension: fbid {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_fbid ;;
   }
 
   dimension: ads {
-    view_label: "User"
+    view_label: "2. User"
     type: string
     sql: ${TABLE}.c8002_ads ;;
   }
 
   dimension: latitude_longitude {
     alias: [view_location]
-    view_label: "Location"
+    view_label: "3. Location"
     type: location
     sql_latitude: ${lat} ;;
     sql_longitude: ${lon} ;;
