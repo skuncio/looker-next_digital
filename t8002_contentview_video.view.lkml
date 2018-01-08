@@ -272,7 +272,7 @@ view: contentview_video {
     sql: ${TABLE}.c8002_platform ;;
   }
 
-  dimension: c8002_postcode {
+  dimension: postcode {
     view_label: "3. Location"
     type: string
     sql: ${TABLE}.c8002_postcode ;;
