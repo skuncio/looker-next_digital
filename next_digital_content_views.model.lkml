@@ -14,9 +14,9 @@ include: "*.dashboard"
 
 explore: t3016_seg_agg_cid_day {
   label: "1) Content Imp Summary (historical by day)"
-  view_label: "CID Views"
+  view_label: "1. CID Views"
   join: t1025_reg_prod_cid_title_join {
-    view_label: "Current Title & Author"
+    view_label: "2. Current Title & Author"
     sql_on: c3016_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c3016_product = ${t1025_reg_prod_cid_title_join.c1025_product} and c3016_region = ${t1025_reg_prod_cid_title_join.c1025_region} and c3016_imp_type = t1025_reg_prod_cid_title_join.c1025_imp_type  ;;
     relationship: many_to_one
     type: inner
@@ -60,9 +60,9 @@ explore: t3016_seg_agg_cid_day {
 
 explore: view_agg_with_article {
   label: "2) Content Summary by CID (2 mths by day)"
-  view_label: "Article & Video Views - Summary"
+  view_label: "1. Article & Video Views - Summary"
   join: t1025_reg_prod_cid_title_join {
-    view_label: "Current Title & Author"
+    view_label: "3. Current Title & Author"
     sql_on: c8002_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c8002_product = ${t1025_reg_prod_cid_title_join.c1025_product} and c8002_region = ${t1025_reg_prod_cid_title_join.c1025_region} and ${view_agg_with_article.view_type} = ${t1025_reg_prod_cid_title_join.imp_type}  ;;
     relationship: many_to_one
     type: inner
@@ -83,7 +83,7 @@ explore: view_agg_with_article {
   #        relationship: many_to_one
   #        type: left_outer
   join: content {
-    view_label: "Content Object Meta Data"
+    view_label: "2. Content Object Meta Data"
     sql_on: c8002_cid = ${content.cid} and c8002_region = ${content.region} and c8002_product = ${content.product} and ${content.video_length} > 0 ;;
     relationship: many_to_one
     type: left_outer
@@ -136,7 +136,7 @@ explore: t8050_user_content_by_day {
   label: "6) Content Summary by Users (2 mths by day)."
   view_label: "Content & Users"
   join: t1025_reg_prod_cid_title_join {
-    view_label: "Current Title & Author"
+    view_label: "3. Current Title & Author"
 #    sql_on: ${t8050_user_content_by_day.content_id} = ${t1025_reg_prod_cid_title.c1025_cid} and ${t8050_user_content_by_day.product} = ${t1025_reg_prod_cid_title.c1025_product} and ${t8050_user_content_by_day.region} = ${t1025_reg_prod_cid_title.c1025_region} and ${t8050_user_content_by_day.view_type} = ${t1025_reg_prod_cid_title.imp_type}  ;;
     sql_on: ${t8050_user_content_by_day.content_id} = ${t1025_reg_prod_cid_title_join.c1025_cid} and ${t8050_user_content_by_day.product} = ${t1025_reg_prod_cid_title_join.c1025_product} and ${t8050_user_content_by_day.region} = ${t1025_reg_prod_cid_title_join.c1025_region} and ${t8050_user_content_by_day.view_type} =  decode(t1025_reg_prod_cid_title_join.c1025_imp_type,'I','PAGEVIEW','V','VIDEOVIEW','unknown') ;;
     relationship: many_to_one
@@ -158,7 +158,7 @@ explore: t8050_user_content_by_day {
   #        relationship: many_to_one
   #        type: left_outer
   join: content {
-    view_label: "Content Object Meta Data"
+    view_label: "2. Content Object Meta Data"
     sql_on: c8050_cid = ${content.cid} and c8050_product = ${content.product} and c8050_region = ${content.region} and ${content.video_length} > 0 ;;
     relationship: many_to_one
     type: left_outer
@@ -167,15 +167,15 @@ explore: t8050_user_content_by_day {
 
 explore: t8002_contentview_curr_day {
   label: "7) Current Day Content Views Detail "
-  view_label: "Curr Day Content Views"
+  view_label: "1. Curr Day Content Views"
   join: content {
-    view_label: "Content Object Meta Data"
+    view_label: "2. Content Object Meta Data"
     sql_on: ${t8002_contentview_curr_day.cid} = ${content.cid} and ${t8002_contentview_curr_day.region} = ${content.region} and ${t8002_contentview_curr_day.product} = ${content.product} and ${content.video_length} > 0 ;;
     relationship: many_to_one
     type: left_outer
   }
   join: t1025_reg_prod_cid_title_join {
-    view_label: "Current Title & Author"
+    view_label: "3. Current Title & Author"
     sql_on: c8002_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c8002_product = ${t1025_reg_prod_cid_title_join.c1025_product} and c8002_region = ${t1025_reg_prod_cid_title_join.c1025_region} and ${t8002_contentview_curr_day.view_type} = ${t1025_reg_prod_cid_title_join.imp_type}  ;;
     relationship: many_to_one
     type: inner
