@@ -119,13 +119,13 @@ explore: contentview {
 
 explore: contentview_page {
   label: "4) Page Views Detail (2 mths by time)"
-  view_label: "Page Views"
+  view_label: "1. Page Views"
   sql_always_where: ${view_type} = 'PAGEVIEW' ;;
 }
 
 explore: contentview_video {
   label: "5) Video Views Detail (2 mths by time)"
-  view_label: "Video Views"
+  view_label: "1. Video Views"
   sql_always_where: ${view_type} = 'VIDEOVIEW' ;;
 }
 
