@@ -134,7 +134,7 @@ explore: contentview_video {
 #- explore: view_ahttps://nextdigitaljp.looker.com/projects/next_digital/files/t8050_user_content_by_day.view.lkmlggregate_tmp
 explore: t8050_user_content_by_day {
   label: "6) Content Summary by Users (2 mths by day)."
-  view_label: "Content & Users"
+  view_label: "1. Content & Users"
   join: t1025_reg_prod_cid_title_join {
     view_label: "3. Current Title & Author"
 #    sql_on: ${t8050_user_content_by_day.content_id} = ${t1025_reg_prod_cid_title.c1025_cid} and ${t8050_user_content_by_day.product} = ${t1025_reg_prod_cid_title.c1025_product} and ${t8050_user_content_by_day.region} = ${t1025_reg_prod_cid_title.c1025_region} and ${t8050_user_content_by_day.view_type} = ${t1025_reg_prod_cid_title.imp_type}  ;;
@@ -169,13 +169,13 @@ explore: t8002_contentview_curr_day {
   label: "7) Current Day Content Views Detail "
   view_label: "1. Curr Day Content Views"
   join: content {
-    view_label: "2. Content Object Meta Data"
+    view_label: "4. Content Object Meta Data"
     sql_on: ${t8002_contentview_curr_day.cid} = ${content.cid} and ${t8002_contentview_curr_day.region} = ${content.region} and ${t8002_contentview_curr_day.product} = ${content.product} and ${content.video_length} > 0 ;;
     relationship: many_to_one
     type: left_outer
   }
   join: t1025_reg_prod_cid_title_join {
-    view_label: "3. Current Title & Author"
+    view_label: "5. Current Title & Author"
     sql_on: c8002_cid  = ${t1025_reg_prod_cid_title_join.c1025_cid} and c8002_product = ${t1025_reg_prod_cid_title_join.c1025_product} and c8002_region = ${t1025_reg_prod_cid_title_join.c1025_region} and ${t8002_contentview_curr_day.view_type} = ${t1025_reg_prod_cid_title_join.imp_type}  ;;
     relationship: many_to_one
     type: inner
@@ -191,7 +191,7 @@ explore: dashboard_headers {
 
 explore: contentview_us_can {
   label: "8) Content Views Detail for US & Canada"
-  view_label: "All Content Views"
+  view_label: "1. All Content Views"
 }
 
 # - explore: user_crossref

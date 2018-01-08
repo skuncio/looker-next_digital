@@ -1,127 +1,115 @@
 view: t8002_contentview_curr_day {
   sql_table_name: PUBLIC.T8002_CONTENTVIEW_CURR_DAY ;;
 
-  dimension: abt {
-    type: string
-    sql: ${TABLE}.C8002_ABT ;;
-  }
-
   dimension: view_type {
     description: "PAGEVIEW or VIDEOVIEW"
     alias: [action]
     type: string
-    sql: ${TABLE}.C8002_ACTION ;;
+    sql: ${TABLE}.c8002_action ;;
   }
 
   dimension: adid {
-    view_label: "User"
+    view_label: "2. User"
     type: string
-    sql: ${TABLE}.C8002_ADID ;;
-  }
-
-  dimension: ads {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.c8002_ads ;;
+    sql: ${TABLE}.c8002_adid ;;
   }
 
   dimension: app_version {
-    view_label: "User"
+    view_label: "2. User"
     type: string
-    sql: ${TABLE}.C8002_APP_VERSION ;;
+    sql: ${TABLE}.c8002_app_version ;;
   }
 
   dimension: artid {
     type: string
-    sql: ${TABLE}.C8002_ARTID ;;
+    sql: ${TABLE}.c8002_artid ;;
   }
 
   dimension: author {
     type: string
-    sql: ${TABLE}.C8002_AUTH ;;
+    sql: ${TABLE}.c8002_auth ;;
   }
 
   dimension: auto_play {
     type: string
-    sql: ${TABLE}.C8002_AUTO ;;
+    sql: ${TABLE}.c8002_auto ;;
   }
 
-  dimension: _battery {
-    view_label: "User"
+  dimension: battery {
+    view_label: "2. User"
     type: number
-    sql: ${TABLE}.C8002_BATTERY ;;
+    sql: ${TABLE}.c8002_battery ;;
   }
 
   dimension: beacon_id {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_BEACON_ID ;;
+    sql: ${TABLE}.c8002_beacon_id ;;
   }
 
-  dimension: _beacon_loc {
-    view_label: "Location"
+  dimension: beacon_loc {
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_BEACON_LOC ;;
+    sql: ${TABLE}.c8002_beacon_loc ;;
   }
 
   dimension: bluetooth {
-    view_label: "User"
+    view_label: "2. User"
     type: string
-    sql: ${TABLE}.C8002_BLUETOOTH ;;
+    sql: ${TABLE}.c8002_bluetooth ;;
   }
 
   dimension: user_browser {
-    view_label: "User"
+    view_label: "2. User"
     type: string
-    sql: ${TABLE}.C8002_BR ;;
+    sql: ${TABLE}.c8002_br ;;
   }
 
-  dimension: browser_version {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.C8002_BV ;;
-  }
+  #   - dimension: bv
+  #     type: string
+  #     sql: ${TABLE}.c8002_bv
 
   dimension: category {
     type: string
-    sql: ${TABLE}.C8002_CATEGORY ;;
+    sql: ${TABLE}.c8002_category ;;
   }
 
   dimension: channel {
     type: string
-    sql: ${TABLE}.C8002_CHANNEL ;;
+    sql: ${TABLE}.c8002_channel ;;
   }
 
   dimension: cid {
+    #    hidden: true
     type: string
-    sql: ${TABLE}.C8002_CID ;;
+    sql: ${TABLE}.c8002_cid ;;
   }
 
   dimension: city {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_CITY ;;
+    sql: ${TABLE}.c8002_city ;;
   }
 
   dimension: content_type {
     type: string
-    sql: ${TABLE}.C8002_CONTENT ;;
+    sql: ${TABLE}.c8002_content ;;
   }
 
-  dimension: c8002_country {
-    view_label: "Location"
+  dimension: country {
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_COUNTRY ;;
+    sql: ${TABLE}.c8002_country ;;
   }
 
-  dimension: c8002_county {
-    view_label: "Location"
+  dimension: county {
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_COUNTY ;;
+    sql: ${TABLE}.c8002_county ;;
   }
 
   dimension_group: view {
-    group_label: "View Date"
+    group_label: "view date"
     type: time
     timeframes: [
       time,
@@ -134,10 +122,11 @@ view: t8002_contentview_curr_day {
       hour_of_day
     ]
     convert_tz: no
-    sql: ${TABLE}.C8002_DATETIME ;;
+    sql: ${TABLE}.c8002_datetime ;;
   }
+
   dimension: view_date_d {
-    group_label: "View Date"
+    group_label: "view date"
     sql: TO_DATE(${TABLE}.c8002_datetime) ;;
   }
 
@@ -157,245 +146,265 @@ view: t8002_contentview_curr_day {
 
 
   dimension: dcc_id {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_DCC_ID ;;
+    sql: ${TABLE}.c8002_dcc_id ;;
   }
 
   dimension: depth {
     type: number
-    sql: ${TABLE}.C8002_DEPTH ;;
+    sql: ${TABLE}.c8002_depth ;;
   }
 
   dimension: user_device {
-    view_label: "User"
+    view_label: "2. User"
     type: string
-    sql: ${TABLE}.C8002_DEVICE ;;
+    sql: ${TABLE}.c8002_device ;;
   }
 
   dimension: device_id {
-    view_label: "User"
+    view_label: "2. User"
     type: string
-    sql: ${TABLE}.C8002_DID ;;
+    sql: ${TABLE}.c8002_did ;;
   }
 
   dimension: district_id {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_DISTRICT_ID ;;
+    sql: ${TABLE}.c8002_district_id ;;
   }
 
   dimension: dma {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_DMA ;;
+    sql: ${TABLE}.c8002_dma ;;
   }
 
   dimension: edm {
     type: string
-    sql: ${TABLE}.C8002_EDM ;;
+    sql: ${TABLE}.c8002_edm ;;
   }
 
-  dimension: fbid {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.C8002_FBID ;;
-  }
+  #   - dimension: gaid
+  #     view_label: User
+  #     type: string
+  #     sql: ${TABLE}.c8002_gaid
 
-  dimension: gaid {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.C8002_GAID ;;
-  }
-
-  dimension: gigyaid {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.C8002_GIGYAID ;;
-  }
+  #   - dimension: gigyaid
+  #     view_label: User
+  #     type: string
+  #     sql: ${TABLE}.c8002_gigyaid
 
   dimension: ip {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_IP ;;
+    sql: ${TABLE}.c8002_ip ;;
   }
 
   dimension: issueid {
-    type: number
-    value_format: "0"
-    sql: ${TABLE}.C8002_ISSUEID ;;
+    type: string
+    sql: ${TABLE}.c8002_issueid ;;
   }
 
   dimension: keyword {
     type: string
-    sql: ${TABLE}.C8002_KEYWORD ;;
+    sql: ${TABLE}.c8002_keyword ;;
   }
 
   dimension: language {
     type: string
-    sql: ${TABLE}.C8002_LANGUAGE ;;
+    sql: ${TABLE}.c8002_language ;;
   }
 
   dimension: lat {
     hidden: yes
-    view_label: "Location"
+    view_label: "3. Location"
     type: number
-    sql: ${TABLE}.C8002_LAT ;;
-  }
-
-  dimension: limit_ad_track {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.C8002_LIMIT_AD_TRACK ;;
+    sql: ${TABLE}.c8002_lat ;;
   }
 
   dimension: lon {
     hidden: yes
-    view_label: "Location"
+    view_label: "3. Location"
     type: number
-    sql: ${TABLE}.C8002_LON ;;
+    sql: ${TABLE}.c8002_lon ;;
+  }
+
+  dimension: limit_ad_track {
+    view_label: "2. User"
+    type: string
+    sql: ${TABLE}.c8002_limit_ad_track ;;
   }
 
   dimension: menu {
     type: string
-    sql: ${TABLE}.C8002_MENU ;;
+    sql: ${TABLE}.c8002_menu ;;
   }
 
   dimension: news {
     type: string
-    sql: ${TABLE}.C8002_NEWS ;;
+    sql: ${TABLE}.c8002_news ;;
   }
 
-  dimension: ngsid {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.C8002_NGSID ;;
-  }
-
-  dimension: nudid {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.C8002_NUDID ;;
-  }
+  #   - dimension: ngsid
+  #     type: string
+  #     sql: ${TABLE}.c8002_ngsid
+  #
+  #   - dimension: nudid
+  #     type: string
+  #     sql: ${TABLE}.c8002_nudid
 
   dimension: nxtu {
-    view_label: "User"
+    view_label: "2. User"
     type: string
-    sql: ${TABLE}.C8002_NXTU ;;
+    sql: ${TABLE}.c8002_nxtu ;;
   }
 
   dimension: user_id {
-    view_label: "User"
+    view_label: "2. User"
     type: string
-    sql: ${TABLE}.C8002_NXTU_OR_DID ;;
-  }
-
-  dimension: omo_accid {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.C8002_OMO_ACCID ;;
-  }
-
-  dimension: omo_pid {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.C8002_OMO_PID ;;
+    sql: ${TABLE}.c8002_nxtu_or_did ;;
   }
 
   dimension: platform {
+    #    view_label: User
     type: string
-    sql: ${TABLE}.C8002_PLATFORM ;;
+    sql: ${TABLE}.c8002_platform ;;
   }
 
-  dimension: postcode {
-    view_label: "Location"
+  dimension: c8002_postcode {
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_POSTCODE ;;
+    sql: ${TABLE}.c8002_postcode ;;
   }
 
   dimension: product {
     type: string
-    sql: ${TABLE}.C8002_PRODUCT ;;
+    sql: ${TABLE}.c8002_product ;;
   }
 
-  dimension: ref_url {
+  dimension: referring_url {
+    #    view_label: User
+    alias: [ref_url]
     type: string
-    sql: ${TABLE}.C8002_REF_URL ;;
+    sql: ${TABLE}.c8002_ref_url ;;
   }
 
   dimension: region {
+    #    view_label: Location
     type: string
-    sql: ${TABLE}.C8002_REGION ;;
+    sql: ${TABLE}.c8002_region ;;
   }
 
   dimension: section {
     type: string
-    sql: ${TABLE}.C8002_SECTION ;;
-  }
-
-  dimension: site {
-    type: string
-    sql: ${TABLE}.C8002_SITE ;;
+    sql: ${TABLE}.c8002_section ;;
   }
 
   dimension: source {
     type: string
-    sql: ${TABLE}.C8002_SOURCE ;;
+    sql: ${TABLE}.c8002_source ;;
+  }
+
+  dimension: site {
+    type: string
+    sql: ${TABLE}.c8002_site ;;
   }
 
   dimension: state {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_STATE ;;
+    sql: ${TABLE}.c8002_state ;;
   }
 
   dimension: street_id {
-    view_label: "Location"
+    view_label: "3. Location"
     type: string
-    sql: ${TABLE}.C8002_STREET_ID ;;
+    sql: ${TABLE}.c8002_street_id ;;
   }
 
   dimension: subsection {
     type: string
-    sql: ${TABLE}.C8002_SUBSECTION ;;
+    sql: ${TABLE}.c8002_subsection ;;
   }
 
-  dimension: subsubsection {
-    type: string
-    sql: ${TABLE}.C8002_SUBSUBSECTION ;;
-  }
+  #  - dimension: subsubsection
+  #    type: string
+  #    sql: ${TABLE}.c8002_subsubsection
 
-  dimension: screen_size {
-    view_label: "User"
-    type: string
-    sql: ${TABLE}.C8002_SZ ;;
-  }
+  #   - dimension: sz
+  #     type: string
+  #     sql: ${TABLE}.c8002_sz
 
   dimension: title {
     type: string
-    sql: ${TABLE}.C8002_TITLE ;;
+    sql: ${TABLE}.c8002_title ;;
   }
 
   dimension: user_agent {
-    view_label: "User"
+    view_label: "2. User"
     type: string
-    sql: ${TABLE}.C8002_UA ;;
+    sql: ${TABLE}.c8002_ua ;;
   }
 
   dimension: view_duration {
     alias: [video_duration]
     type: number
-    sql: ${TABLE}.C8002_VIEW_DURATION ;;
+    sql: ${TABLE}.c8002_view_duration ;;
   }
 
   dimension: wifi {
-    view_label: "User"
+    view_label: "2. User"
     type: string
-    sql: ${TABLE}.C8002_WIFI ;;
+    sql: ${TABLE}.c8002_wifi ;;
+  }
+
+  dimension: abt {
+    type: string
+    sql: ${TABLE}.c8002_abt ;;
+  }
+
+  dimension: omo_accid {
+    view_label: "2. User"
+    type: string
+    sql: ${TABLE}.c8002_omo_accid ;;
+  }
+
+  dimension: omo_pid {
+    view_label: "2. User"
+    type: string
+    sql: ${TABLE}.c8002_omo_pid ;;
+  }
+
+  dimension: OS {
+    view_label: "2. User"
+    type: string
+    sql: ${TABLE}.c8002_os ;;
+  }
+
+  dimension: fbid {
+    view_label: "2. User"
+    type: string
+    sql: ${TABLE}.c8002_fbid ;;
+  }
+
+  dimension: ads {
+    view_label: "2. User"
+    type: string
+    sql: ${TABLE}.c8002_ads ;;
+  }
+
+  dimension: latitude_longitude {
+    alias: [view_location]
+    view_label: "3. Location"
+    type: location
+    sql_latitude: ${lat} ;;
+    sql_longitude: ${lon} ;;
   }
 
   measure: count {
     type: count
+#    approximate: yes
     drill_fields: []
   }
 
@@ -453,7 +462,7 @@ view: t8002_contentview_curr_day {
   }
 
   measure: distinct_users {
-    view_label: "User"
+    view_label: "2. User"
     type: count_distinct
     value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${user_id} ;;
