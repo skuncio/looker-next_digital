@@ -67,9 +67,9 @@ view: t5003_ua_connect_send {
     sql: ${TABLE}.C5003_UA_DEVICE_CHANNEL ;;
   }
 
-  dimension: c503_device_type {
+  dimension: c5003_device_type {
     type: string
-    sql: ${TABLE}.C503_DEVICE_TYPE ;;
+    sql: ${TABLE}.C5003_DEVICE_TYPE ;;
   }
 
   measure: count {
