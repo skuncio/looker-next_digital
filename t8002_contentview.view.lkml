@@ -399,40 +399,76 @@ view: contentview {
 
     case: {
       when: {
-        sql: ${category} in ('ENTERTAINMENT', 'CELEB') or ${keyword} in ('娛樂') ;;
+        sql: ${category} in ('ENTERTAINMENT', 'CELEB') or ${keyword} contains ('娛樂') ;;
         label: "ENTERTAINMENT"
       }
       when: {
-        sql: ${category} = 'KOREAPOP' or ${keyword} in ('韓流') ;;
+        sql: ${category} = 'KOREAPOP' or ${keyword} = ('韓流') ;;
         label: "KOREAPOP"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword} in ('娛樂') ;;
-        label: "HK Appledaily Amazon"
+        sql: ${category} in ('FASHION', 'LUXURY')  or ${keyword} = ('時尚') ;;
+        label: "FASHION"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
-        label: "TW Appledaily IOS"
+        sql: ${category} = 'WATCH' or ${keyword}  = ('手錶') ;;
+        label: "WATCH"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
-        label: "TW Appledaily Android"
+        sql: ${category} = 'BEAUTY' or ${keyword}  in ('美容', '美妝') ;;
+        label: "BEAUTY"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
-        label: "TW Appledaily Amazon"
+        sql: ${keyword}  in ('身體美容', '瘦身') ;;
+        label: "SLIMMING"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
-        label: "HK ETW IOS"
+        sql: ${category} = 'HEALTH' or ${keyword}  = ('健康') ;;
+        label: "HEALTH"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
-        label: "HK ETW Android"
+        sql: ${keyword}  in ('娛樂','跑步') ;;
+        label: "RUN"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
-        label: "HK ETW Amazon"
+        sql: ${category} = 'FOOD' or ${keyword}  in ('飲食') ;;
+        label: "FOOD"
+      }
+      when: {
+        sql: ${keyword} = ('烹飪') ;;
+        label: "COOKING"
+      }
+      when: {
+        sql: ${category} = 'KOREAPOP' or ${keyword} = ('韓流') ;;
+        label: "KOREAPOP"
+      }
+      when: {
+        sql: ${category} in ('FASHION', 'LUXURY')  or ${keyword} = ('時尚') ;;
+        label: "FASHION"
+      }
+      when: {
+        sql: ${category} = 'WATCH' or ${keyword}  = ('手錶') ;;
+        label: "WATCH"
+      }
+      when: {
+        sql: ${category} = 'BEAUTY' or ${keyword}  in ('美容', '美妝') ;;
+        label: "BEAUTY"
+      }
+      when: {
+        sql: ${keyword}  in ('身體美容', '瘦身') ;;
+        label: "SLIMMING"
+      }
+      when: {
+        sql: ${category} = 'HEALTH' or ${keyword}  = ('健康') ;;
+        label: "HEALTH"
+      }
+      when: {
+        sql: ${keyword}  in ('娛樂','跑步') ;;
+        label: "RUN"
+      }
+      when: {
+        sql: ${category} = 'FOOD' or ${keyword}  in ('飲食') ;;
+        label: "FOOD"
       }
       when: {
         sql: true ;;
