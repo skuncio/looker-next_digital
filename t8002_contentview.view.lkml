@@ -396,85 +396,118 @@ view: contentview {
 
   dimension: content_preference {
     type: string
-
-    case: {
-      when: {
-        sql: ${category} in ('ENTERTAINMENT', 'CELEB') or contains (${keyword}, '娛樂') ;;
-        label: "ENTERTAINMENT"
-      }
-      when: {
-        sql: ${category} = 'KOREAPOP' or contains (${keyword},'韓流') ;;
-        label: "KOREAPOP"
-      }
-      when: {
-        sql: ${category} in ('FASHION', 'LUXURY')  or contains (${keyword},'時尚') ;;
-        label: "FASHION"
-      }
-      when: {
-        sql: ${category} = 'WATCH' or contains (${keyword},'手錶') ;;
-        label: "WATCH"
-      }
-      when: {
-        sql: ${category} = 'BEAUTY' or contains (${keyword},'美容') or contains (${keyword}, '美妝') ;;
-        label: "BEAUTY"
-      }
-      when: {
-        sql: contains (${keyword},'身體美容') or contains (${keyword}, '瘦身') ;;
-        label: "SLIMMING"
-      }
-      when: {
-        sql: ${category} = 'HEALTH' or contains (${keyword},'健康') ;;
-        label: "HEALTH"
-      }
-      when: {
-        sql: contains (${keyword},'跑步') ;;
-        label: "RUN"
-      }
-      when: {
-        sql: ${category} = 'FOOD' or contains (${keyword},'飲食') ;;
-        label: "FOOD"
-      }
-      when: {
-        sql: contains (${keyword},'烹飪') ;;
-        label: "COOKING"
-      }
-      when: {
-        sql: ${category} = 'WINE' or contains (${keyword},'品酒') ;;
-        label: "WINE"
-      }
-      when: {
-        sql: ${category} = 'TRAVEL'  or contains (${keyword},'旅遊') ;;
-        label: "TRAVEL"
-      }
-      when: {
-        sql: ${category} in ('TECH','GADGETS','3C') or contains (${keyword},'科技') ;;
-        label: "TECH"
-      }
-      when: {
-        sql: contains (${keyword},'攝影') ;;
-        label: "PHOTOGRAPHY"
-      }
-      when: {
-        sql: ${category} in ('GAMENEWS','GAMEFILE','GAMEGIRL','GAMEPROGRAM') or contains (${keyword}, '電玩') ;;
-        label: "GAME"
-      }
-      when: {
-        sql: ${category} = 'HEALTH' or ${keyword}  = ('健康') ;;
-        label: "HEALTH"
-      }
-      when: {
-        sql: ${keyword}  in ('娛樂','跑步') ;;
-        label: "RUN"
-      }
-      when: {
-        sql: ${category} = 'FOOD' or ${keyword}  in ('飲食') ;;
-        label: "FOOD"
-      }
-      when: {
-        sql: true ;;
-        label: "unknown"
-      }
-    }
+    sql: case
+    when ${category} in ('ENTERTAINMENT', 'CELEB') or contains (${keyword}, '娛樂')
+    then "ENTERTAINMENT"
+    when ${category} = 'KOREAPOP' or contains (${keyword},'韓流')
+    then "KOREAPOP"
+    when ${category} in ('FASHION', 'LUXURY')  or contains (${keyword},'時尚')
+    then "FASHION"
+    when ${category} = 'WATCH' or contains (${keyword},'手錶')
+    then "WATCH"
+    when ${category} = 'BEAUTY' or contains (${keyword},'美容') or contains (${keyword}, '美妝')
+    then "BEAUTY"
+    when contains (${keyword},'身體美容') or contains (${keyword}, '瘦身')
+    then "SLIMMING"
+    when ${category} = 'HEALTH' or contains (${keyword},'健康')
+    then "HEALTH"
+    when contains (${keyword},'跑步')
+    then "RUN"
+    when ${category} = 'FOOD' or contains (${keyword},'飲食')
+    then "FOOD"
+    when contains (${keyword},'烹飪')
+    then "COOKING"
+    when ${category} = 'WINE' or contains (${keyword},'品酒')
+    then "WINE"
+    when ${category} = 'TRAVEL'  or contains (${keyword},'旅遊')
+    then "TRAVEL"
+    when ${category} in ('TECH','GADGETS','3C') or contains (${keyword},'科技')
+    then "TECH"
+    when contains (${keyword},'攝影')
+    then "PHOTOGRAPHY"
+    when ${category} in ('GAMENEWS','GAMEFILE','GAMEGIRL','GAMEPROGRAM') or contains (${keyword}, '電玩')
+    then "GAME"
+    when contains (${keyword},'健康')
+    then "ANIMATION"
+    when ${category} = 'AUTO' or contains (${keyword},'車迷') or contains (${keyword},'汽車')
+    then "AUTO"
+    when ${category} = 'FAMILY' or contains (${keyword},'親子')
+    then "FAMILY"
+    when ${category} = 'NEWPARENT' or contains (${keyword}, '新手父母')
+    then "NEWPARENT"
+    when ${category} = 'WEDDING' or contains (${keyword},'新婚')
+    then "WEDDING"
+    when ${category} = 'HOME'  or contains (${keyword},'家居') or contains (${keyword},'家居裝潢')
+    then "HOME"
+    when ${category} = 'PET' or contains (${keyword},'寵物') or contains (${keyword},'動物')
+    then "PET"
+    when ${category} in ('CULTURE','ART') or contains (${keyword},'文藝')
+    then "CULTURE"
+    when contains (${keyword},'本地活動') or contains (${keyword}, '大型活動')
+    then "LOCALEVENT"
+    when ${category} = 'MOVIE' or contains (${keyword},'電影')
+    then "MOVIE"
+    when ${category} = 'CHARITY' or contains (${keyword},'NGO')
+    then "NGO"
+    when ${category} = 'GREEN' or contains (${keyword},'環保')
+    then "GREEN"
+    when ${category} = 'CAMPUS' or contains (${keyword},'教育') or contains (${keyword},'補教')
+    then "EDUCATION"
+    when contains (${keyword},'工作假期') or contains (${keyword},'打工渡假')
+    then "WORKINGHOLIDAY"
+    when ${category} = 'CAREER'  or contains (${keyword},'職場')
+    then "CAREER"
+    when ${category} = 'SPORTS'  or contains (${keyword},'運動')
+    then "SPORTS"
+    when ${category} = 'SOCCER' or contains (${keyword},'足球') or contains (${keyword},'世足賽')
+    then "SOCCER"
+    when contains (${keyword}, '英超')
+    then "EPL"
+    when ${category} = 'HORSERACE' contains (${keyword},'賽馬')
+    then "HORSERACE"
+    when ${category} = 'BUSINESS' or contains (${keyword},'商人') or contains (${keyword},'創業家')
+    then "BUSINESS"
+    when ${category} = 'INTERNATIONAL'
+    then "INTERNATIONAL"
+    when ${category} = 'PRCTWNEWS'
+    then "PRCTWNEWS"
+    when ${category} = 'FINANCE' or contains (${keyword},'投資')
+    then "INVESTMENT"
+    when contains (${keyword},'海外投資')
+    then "OVERSEASINVEST"
+    when ${category} = 'REALESTATE'  or contains (${keyword},'置業')  or contains (${keyword},'房產')
+    then "REALESTATE"
+    when contains (${keyword},'貸款按揭')
+    then "LOAN"
+    when contains (${keyword},'保險')
+    then "INSURANCE"
+    when contains (${keyword}, '稅務')
+    then "TAX"
+    when contains (${keyword},'移民')
+    then "MOVINGABROAD"
+    when ${category} = 'POLITICS' or contains (${keyword},'選舉')
+    then "POLITICS"
+    when ${category} in ('ADULT','DIVA') or contains (${keyword},'風月')
+    then "ADULT"
+    when ${category} = 'MEN'  or contains (${keyword},'男潮')  or contains (${keyword},'潮男')
+    then "MEN"
+    when ${category} = 'RELATIONSHIP' or contains (${keyword},'男女關係') or contains (${keyword},'兩性')
+    then "RELATIONSHIP"
+    when "POLITICS"
+    when ${category} in ('FUN','HUMOR','WEIRD','STRANGE','ANIMAL') or contains (${keyword},'趣聞')
+    then "FUN"
+    when ${category} = 'HOROSCOPE' or contains (${keyword}, '玄學') or contains (${keyword}, '星座運勢')
+    then "HOROSCOPE"
+    when contains (${keyword},'彩券') or contains (${keyword},'彩券')
+    then "LOTTERY"
+    when contains (${keyword},'手機')
+    then "PHONE"
+    when contains (${keyword},'大賣場') or contains (${keyword},'消費') or contains (${keyword},'行動消費')
+    then "SHOPPING"
+    when contains (${keyword},'奧運')
+    then "OLYMPICS"
+    else "unknown"
+    end ;;
   }
 
   dimension: latitude_longitude {
