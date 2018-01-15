@@ -463,7 +463,7 @@ view: contentview {
     then "SOCCER"
     when contains (${keyword}, '英超')
     then "EPL"
-    when ${category} = 'HORSERACE' contains (${keyword},'賽馬')
+    when ${category} = 'HORSERACE' or contains (${keyword},'賽馬')
     then "HORSERACE"
     when ${category} = 'BUSINESS' or contains (${keyword},'商人') or contains (${keyword},'創業家')
     then "BUSINESS"
