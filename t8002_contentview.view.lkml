@@ -415,23 +415,23 @@ view: contentview {
         label: "TW Appledaily IOS"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
         label: "TW Appledaily Android"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
         label: "TW Appledaily Amazon"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
         label: "HK ETW IOS"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
         label: "HK ETW Android"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
         label: "HK ETW Amazon"
       }
       when: {
