@@ -394,6 +394,53 @@ view: contentview {
     sql: ${TABLE}.c8002_ads ;;
   }
 
+  dimension: content_preference {
+    type: string
+
+    case: {
+      when: {
+        sql: ${category} is in ('ENTERTAINMENT', 'CELEB') or ${keyword} is in ('娛樂') ;;
+        label: "ENTERTAINMENT"
+      }
+      when: {
+        sql: ${category} = 'KOREAPOP' or ${keyword} is in ('韓流') ;;
+        label: "KOREAPOP"
+      }
+      when: {
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        label: "HK Appledaily Amazon"
+      }
+      when: {
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        label: "TW Appledaily IOS"
+      }
+      when: {
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        label: "TW Appledaily Android"
+      }
+      when: {
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        label: "TW Appledaily Amazon"
+      }
+      when: {
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        label: "HK ETW IOS"
+      }
+      when: {
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        label: "HK ETW Android"
+      }
+      when: {
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        label: "HK ETW Amazon"
+      }
+      when: {
+        sql: true ;;
+        label: "unknown"
+      }
+    }
+  }
+
   dimension: latitude_longitude {
     alias: [view_location]
     view_label: "3. Location"
