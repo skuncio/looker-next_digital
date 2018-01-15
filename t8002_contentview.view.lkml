@@ -399,19 +399,19 @@ view: contentview {
 
     case: {
       when: {
-        sql: ${category} is in ('ENTERTAINMENT', 'CELEB') or ${keyword} is in ('娛樂') ;;
+        sql: ${category} in ('ENTERTAINMENT', 'CELEB') or ${keyword} in ('娛樂') ;;
         label: "ENTERTAINMENT"
       }
       when: {
-        sql: ${category} = 'KOREAPOP' or ${keyword} is in ('韓流') ;;
+        sql: ${category} = 'KOREAPOP' or ${keyword} in ('韓流') ;;
         label: "KOREAPOP"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword} in ('娛樂') ;;
         label: "HK Appledaily Amazon"
       }
       when: {
-        sql: ${category} = 'ENTERTAINMENT' or ${keyword} is in ('娛樂') ;;
+        sql: ${category} = 'ENTERTAINMENT' or ${keyword}  in ('娛樂') ;;
         label: "TW Appledaily IOS"
       }
       when: {
