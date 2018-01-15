@@ -403,60 +403,60 @@ view: contentview {
         label: "ENTERTAINMENT"
       }
       when: {
-        sql: ${category} = 'KOREAPOP' or ${keyword} = ('韓流') ;;
+        sql: ${category} = 'KOREAPOP' or contains (${keyword},'韓流') ;;
         label: "KOREAPOP"
       }
       when: {
-        sql: ${category} in ('FASHION', 'LUXURY')  or ${keyword} = ('時尚') ;;
+        sql: ${category} in ('FASHION', 'LUXURY')  or contains (${keyword},'時尚') ;;
         label: "FASHION"
       }
       when: {
-        sql: ${category} = 'WATCH' or ${keyword}  = ('手錶') ;;
+        sql: ${category} = 'WATCH' or contains (${keyword},'手錶') ;;
         label: "WATCH"
       }
       when: {
-        sql: ${category} = 'BEAUTY' or ${keyword}  in ('美容', '美妝') ;;
+        sql: ${category} = 'BEAUTY' or contains (${keyword},'美容') or contains (${keyword}, '美妝') ;;
         label: "BEAUTY"
       }
       when: {
-        sql: ${keyword}  in ('身體美容', '瘦身') ;;
+        sql: contains (${keyword},'身體美容') or contains (${keyword}, '瘦身') ;;
         label: "SLIMMING"
       }
       when: {
-        sql: ${category} = 'HEALTH' or ${keyword}  = ('健康') ;;
+        sql: ${category} = 'HEALTH' or contains (${keyword},'健康') ;;
         label: "HEALTH"
       }
       when: {
-        sql: ${keyword}  in ('娛樂','跑步') ;;
+        sql: contains (${keyword},'跑步') ;;
         label: "RUN"
       }
       when: {
-        sql: ${category} = 'FOOD' or ${keyword}  in ('飲食') ;;
+        sql: ${category} = 'FOOD' or contains (${keyword},'飲食') ;;
         label: "FOOD"
       }
       when: {
-        sql: ${keyword} = ('烹飪') ;;
+        sql: contains (${keyword},'烹飪') ;;
         label: "COOKING"
       }
       when: {
-        sql: ${category} = 'KOREAPOP' or ${keyword} = ('韓流') ;;
-        label: "KOREAPOP"
+        sql: ${category} = 'WINE' or contains (${keyword},'品酒') ;;
+        label: "WINE"
       }
       when: {
-        sql: ${category} in ('FASHION', 'LUXURY')  or ${keyword} = ('時尚') ;;
-        label: "FASHION"
+        sql: ${category} = 'TRAVEL'  or contains (${keyword},'旅遊') ;;
+        label: "TRAVEL"
       }
       when: {
-        sql: ${category} = 'WATCH' or ${keyword}  = ('手錶') ;;
-        label: "WATCH"
+        sql: ${category} in ('TECH','GADGETS','3C') or contains (${keyword},'科技') ;;
+        label: "TECH"
       }
       when: {
-        sql: ${category} = 'BEAUTY' or ${keyword}  in ('美容', '美妝') ;;
-        label: "BEAUTY"
+        sql: contains (${keyword},'攝影') ;;
+        label: "PHOTOGRAPHY"
       }
       when: {
-        sql: ${keyword}  in ('身體美容', '瘦身') ;;
-        label: "SLIMMING"
+        sql: ${category} in ('GAMENEWS','GAMEFILE','GAMEGIRL','GAMEPROGRAM') or contains (${keyword}, '電玩') ;;
+        label: "GAME"
       }
       when: {
         sql: ${category} = 'HEALTH' or ${keyword}  = ('健康') ;;
