@@ -399,7 +399,7 @@ view: contentview {
 
     case: {
       when: {
-        sql: ${category} in ('ENTERTAINMENT', 'CELEB') or ${keyword} contains ('娛樂') ;;
+        sql: ${category} in ('ENTERTAINMENT', 'CELEB') or contains (${keyword}, '娛樂') ;;
         label: "ENTERTAINMENT"
       }
       when: {
