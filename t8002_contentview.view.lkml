@@ -493,7 +493,6 @@ view: contentview {
     then "MEN"
     when ${category} = 'RELATIONSHIP' or contains (${keyword},'男女關係') or contains (${keyword},'兩性')
     then "RELATIONSHIP"
-    when "POLITICS"
     when ${category} in ('FUN','HUMOR','WEIRD','STRANGE','ANIMAL') or contains (${keyword},'趣聞')
     then "FUN"
     when ${category} = 'HOROSCOPE' or contains (${keyword}, '玄學') or contains (${keyword}, '星座運勢')
