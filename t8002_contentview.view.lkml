@@ -394,6 +394,11 @@ view: contentview {
     sql: ${TABLE}.c8002_ads ;;
   }
 
+  dimension: content_preference_multi {
+    type: string
+    sql: content_preference (${category},${keyword} ;;
+  }
+
   dimension: content_preference {
     type: string
     sql: case
