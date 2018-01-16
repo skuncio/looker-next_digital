@@ -396,7 +396,7 @@ view: contentview {
 
   dimension: content_preference_multi {
     type: string
-    sql: content_preference (${category},${keyword} ;;
+    sql: content_preference (${category},${keyword}) ;;
   }
 
   dimension: content_preference {
