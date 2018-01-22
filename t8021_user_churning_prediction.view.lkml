@@ -1,5 +1,5 @@
 view: t8021_user_churning_prediction {
-  sql_table_name: public.t8021_user_churning_prediction_prd ;;
+  sql_table_name: public.t8021_user_churning_prediction ;;
 
   dimension: c8021_adid {
     type: string
