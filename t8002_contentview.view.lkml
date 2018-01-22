@@ -399,6 +399,24 @@ view: contentview {
     sql: content_preference (${category},${keyword}) ;;
   }
 
+  dimension: referral_type {
+    type:  string
+    sql:
+    case
+when upper(${TABLE}.c8002_ref_url) like '%GOOGLE%' THEN 'GOOGLE'
+when upper(${TABLE}.c8002_ref_url) like '%FACEBOOK%' THEN 'FACEBOOK'
+when upper(${TABLE}.c8002_ref_url) like '%APPLEDAILY.COM%' or
+upper(${TABLE}.c8002_ref_url) like '%NEXTMEDIA%' or
+upper(${TABLE}.c8002_ref_url) like '%SHARPDAILY%' or
+upper(${TABLE}.c8002_ref_url) like '%APPLELIVE.COM.TW%' or
+upper(${TABLE}.c8002_ref_url) like '%NEXTDIGITAL.COM%'
+THEN 'INTERNAL'
+when upper(${TABLE}.c8002_ref_url) like '%YAHOO%' THEN 'YAHOO'
+ELSE 'Others'
+END
+;;
+  }
+
 #  dimension: content_preference {
 #     type: string
 #     sql: case
