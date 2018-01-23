@@ -67,7 +67,7 @@ view: t5002_ua_connect_push_body_bq {
     view_label: "Push Payload"
     type: string
 #    sql: ${TABLE}.C5002_PAYLOAD.audience::string ;;
-    sql: JSON_EXTRACT_SCALAR(c5010_payload,    '$.audience') ;;
+    sql: JSON_EXTRACT_SCALAR(c5002_payload,    '$.audience') ;;
   }
 
   dimension: device_types {
