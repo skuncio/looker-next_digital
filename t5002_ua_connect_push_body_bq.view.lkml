@@ -88,43 +88,51 @@ view: t5002_ua_connect_push_body_bq {
   dimension: notification_content {
     view_label: "Push Payload"
     type: string
-    sql: ${TABLE}.C5002_PAYLOAD:notification:actions:open:content::string ;;
+#    sql: ${TABLE}.C5002_PAYLOAD:notification:actions:open:content::string ;;
+    sql: JSON_EXTRACT_SCALAR(c5002_payload, '$.notification.actions.open.content') ;;
   }
 
   dimension: notification_type {
     view_label: "Push Payload"
     type: string
-    sql: ${TABLE}.C5002_PAYLOAD:notification:actions:open:type::string ;;
+#    sql: ${TABLE}.C5002_PAYLOAD:notification:actions:open:type::string ;;
+    sql: JSON_EXTRACT_SCALAR(c5002_payload, '$.notification.actions.open.type') ;;
   }
 
   dimension: notification_alert {
     view_label: "Push Payload"
     type: string
-    sql: ${TABLE}.C5002_PAYLOAD:notification:alert::string ;;
+#    sql: ${TABLE}.C5002_PAYLOAD:notification:alert::string ;;
+    sql: JSON_EXTRACT_SCALAR(c5002_payload, '$.notification.alert') ;;
   }
 
   dimension: notification_ios_sound {
     view_label: "Push Payload"
     type: string
-    sql: ${TABLE}.C5002_PAYLOAD:notification:ios:sound::string ;;
+#    sql: ${TABLE}.C5002_PAYLOAD:notification:ios:sound::string ;;
+    sql: JSON_EXTRACT_SCALAR(c5002_payload, '$.notification.ios.sound') ;;
   }
 
   dimension: schedule_audience {
     view_label: "Schedules"
     type: string
-    sql: ${TABLE}.C5002_PAYLOAD:push:audience::string ;;
+#    sql: ${TABLE}.C5002_PAYLOAD:push:audience::string ;;
+    sql: JSON_EXTRACT_SCALAR(c5002_payload, '$.push.audience') ;;
   }
 
   dimension: schedule_device_types {
     view_label: "Schedules"
     type: string
-    sql: ${TABLE}.C5002_PAYLOAD:push:device_types::string ;;
+#    sql: ${TABLE}.C5002_PAYLOAD:push:device_types::string ;;
+    sql: JSON_EXTRACT_SCALAR(c5002_payload, '$.push.device_types') ;;
   }
 
   dimension: schedule_notification_cid {
     view_label: "Schedules"
     type: string
-    sql: regexp_replace(TRIM(regexp_substr(${TABLE}.C5002_PAYLOAD:push:notification:actions:open:content::string,'_.*&'),'_&'),'_.+') ;;
+#    sql: regexp_replace(TRIM(regexp_substr(${TABLE}.C5002_PAYLOAD:push:notification:actions:open:content::string,'_.*&'),'_&'),'_.+') ;;
+    sql: regexp_replace(TRIM(regexp_extract(JSON_EXTRACT_SCALAR(c5002_payload, '$.push.notification.actions.open.content'),'_.*&'),'_&'),'_.+','') ;;
+
   }
 
   dimension: schedule_notification_content {
@@ -136,19 +144,22 @@ view: t5002_ua_connect_push_body_bq {
   dimension: schedule_notification_type {
     view_label: "Schedules"
     type: string
-    sql: ${TABLE}.C5002_PAYLOAD:push:notification:actions:open:type::string ;;
+#    sql: ${TABLE}.C5002_PAYLOAD:push:notification:actions:open:type::string ;;
+    sql: JSON_EXTRACT_SCALAR(c5002_payload, '$.push.notification.actions.open.content') ;;
   }
 
   dimension: schedule_notification_alert {
     view_label: "Schedules"
     type: string
-    sql: ${TABLE}.C5002_PAYLOAD:push:notification:alert::string ;;
+#    sql: ${TABLE}.C5002_PAYLOAD:push:notification:alert::string ;;
+    sql: JSON_EXTRACT_SCALAR(c5002_payload, '$.push.notification.alert') ;;
   }
 
   dimension: schedule_push_ids {
     view_label: "Schedules"
     type: string
-    sql: ${TABLE}.C5002_PAYLOAD:push_ids::string ;;
+#    sql: ${TABLE}.C5002_PAYLOAD:push_ids::string ;;
+    sql: JSON_EXTRACT_SCALAR(c5002_payload, '$.push_ids') ;;
   }
 
   dimension_group: scheduled_time {
