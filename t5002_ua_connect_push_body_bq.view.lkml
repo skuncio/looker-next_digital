@@ -81,7 +81,7 @@ view: t5002_ua_connect_push_body_bq {
     view_label: "Push Payload"
     type: string
 #    sql: regexp_replace(TRIM(regexp_substr(${TABLE}.C5002_PAYLOAD:notification:actions:open:content::string,'_.*&'),'_&'),'_.+') ;;
-    sql: regexp_replace(TRIM(regexp_extract(JSON_EXTRACT_SCALAR(c5002_payload, '$.notification.actions.open.content'),'_.*&'),'_&'),'_.+') ;;
+    sql: regexp_replace(TRIM(regexp_extract(JSON_EXTRACT_SCALAR(c5002_payload, '$.notification.actions.open.content'),'_.*&'),'_&'),'_.+','') ;;
 
   }
 
