@@ -1,7 +1,8 @@
 connection: "nd_bigquery_metrics"
 
-include: "*.view.lkml"         # include all views in this project
-include: "*.dashboard.lookml"  # include all dashboards in this project
+include: "t5*.view.lkml"         # include all views in this project
+#include: "*.view.lkml"         # include all views in this project
+#include: "*.dashboard.lookml"  # include all dashboards in this project
 
 # # Select the views that should be a part of this model,
 # # and define the joins that connect them together.
@@ -18,13 +19,13 @@ include: "*.dashboard.lookml"  # include all dashboards in this project
 #   }
 # }
 
-explore: t5000_ua_connect_open {
-  join: t5002_ua_connect_push_body  {
+explore: t5000_ua_connect_open_bq {
+  join: t5002_ua_connect_push_body_bq  {
     fields:[
-      t5002_ua_connect_push_body.push_body_set*,
-      t5002_ua_connect_push_body.push_payload_set*
+      t5002_ua_connect_push_body_bq.push_body_set*,
+      t5002_ua_connect_push_body_bq.push_payload_set*
     ]
-    sql_on: c5000_TRIGGERING_PUSH_ID = t5002_ua_connect_push_body.c5002_push_id and ${t5002_ua_connect_push_body.c5002_resource} = 'PUSH' ;;
+    sql_on: c5000_TRIGGERING_PUSH_ID = t5002_ua_connect_push_body_bq.c5002_push_id and ${t5002_ua_connect_push_body_bq.c5002_resource} = 'PUSH' ;;
     relationship: many_to_one
     type: inner
   }
