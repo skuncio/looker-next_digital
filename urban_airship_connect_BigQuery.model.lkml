@@ -31,3 +31,5 @@ explore: t5000_ua_connect_open_bq {
   }
   persist_for: "12 hours"
 }
+
+explore: t5001_ua_connect_first_open_bq {}
