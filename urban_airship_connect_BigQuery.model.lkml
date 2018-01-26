@@ -33,3 +33,33 @@ explore: t5000_ua_connect_open_bq {
 }
 
 explore: t5001_ua_connect_first_open_bq {}
+
+explore: t5002_ua_connect_push_schedules_bq {
+  view_name: t5002_ua_connect_push_body_bq
+  fields: [
+    t5002_ua_connect_push_body_bq.push_body_set*,
+    t5002_ua_connect_push_body_bq.schedule_set*
+  ]
+  sql_always_where: ${c5002_resource} = 'SCHEDULES' ;;
+  persist_for: "12 hours"
+}
+
+explore: t5002_ua_connect_push_experiments_bq {
+  view_name:  t5002_ua_connect_push_body_bq
+  fields:[
+    t5002_ua_connect_push_body_bq.push_body_set*,
+    t5002_ua_connect_push_body_bq.experiments_set*
+  ]
+  sql_always_where: ${c5002_resource} = 'EXPERIMENTS' ;;
+  persist_for: "12 hours"
+}
+
+explore: t5002_ua_connect_push_payload_bg {
+  view_name: t5002_ua_connect_push_body_bq
+  fields:[
+    t5002_ua_connect_push_body_bq.push_body_set*,
+    t5002_ua_connect_push_body_bq.push_payload_set*
+  ]
+  sql_always_where: ${c5002_resource} = 'PUSH' ;;
+  persist_for: "12 hours"
+}
