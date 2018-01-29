@@ -69,3 +69,19 @@ explore: t5003_ua_connect_send_bq {}
 explore: t5004_ua_connect_uninstall_bq {}
 
 explore: t5005_ua_connect_tag_change_bq {}
+
+explore: t5006_ua_connect_location_bq {}
+
+explore: t5008_ua_device_tags_bq {
+  view_label: "UA Device Tags"
+  join: t5009_ua_device_crossref_bq {
+    view_label: "UA Device Crossref"
+    sql_on: ${t5008_ua_device_tags_bq.c5008_channel_id} = ${t5009_ua_device_crossref_bq.c5009_channel_id};;
+    relationship: one_to_many
+    type: left_outer
+  }
+}
+
+explore: t5009_ua_device_crossref_bq {}
+
+explore: t5010_ua_connect_event_bq {}
