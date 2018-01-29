@@ -63,3 +63,9 @@ explore: t5002_ua_connect_push_payload_bg {
   sql_always_where: ${c5002_resource} = 'PUSH' ;;
   persist_for: "12 hours"
 }
+
+explore: t5003_ua_connect_send_bq {}
+
+explore: t5004_ua_connect_uninstall_bq {}
+
+explore: t5005_ua_connect_tag_change_bq {}
