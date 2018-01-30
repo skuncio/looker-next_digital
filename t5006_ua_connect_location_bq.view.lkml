@@ -2,6 +2,7 @@ view: t5006_ua_connect_location_bq {
   sql_table_name: UA_CONNECT.t5006_ua_connect_location ;;
 
   dimension: c5006_adid {
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.c5006_ADID ;;
   }
@@ -32,6 +33,7 @@ view: t5006_ua_connect_location_bq {
   }
 
   dimension: c5006_latitude {
+    view_label: "Location"
     type: string
     sql: ${TABLE}.c5006_latitude ;;
   }
@@ -42,6 +44,7 @@ view: t5006_ua_connect_location_bq {
   }
 
   dimension: c5006_longitude {
+    view_label: "Location"
     type: string
     sql: ${TABLE}.c5006_longitude ;;
   }
@@ -57,6 +60,8 @@ view: t5006_ua_connect_location_bq {
       quarter,
       year
     ]
+    convert_tz: no
+    datatype: date
     sql: CAST(${TABLE}.c5006_occurred_time AS TIMESTAMP) ;;
   }
 
@@ -71,6 +76,8 @@ view: t5006_ua_connect_location_bq {
       quarter,
       year
     ]
+    convert_tz: no
+    datatype: date
     sql: CAST(${TABLE}.c5006_processed_time AS TIMESTAMP) ;;
   }
 
@@ -80,12 +87,37 @@ view: t5006_ua_connect_location_bq {
   }
 
   dimension: c5006_ua_device_channel {
+    view_label: "Device User"
     type: string
     sql: ${TABLE}.c5006_ua_device_channel ;;
+  }
+
+  dimension: latitude_longitude {
+    view_label: "Location"
+    type: location
+    sql_latitude: ${c5006_latitude} ;;
+    sql_longitude: ${c5006_longitude} ;;
   }
 
   measure: count {
     type: count
     drill_fields: [c5006_app_package_name]
   }
+
+  measure: distinct_channel_id {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5006_ua_device_channel} ;;
+  }
+
+  measure: distinct_adid {
+    view_label: "Device User"
+    type: count_distinct
+    value_format: "#,##0"
+    #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
+    sql: ${c5006_adid}_adid} ;;
+  }
+
 }
