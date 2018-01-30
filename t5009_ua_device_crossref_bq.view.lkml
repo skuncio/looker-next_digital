@@ -61,7 +61,7 @@ view: t5009_ua_device_crossref_bq {
              then 'HK ETW Android'
         when ( ${c5009_app_package_name} = 'com.appledaily.etw' and ${c5009_platform} = 'AMAZON' )
              then 'HK ETW Amazon'
-        esle 'unknown'
+        else 'unknown'
       END ;;
   }
 
