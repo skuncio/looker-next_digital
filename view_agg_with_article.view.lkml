@@ -1,6 +1,6 @@
 view: view_agg_with_article {
-  sql_table_name: LOOKER_SCRATCH.LR$XWTG8NU39FKEWMD7MT8NB_pdt_view_agg_with_article ;;
-  #sql_table_name: LOOKER_SCRATCH.LR$XWFDZKOSQSP9TIQFNXYIG_pdt_view_agg_with_article ;;
+  #sql_table_name: LOOKER_SCRATCH.LR$XWTG8NU39FKEWMD7MT8NB_pdt_view_agg_with_article ;;
+  sql_table_name: LOOKER_SCRATCH.LR$XWFDZKOSQSP9TIQFNXYIG_pdt_view_agg_with_article ;;
 
   dimension: ads {
     # view_label: "User"
