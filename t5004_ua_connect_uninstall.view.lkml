@@ -77,6 +77,12 @@ view: t5004_ua_connect_uninstall {
     sql: ${TABLE}.C5004_UA_DEVICE_CHANNEL ;;
   }
 
+  dimension: c5004_OMO_PID {
+    view_label: "Device User"
+    type: string
+    sql: ${TABLE}.C5004_OMO_PID ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [c5004_app_package_name]

@@ -111,6 +111,12 @@ view: t5000_ua_connect_open {
     sql: ${TABLE}.C5000_UA_DEVICE_CHANNEL ;;
   }
 
+  dimension: c5000_OMO_PID {
+    view_label: "Device User"
+    type: string
+    sql: ${TABLE}.C5000_OMO_PID ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []

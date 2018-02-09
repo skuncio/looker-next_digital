@@ -103,6 +103,12 @@ view: t5005_ua_connect_tag_change {
     sql: ${TABLE}.C5005_UA_DEVICE_CHANNEL ;;
   }
 
+  dimension: c5005_OMO_PID {
+    view_label: "Device User"
+    type: string
+    sql: ${TABLE}.C5005_OMO_PID ;;
+  }
+
   measure: count {
     type: count
     drill_fields: []

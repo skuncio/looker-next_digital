@@ -94,6 +94,12 @@ view: t5006_ua_connect_location {
     sql: ${TABLE}.C5006_UA_DEVICE_CHANNEL ;;
   }
 
+  dimension: c5006_OMO_PID {
+    view_label: "Device User"
+    type: string
+    sql: ${TABLE}.C5006_OMO_PID ;;
+  }
+
   dimension: latitude_longitude {
     view_label: "Location"
     type: location

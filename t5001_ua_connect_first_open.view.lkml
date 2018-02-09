@@ -77,6 +77,12 @@ view: t5001_ua_connect_first_open {
     sql: ${TABLE}.C5001_UA_DEVICE_CHANNEL ;;
   }
 
+  dimension: c5001_OMO_PID {
+    view_label: "Device User"
+    type: string
+    sql: ${TABLE}.C5001_OMO_PID ;;
+  }
+
   measure: count {
     type: count
     drill_fields: [c5001_app_package_name]

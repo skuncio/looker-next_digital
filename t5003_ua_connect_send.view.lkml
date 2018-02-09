@@ -67,6 +67,12 @@ view: t5003_ua_connect_send {
     sql: ${TABLE}.C5003_UA_DEVICE_CHANNEL ;;
   }
 
+  dimension: c5003_OMO_PID {
+    view_label: "Device User"
+    type: string
+    sql: ${TABLE}.C5003_OMO_PID ;;
+  }
+
   dimension: c5003_device_type {
     type: string
     sql: ${TABLE}.C5003_DEVICE_TYPE ;;
