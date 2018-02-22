@@ -158,6 +158,10 @@ view: t5009_ua_device_crossref {
     sql: ${TABLE}.c5009_device_attributes:push_opt_in::string ;;
   }
 
+  dimension: c5009_device_model {
+    type: string
+    sql: ${TABLE}.c5009_device_attributes:device_model::string ;;
+  }
 
   measure: count {
     type: count
