@@ -83,6 +83,57 @@ view: t5004_ua_connect_uninstall {
     sql: ${TABLE}.C5004_OMO_PID ;;
   }
 
+
+
+  dimension: c5004_product {
+    type: string
+
+    case: {
+      when: {
+        sql: ${c5004_app_package_name} = 'com.appledaily.video.news.hk' and ${c5004_device_type} = 'IOS' ;;
+        label: "HK Appledaily IOS"
+      }
+      when: {
+        sql: ${c5004_app_package_name} = 'com.nextmedia' and ${c5004_device_type} = 'ANDROID' ;;
+        label: "HK Appledaily Android"
+      }
+      when: {
+        sql: ${c5004_app_package_name} = 'com.nextmedia' and ${c5004_device_type} = 'AMAZON' ;;
+        label: "HK Appledaily Amazon"
+      }
+      when: {
+        sql: ${c5004_app_package_name} = 'com.appledaily.video.news.tw' and ${c5004_device_type} = 'IOS' ;;
+        label: "TW Appledaily IOS"
+      }
+      when: {
+        sql: ${c5004_app_package_name} = 'com.nextmediatw' and ${c5004_device_type} = 'ANDROID' ;;
+        label: "TW Appledaily Android"
+      }
+      when: {
+        sql: ${c5004_app_package_name} = 'com.nextmediatw' and ${c5004_device_type} = 'AMAZON' ;;
+        label: "TW Appledaily Amazon"
+      }
+      when: {
+        sql: ${c5004_app_package_name} = 'com.appledaily.etw' and ${c5004_device_type} = 'IOS' ;;
+        label: "HK ETW IOS"
+      }
+      when: {
+        sql: ${c5004_app_package_name} = 'com.appledaily.etw' and ${c5004_device_type} = 'ANDROID' ;;
+        label: "HK ETW Android"
+      }
+      when: {
+        sql: ${c5004_app_package_name} = 'com.appledaily.etw' and ${c5004_device_type} = 'AMAZON' ;;
+        label: "HK ETW Amazon"
+      }
+      when: {
+        sql: true ;;
+        label: "unknown"
+      }
+    }
+  }
+
+
+
   measure: count {
     type: count
     drill_fields: [c5004_app_package_name]
