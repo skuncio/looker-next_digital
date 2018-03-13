@@ -105,6 +105,61 @@ view: t5000_ua_connect_open {
     sql: ${TABLE}.C5000_UA_DEVICE_ATTRIBUTES ;;
   }
 
+  dimension: c5000_app_package_name {
+    type: string
+    sql: ${TABLE}.C5000_UA_DEVICE_ATTRIBUTES:app_package_name::string ;;
+  }
+
+
+  dimension: c5000_product {
+    type: string
+
+    case: {
+      when: {
+        sql: ${c5000_app_package_name} = 'com.appledaily.video.news.hk' and ${c5000_device_type} = 'IOS' ;;
+        label: "HK Appledaily IOS"
+      }
+      when: {
+        sql: ${c5000_app_package_name} = 'com.nextmedia' and ${c5000_device_type} = 'ANDROID' ;;
+        label: "HK Appledaily Android"
+      }
+      when: {
+        sql: ${c5000_app_package_name} = 'com.nextmedia' and ${c5000_device_type} = 'AMAZON' ;;
+        label: "HK Appledaily Amazon"
+      }
+      when: {
+        sql: ${c5000_app_package_name} = 'com.appledaily.video.news.tw' and ${c5000_device_type} = 'IOS' ;;
+        label: "TW Appledaily IOS"
+      }
+      when: {
+        sql: ${c5000_app_package_name} = 'com.nextmediatw' and ${c5000_device_type} = 'ANDROID' ;;
+        label: "TW Appledaily Android"
+      }
+      when: {
+        sql: ${c5000_app_package_name} = 'com.nextmediatw' and ${c5000_device_type} = 'AMAZON' ;;
+        label: "TW Appledaily Amazon"
+      }
+      when: {
+        sql: ${c5000_app_package_name} = 'com.appledaily.etw' and ${c5000_device_type} = 'IOS' ;;
+        label: "HK ETW IOS"
+      }
+      when: {
+        sql: ${c5000_app_package_name} = 'com.appledaily.etw' and ${c5000_device_type} = 'ANDROID' ;;
+        label: "HK ETW Android"
+      }
+      when: {
+        sql: ${c5000_app_package_name} = 'com.appledaily.etw' and ${c5000_device_type} = 'AMAZON' ;;
+        label: "HK ETW Amazon"
+      }
+      when: {
+        sql: true ;;
+        label: "unknown"
+      }
+    }
+  }
+
+
+
   dimension: c5000_ua_device_channel {
     view_label: "Device User"
     type: string
