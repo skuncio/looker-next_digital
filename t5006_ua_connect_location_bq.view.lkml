@@ -1,61 +1,60 @@
-view: t5006_ua_connect_location {
-  sql_table_name: PUBLIC.T5006_UA_CONNECT_LOCATION ;;
+view: t5006_ua_connect_location_bq {
+  sql_table_name: UA_CONNECT.t5006_ua_connect_location ;;
 
   dimension: c5006_adid {
     view_label: "Device User"
     type: string
-    sql: ${TABLE}.C5006_ADID ;;
+    sql: ${TABLE}.c5006_ADID ;;
   }
 
   dimension: c5006_app_package_name {
     type: string
-    sql: ${TABLE}.C5006_APP_PACKAGE_NAME ;;
+    sql: ${TABLE}.c5006_app_package_name ;;
   }
 
   dimension: c5006_app_version {
     type: string
-    sql: ${TABLE}.C5006_APP_VERSION ;;
+    sql: ${TABLE}.c5006_app_version ;;
   }
 
   dimension: c5006_device_type {
     type: string
-    sql: ${TABLE}.C5006_DEVICE_TYPE ;;
+    sql: ${TABLE}.c5006_device_type ;;
   }
 
   dimension: c5006_event_type {
     type: string
-    sql: ${TABLE}.C5006_EVENT_TYPE ;;
+    sql: ${TABLE}.c5006_event_type ;;
   }
 
   dimension: c5006_foreground {
     type: string
-    sql: ${TABLE}.C5006_FOREGROUND ;;
+    sql: ${TABLE}.c5006_foreground ;;
   }
 
   dimension: c5006_latitude {
     view_label: "Location"
     type: string
-    sql: ${TABLE}.C5006_LATITUDE ;;
+    sql: ${TABLE}.c5006_latitude ;;
   }
 
   dimension: c5006_limited_ad_tracking {
     type: string
-    sql: ${TABLE}.C5006_LIMITED_AD_TRACKING ;;
+    sql: ${TABLE}.c5006_limited_ad_tracking ;;
   }
 
   dimension: c5006_longitude {
     view_label: "Location"
     type: string
-    sql: ${TABLE}.C5006_LONGITUDE ;;
+    sql: ${TABLE}.c5006_longitude ;;
   }
 
-  dimension_group: c5006_occurred_time {
+  dimension_group: c5006_occurred {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -63,16 +62,15 @@ view: t5006_ua_connect_location {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5006_OCCURRED_TIME ;;
+    sql: CAST(${TABLE}.c5006_occurred_time AS TIMESTAMP) ;;
   }
 
-  dimension_group: c5006_processed_time {
+  dimension_group: c5006_processed {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -80,24 +78,18 @@ view: t5006_ua_connect_location {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5006_PROCESSED_TIME ;;
+    sql: CAST(${TABLE}.c5006_processed_time AS TIMESTAMP) ;;
   }
 
   dimension: c5006_ua_device_attributes {
     type: string
-    sql: ${TABLE}.C5006_UA_DEVICE_ATTRIBUTES ;;
+    sql: ${TABLE}.c5006_ua_device_attributes ;;
   }
 
   dimension: c5006_ua_device_channel {
     view_label: "Device User"
     type: string
-    sql: ${TABLE}.C5006_UA_DEVICE_CHANNEL ;;
-  }
-
-  dimension: c5006_OMO_PID {
-    view_label: "Device User"
-    type: string
-    sql: ${TABLE}.C5006_OMO_PID ;;
+    sql: ${TABLE}.c5006_ua_device_channel ;;
   }
 
   dimension: latitude_longitude {

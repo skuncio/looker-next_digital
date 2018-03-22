@@ -1,34 +1,33 @@
-view: t5000_ua_connect_open {
-  sql_table_name: PUBLIC.T5000_UA_CONNECT_OPEN ;;
+view: t5000_ua_connect_open_bq {
+  sql_table_name: UA_CONNECT.t5000_ua_connect_open ;;
 
   dimension: c5000_adid {
     view_label: "Device User"
     type: string
-    sql: ${TABLE}.C5000_ADID ;;
+    sql: ${TABLE}.c5000_ADID ;;
   }
 
   dimension: c5000_device_type {
     type: string
-    sql: ${TABLE}.C5000_DEVICE_TYPE ;;
+    sql: ${TABLE}.c5000_device_type ;;
   }
 
   dimension: c5000_event_type {
     type: string
-    sql: ${TABLE}.C5000_EVENT_TYPE ;;
+    sql: ${TABLE}.c5000_event_type ;;
   }
 
   dimension: c5000_last_delivered_push_id {
     type: string
-    sql: ${TABLE}.C5000_LAST_DELIVERED_PUSH_ID ;;
+    sql: ${TABLE}.c5000_last_delivered_push_id ;;
   }
 
   dimension_group: c5000_last_delivered {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -36,21 +35,20 @@ view: t5000_ua_connect_open {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5000_LAST_DELIVERED_TIME ;;
+    sql: CAST(${TABLE}.c5000_last_delivered_time AS TIMESTAMP) ;;
   }
 
   dimension: c5000_limited_ad_tracking {
     type: string
-    sql: ${TABLE}.C5000_LIMITED_AD_TRACKING ;;
+    sql: ${TABLE}.c5000_limited_ad_tracking ;;
   }
 
   dimension_group: c5000_occurred {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -58,16 +56,15 @@ view: t5000_ua_connect_open {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5000_OCCURRED_TIME ;;
+    sql: CAST(${TABLE}.c5000_occurred_time AS TIMESTAMP) ;;
   }
 
   dimension_group: c5000_processed {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -75,21 +72,20 @@ view: t5000_ua_connect_open {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5000_PROCESSED_TIME ;;
+    sql: CAST(${TABLE}.c5000_processed_time AS TIMESTAMP) ;;
   }
 
   dimension: c5000_triggering_push_id {
     type: string
-    sql: ${TABLE}.C5000_TRIGGERING_PUSH_ID ;;
+    sql: ${TABLE}.c5000_triggering_push_id ;;
   }
 
   dimension_group: c5000_triggering_push {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -97,79 +93,18 @@ view: t5000_ua_connect_open {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5000_TRIGGERING_PUSH_TIME ;;
+    sql: CAST(${TABLE}.c5000_triggering_push_time AS TIMESTAMP) ;;
   }
 
   dimension: c5000_ua_device_attributes {
     type: string
-    sql: ${TABLE}.C5000_UA_DEVICE_ATTRIBUTES ;;
+    sql: ${TABLE}.c5000_ua_device_attributes ;;
   }
-
-  dimension: c5000_app_package_name {
-    type: string
-    sql: ${TABLE}.C5000_UA_DEVICE_ATTRIBUTES:app_package_name::string ;;
-  }
-
-
-  dimension: c5000_product {
-    type: string
-
-    case: {
-      when: {
-        sql: ${c5000_app_package_name} = 'com.appledaily.video.news.hk' and ${c5000_device_type} = 'IOS' ;;
-        label: "HK Appledaily IOS"
-      }
-      when: {
-        sql: ${c5000_app_package_name} = 'com.nextmedia' and ${c5000_device_type} = 'ANDROID' ;;
-        label: "HK Appledaily Android"
-      }
-      when: {
-        sql: ${c5000_app_package_name} = 'com.nextmedia' and ${c5000_device_type} = 'AMAZON' ;;
-        label: "HK Appledaily Amazon"
-      }
-      when: {
-        sql: ${c5000_app_package_name} = 'com.appledaily.video.news.tw' and ${c5000_device_type} = 'IOS' ;;
-        label: "TW Appledaily IOS"
-      }
-      when: {
-        sql: ${c5000_app_package_name} = 'com.nextmediatw' and ${c5000_device_type} = 'ANDROID' ;;
-        label: "TW Appledaily Android"
-      }
-      when: {
-        sql: ${c5000_app_package_name} = 'com.nextmediatw' and ${c5000_device_type} = 'AMAZON' ;;
-        label: "TW Appledaily Amazon"
-      }
-      when: {
-        sql: ${c5000_app_package_name} = 'com.appledaily.etw' and ${c5000_device_type} = 'IOS' ;;
-        label: "HK ETW IOS"
-      }
-      when: {
-        sql: ${c5000_app_package_name} = 'com.appledaily.etw' and ${c5000_device_type} = 'ANDROID' ;;
-        label: "HK ETW Android"
-      }
-      when: {
-        sql: ${c5000_app_package_name} = 'com.appledaily.etw' and ${c5000_device_type} = 'AMAZON' ;;
-        label: "HK ETW Amazon"
-      }
-      when: {
-        sql: true ;;
-        label: "unknown"
-      }
-    }
-  }
-
-
 
   dimension: c5000_ua_device_channel {
     view_label: "Device User"
     type: string
-    sql: ${TABLE}.C5000_UA_DEVICE_CHANNEL ;;
-  }
-
-  dimension: c5000_OMO_PID {
-    view_label: "Device User"
-    type: string
-    sql: ${TABLE}.C5000_OMO_PID ;;
+    sql: ${TABLE}.c5000_ua_device_channel ;;
   }
 
   measure: count {

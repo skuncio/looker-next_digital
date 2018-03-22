@@ -1,44 +1,43 @@
-view: t5004_ua_connect_uninstall {
-  sql_table_name: PUBLIC.T5004_UA_CONNECT_UNINSTALL ;;
+view: t5004_ua_connect_uninstall_bq {
+  sql_table_name: UA_CONNECT.t5004_ua_connect_uninstall ;;
 
   dimension: c5004_adid {
     view_label: "Device User"
     type: string
-    sql: ${TABLE}.C5004_ADID ;;
+    sql: ${TABLE}.c5004_ADID ;;
   }
 
   dimension: c5004_app_package_name {
     type: string
-    sql: ${TABLE}.C5004_APP_PACKAGE_NAME ;;
+    sql: ${TABLE}.c5004_app_package_name ;;
   }
 
   dimension: c5004_app_version {
     type: string
-    sql: ${TABLE}.C5004_APP_VERSION ;;
+    sql: ${TABLE}.c5004_app_version ;;
   }
 
   dimension: c5004_device_type {
     type: string
-    sql: ${TABLE}.C5004_DEVICE_TYPE ;;
+    sql: ${TABLE}.c5004_device_type ;;
   }
 
   dimension: c5004_event_type {
     type: string
-    sql: ${TABLE}.C5004_EVENT_TYPE ;;
+    sql: ${TABLE}.c5004_event_type ;;
   }
 
   dimension: c5004_limited_ad_tracking {
     type: string
-    sql: ${TABLE}.C5004_LIMITED_AD_TRACKING ;;
+    sql: ${TABLE}.c5004_limited_ad_tracking ;;
   }
 
-  dimension_group: c5004_occurred_time {
+  dimension_group: c5004_occurred {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -46,16 +45,15 @@ view: t5004_ua_connect_uninstall {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5004_OCCURRED_TIME ;;
+    sql: CAST(${TABLE}.c5004_occurred_time AS TIMESTAMP) ;;
   }
 
-  dimension_group: c5004_processed_time {
+  dimension_group: c5004_processed {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -63,76 +61,19 @@ view: t5004_ua_connect_uninstall {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5004_PROCESSED_TIME ;;
+    sql: CAST(${TABLE}.c5004_processed_time AS TIMESTAMP) ;;
   }
 
   dimension: c5004_ua_device_attributes {
     type: string
-    sql: ${TABLE}.C5004_UA_DEVICE_ATTRIBUTES ;;
+    sql: ${TABLE}.c5004_ua_device_attributes ;;
   }
 
   dimension: c5004_ua_device_channel {
     view_label: "Device User"
     type: string
-    sql: ${TABLE}.C5004_UA_DEVICE_CHANNEL ;;
+    sql: ${TABLE}.c5004_ua_device_channel ;;
   }
-
-  dimension: c5004_OMO_PID {
-    view_label: "Device User"
-    type: string
-    sql: ${TABLE}.C5004_OMO_PID ;;
-  }
-
-
-
-  dimension: c5004_product {
-    type: string
-
-    case: {
-      when: {
-        sql: ${c5004_app_package_name} = 'com.appledaily.video.news.hk' and ${c5004_device_type} = 'IOS' ;;
-        label: "HK Appledaily IOS"
-      }
-      when: {
-        sql: ${c5004_app_package_name} = 'com.nextmedia' and ${c5004_device_type} = 'ANDROID' ;;
-        label: "HK Appledaily Android"
-      }
-      when: {
-        sql: ${c5004_app_package_name} = 'com.nextmedia' and ${c5004_device_type} = 'AMAZON' ;;
-        label: "HK Appledaily Amazon"
-      }
-      when: {
-        sql: ${c5004_app_package_name} = 'com.appledaily.video.news.tw' and ${c5004_device_type} = 'IOS' ;;
-        label: "TW Appledaily IOS"
-      }
-      when: {
-        sql: ${c5004_app_package_name} = 'com.nextmediatw' and ${c5004_device_type} = 'ANDROID' ;;
-        label: "TW Appledaily Android"
-      }
-      when: {
-        sql: ${c5004_app_package_name} = 'com.nextmediatw' and ${c5004_device_type} = 'AMAZON' ;;
-        label: "TW Appledaily Amazon"
-      }
-      when: {
-        sql: ${c5004_app_package_name} = 'com.appledaily.etw' and ${c5004_device_type} = 'IOS' ;;
-        label: "HK ETW IOS"
-      }
-      when: {
-        sql: ${c5004_app_package_name} = 'com.appledaily.etw' and ${c5004_device_type} = 'ANDROID' ;;
-        label: "HK ETW Android"
-      }
-      when: {
-        sql: ${c5004_app_package_name} = 'com.appledaily.etw' and ${c5004_device_type} = 'AMAZON' ;;
-        label: "HK ETW Amazon"
-      }
-      when: {
-        sql: true ;;
-        label: "unknown"
-      }
-    }
-  }
-
-
 
   measure: count {
     type: count
@@ -203,4 +144,5 @@ view: t5004_ua_connect_uninstall {
       value: "ANDROID"
     }
   }
+
 }

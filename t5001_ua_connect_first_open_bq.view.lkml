@@ -1,44 +1,43 @@
-view: t5001_ua_connect_first_open {
-  sql_table_name: PUBLIC.T5001_UA_CONNECT_FIRST_OPEN ;;
+view: t5001_ua_connect_first_open_bq {
+  sql_table_name: UA_CONNECT.t5001_ua_connect_first_open ;;
 
   dimension: c5001_adid {
     view_label: "Device User"
     type: string
-    sql: ${TABLE}.C5001_ADID ;;
+    sql: ${TABLE}.c5001_ADID ;;
   }
 
   dimension: c5001_app_package_name {
     type: string
-    sql: ${TABLE}.C5001_APP_PACKAGE_NAME ;;
+    sql: ${TABLE}.c5001_app_package_name ;;
   }
 
   dimension: c5001_app_version {
     type: string
-    sql: ${TABLE}.C5001_APP_VERSION ;;
+    sql: ${TABLE}.c5001_app_version ;;
   }
 
   dimension: c5001_device_type {
     type: string
-    sql: ${TABLE}.C5001_DEVICE_TYPE ;;
+    sql: ${TABLE}.c5001_device_type ;;
   }
 
   dimension: c5001_event_type {
     type: string
-    sql: ${TABLE}.C5001_EVENT_TYPE ;;
+    sql: ${TABLE}.c5001_event_type ;;
   }
 
   dimension: c5001_limited_ad_tracking {
     type: string
-    sql: ${TABLE}.C5001_LIMITED_AD_TRACKING ;;
+    sql: ${TABLE}.c5001_limited_ad_tracking ;;
   }
 
   dimension_group: c5001_occurred {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -46,16 +45,15 @@ view: t5001_ua_connect_first_open {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5001_OCCURRED_TIME ;;
+    sql: CAST(${TABLE}.c5001_occurred_time AS TIMESTAMP) ;;
   }
 
   dimension_group: c5001_processed {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -63,24 +61,18 @@ view: t5001_ua_connect_first_open {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5001_PROCESSED_TIME ;;
+    sql: CAST(${TABLE}.c5001_processed_time AS TIMESTAMP) ;;
   }
 
   dimension: c5001_ua_device_attributes {
     type: string
-    sql: ${TABLE}.C5001_UA_DEVICE_ATTRIBUTES ;;
+    sql: ${TABLE}.c5001_ua_device_attributes ;;
   }
 
   dimension: c5001_ua_device_channel {
     view_label: "Device User"
     type: string
-    sql: ${TABLE}.C5001_UA_DEVICE_CHANNEL ;;
-  }
-
-  dimension: c5001_OMO_PID {
-    view_label: "Device User"
-    type: string
-    sql: ${TABLE}.C5001_OMO_PID ;;
+    sql: ${TABLE}.c5001_ua_device_channel ;;
   }
 
   measure: count {

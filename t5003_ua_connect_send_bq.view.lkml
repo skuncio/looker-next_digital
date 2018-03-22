@@ -1,29 +1,33 @@
-view: t5003_ua_connect_send {
-  sql_table_name: PUBLIC.T5003_UA_CONNECT_SEND ;;
+view: t5003_ua_connect_send_bq {
+  sql_table_name: UA_CONNECT.t5003_ua_connect_send ;;
 
   dimension: c5003_adid {
     view_label: "Device User"
     type: string
-    sql: ${TABLE}.C5003_ADID ;;
+    sql: ${TABLE}.c5003_ADID ;;
+  }
+
+  dimension: c5003_device_type {
+    type: string
+    sql: ${TABLE}.c5003_device_type ;;
   }
 
   dimension: c5003_event_type {
     type: string
-    sql: ${TABLE}.C5003_EVENT_TYPE ;;
+    sql: ${TABLE}.c5003_event_type ;;
   }
 
   dimension: c5003_limited_ad_tracking {
     type: string
-    sql: ${TABLE}.C5003_LIMITED_AD_TRACKING ;;
+    sql: ${TABLE}.c5003_limited_ad_tracking ;;
   }
 
-  dimension_group: c5003_occurred_time {
+  dimension_group: c5003_occurred {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -31,16 +35,15 @@ view: t5003_ua_connect_send {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5003_OCCURRED_TIME ;;
+    sql: CAST(${TABLE}.c5003_occurred_time AS TIMESTAMP) ;;
   }
 
-  dimension_group: c5003_processed_time {
+  dimension_group: c5003_processed {
     type: time
     timeframes: [
       raw,
-      date,
-      hour_of_day,
       time,
+      date,
       week,
       month,
       quarter,
@@ -48,40 +51,30 @@ view: t5003_ua_connect_send {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.C5003_PROCESSED_TIME ;;
+    sql: CAST(${TABLE}.c5003_processed_time AS TIMESTAMP) ;;
   }
 
   dimension: c5003_push_id {
     type: string
-    sql: ${TABLE}.C5003_PUSH_ID ;;
+    sql: ${TABLE}.c5003_push_id ;;
   }
 
   dimension: c5003_ua_device_attributes {
     type: string
-    sql: ${TABLE}.C5003_UA_DEVICE_ATTRIBUTES ;;
+    sql: ${TABLE}.c5003_ua_device_attributes ;;
   }
 
   dimension: c5003_ua_device_channel {
     view_label: "Device User"
     type: string
-    sql: ${TABLE}.C5003_UA_DEVICE_CHANNEL ;;
-  }
-
-  dimension: c5003_OMO_PID {
-    view_label: "Device User"
-    type: string
-    sql: ${TABLE}.C5003_OMO_PID ;;
-  }
-
-  dimension: c5003_device_type {
-    type: string
-    sql: ${TABLE}.C5003_DEVICE_TYPE ;;
+    sql: ${TABLE}.c5003_ua_device_channel ;;
   }
 
   measure: count {
     type: count
     drill_fields: []
   }
+
 
   measure: distinct_channel_id {
     view_label: "Device User"
@@ -105,4 +98,5 @@ view: t5003_ua_connect_send {
     #  value_format: "[>=1000000]0.0,,\"M\";[>=1000]0.0,\"K\";0"
     sql: ${c5003_push_id} ;;
   }
+
 }

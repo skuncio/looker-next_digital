@@ -14,6 +14,12 @@ view: t5009_ua_device_crossref {
     sql: ${TABLE}.C5009_CHANNEL_ID ;;
   }
 
+  dimension: c5009_OMO_PID {
+    view_label: "Device User"
+    type: string
+    sql: ${TABLE}.C5009_OMO_PID ;;
+  }
+
   dimension: c5009_device_attributes {
     type: string
     sql: ${TABLE}.C5009_DEVICE_ATTRIBUTES ;;
@@ -152,6 +158,10 @@ view: t5009_ua_device_crossref {
     sql: ${TABLE}.c5009_device_attributes:push_opt_in::string ;;
   }
 
+  dimension: c5009_device_model {
+    type: string
+    sql: ${TABLE}.c5009_device_attributes:device_model::string ;;
+  }
 
   measure: count {
     type: count

@@ -395,6 +395,12 @@ view: contentview {
     sql: ${TABLE}.c8002_ads ;;
   }
 
+  dimension: village {
+    view_label: "3. Location"
+    type: string
+    sql: ${TABLE}.c8002_village ;;
+  }
+
   dimension: content_preference {
     type: string
     sql: content_preference (${category},${keyword}) ;;
@@ -554,7 +560,7 @@ END
     sql_longitude: ${lon} ;;
   }
 
-  measure: count {
+    measure: count {
     type: count
 #    approximate: yes
     drill_fields: []
