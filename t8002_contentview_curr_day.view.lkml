@@ -113,6 +113,7 @@ view: t8002_contentview_curr_day {
     type: time
     timeframes: [
       time,
+      minute,
       date,
       day_of_week,
       day_of_week_index,
@@ -393,6 +394,21 @@ view: t8002_contentview_curr_day {
     type: string
     sql: ${TABLE}.c8002_ads ;;
   }
+
+
+# UID for content recommendation
+  # dimension: UID {
+  #   view_label: "2. User"
+  #   type:  string
+  #   sql:
+  #     CASE
+  #     WHEN ${TABLE}.c8002_omo_accid is not null and ${TABLE}.c8002_omo_accid <> '' THEN concat('O:',${TABLE}.c8002_omo_accid)
+  #     WHEN ${TABLE}.c8002_nxtu is not null and ${TABLE}.c8002_nxtu <> '' THEN concat('N:',${TABLE}.c8002_nxtu)
+  #     WHEN ${TABLE}.c8002_adid is not null and ${TABLE}.c8002_adid <> '00000000-0000-0000-0000-000000000000' and ${TABLE}.c8002_adid <> '' THEN concat('A:',${TABLE}.c8002_adid)
+  #     ELSE concat('D:',${TABLE}.c8002_did)
+  #     END  ;;
+  # }
+
 
   dimension: latitude_longitude {
     alias: [view_location]
